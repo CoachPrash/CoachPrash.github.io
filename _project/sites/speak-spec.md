@@ -1,12 +1,17 @@
 # Speak — specification
 
-**Status:** DRAFT for Prash's review. Nothing is built.
-**Version:** 0.6, 9 October 2026
+**Status:** M1 built (4 October 2026). Next is M2, solo mode.
+**Version:** 0.6.1, 9 October 2026
 **Brief:** `_project/sites/speak.md`
 
 This file is the build contract. When the spec and the code disagree, the spec wins, or the spec is changed first.
 
 ### Changes
+
+**0.6.1** (no change to behaviour)
+
+- Status line brought up to date: M1 is built.
+- §4.5 lists the "cue only" setting, which M1 already stores in `sp.v1.settings`.
 
 **0.6**
 
@@ -607,6 +612,7 @@ Applies everywhere, stored per device:
 
 - romanization on/off
 - English on/off
+- cue only on/off: role play and drill show only the English cue (§4.2)
 - speech rate (0.7×, 0.8×, 0.9×, 1×)
 - voice choice per language
 
@@ -762,4 +768,4 @@ Live sync between devices, accounts, stored scores or history, recorded audio, a
 
 ## 10. Open questions for Prash
 
-None. Ready for sign-off.
+None.
