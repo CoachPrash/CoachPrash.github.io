@@ -1,0 +1,72 @@
+{
+  "schema": 1,
+  "scenario": "where-from",
+  "lang": "hi",
+  "review": { "status": "draft", "by": null, "date": null },
+  "registers": ["formal", "familiar"],
+  "registerNotes": { "intimate": "तू is for very close family and friends. With someone you are just getting to know, it is rude." },
+  "lines": {
+    "l1": {
+      "text": "आप कहाँ से हैं?",
+      "rom": "aap kahaan se hain?",
+      "byRegister": { "familiar": { "text": "तुम कहाँ से हो?", "rom": "tum kahaan se ho?" } }
+    },
+    "l2": {
+      "text": "मैं {city} से हूँ। और आप?",
+      "rom": "main {city} se hoon. aur aap?",
+      "byRegister": { "familiar": { "text": "मैं {city} से हूँ। और तुम?", "rom": "main {city} se hoon. aur tum?" } }
+    },
+    "l3": {
+      "text": "मैं {city} से हूँ। आप क्या करते हैं?",
+      "rom": "main {city} se hoon. aap kyaa karte hain?",
+      "variants": [
+        { "label": "to a man", "text": "मैं {city} से हूँ। आप क्या करते हैं?", "rom": "main {city} se hoon. aap kyaa karte hain?" },
+        { "label": "to a woman", "text": "मैं {city} से हूँ। आप क्या करती हैं?", "rom": "main {city} se hoon. aap kyaa kartee hain?" }
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "मैं {city} से हूँ। तुम क्या करते हो?",
+          "rom": "main {city} se hoon. tum kyaa karte ho?",
+          "variants": [
+            { "label": "to a man", "text": "मैं {city} से हूँ। तुम क्या करते हो?", "rom": "main {city} se hoon. tum kyaa karte ho?" },
+            { "label": "to a woman", "text": "मैं {city} से हूँ। तुम क्या करती हो?", "rom": "main {city} se hoon. tum kyaa kartee ho?" }
+          ]
+        }
+      }
+    },
+    "l4": {
+      "text": "मैं {job} हूँ। और आप?",
+      "rom": "main {job} hoon. aur aap?",
+      "byRegister": { "familiar": { "text": "मैं {job} हूँ। और तुम?", "rom": "main {job} hoon. aur tum?" } }
+    },
+    "l5": { "text": "मैं {job} हूँ।", "rom": "main {job} hoon." }
+  },
+  "vocab": {
+    "where-from": { "text": "आप कहाँ से हैं?", "rom": "aap kahaan se hain?", "byRegister": { "familiar": { "text": "तुम कहाँ से हो?", "rom": "tum kahaan se ho?" } } },
+    "i-am-from": { "text": "मैं ___ से हूँ", "rom": "main ___ se hoon" },
+    "what-do-you-do": { "text": "आप क्या करते हैं?", "rom": "aap kyaa karte hain?", "byRegister": { "familiar": { "text": "तुम क्या करते हो?", "rom": "tum kyaa karte ho?" } } },
+    "i-am-a": { "text": "मैं ___ हूँ", "rom": "main ___ hoon" },
+    "and-you": { "text": "और आप?", "rom": "aur aap?", "byRegister": { "familiar": { "text": "और तुम?", "rom": "aur tum?" } } },
+    "i-live-in": { "text": "मैं ___ में रहता / रहती हूँ", "rom": "main ___ men rahtaa / rahtee hoon" }
+  },
+  "slotValues": {
+    "job": [
+      { "en": "a student", "text": "विद्यार्थी", "rom": "vidyaarthee" },
+      { "en": "a teacher", "text": "टीचर", "rom": "Teechar" },
+      { "en": "an engineer", "text": "इंजीनियर", "rom": "injeeniyar" },
+      { "en": "a nurse", "text": "नर्स", "rom": "nars" }
+    ]
+  },
+  "free": {
+    "targets": {
+      "are-you-a-student": { "text": "क्या आप विद्यार्थी हैं?", "rom": "kyaa aap vidyaarthee hain?", "byRegister": { "familiar": { "text": "क्या तुम विद्यार्थी हो?", "rom": "kyaa tum vidyaarthee ho?" } } },
+      "yes-i-am": { "text": "हाँ, मैं विद्यार्थी हूँ।", "rom": "haan, main vidyaarthee hoon." },
+      "no-i-am-not": { "text": "नहीं, मैं विद्यार्थी नहीं हूँ।", "rom": "naheen, main vidyaarthee naheen hoon." }
+    }
+  },
+  "notes": [
+    "से means \"from\" and comes after the place: दिल्ली से (dillee se), from Delhi.",
+    "करते / करती follows the gender of the person you ask. The variants show both.",
+    "Hindi has no word for \"a\". मैं टीचर हूँ is literally \"I teacher am\"."
+  ]
+}

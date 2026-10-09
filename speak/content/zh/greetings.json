@@ -1,0 +1,129 @@
+{
+  "schema": 1,
+  "scenario": "greetings",
+  "lang": "zh",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "你好！",
+      "rom": "Nǐ hǎo!",
+      "byRegister": {
+        "formal": {
+          "text": "您好！",
+          "rom": "Nín hǎo!"
+        }
+      }
+    },
+    "l2": {
+      "text": "你好！",
+      "rom": "Nǐ hǎo!",
+      "byRegister": {
+        "formal": {
+          "text": "您好！",
+          "rom": "Nín hǎo!"
+        }
+      }
+    },
+    "l3": {
+      "text": "我叫{name}。你叫什么名字？",
+      "rom": "Wǒ jiào {name}. Nǐ jiào shénme míngzi?",
+      "byRegister": {
+        "formal": {
+          "text": "我叫{name}。您叫什么名字？",
+          "rom": "Wǒ jiào {name}. Nín jiào shénme míngzi?",
+          "note": "Even more polite, for a surname only: 您贵姓？ (Nín guì xìng?)."
+        }
+      }
+    },
+    "l4": {
+      "text": "我叫{name}。很高兴认识你。",
+      "rom": "Wǒ jiào {name}. Hěn gāoxìng rènshi nǐ.",
+      "byRegister": {
+        "formal": {
+          "text": "我叫{name}。很高兴认识您。",
+          "rom": "Wǒ jiào {name}. Hěn gāoxìng rènshi nín."
+        }
+      }
+    },
+    "l5": {
+      "text": "我也很高兴认识你。再见！",
+      "rom": "Wǒ yě hěn gāoxìng rènshi nǐ. Zàijiàn!",
+      "byRegister": {
+        "formal": {
+          "text": "我也很高兴认识您。再见！",
+          "rom": "Wǒ yě hěn gāoxìng rènshi nín. Zàijiàn!"
+        }
+      }
+    }
+  },
+  "vocab": {
+    "hello": {
+      "text": "你好",
+      "rom": "nǐ hǎo"
+    },
+    "my-name-is": {
+      "text": "我叫___",
+      "rom": "wǒ jiào ___"
+    },
+    "your-name": {
+      "text": "你叫什么名字？",
+      "rom": "nǐ jiào shénme míngzi?",
+      "byRegister": {
+        "formal": {
+          "text": "您叫什么名字？",
+          "rom": "nín jiào shénme míngzi?"
+        }
+      }
+    },
+    "nice-to-meet": {
+      "text": "很高兴认识你",
+      "rom": "hěn gāoxìng rènshi nǐ",
+      "byRegister": {
+        "formal": {
+          "text": "很高兴认识您",
+          "rom": "hěn gāoxìng rènshi nín"
+        }
+      }
+    },
+    "me-too": {
+      "text": "我也是",
+      "rom": "wǒ yě shì"
+    },
+    "goodbye": {
+      "text": "再见",
+      "rom": "zàijiàn"
+    }
+  },
+  "free": {
+    "targets": {
+      "how-are-you": {
+        "text": "你好吗？",
+        "rom": "Nǐ hǎo ma?",
+        "accept": [
+          "你最近怎么样？"
+        ],
+        "byRegister": {
+          "formal": {
+            "text": "您好吗？",
+            "rom": "Nín hǎo ma?"
+          }
+        }
+      },
+      "i-am-fine": {
+        "text": "我很好，谢谢。",
+        "rom": "Wǒ hěn hǎo, xièxie."
+      }
+    }
+  },
+  "notes": [
+    "你好 is two third tones in a row. The first one rises: say ní hǎo."
+  ]
+}

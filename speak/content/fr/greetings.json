@@ -1,0 +1,121 @@
+{
+  "schema": 1,
+  "scenario": "greetings",
+  "lang": "fr",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "Bonjour !",
+      "byRegister": {
+        "familiar": {
+          "text": "Salut !",
+          "accept": [
+            "Bonjour !"
+          ]
+        }
+      }
+    },
+    "l2": {
+      "text": "Bonjour !",
+      "byRegister": {
+        "familiar": {
+          "text": "Salut !",
+          "accept": [
+            "Bonjour !"
+          ]
+        }
+      }
+    },
+    "l3": {
+      "text": "Je m'appelle {name}. Comment vous appelez-vous ?",
+      "accept": [
+        "Je m'appelle {name}. Et vous ?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Je m'appelle {name}. Comment tu t'appelles ?",
+          "accept": [
+            "Je m'appelle {name}. Et toi ?"
+          ]
+        }
+      }
+    },
+    "l4": {
+      "text": "Je m'appelle {name}. Enchanté.",
+      "registerNeutral": true,
+      "variants": [
+        {
+          "label": "said by a man",
+          "text": "Je m'appelle {name}. Enchanté."
+        },
+        {
+          "label": "said by a woman",
+          "text": "Je m'appelle {name}. Enchantée."
+        }
+      ]
+    },
+    "l5": {
+      "text": "Moi aussi. Au revoir !",
+      "registerNeutral": true
+    }
+  },
+  "vocab": {
+    "hello": {
+      "text": "bonjour"
+    },
+    "my-name-is": {
+      "text": "je m'appelle ___"
+    },
+    "your-name": {
+      "text": "comment vous appelez-vous ?",
+      "byRegister": {
+        "familiar": {
+          "text": "comment tu t'appelles ?"
+        }
+      }
+    },
+    "nice-to-meet": {
+      "text": "enchanté / enchantée",
+      "registerNeutral": true
+    },
+    "me-too": {
+      "text": "moi aussi"
+    },
+    "goodbye": {
+      "text": "au revoir"
+    }
+  },
+  "free": {
+    "targets": {
+      "how-are-you": {
+        "text": "Comment allez-vous ?",
+        "byRegister": {
+          "familiar": {
+            "text": "Comment ça va ?",
+            "accept": [
+              "Ça va ?"
+            ]
+          }
+        }
+      },
+      "i-am-fine": {
+        "text": "Je vais bien, merci.",
+        "accept": [
+          "Ça va bien, merci.",
+          "Très bien, merci."
+        ]
+      }
+    }
+  },
+  "notes": [
+    "Enchanté and enchantée sound the same. The spelling follows the speaker's gender."
+  ]
+}

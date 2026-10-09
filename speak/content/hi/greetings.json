@@ -1,0 +1,120 @@
+{
+  "schema": 1,
+  "scenario": "greetings",
+  "lang": "hi",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "registerNotes": {
+    "intimate": "तू is for very close family and friends: people you would never need to introduce yourself to. With a stranger it is rude."
+  },
+  "lines": {
+    "l1": {
+      "text": "नमस्ते!",
+      "rom": "namaste!",
+      "accept": [
+        "नमस्कार"
+      ]
+    },
+    "l2": {
+      "text": "नमस्ते!",
+      "rom": "namaste!"
+    },
+    "l3": {
+      "text": "मेरा नाम {name} है। आपका नाम क्या है?",
+      "rom": "meraa naam {name} hai. aapkaa naam kyaa hai?",
+      "note": "आपका: your, formal. Use it with anyone older than you or anyone you have just met.",
+      "byRegister": {
+        "familiar": {
+          "text": "मेरा नाम {name} है। तुम्हारा नाम क्या है?",
+          "rom": "meraa naam {name} hai. tumhaaraa naam kyaa hai?",
+          "note": "तुम्हारा: your, familiar. For friends, classmates and children."
+        }
+      }
+    },
+    "l4": {
+      "text": "मेरा नाम {name} है। आपसे मिलकर ख़ुशी हुई।",
+      "rom": "meraa naam {name} hai. aapse milkar Khushee huee.",
+      "byRegister": {
+        "familiar": {
+          "text": "मेरा नाम {name} है। तुमसे मिलकर ख़ुशी हुई।",
+          "rom": "meraa naam {name} hai. tumse milkar Khushee huee."
+        }
+      }
+    },
+    "l5": {
+      "text": "मुझे भी। फिर मिलेंगे!",
+      "rom": "mujhe bhee. phir milenge!",
+      "registerNeutral": true,
+      "note": "फिर मिलेंगे (\"we'll meet again\") is the everyday goodbye. अलविदा sounds final and is rare in speech."
+    }
+  },
+  "vocab": {
+    "hello": {
+      "text": "नमस्ते",
+      "rom": "namaste"
+    },
+    "my-name-is": {
+      "text": "मेरा नाम ___ है",
+      "rom": "meraa naam ___ hai"
+    },
+    "your-name": {
+      "text": "आपका नाम क्या है?",
+      "rom": "aapkaa naam kyaa hai?",
+      "byRegister": {
+        "familiar": {
+          "text": "तुम्हारा नाम क्या है?",
+          "rom": "tumhaaraa naam kyaa hai?"
+        }
+      }
+    },
+    "nice-to-meet": {
+      "text": "आपसे मिलकर ख़ुशी हुई",
+      "rom": "aapse milkar Khushee huee",
+      "byRegister": {
+        "familiar": {
+          "text": "तुमसे मिलकर ख़ुशी हुई",
+          "rom": "tumse milkar Khushee huee"
+        }
+      }
+    },
+    "me-too": {
+      "text": "मुझे भी",
+      "rom": "mujhe bhee"
+    },
+    "goodbye": {
+      "text": "फिर मिलेंगे",
+      "rom": "phir milenge"
+    }
+  },
+  "free": {
+    "targets": {
+      "how-are-you": {
+        "text": "आप कैसे हैं?",
+        "rom": "aap kaise hain?",
+        "byRegister": {
+          "familiar": {
+            "text": "तुम कैसे हो?",
+            "rom": "tum kaise ho?"
+          }
+        }
+      },
+      "i-am-fine": {
+        "text": "मैं ठीक हूँ, शुक्रिया।",
+        "rom": "main Theek hoon, shukriyaa.",
+        "accept": [
+          "मैं ठीक हूँ, धन्यवाद।"
+        ]
+      }
+    }
+  },
+  "notes": [
+    "The verb comes last: मेरा नाम Prash है is literally \"my name Prash is\"."
+  ]
+}

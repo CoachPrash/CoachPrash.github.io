@@ -1,0 +1,92 @@
+{
+  "schema": 1,
+  "id": "greetings",
+  "title": "Greetings & self-introduction",
+  "goal": "Greet someone, give your name and ask theirs.",
+  "roles": {
+    "A": "Starts the conversation",
+    "B": "Answers"
+  },
+  "slots": {
+    "name": {
+      "kind": "personal",
+      "cue": "your name"
+    }
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "role": "A",
+      "en": "Hello!"
+    },
+    {
+      "id": "l2",
+      "role": "B",
+      "en": "Hello!"
+    },
+    {
+      "id": "l3",
+      "role": "A",
+      "en": "My name is {name}. What is your name?",
+      "addressesYou": true
+    },
+    {
+      "id": "l4",
+      "role": "B",
+      "en": "My name is {name}. Nice to meet you.",
+      "addressesYou": true
+    },
+    {
+      "id": "l5",
+      "role": "A",
+      "en": "Nice to meet you too. Goodbye!",
+      "addressesYou": true
+    }
+  ],
+  "vocab": [
+    {
+      "id": "hello",
+      "en": "hello"
+    },
+    {
+      "id": "my-name-is",
+      "en": "my name is ___"
+    },
+    {
+      "id": "your-name",
+      "en": "what is your name?",
+      "addressesYou": true
+    },
+    {
+      "id": "nice-to-meet",
+      "en": "nice to meet you",
+      "addressesYou": true
+    },
+    {
+      "id": "me-too",
+      "en": "me too"
+    },
+    {
+      "id": "goodbye",
+      "en": "goodbye"
+    }
+  ],
+  "drill": {
+    "slot": "name",
+    "instruction": "Go round the group. Swap only the name."
+  },
+  "free": {
+    "prompt": "Add \"How are you?\" and \"I am fine, thank you.\"",
+    "targets": [
+      {
+        "id": "how-are-you",
+        "en": "how are you?",
+        "addressesYou": true
+      },
+      {
+        "id": "i-am-fine",
+        "en": "I am fine, thank you."
+      }
+    ]
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "id": "where-from",
+  "title": "Where are you from? What do you do?",
+  "goal": "Ask and answer where someone is from and what they do.",
+  "roles": { "A": "Asks first", "B": "Answers, then asks back" },
+  "slots": {
+    "city": { "kind": "personal", "cue": "your city or country" },
+    "job": { "kind": "set", "cue": "a job" }
+  },
+  "lines": [
+    { "id": "l1", "role": "A", "en": "Where are you from?", "addressesYou": true },
+    { "id": "l2", "role": "B", "en": "I am from {city}. And you?", "addressesYou": true },
+    { "id": "l3", "role": "A", "en": "I am from {city}. What do you do?", "addressesYou": true },
+    { "id": "l4", "role": "B", "en": "I am {job}. And you?", "addressesYou": true },
+    { "id": "l5", "role": "A", "en": "I am {job}." }
+  ],
+  "vocab": [
+    { "id": "where-from", "en": "where are you from?", "addressesYou": true },
+    { "id": "i-am-from", "en": "I am from ___" },
+    { "id": "what-do-you-do", "en": "what do you do?", "addressesYou": true },
+    { "id": "i-am-a", "en": "I am ___ (a job)" },
+    { "id": "and-you", "en": "and you?", "addressesYou": true },
+    { "id": "i-live-in", "en": "I live in ___" }
+  ],
+  "drill": { "slot": "job", "instruction": "Swap the job each time. Then try it with your real city." },
+  "free": {
+    "prompt": "Ask each other yes/no questions: \"Are you a student?\" Answer \"Yes, I am\" or \"No, I am not\".",
+    "targets": [
+      { "id": "are-you-a-student", "en": "are you a student?", "addressesYou": true },
+      { "id": "yes-i-am", "en": "yes, I am a student" },
+      { "id": "no-i-am-not", "en": "no, I am not a student" }
+    ]
+  }
+}

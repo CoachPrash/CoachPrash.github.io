@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "id": "requests",
+  "title": "Politeness & simple requests",
+  "goal": "Get someone's attention, ask for something politely, and thank them.",
+  "roles": { "A": "Asks for something", "B": "Gives it" },
+  "slots": {
+    "item": { "kind": "set", "cue": "an item" }
+  },
+  "lines": [
+    { "id": "l1", "role": "A", "en": "Excuse me!", "addressesYou": true },
+    { "id": "l2", "role": "B", "en": "Yes, tell me.", "addressesYou": true },
+    { "id": "l3", "role": "A", "en": "Please give me {item}.", "addressesYou": true },
+    { "id": "l4", "role": "B", "en": "Here you are.", "addressesYou": true },
+    { "id": "l5", "role": "A", "en": "Thank you!" },
+    { "id": "l6", "role": "B", "en": "You're welcome." }
+  ],
+  "vocab": [
+    { "id": "excuse-me", "en": "excuse me! (to get attention)", "addressesYou": true },
+    { "id": "please", "en": "please" },
+    { "id": "give-me", "en": "please give me ___", "addressesYou": true },
+    { "id": "here-you-are", "en": "here you are", "addressesYou": true },
+    { "id": "thank-you", "en": "thank you" },
+    { "id": "youre-welcome", "en": "you're welcome" },
+    { "id": "sorry", "en": "sorry (an apology)", "addressesYou": true }
+  ],
+  "drill": { "slot": "item", "instruction": "Swap the item each time: water, tea, a pen, sugar." },
+  "free": {
+    "prompt": "Each person asks for three different things around the group.",
+    "targets": [
+      { "id": "i-need", "en": "I need ___" },
+      { "id": "do-you-have", "en": "do you have ___?", "addressesYou": true }
+    ]
+  }
+}

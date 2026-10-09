@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "id": "family",
+  "title": "Numbers & family",
+  "goal": "Count to ten, name your close family and say how many you have.",
+  "roles": { "A": "Asks about family", "B": "Answers, then asks back" },
+  "slots": {
+    "count": { "kind": "set", "cue": "a number" }
+  },
+  "lines": [
+    { "id": "l1", "role": "A", "en": "Do you have brothers and sisters?", "addressesYou": true },
+    { "id": "l2", "role": "B", "en": "Yes. I have {count} brothers and one sister." },
+    { "id": "l3", "role": "A", "en": "Do you have children?", "addressesYou": true },
+    { "id": "l4", "role": "B", "en": "Yes, I have {count} children. And you?", "addressesYou": true },
+    { "id": "l5", "role": "A", "en": "No, I don't have children." }
+  ],
+  "vocab": [
+    { "id": "one", "en": "one" },
+    { "id": "two", "en": "two" },
+    { "id": "three", "en": "three" },
+    { "id": "mother", "en": "mother" },
+    { "id": "father", "en": "father" },
+    { "id": "brother", "en": "brother" },
+    { "id": "sister", "en": "sister" },
+    { "id": "children", "en": "children" },
+    { "id": "i-have", "en": "I have ___ (family)" }
+  ],
+  "drill": { "slot": "count", "instruction": "Swap the number each time. The rest of the sentence stays the same." },
+  "free": {
+    "prompt": "Describe your own family in two or three sentences.",
+    "targets": [
+      { "id": "in-my-family", "en": "there are ___ people in my family" },
+      { "id": "my-mothers-name", "en": "my mother's name is ___" }
+    ]
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "code": "zh",
+  "name": "Mandarin Chinese",
+  "native": "中文",
+  "locale": "zh-CN",
+  "script": "Han (simplified)",
+  "romanization": {
+    "name": "Hanyu Pinyin with tone marks",
+    "show": true,
+    "rules": [
+      "Tone marks: ā first (high, level), á second (rising), ǎ third (dipping), à fourth (falling). No mark is the neutral tone.",
+      "Two third tones in a row: the first is said as a second tone. 你好 is written nǐ hǎo and said ní hǎo.",
+      "Typed answers may leave out the tone marks."
+    ]
+  },
+  "match": "chars",
+  "normalize": ["han-punctuation"],
+  "numerals": { "0": "零", "1": "一", "2": "二", "3": "三", "4": "四", "5": "五", "6": "六", "7": "七", "8": "八", "9": "九", "10": "十" },
+  "registers": [
+    { "id": "formal", "label": "您", "en": "formal" },
+    { "id": "familiar", "label": "你", "en": "familiar" }
+  ],
+  "defaultRegister": "familiar",
+  "profile": {
+    "formality": "你 is the everyday you. 您 is respectful: for elders, teachers, customers. Verbs do not change with either.",
+    "script": "Simplified characters, one syllable each. Four tones plus a neutral tone change the meaning.",
+    "questionWords": "什么 (what), 哪儿 (where), 什么时候 (when), 谁 (who), 为什么 (why), 怎么 (how), 几 / 多少 (how many)",
+    "agreement": "No gender or number agreement. A number needs a measure word before a noun: 两个人, 三口人.",
+    "conjugation": "Verbs never change. Time and aspect come from words such as 了, 过, 在.",
+    "wordOrder": "Subject–verb–object. Time and place come before the verb: 我明天在北京工作."
+  }
+}

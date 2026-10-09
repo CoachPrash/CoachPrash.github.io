@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "scenario": "requests",
+  "lang": "hi",
+  "review": { "status": "draft", "by": null, "date": null },
+  "registers": ["formal", "familiar"],
+  "registerNotes": { "intimate": "तू with someone serving you is rude. Use आप with staff and strangers." },
+  "lines": {
+    "l1": {
+      "text": "सुनिए!",
+      "rom": "sunie!",
+      "note": "सुनिए (\"please listen\") is the normal way to get attention. माफ़ कीजिए is for an apology.",
+      "byRegister": { "familiar": { "text": "सुनो!", "rom": "suno!" } }
+    },
+    "l2": {
+      "text": "जी, बताइए।",
+      "rom": "jee, bataaie.",
+      "byRegister": { "familiar": { "text": "हाँ, बताओ।", "rom": "haan, bataao." } }
+    },
+    "l3": {
+      "text": "मुझे {item} दीजिए।",
+      "rom": "mujhe {item} deejie.",
+      "accept": ["मुझे {item} चाहिए।"],
+      "note": "दीजिए is the polite command form of देना (to give). With तुम it becomes दो.",
+      "byRegister": { "familiar": { "text": "मुझे {item} दो।", "rom": "mujhe {item} do.", "accept": ["मुझे {item} चाहिए।"] } }
+    },
+    "l4": {
+      "text": "लीजिए।",
+      "rom": "leejie.",
+      "byRegister": { "familiar": { "text": "लो।", "rom": "lo." } }
+    },
+    "l5": { "text": "धन्यवाद!", "rom": "dhanyavaad!", "accept": ["शुक्रिया!"] },
+    "l6": {
+      "text": "कोई बात नहीं।",
+      "rom": "koee baat naheen.",
+      "note": "Hindi has no exact \"you're welcome\". कोई बात नहीं (\"no matter\") is the usual reply."
+    }
+  },
+  "vocab": {
+    "excuse-me": { "text": "सुनिए", "rom": "sunie", "byRegister": { "familiar": { "text": "सुनो", "rom": "suno" } } },
+    "please": { "text": "कृपया", "rom": "kripayaa" },
+    "give-me": { "text": "मुझे ___ दीजिए", "rom": "mujhe ___ deejie", "byRegister": { "familiar": { "text": "मुझे ___ दो", "rom": "mujhe ___ do" } } },
+    "here-you-are": { "text": "लीजिए", "rom": "leejie", "byRegister": { "familiar": { "text": "लो", "rom": "lo" } } },
+    "thank-you": { "text": "धन्यवाद", "rom": "dhanyavaad" },
+    "youre-welcome": { "text": "कोई बात नहीं", "rom": "koee baat naheen" },
+    "sorry": { "text": "माफ़ कीजिए", "rom": "maaf keejie", "byRegister": { "familiar": { "text": "माफ़ करो", "rom": "maaf karo" } } }
+  },
+  "slotValues": {
+    "item": [
+      { "en": "some water", "text": "पानी", "rom": "paanee" },
+      { "en": "some tea", "text": "चाय", "rom": "chaay" },
+      { "en": "a pen", "text": "एक पेन", "rom": "ek pen" },
+      { "en": "some sugar", "text": "चीनी", "rom": "cheenee" }
+    ]
+  },
+  "free": {
+    "targets": {
+      "i-need": { "text": "मुझे ___ चाहिए।", "rom": "mujhe ___ chaahie." },
+      "do-you-have": { "text": "क्या आपके पास ___ है?", "rom": "kyaa aapke paas ___ hai?", "byRegister": { "familiar": { "text": "क्या तुम्हारे पास ___ है?", "rom": "kyaa tumhaare paas ___ hai?" } } }
+    }
+  },
+  "notes": [
+    "कृपया (please) is formal and mostly written. In speech, the polite verb form (दीजिए) already says \"please\".",
+    "धन्यवाद and शुक्रिया both mean thank you. शुक्रिया is more common in everyday speech."
+  ]
+}

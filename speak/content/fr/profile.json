@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "code": "fr",
+  "name": "French",
+  "native": "Français",
+  "locale": "fr-FR",
+  "script": "Latin",
+  "romanization": null,
+  "match": "words",
+  "normalize": ["accents", "apostrophes"],
+  "numerals": { "0": "zéro", "1": "un", "2": "deux", "3": "trois", "4": "quatre", "5": "cinq", "6": "six", "7": "sept", "8": "huit", "9": "neuf", "10": "dix" },
+  "registers": [
+    { "id": "formal", "label": "vous", "en": "formal" },
+    { "id": "familiar", "label": "tu", "en": "familiar" }
+  ],
+  "defaultRegister": "formal",
+  "profile": {
+    "formality": "Two levels of you: vous (formal, and also the plural) and tu (familiar). Use vous with strangers, staff and elders. Wait to be invited to use tu.",
+    "script": "Latin with accents: é è ê à ç. Many final consonants are silent. Nasal vowels (on, an, in) need attention.",
+    "questionWords": "quoi, où, quand, qui, pourquoi, comment, combien",
+    "agreement": "Nouns are masculine or feminine. Adjectives and past participles agree in gender and number: enchanté / enchantée.",
+    "conjugation": "Verbs change with person. The vous and tu forms differ: vous allez, tu vas.",
+    "wordOrder": "Subject–verb–object, as in English. Object pronouns go before the verb."
+  }
+}

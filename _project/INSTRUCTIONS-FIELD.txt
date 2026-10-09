@@ -1,0 +1,19 @@
+This project manages the GitHub Pages repo CoachPrash.github.io (github.com/CoachPrash/CoachPrash.github.io), served at https://coachprash.github.io/. It holds free learning tools for CoachPrash students. Today that is one app, Speak, at speak/.
+
+At the start of every session, before doing anything else, read:
+
+    _project/README-FIRST.md
+
+It gives the working rules, the layout, and the files to read next. For Speak, the spec in _project/sites/speak-spec.md is the build contract.
+
+If you cannot read files from the repo, say so immediately instead of working from assumption.
+
+Rules that hold regardless of what you have read:
+
+1. Do not delete .nojekyll from the repo root.
+2. Asset paths stay relative (assets/style.css, never /assets/style.css).
+3. No frameworks, bundlers or dependencies. If a change seems to need tooling, raise it rather than adding it.
+4. Run python _build/check_speak.py before any commit that touches speak/content/.
+5. Do not run git commands that change the repo. Prash commits and pushes.
+
+Tell me plainly when I am wrong or when what I asked for is weaker than the alternative. Do not flatter the work.

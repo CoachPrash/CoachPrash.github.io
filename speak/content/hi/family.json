@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "scenario": "family",
+  "lang": "hi",
+  "review": { "status": "draft", "by": null, "date": null },
+  "registers": ["formal", "familiar"],
+  "registerNotes": { "intimate": "तू is for very close family and friends. Asking a near stranger about their family with तू is rude." },
+  "lines": {
+    "l1": {
+      "text": "क्या आपके भाई-बहन हैं?",
+      "rom": "kyaa aapke bhaaee-bahan hain?",
+      "byRegister": { "familiar": { "text": "क्या तुम्हारे भाई-बहन हैं?", "rom": "kyaa tumhaare bhaaee-bahan hain?" } }
+    },
+    "l2": { "text": "हाँ। मेरे {count} भाई हैं और एक बहन है।", "rom": "haan. mere {count} bhaaee hain aur ek bahan hai." },
+    "l3": {
+      "text": "क्या आपके बच्चे हैं?",
+      "rom": "kyaa aapke bachche hain?",
+      "byRegister": { "familiar": { "text": "क्या तुम्हारे बच्चे हैं?", "rom": "kyaa tumhaare bachche hain?" } }
+    },
+    "l4": {
+      "text": "हाँ, मेरे {count} बच्चे हैं। और आपके?",
+      "rom": "haan, mere {count} bachche hain. aur aapke?",
+      "byRegister": { "familiar": { "text": "हाँ, मेरे {count} बच्चे हैं। और तुम्हारे?", "rom": "haan, mere {count} bachche hain. aur tumhaare?" } }
+    },
+    "l5": { "text": "नहीं, मेरे बच्चे नहीं हैं।", "rom": "naheen, mere bachche naheen hain." }
+  },
+  "vocab": {
+    "one": { "text": "एक", "rom": "ek" },
+    "two": { "text": "दो", "rom": "do" },
+    "three": { "text": "तीन", "rom": "teen" },
+    "mother": { "text": "माँ", "rom": "maan" },
+    "father": { "text": "पिता", "rom": "pitaa" },
+    "brother": { "text": "भाई", "rom": "bhaaee" },
+    "sister": { "text": "बहन", "rom": "bahan" },
+    "children": { "text": "बच्चे", "rom": "bachche" },
+    "i-have": { "text": "मेरे ___ हैं", "rom": "mere ___ hain" }
+  },
+  "slotValues": {
+    "count": [
+      { "en": "two", "text": "दो", "rom": "do" },
+      { "en": "three", "text": "तीन", "rom": "teen" },
+      { "en": "four", "text": "चार", "rom": "chaar" }
+    ]
+  },
+  "free": {
+    "targets": {
+      "in-my-family": { "text": "मेरे परिवार में ___ लोग हैं।", "rom": "mere parivaar men ___ log hain." },
+      "my-mothers-name": { "text": "मेरी माँ का नाम ___ है।", "rom": "meree maan kaa naam ___ hai." }
+    }
+  },
+  "notes": [
+    "Hindi has no verb \"to have\" for family. मेरे दो भाई हैं is literally \"my two brothers are\".",
+    "Four to ten: चार chaar, पाँच paanch, छह chhah, सात saat, आठ aaTh, नौ nau, दस das.",
+    "भाई-बहन (brothers and sisters) is one word for siblings."
+  ]
+}

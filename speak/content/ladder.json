@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "languages": ["hi", "fr", "zh"],
+  "stages": [
+    { "stage": 1, "level": "A1", "title": "Greetings & self-introduction", "scenarios": ["greetings"] },
+    { "stage": 2, "level": "A1", "title": "Personal info", "scenarios": ["where-from"] },
+    { "stage": 3, "level": "A1", "title": "Numbers & family", "scenarios": ["family"] },
+    { "stage": 4, "level": "A1", "title": "Politeness & requests", "scenarios": ["requests"] },
+    { "stage": 5, "level": "A1", "title": "Likes & dislikes", "scenarios": [] },
+    { "stage": 6, "level": "A2", "title": "Daily routine", "scenarios": [] },
+    { "stage": 7, "level": "A2", "title": "Shopping & ordering", "scenarios": [] },
+    { "stage": 8, "level": "A2", "title": "Directions", "scenarios": [] },
+    { "stage": 9, "level": "A2", "title": "Small talk & opinions", "scenarios": [] }
+  ]
+}
