@@ -28,7 +28,7 @@ CoachPrash.github.io/
 └── _project/              documentation for Claude, not part of any site
     ├── README-FIRST.md    this file
     ├── INSTRUCTIONS-FIELD.txt   text pasted into the Claude Project settings
-    └── sites/             speak.md (brief), speak-spec.md (spec)
+    └── sites/             speak.md (brief), speak-spec.md (spec), speak-proposals.md (ideas not yet in the spec)
 ```
 
 Nothing here is generated. There is no build step.
@@ -85,4 +85,5 @@ Speak loads JSON, so it does not run from `file://`. Check that the Actions run 
 
 - **9 October 2026:** Speak moved here from `iPrash/iprash.github.io` (commit `555c9fb`). Its earlier git history stays in that repo. The old address, iprash.github.io/speak/, carries a redirect stub. Delete that stub from the iprash repo in November 2026.
 - **Status at the move:** M1 done (spec §8). Next is **M2, solo mode**. All content is `draft`, not yet reviewed by native speakers.
-- **9 October 2026:** M2 built (spec 0.7.2). It needs Prash's spoken test in Chrome before it counts as done.
+- **9 October 2026:** M2 built (spec 0.7.2).
+- **10 October 2026:** M2 done: Prash's spoken test passed. Proposals in `_project/sites/speak-proposals.md`.

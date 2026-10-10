@@ -1,12 +1,16 @@
 # Speak — specification
 
-**Status:** M1 built (4 October 2026). M2 built (9 October 2026), waiting for Prash's spoken test in Chrome (§8).
-**Version:** 0.7.2, 9 October 2026
+**Status:** M1 done (4 October 2026). M2 done (10 October 2026): Prash's spoken test in Chrome passed. Proposals for chunks, gender and images: `speak-proposals.md`.
+**Version:** 0.7.3, 10 October 2026
 **Brief:** `_project/sites/speak.md`
 
 This file is the build contract. When the spec and the code disagree, the spec wins, or the spec is changed first.
 
 ### Changes
+
+**0.7.3** (no change to behaviour)
+
+- Status: M2 done.
 
 **0.7.2** (solo mode built)
 

@@ -20,7 +20,7 @@ Prash teaches Hindi and is learning French and Mandarin. Beginners rarely get en
 
 **M1 built (4 Oct 2026):** content format, checker, Hindi stages 1–4, French and Mandarin greetings, class mode with the formality switch, script view. Solo mode is M2. All content is `draft`.
 
-**M2 built (9 Oct 2026):** solo mode with speech recognition, matching, wrong-register detection, typed answers and free-practice coverage. `_build/test_speech.html` passes. Waiting for Prash's spoken test in Chrome (spec §8).
+**M2 built (9 Oct 2026):** solo mode with speech recognition, matching, wrong-register detection, typed answers and free-practice coverage. `_build/test_speech.html` passes. Prash's spoken test in Chrome passed on 10 Oct 2026, so M2 is done.
 
 The spec is `_project/sites/speak-spec.md`. It is the build contract: read it before touching anything in `speak/`.
 
@@ -52,7 +52,7 @@ The spec is `_project/sites/speak-spec.md`. It is the build contract: read it be
 
 ## Open items
 
-- Next: Prash tests M2 by voice in Chrome (spec §8). Then M3, French and Mandarin stages 1–4.
+- Next: decide on `speak-proposals.md` (chunks, gender, images). The proposal puts M2.5 before M3, French and Mandarin stages 1–4.
 - Prash to review the Hindi script views (print → PDF) and mark verified ones.
 - Hindi romanization is Prash's ASCII scheme (spec §3.3). All Hindi content follows it.
 - Milestones M2 to M4 in the spec.
