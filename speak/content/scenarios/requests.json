@@ -1,5 +1,5 @@
 {
-  "schema": 1,
+  "schema": 2,
   "id": "requests",
   "title": "Politeness & simple requests",
   "goal": "Get someone's attention, ask for something politely, and thank them.",
@@ -15,7 +15,7 @@
     { "id": "l5", "role": "A", "en": "Thank you!" },
     { "id": "l6", "role": "B", "en": "You're welcome." }
   ],
-  "vocab": [
+  "chunks": [
     { "id": "excuse-me", "en": "excuse me! (to get attention)", "addressesYou": true },
     { "id": "please", "en": "please" },
     { "id": "give-me", "en": "please give me ___", "addressesYou": true },

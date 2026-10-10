@@ -12,10 +12,12 @@ import json
 import pathlib
 import re
 import sys
+import unicodedata
 
 REPO = pathlib.Path(__file__).resolve().parent.parent
 CONTENT = REPO / "speak" / "content"
 SLOT = re.compile(r"\{(\w+)\}")
+SCHEMA = 2
 NORMALIZE_RULES = {"nukta", "chandrabindu", "ye-e", "devanagari-digits", "accents", "apostrophes", "han-punctuation"}
 
 problems = []
@@ -35,9 +37,70 @@ def load(path):
     except (OSError, ValueError) as e:
         problem(rel(path), f"cannot read JSON ({e})")
         return None
-    if not isinstance(data, dict) or data.get("schema") != 1:
-        problem(rel(path), 'missing "schema": 1')
+    if isinstance(data, dict) and data.get("schema") == 1:
+        problem(rel(path), 'schema 1 predates chunks: rename "vocab" to "chunks" and set "schema": 2 (spec 0.8)')
+    elif not isinstance(data, dict) or data.get("schema") != SCHEMA:
+        problem(rel(path), f'missing "schema": {SCHEMA}')
     return data
+
+
+# ---------------------------------------------------------------- chunk occurrence (spec §3.9)
+
+WILD = "\x00gap"        # a gap in a chunk
+SLOT_TOKEN = "\x00slot"  # a {slot} in a line
+
+
+def choices(text):
+    """'मैं ___ में रहता / रहती हूँ' -> one string per choice."""
+    m = re.search(r"(\S+)\s+/\s+(\S+)", text or "")
+    if not m:
+        return [text or ""]
+    head, tail = text[:m.start()], text[m.end():]
+    return choices(head + m.group(1) + tail) + choices(head + m.group(2) + tail)
+
+
+def tokens(text, mode):
+    """Case folded, punctuation removed. Words, or characters for chars mode."""
+    t = SLOT.sub(" " + SLOT_TOKEN + " ", text or "")
+    t = re.sub(r"_{2,}", " " + WILD + " ", t)
+    t = "".join(" " if unicodedata.category(c)[0] in "PS" and c != "\x00" else c for c in t.lower())
+    out = []
+    for w in t.split():
+        if w.startswith("\x00") or mode != "chars":
+            out.append(w)
+        else:
+            out += re.findall(r"[a-z0-9\u00c0-\u024f]+|\S", w)
+    return out
+
+
+def occurs(chunk, line):
+    """Do the chunk's tokens appear in a row in the line? A gap matches a {slot}
+    or 1 to 3 words (1 to 4 characters in chars mode)."""
+    run = 4 if MODE == "chars" else 3
+
+    def at(ci, li):
+        if ci == len(chunk):
+            return True
+        if chunk[ci] == WILD:
+            if li < len(line) and line[li] == SLOT_TOKEN and at(ci + 1, li + 1):
+                return True
+            return any(at(ci + 1, li + k) for k in range(1, run + 1)
+                       if li + k <= len(line) and SLOT_TOKEN not in line[li:li + k])
+        return li < len(line) and line[li] == chunk[ci] and at(ci + 1, li + 1)
+
+    return any(at(0, i) for i in range(len(line)))
+
+
+def item_texts(item):
+    """Every text of a line or chunk: base, variants, byRegister and their variants."""
+    out = [item.get("text")] + [v.get("text") for v in item.get("variants", [])]
+    for entry in item.get("byRegister", {}).values():
+        out += [entry.get("text")] + [v.get("text") for v in entry.get("variants", [])]
+    return [t for t in out if t]
+
+
+MODE = "words"
+recur = []   # (lang, chunk text, own scenario, other scenarios)
 
 
 def slots_in(text):
@@ -81,7 +144,7 @@ for sid, (path, bp) in blueprints.items():
     where = rel(path)
     if bp.get("id") != sid:
         problem(where, f'id "{bp.get("id")}" does not match the file name')
-    for field in ("title", "goal", "roles", "lines", "vocab", "drill", "free"):
+    for field in ("title", "goal", "roles", "lines", "chunks", "drill", "free"):
         if field not in bp:
             problem(where, f'missing "{field}"')
     lines = bp.get("lines", [])
@@ -101,9 +164,9 @@ for sid, (path, bp) in blueprints.items():
             problem(where, f'{l.get("id")}: role must be "A" or "B"')
         for s in slots_in(l.get("en")) - declared:
             problem(where, f'{l.get("id")}: slot {{{s}}} is not declared in "slots"')
-    vocab = bp.get("vocab", [])
-    if not 5 <= len(vocab) <= 10:
-        problem(where, f"{len(vocab)} vocab items; a scenario has 5 to 10")
+    chunks = bp.get("chunks", [])
+    if not 5 <= len(chunks) <= 10:
+        problem(where, f"{len(chunks)} chunks; a scenario has 5 to 10")
     drill_slot = bp.get("drill", {}).get("slot")
     if drill_slot not in declared:
         problem(where, f'drill slot "{drill_slot}" is not declared in "slots"')
@@ -139,6 +202,9 @@ for code, (prof_path, prof, reals) in languages.items():
             problem(pwhere, f'missing "{field}"')
     if prof.get("match") not in ("words", "chars"):
         problem(pwhere, 'match must be "words" or "chars"')
+    if prof.get("partnerGender") not in (None, "f", "m"):
+        problem(pwhere, 'partnerGender must be "f" or "m"')
+    MODE = prof.get("match", "words")
     for rule in prof.get("normalize", []):
         if rule not in NORMALIZE_RULES:
             problem(pwhere, f'normalize: unknown rule "{rule}"')
@@ -238,14 +304,59 @@ for code, (prof_path, prof, reals) in languages.items():
             b = bp_lines[lid]
             check_item("line", lid, item, b.get("en"), b.get("addressesYou"), True)
 
-        # vocab
-        bp_vocab = {v["id"]: v for v in bp.get("vocab", [])}
-        rv = r.get("vocab", {})
-        if set(rv) != set(bp_vocab):
-            problem(where, f"vocab keys differ from the blueprint: missing {sorted(set(bp_vocab) - set(rv))}, extra {sorted(set(rv) - set(bp_vocab))}")
-        for vid, item in rv.items():
-            if vid in bp_vocab:
-                check_item("vocab", vid, item, "", bp_vocab[vid].get("addressesYou"), False)
+        # gender fields on variants (spec §3.10)
+        for lid, item in rl.items():
+            groups = [item.get("variants", [])] + [e.get("variants", []) for e in item.get("byRegister", {}).values()]
+            for vs in groups:
+                for fld in ("speaker", "listener"):
+                    have = [v for v in vs if fld in v]
+                    if have and len(have) != len(vs):
+                        problem(where, f'line {lid}: "{fld}" is set on some variants but not all')
+                    for v in have:
+                        if v[fld] not in ("f", "m"):
+                            problem(where, f'line {lid}: {fld} must be "f" or "m"')
+                for v in vs:
+                    if "speaker" not in v and "listener" not in v and not v.get("label"):
+                        problem(where, f"line {lid}: a variant with no speaker or listener needs a label")
+
+        # chunks (spec §3.9)
+        bp_chunks = {v["id"]: v for v in bp.get("chunks", [])}
+        rc = r.get("chunks", {})
+        if set(rc) != set(bp_chunks):
+            problem(where, f"chunk keys differ from the blueprint: missing {sorted(set(bp_chunks) - set(rc))}, extra {sorted(set(rc) - set(bp_chunks))}")
+        line_tokens = [tokens(t, MODE) for item in rl.values() for t in item_texts(item)]
+        for cid, item in rc.items():
+            if cid not in bp_chunks:
+                continue
+            check_item("chunk", cid, item, "", bp_chunks[cid].get("addressesYou"), False)
+            gap = "___" in (item.get("text") or "")
+            kind = item.get("kind")
+            if kind is not None and kind not in ("fixed", "frame", "collocation"):
+                problem(where, f'chunk {cid}: kind must be "fixed", "frame" or "collocation"')
+            if kind == "fixed" and gap:
+                problem(where, f'chunk {cid}: has ___, so it is a frame, not fixed')
+            if kind == "frame" and not gap:
+                problem(where, f'chunk {cid}: a frame needs ___')
+            if "extra" in item and item["extra"] is not True:
+                problem(where, f'chunk {cid}: extra is true or left out')
+            if "literal" in item and not isinstance(item["literal"], str):
+                problem(where, f'chunk {cid}: literal is a string')
+            cforms = [tokens(c, MODE) for t in item_texts(item) for c in choices(t)]
+            if not item.get("extra") and not any(occurs(f, lt) for f in cforms for lt in line_tokens if f):
+                problem(where, f'chunk {cid}: "{item.get("text")}" does not occur in the dialogue (rewrite it from a line, or set "extra": true)')
+            chain = item.get("chain")
+            if chain is not None:
+                whole = tokens(item.get("text"), MODE)
+                prev = 0
+                for piece in chain:
+                    pt = tokens(piece, MODE)
+                    if not pt or pt != whole[-len(pt):]:
+                        problem(where, f'chunk {cid}: chain piece "{piece}" is not an ending of the chunk')
+                    elif len(pt) <= prev:
+                        problem(where, f'chunk {cid}: chain pieces must grow in length')
+                    prev = max(prev, len(pt))
+            if not item.get("extra"):
+                recur.append((code, sid, item.get("text"), cforms))
 
         # free-practice targets
         bp_targets = {t["id"]: t for t in bp.get("free", {}).get("targets", [])}
@@ -281,6 +392,21 @@ for code, (prof_path, prof, reals) in languages.items():
         for name in sorted(set(pv) - personal):
             problem(where, f'partnerValues "{name}" is not a personal slot')
 
+# ---------------------------------------------------------------- recycling (information only)
+
+notes = []
+for code, sid, text, forms in recur:
+    others = []
+    for osid, (opath, oreal) in languages[code][2].items():
+        if osid == sid or not isinstance(oreal.get("lines"), dict):
+            continue
+        MODE = languages[code][1].get("match", "words")
+        lts = [tokens(t, MODE) for item in oreal["lines"].values() for t in item_texts(item)]
+        if any(occurs(f, lt) for f in forms for lt in lts if f):
+            others.append(osid)
+    if others:
+        notes.append(f"  {code} {sid}: \"{text}\" also in {', '.join(sorted(others))}")
+
 # ---------------------------------------------------------------- report
 
 if problems:
@@ -292,3 +418,6 @@ if problems:
 n_real = sum(len(reals) for _, _, reals in languages.values())
 print(f"OK: {len(blueprints)} blueprints, {len(languages)} languages, {n_real} realizations, "
       f"{len(ladder_ids)} scenarios in the ladder.")
+if notes:
+    print("Chunks that recur in other scenarios (information):")
+    print("\n".join(notes))

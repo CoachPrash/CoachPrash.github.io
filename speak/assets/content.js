@@ -39,7 +39,7 @@
     return ids;
   }
 
-  /* Resolve one line, vocab item or target for a register (spec §3.4).
+  /* Resolve one line, chunk or target for a register (spec §3.4).
    * Start from the base fields; a byRegister entry for a non-default
    * register replaces the fields it sets. */
   var FIELDS = ["text", "rom", "variants", "accept", "note"];

@@ -1,5 +1,5 @@
 {
-  "schema": 1,
+  "schema": 2,
   "scenario": "greetings",
   "lang": "zh",
   "review": {
@@ -64,7 +64,7 @@
       }
     }
   },
-  "vocab": {
+  "chunks": {
     "hello": {
       "text": "你好",
       "rom": "nǐ hǎo"
@@ -94,6 +94,7 @@
       }
     },
     "me-too": {
+      "extra": true,
       "text": "我也是",
       "rom": "wǒ yě shì"
     },

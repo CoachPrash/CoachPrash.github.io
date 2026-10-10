@@ -354,7 +354,7 @@
       ((bp.free || {}).targets || []).forEach(function (t) {
         out.push({ key: "t-" + t.id, en: t.en, item: ((real.free || {}).targets || {})[t.id] || {} });
       });
-      bp.vocab.forEach(function (v) { out.push({ key: "v-" + v.id, en: v.en, item: real.vocab[v.id] || {} }); });
+      bp.chunks.forEach(function (v) { out.push({ key: "v-" + v.id, en: v.en, item: real.chunks[v.id] || {} }); });
       return out;
     }
 

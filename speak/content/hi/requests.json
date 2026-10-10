@@ -1,5 +1,5 @@
 {
-  "schema": 1,
+  "schema": 2,
   "scenario": "requests",
   "lang": "hi",
   "review": { "status": "draft", "by": null, "date": null },
@@ -36,14 +36,14 @@
       "note": "Hindi has no exact \"you're welcome\". कोई बात नहीं (\"no matter\") is the usual reply."
     }
   },
-  "vocab": {
+  "chunks": {
     "excuse-me": { "text": "सुनिए", "rom": "sunie", "byRegister": { "familiar": { "text": "सुनो", "rom": "suno" } } },
-    "please": { "text": "कृपया", "rom": "kripayaa" },
+    "please": { "extra": true, "text": "कृपया", "rom": "kripayaa" },
     "give-me": { "text": "मुझे ___ दीजिए", "rom": "mujhe ___ deejie", "byRegister": { "familiar": { "text": "मुझे ___ दो", "rom": "mujhe ___ do" } } },
     "here-you-are": { "text": "लीजिए", "rom": "leejie", "byRegister": { "familiar": { "text": "लो", "rom": "lo" } } },
     "thank-you": { "text": "धन्यवाद", "rom": "dhanyavaad" },
     "youre-welcome": { "text": "कोई बात नहीं", "rom": "koee baat naheen" },
-    "sorry": { "text": "माफ़ कीजिए", "rom": "maaf keejie", "byRegister": { "familiar": { "text": "माफ़ करो", "rom": "maaf karo" } } }
+    "sorry": { "extra": true, "text": "माफ़ कीजिए", "rom": "maaf keejie", "byRegister": { "familiar": { "text": "माफ़ करो", "rom": "maaf karo" } } }
   },
   "slotValues": {
     "item": [

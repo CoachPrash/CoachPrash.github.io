@@ -1,5 +1,5 @@
 {
-  "schema": 1,
+  "schema": 2,
   "scenario": "greetings",
   "lang": "hi",
   "review": {
@@ -55,7 +55,7 @@
       "note": "फिर मिलेंगे (\"we'll meet again\") is the everyday goodbye. अलविदा sounds final and is rare in speech."
     }
   },
-  "vocab": {
+  "chunks": {
     "hello": {
       "text": "नमस्ते",
       "rom": "namaste"

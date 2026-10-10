@@ -1,5 +1,5 @@
 {
-  "schema": 1,
+  "schema": 2,
   "scenario": "family",
   "lang": "hi",
   "review": { "status": "draft", "by": null, "date": null },
@@ -24,12 +24,12 @@
     },
     "l5": { "text": "नहीं, मेरे बच्चे नहीं हैं।", "rom": "naheen, mere bachche naheen hain." }
   },
-  "vocab": {
+  "chunks": {
     "one": { "text": "एक", "rom": "ek" },
-    "two": { "text": "दो", "rom": "do" },
-    "three": { "text": "तीन", "rom": "teen" },
-    "mother": { "text": "माँ", "rom": "maan" },
-    "father": { "text": "पिता", "rom": "pitaa" },
+    "two": { "extra": true, "text": "दो", "rom": "do" },
+    "three": { "extra": true, "text": "तीन", "rom": "teen" },
+    "mother": { "extra": true, "text": "माँ", "rom": "maan" },
+    "father": { "extra": true, "text": "पिता", "rom": "pitaa" },
     "brother": { "text": "भाई", "rom": "bhaaee" },
     "sister": { "text": "बहन", "rom": "bahan" },
     "children": { "text": "बच्चे", "rom": "bachche" },

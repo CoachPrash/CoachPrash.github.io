@@ -1,5 +1,5 @@
 {
-  "schema": 1,
+  "schema": 2,
   "scenario": "where-from",
   "lang": "hi",
   "review": { "status": "draft", "by": null, "date": null },
@@ -41,13 +41,13 @@
     },
     "l5": { "text": "मैं {job} हूँ।", "rom": "main {job} hoon." }
   },
-  "vocab": {
+  "chunks": {
     "where-from": { "text": "आप कहाँ से हैं?", "rom": "aap kahaan se hain?", "byRegister": { "familiar": { "text": "तुम कहाँ से हो?", "rom": "tum kahaan se ho?" } } },
     "i-am-from": { "text": "मैं ___ से हूँ", "rom": "main ___ se hoon" },
     "what-do-you-do": { "text": "आप क्या करते हैं?", "rom": "aap kyaa karte hain?", "byRegister": { "familiar": { "text": "तुम क्या करते हो?", "rom": "tum kyaa karte ho?" } } },
     "i-am-a": { "text": "मैं ___ हूँ", "rom": "main ___ hoon" },
     "and-you": { "text": "और आप?", "rom": "aur aap?", "byRegister": { "familiar": { "text": "और तुम?", "rom": "aur tum?" } } },
-    "i-live-in": { "text": "मैं ___ में रहता / रहती हूँ", "rom": "main ___ men rahtaa / rahtee hoon" }
+    "i-live-in": { "extra": true, "text": "मैं ___ में रहता / रहती हूँ", "rom": "main ___ men rahtaa / rahtee hoon" }
   },
   "slotValues": {
     "job": [

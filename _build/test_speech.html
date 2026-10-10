@@ -127,8 +127,8 @@
     expectPhrase("free: inside a longer sentence", g, t["how-are-you"], "formal", "नमस्ते आप कैसे हैं आज", true);
     expectPhrase("free: तुम form while आप selected", g, t["how-are-you"], "formal", "तुम कैसे हो", false, "familiar");
     expectPhrase("free: not said", g, t["how-are-you"], "formal", "मेरा नाम प्रश है", false);
-    expectPhrase("free: vocab with a blank", g, g.real.vocab["my-name-is"], "formal", "हाँ मेरा नाम प्रश है", true);
-    expectPhrase("free: vocab with a choice (रहता / रहती)", w, w.real.vocab["i-live-in"], "formal", "मैं दिल्ली में रहती हूँ", true);
+    expectPhrase("free: chunk with a gap", g, g.real.chunks["my-name-is"], "formal", "हाँ मेरा नाम प्रश है", true);
+    expectPhrase("free: chunk with a choice (रहता / रहती)", w, w.real.chunks["i-live-in"], "formal", "मैं दिल्ली में रहती हूँ", true);
     /* French and Mandarin, greetings */
     expectLine("fr: Salut while vous selected", fr, line(fr, "l1"), "formal", "Salut", "nearly", "familiar");
     expectLine("fr: Bonjour while tu selected (accepted)", fr, line(fr, "l1"), "familiar", "Bonjour", "good");

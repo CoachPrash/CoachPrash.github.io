@@ -1,5 +1,5 @@
 {
-  "schema": 1,
+  "schema": 2,
   "languages": ["hi", "fr", "zh"],
   "stages": [
     { "stage": 1, "level": "A1", "title": "Greetings & self-introduction", "scenarios": ["greetings"] },

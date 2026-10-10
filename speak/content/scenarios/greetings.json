@@ -1,5 +1,5 @@
 {
-  "schema": 1,
+  "schema": 2,
   "id": "greetings",
   "title": "Greetings & self-introduction",
   "goal": "Greet someone, give your name and ask theirs.",
@@ -43,7 +43,7 @@
       "addressesYou": true
     }
   ],
-  "vocab": [
+  "chunks": [
     {
       "id": "hello",
       "en": "hello"

@@ -324,7 +324,7 @@
           '<section class="wrap">' +
           crumbs([{ label: "Home", href: "#" }, { label: prof.name }]) +
           '<h1>' + esc(prof.name) + ' <span class="native" lang="' + esc(code) + '">' + esc(prof.native) + "</span></h1>" +
-          '<p class="lede">One scenario per stage. Each scenario runs in six steps: goal, vocabulary, model dialogue, role play, drill, free practice. ' +
+          '<p class="lede">One scenario per stage. Each scenario runs in six steps: goal, chunks, model dialogue, role play, drill, free practice. ' +
           '<a href="#' + esc(code) + '/profile">How ' + esc(prof.name) + " works in this app</a>.</p>" +
           '<ol class="ladder">' + stages + "</ol></section>";
       });
@@ -376,7 +376,7 @@
 
   var STEPS = [
     { id: "goal", label: "Goal" },
-    { id: "vocab", label: "Vocabulary" },
+    { id: "chunks", label: "Chunks" },
     { id: "dialogue", label: "Model dialogue" },
     { id: "roleplay", label: "Role play" },
     { id: "drill", label: "Drill" },
@@ -496,7 +496,7 @@
 
     function count(stepId) {
       switch (stepId) {
-        case "vocab": return bp.vocab.length;
+        case "chunks": return bp.chunks.length;
         case "dialogue": return bp.lines.length;
         case "roleplay": return st.roster.runs.length * bp.lines.length;
         case "drill": return drillItems().length;
@@ -564,10 +564,10 @@
         (notes ? "<div><h3>In " + esc(prof.name) + "</h3><ul class=\"notes\">" + notes + "</ul></div>" : "") + "</div>";
     }
 
-    function bodyVocab() {
-      var v = bp.vocab[st.idx], r = res(real.vocab[v.id]);
+    function bodyChunks() {
+      var v = bp.chunks[st.idx], r = res(real.chunks[v.id]);
       st.playText = sayText(r, null, bp, real);
-      return '<div class="counter">' + (st.idx + 1) + " / " + bp.vocab.length + "</div>" +
+      return '<div class="counter">' + (st.idx + 1) + " / " + bp.chunks.length + "</div>" +
         '<div class="big" data-key="v-' + esc(v.id) + '">' + target(r, prof, { en: v.en }) + "</div>" +
         playButton() + '<p class="hint">The native speaker says it. Everyone repeats.</p>';
     }
@@ -634,13 +634,13 @@
         var r = res(((real.free || {}).targets || {})[t.id] || {});
         return '<li data-key="f-' + esc(t.id) + '">' + target(r, prof, { en: t.en }) + "</li>";
       }).join("");
-      var vocab = bp.vocab.map(function (v) {
-        return '<li data-key="fv-' + esc(v.id) + '">' + target(res(real.vocab[v.id]), prof, { en: v.en }) + "</li>";
+      var chunks = bp.chunks.map(function (v) {
+        return '<li data-key="fv-' + esc(v.id) + '">' + target(res(real.chunks[v.id]), prof, { en: v.en }) + "</li>";
       }).join("");
       return '<div class="goal">' + esc(bp.free.prompt) + "</div>" +
         '<p class="hint">No script and no timer. The native speaker listens, and notes errors for afterwards.</p>' +
         '<div class="cols"><div><h3>Phrases to use</h3><ul class="phrases">' + targets + "</ul></div>" +
-        "<div><h3>Vocabulary</h3><ul class=\"phrases\">" + vocab + "</ul></div></div>";
+        "<div><h3>Chunks</h3><ul class=\"phrases\">" + chunks + "</ul></div></div>";
     }
 
     function bodyFinish() {
@@ -660,7 +660,7 @@
       document.body.className = "classmode";
       var done = st.step >= STEPS.length;
       var stepId = done ? "finish" : STEPS[st.step].id;
-      var body = { goal: bodyGoal, vocab: bodyVocab, dialogue: bodyDialogue, roleplay: bodyRoleplay, drill: bodyDrill, free: bodyFree, finish: bodyFinish }[stepId]();
+      var body = { goal: bodyGoal, chunks: bodyChunks, dialogue: bodyDialogue, roleplay: bodyRoleplay, drill: bodyDrill, free: bodyFree, finish: bodyFinish }[stepId]();
       var tabs = STEPS.map(function (s, i) {
         return '<button type="button" class="tab" data-step="' + i + '"' + (i === st.step ? ' aria-current="step"' : "") + ">" + (i + 1) + ". " + esc(s.label) + "</button>";
       }).join("");
@@ -759,8 +759,8 @@
       var dialogue = table("<th>#</th><th>Role</th><th>English</th>", bp.lines.map(function (l, i) {
         return "<tr>" + ck + "<td>" + (i + 1) + "</td><td>" + l.role + "</td><td>" + slotMark(l.en) + "</td>" + regCells(real.lines[l.id]) + fix + "</tr>";
       }).join(""));
-      var vocab = table("<th>English</th>", bp.vocab.map(function (v) {
-        return "<tr>" + ck + "<td>" + esc(v.en) + "</td>" + regCells(real.vocab[v.id]) + fix + "</tr>";
+      var chunks = table("<th>English</th>", bp.chunks.map(function (v) {
+        return "<tr>" + ck + "<td>" + esc(v.en) + "</td>" + regCells(real.chunks[v.id]) + fix + "</tr>";
       }).join(""));
       var targets = ((bp.free || {}).targets || []);
       var free = '<p class="prompt">' + esc(bp.free.prompt) + "</p>" + (targets.length ? table("<th>English</th>", targets.map(function (t) {
@@ -793,7 +793,7 @@
         (hasRom ? "The romanization follows the rules on the " + esc(prof.name) + " profile page. " : "") +
         "[slot] marks a word the speaker fills in.</p>" +
         "<h2>Model dialogue</h2>" + dialogue +
-        "<h2>Vocabulary</h2>" + vocab +
+        "<h2>Chunks</h2>" + chunks +
         (slotTables ? "<h2>Drill values</h2>" + slotTables : "") +
         "<h2>Free practice</h2>" + free +
         (notes ? "<h2>Notes</h2><ul>" + notes + "</ul>" : "") +
