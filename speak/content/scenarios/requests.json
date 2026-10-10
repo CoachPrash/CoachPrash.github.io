@@ -17,7 +17,7 @@
   ],
   "chunks": [
     { "id": "excuse-me", "en": "excuse me! (to get attention)", "addressesYou": true },
-    { "id": "please", "en": "please" },
+    { "id": "yes-tell-me", "en": "yes, tell me", "addressesYou": true },
     { "id": "give-me", "en": "please give me ___", "addressesYou": true },
     { "id": "here-you-are", "en": "here you are", "addressesYou": true },
     { "id": "thank-you", "en": "thank you" },

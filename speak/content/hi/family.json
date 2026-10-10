@@ -25,15 +25,12 @@
     "l5": { "text": "नहीं, मेरे बच्चे नहीं हैं।", "rom": "naheen, mere bachche naheen hain." }
   },
   "chunks": {
-    "one": { "text": "एक", "rom": "ek" },
-    "two": { "extra": true, "text": "दो", "rom": "do" },
-    "three": { "extra": true, "text": "तीन", "rom": "teen" },
-    "mother": { "extra": true, "text": "माँ", "rom": "maan" },
-    "father": { "extra": true, "text": "पिता", "rom": "pitaa" },
-    "brother": { "text": "भाई", "rom": "bhaaee" },
-    "sister": { "text": "बहन", "rom": "bahan" },
-    "children": { "text": "बच्चे", "rom": "bachche" },
-    "i-have": { "text": "मेरे ___ हैं", "rom": "mere ___ hain" }
+    "do-you-have": { "text": "क्या आपके ___ हैं?", "rom": "kyaa aapke ___ hain?", "literal": "(question) your ___ are?", "byRegister": { "familiar": { "text": "क्या तुम्हारे ___ हैं?", "rom": "kyaa tumhaare ___ hain?" } } },
+    "siblings": { "text": "भाई-बहन", "rom": "bhaaee-bahan", "kind": "collocation", "literal": "brother-sister" },
+    "i-have": { "text": "मेरे ___ हैं", "rom": "mere ___ hain", "literal": "my ___ are" },
+    "one-x": { "text": "एक ___ है", "rom": "ek ___ hai", "literal": "one ___ is" },
+    "and-yours": { "text": "और आपके?", "rom": "aur aapke?", "literal": "and yours?", "byRegister": { "familiar": { "text": "और तुम्हारे?", "rom": "aur tumhaare?" } } },
+    "i-dont-have": { "text": "मेरे ___ नहीं हैं", "rom": "mere ___ naheen hain", "literal": "my ___ not are" }
   },
   "slotValues": {
     "count": [
@@ -45,7 +42,8 @@
   "free": {
     "targets": {
       "in-my-family": { "text": "मेरे परिवार में ___ लोग हैं।", "rom": "mere parivaar men ___ log hain." },
-      "my-mothers-name": { "text": "मेरी माँ का नाम ___ है।", "rom": "meree maan kaa naam ___ hai." }
+      "my-mothers-name": { "text": "मेरी माँ का नाम ___ है।", "rom": "meree maan kaa naam ___ hai." },
+      "my-fathers-name": { "text": "मेरे पिता का नाम ___ है।", "rom": "mere pitaa kaa naam ___ hai." }
     }
   },
   "notes": [

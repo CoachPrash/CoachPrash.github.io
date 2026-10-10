@@ -37,13 +37,13 @@
     }
   },
   "chunks": {
-    "excuse-me": { "text": "सुनिए", "rom": "sunie", "byRegister": { "familiar": { "text": "सुनो", "rom": "suno" } } },
-    "please": { "extra": true, "text": "कृपया", "rom": "kripayaa" },
-    "give-me": { "text": "मुझे ___ दीजिए", "rom": "mujhe ___ deejie", "byRegister": { "familiar": { "text": "मुझे ___ दो", "rom": "mujhe ___ do" } } },
-    "here-you-are": { "text": "लीजिए", "rom": "leejie", "byRegister": { "familiar": { "text": "लो", "rom": "lo" } } },
-    "thank-you": { "text": "धन्यवाद", "rom": "dhanyavaad" },
-    "youre-welcome": { "text": "कोई बात नहीं", "rom": "koee baat naheen" },
-    "sorry": { "extra": true, "text": "माफ़ कीजिए", "rom": "maaf keejie", "byRegister": { "familiar": { "text": "माफ़ करो", "rom": "maaf karo" } } }
+    "excuse-me": { "text": "सुनिए", "rom": "sunie", "byRegister": { "familiar": { "text": "सुनो", "rom": "suno" } }, "literal": "listen (please)!" },
+    "yes-tell-me": { "text": "जी, बताइए", "rom": "jee, bataaie", "byRegister": { "familiar": { "text": "हाँ, बताओ", "rom": "haan, bataao" } }, "literal": "yes (respectful), tell (please)" },
+    "give-me": { "text": "मुझे ___ दीजिए", "rom": "mujhe ___ deejie", "byRegister": { "familiar": { "text": "मुझे ___ दो", "rom": "mujhe ___ do" } }, "literal": "to-me ___ give (please)" },
+    "here-you-are": { "text": "लीजिए", "rom": "leejie", "byRegister": { "familiar": { "text": "लो", "rom": "lo" } }, "literal": "take (please)" },
+    "thank-you": { "text": "धन्यवाद", "rom": "dhanyavaad", "literal": "thanks" },
+    "youre-welcome": { "text": "कोई बात नहीं", "rom": "koee baat naheen", "literal": "any matter not" },
+    "sorry": { "extra": true, "text": "माफ़ कीजिए", "rom": "maaf keejie", "byRegister": { "familiar": { "text": "माफ़ करो", "rom": "maaf karo" } }, "literal": "forgiveness do (please)" }
   },
   "slotValues": {
     "item": [
@@ -61,6 +61,7 @@
   },
   "notes": [
     "कृपया (please) is formal and mostly written. In speech, the polite verb form (दीजिए) already says \"please\".",
-    "धन्यवाद and शुक्रिया both mean thank you. शुक्रिया is more common in everyday speech."
+    "धन्यवाद and शुक्रिया both mean thank you. शुक्रिया is more common in everyday speech.",
+    "Politeness lives in the verb: दीजिए, बताइए and लीजिए are already polite. कृपया (\"please\") is formal and mostly written."
   ]
 }

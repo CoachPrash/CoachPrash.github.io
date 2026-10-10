@@ -20,16 +20,16 @@
       "text": "मैं {city} से हूँ। आप क्या करते हैं?",
       "rom": "main {city} se hoon. aap kyaa karte hain?",
       "variants": [
-        { "label": "to a man", "text": "मैं {city} से हूँ। आप क्या करते हैं?", "rom": "main {city} se hoon. aap kyaa karte hain?" },
-        { "label": "to a woman", "text": "मैं {city} से हूँ। आप क्या करती हैं?", "rom": "main {city} se hoon. aap kyaa kartee hain?" }
+        { "listener": "m", "label": "to a man", "text": "मैं {city} से हूँ। आप क्या करते हैं?", "rom": "main {city} se hoon. aap kyaa karte hain?" },
+        { "listener": "f", "label": "to a woman", "text": "मैं {city} से हूँ। आप क्या करती हैं?", "rom": "main {city} se hoon. aap kyaa kartee hain?" }
       ],
       "byRegister": {
         "familiar": {
           "text": "मैं {city} से हूँ। तुम क्या करते हो?",
           "rom": "main {city} se hoon. tum kyaa karte ho?",
           "variants": [
-            { "label": "to a man", "text": "मैं {city} से हूँ। तुम क्या करते हो?", "rom": "main {city} se hoon. tum kyaa karte ho?" },
-            { "label": "to a woman", "text": "मैं {city} से हूँ। तुम क्या करती हो?", "rom": "main {city} se hoon. tum kyaa kartee ho?" }
+            { "listener": "m", "label": "to a man", "text": "मैं {city} से हूँ। तुम क्या करते हो?", "rom": "main {city} se hoon. tum kyaa karte ho?" },
+            { "listener": "f", "label": "to a woman", "text": "मैं {city} से हूँ। तुम क्या करती हो?", "rom": "main {city} se hoon. tum kyaa kartee ho?" }
           ]
         }
       }
@@ -42,12 +42,12 @@
     "l5": { "text": "मैं {job} हूँ।", "rom": "main {job} hoon." }
   },
   "chunks": {
-    "where-from": { "text": "आप कहाँ से हैं?", "rom": "aap kahaan se hain?", "byRegister": { "familiar": { "text": "तुम कहाँ से हो?", "rom": "tum kahaan se ho?" } } },
-    "i-am-from": { "text": "मैं ___ से हूँ", "rom": "main ___ se hoon" },
-    "what-do-you-do": { "text": "आप क्या करते हैं?", "rom": "aap kyaa karte hain?", "byRegister": { "familiar": { "text": "तुम क्या करते हो?", "rom": "tum kyaa karte ho?" } } },
-    "i-am-a": { "text": "मैं ___ हूँ", "rom": "main ___ hoon" },
-    "and-you": { "text": "और आप?", "rom": "aur aap?", "byRegister": { "familiar": { "text": "और तुम?", "rom": "aur tum?" } } },
-    "i-live-in": { "extra": true, "text": "मैं ___ में रहता / रहती हूँ", "rom": "main ___ men rahtaa / rahtee hoon" }
+    "where-from": { "text": "आप कहाँ से हैं?", "rom": "aap kahaan se hain?", "byRegister": { "familiar": { "text": "तुम कहाँ से हो?", "rom": "tum kahaan se ho?" } }, "literal": "you where from are?" },
+    "i-am-from": { "text": "मैं ___ से हूँ", "rom": "main ___ se hoon", "literal": "I ___ from am" },
+    "what-do-you-do": { "text": "आप क्या करते / करती हैं?", "rom": "aap kyaa karte / kartee hain?", "byRegister": { "familiar": { "text": "तुम क्या करते / करती हो?", "rom": "tum kyaa karte / kartee ho?" } }, "literal": "you what do are?" },
+    "i-am-a": { "text": "मैं ___ हूँ", "rom": "main ___ hoon", "literal": "I ___ am" },
+    "and-you": { "text": "और आप?", "rom": "aur aap?", "byRegister": { "familiar": { "text": "और तुम?", "rom": "aur tum?" } }, "literal": "and you?" },
+    "i-live-in": { "extra": true, "text": "मैं ___ में रहता / रहती हूँ", "rom": "main ___ men rahtaa / rahtee hoon", "literal": "I ___ in live am" }
   },
   "slotValues": {
     "job": [

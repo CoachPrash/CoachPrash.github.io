@@ -56,42 +56,12 @@
     }
   },
   "chunks": {
-    "hello": {
-      "text": "नमस्ते",
-      "rom": "namaste"
-    },
-    "my-name-is": {
-      "text": "मेरा नाम ___ है",
-      "rom": "meraa naam ___ hai"
-    },
-    "your-name": {
-      "text": "आपका नाम क्या है?",
-      "rom": "aapkaa naam kyaa hai?",
-      "byRegister": {
-        "familiar": {
-          "text": "तुम्हारा नाम क्या है?",
-          "rom": "tumhaaraa naam kyaa hai?"
-        }
-      }
-    },
-    "nice-to-meet": {
-      "text": "आपसे मिलकर ख़ुशी हुई",
-      "rom": "aapse milkar Khushee huee",
-      "byRegister": {
-        "familiar": {
-          "text": "तुमसे मिलकर ख़ुशी हुई",
-          "rom": "tumse milkar Khushee huee"
-        }
-      }
-    },
-    "me-too": {
-      "text": "मुझे भी",
-      "rom": "mujhe bhee"
-    },
-    "goodbye": {
-      "text": "फिर मिलेंगे",
-      "rom": "phir milenge"
-    }
+    "hello": { "text": "नमस्ते", "rom": "namaste", "literal": "(a greeting: \"I bow to you\")" },
+    "my-name-is": { "text": "मेरा नाम ___ है", "rom": "meraa naam ___ hai", "literal": "my name ___ is" },
+    "your-name": { "text": "आपका नाम क्या है?", "rom": "aapkaa naam kyaa hai?", "byRegister": { "familiar": { "text": "तुम्हारा नाम क्या है?", "rom": "tumhaaraa naam kyaa hai?" } }, "literal": "your name what is?" },
+    "nice-to-meet": { "text": "आपसे मिलकर ख़ुशी हुई", "rom": "aapse milkar Khushee huee", "byRegister": { "familiar": { "text": "तुमसे मिलकर ख़ुशी हुई", "rom": "tumse milkar Khushee huee" } }, "literal": "with-you having-met happiness happened" },
+    "me-too": { "text": "मुझे भी", "rom": "mujhe bhee", "literal": "to-me also" },
+    "goodbye": { "text": "फिर मिलेंगे", "rom": "phir milenge", "literal": "again (we) will-meet" }
   },
   "free": {
     "targets": {

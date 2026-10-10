@@ -145,3 +145,21 @@ Chrome on Windows offers the Microsoft voices installed on the system, plus Goog
 6. **Notes and `literal` glosses go in a final "Notice" step only.** Script view still shows everything.
 
 These are now in spec 0.8 (§3.9, §3.10, §4.2, §4.3, §8). The spec is the contract from here on.
+
+---
+
+## Later ideas (Prash, 10 October 2026)
+
+Not in any milestone yet. Ideas for after the basic site is built.
+
+1. **Flashcards.** These belong in M4's Review mode.
+   - Front: the English or a picture.
+   - Back: the chunk, its sound, and the dialogue line it came from.
+   - Two ways to use them: flip and self-check, or say it and let the matcher check.
+   - Stateless: a shuffled deck, not spaced repetition.
+   - Cards carry chunks, never single words.
+2. **Backline buildup.** Already in M2.5 as Echo's build-up from the end. Chunks stay the smallest unit learned; the pieces are only rhythm scaffolding. A possible extension: build whole lines from the end, one chunk at a time.
+3. **Sentence constructor ("Mix it").** A substitution table: pick a subject, a verb chunk and a place.
+   - The columns are not independent. Hindi verbs agree with the subject's person, number and gender (मैं जा रहा / रही हूँ, वे जा रहे हैं). Hindi puts the place before the verb.
+   - So each table is authored: every verb cell holds its form for each subject and gender, and each language sets its own column order. The app shows the correct form as the learner picks, which makes it a noticing tool.
+   - It needs more verbs than stages 1–4 have. Proposed as **M5**, after stages 5–9. Stage 6 (daily routine) is the natural first table.

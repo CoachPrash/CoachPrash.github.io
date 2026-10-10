@@ -15,22 +15,20 @@
     { "id": "l5", "role": "A", "en": "No, I don't have children." }
   ],
   "chunks": [
-    { "id": "one", "en": "one" },
-    { "id": "two", "en": "two" },
-    { "id": "three", "en": "three" },
-    { "id": "mother", "en": "mother" },
-    { "id": "father", "en": "father" },
-    { "id": "brother", "en": "brother" },
-    { "id": "sister", "en": "sister" },
-    { "id": "children", "en": "children" },
-    { "id": "i-have", "en": "I have ___ (family)" }
+    { "id": "do-you-have", "en": "do you have ___?", "addressesYou": true },
+    { "id": "siblings", "en": "brothers and sisters" },
+    { "id": "i-have", "en": "I have ___" },
+    { "id": "one-x", "en": "(I have) one ___" },
+    { "id": "and-yours", "en": "and you? (and yours?)", "addressesYou": true },
+    { "id": "i-dont-have", "en": "I don't have ___" }
   ],
   "drill": { "slot": "count", "instruction": "Swap the number each time. The rest of the sentence stays the same." },
   "free": {
     "prompt": "Describe your own family in two or three sentences.",
     "targets": [
       { "id": "in-my-family", "en": "there are ___ people in my family" },
-      { "id": "my-mothers-name", "en": "my mother's name is ___" }
+      { "id": "my-mothers-name", "en": "my mother's name is ___" },
+      { "id": "my-fathers-name", "en": "my father's name is ___" }
     ]
   }
 }
