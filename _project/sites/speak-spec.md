@@ -1,12 +1,22 @@
 # Speak — specification
 
-**Status:** M1 built (4 October 2026). Next is M2, solo mode.
-**Version:** 0.6.1, 9 October 2026
+**Status:** M1 built (4 October 2026). M2, solo mode, in progress.
+**Version:** 0.7, 9 October 2026
 **Brief:** `_project/sites/speak.md`
 
 This file is the build contract. When the spec and the code disagree, the spec wins, or the spec is changed first.
 
 ### Changes
+
+**0.7** (decisions for M2, found while reading the M1 code against §5)
+
+- **Partner values.** New realization field `partnerValues` (§3.4, §3.8): a sample value for each `personal` slot. Text-to-speech uses it, so the partner says "मेरा नाम आशा है", not "मेरा नाम है". Class mode's Play uses it too, when a slot has no name.
+- **Slots match 1–3 words** (§5.2). One word was too narrow: recognition writes some values in two words (एक पेन), or writes a loanword in Latin script (teacher). A `set` slot is matched as a wildcard too, so the solo drill checks the sentence, not the item word. The drill screen says so.
+- **Normalising** (§5.2): hyphens become spaces in every language, not only French. New Hindi fold `ye-e`: ये and यी inside a word become ए and ई (दीजिये = दीजिए). "Remove the slot text" deleted: it contradicted the slot rule.
+- **Scoring defined exactly** (§5.2 step 3): costs, character similarity, and how slots count.
+- **Solo details** (§4.3): which `set` value a run uses, how a `personal`-slot drill runs alone, and what "both" means.
+- **Files** (§7): `speak/assets/solo.js` holds the solo screen. `_build/test_speech.html` runs the matching cases in the browser.
+- **Content fix needed for the M2 test:** a free-practice phrase said without its last word scored 75%, below the 80% bar. So "main Theek hoon" did not tick "मैं ठीक हूँ, शुक्रिया". The short form goes in `accept` in all three languages.
 
 **0.6.1** (no change to behaviour)
 
@@ -254,7 +264,7 @@ Example, `hi/profile.json`:
     ]
   },
   "match": "words",
-  "normalize": ["nukta", "chandrabindu", "devanagari-digits"],
+  "normalize": ["nukta", "chandrabindu", "ye-e", "devanagari-digits"],
   "numerals": { "0": "शून्य", "1": "एक", "2": "दो", "3": "तीन", "4": "चार", "5": "पाँच", "6": "छह", "7": "सात", "8": "आठ", "9": "नौ", "10": "दस" },
   "registers": [
     { "id": "formal", "label": "आप", "en": "formal" },
@@ -293,6 +303,7 @@ Example, `hi/profile.json`:
 | `lines.<id>.registerNeutral` | `true` | see rule | Says the line is the same in every register, even though the English addresses "you" |
 | `vocab` | object | yes | Keyed by blueprint vocab id: `{ "text", "rom", "byRegister", "registerNeutral" }`. The same register rule applies as for lines |
 | `slotValues` | object | if a `set` slot exists | `{ "<slot>": [ { "en": "water", "text": "पानी", "rom": "paanee" } ] }` |
+| `partnerValues` | object | if a `personal` slot exists | `{ "<slot>": { "en", "text", "rom" } }`. One sample value per personal slot, used by text-to-speech (§3.8) |
 | `free` | object | if the blueprint has `free.targets` | `{ "targets": { "<id>": { "text", "rom", "accept", "byRegister", "registerNeutral" } } }`. Same register rule as lines |
 | `notes` | array | no | Points about the whole scenario in this language. Replaces the framework's "adapt note" |
 
@@ -524,6 +535,22 @@ with values in each realization:
 
 The drill shows the English cue ("a pen") and the learner says the whole line with the target word in place.
 
+### 3.8 Partner values, in short
+
+A `personal` slot has no fixed value: each speaker uses their own name or city. Text-to-speech still needs something to say. `partnerValues` gives one sample value per personal slot, chosen to suit the language:
+
+```json
+{
+  "partnerValues": {
+    "name": { "en": "Asha", "text": "आशा", "rom": "aashaa" },
+    "city": { "en": "Delhi", "text": "दिल्ली", "rom": "dillee" }
+  }
+}
+```
+
+- **Solo mode:** the partner is this person. The partner's lines show and speak these values. The learner's own lines show a blank and the cue ("your name").
+- **Everywhere:** when text-to-speech plays a line and a personal slot has no value (no class names entered, or the learner's own line under Hear it), it uses the partner value.
+
 ---
 
 ## 4. Screens and flows
@@ -572,7 +599,7 @@ Routes are hash-based, so they work on GitHub Pages with no server rules:
 
 1. **Goal.** The goal in large type.
 2. **Vocabulary.** One item per screen: target text, romanization, English. Play button (text-to-speech). Show/hide the English.
-3. **Model dialogue.** All lines, with the current one highlighted. Play line, or play all.
+3. **Model dialogue.** All lines, with the current one highlighted. Play line, or play all. Play fills an empty personal slot from `partnerValues` (§3.8).
 4. **Role play.** The current pair's names are shown on the A and B sides. One line at a time. Toggle: show the target text, or show only the English cue. Use the cue only to test.
 5. **Drill.** The next slot value's English cue, plus whose turn it is. Rotates through participants.
 6. **Free practice.** The prompt, with the target phrases and the scenario's vocabulary below it for reference. No timer, no score: the native speaker listens. **Done** ends the run.
@@ -581,8 +608,9 @@ Routes are hash-based, so they work on GitHub Pages with no server rules:
 
 ### 4.3 Solo mode (own device)
 
-- The learner picks a role (A or B), or "both, one after the other".
-- **Partner's lines:** played by text-to-speech.
+- The learner picks a role (A or B), or "both, one after the other": a run as A, then a run as B.
+- **Partner's lines:** shown and played by text-to-speech, with personal slots filled from `partnerValues` (§3.8).
+- **Set slots in the dialogue:** a run uses the first value in `slotValues`. The cue shows it ("Please give me some water").
 - **Learner's lines:** the English cue is shown. Then:
   1. The learner taps **Speak**.
   2. Recognition transcribes the speech.
@@ -591,6 +619,9 @@ Routes are hash-based, so they work on GitHub Pages with no server rules:
 - **Other buttons:** Hear it, Show answer, Try again, Skip.
 - **Typed fallback:** always available. It also accepts the romanization (§5.2).
 - **Drill:** works the same way.
+  - A `set` slot: one turn per value in `slotValues`, in order.
+  - A `personal` slot: one turn. The learner says the drill lines with their own detail.
+  - The slot is a wildcard (§5.2), so the check covers the sentence around the item, not the item word. The drill screen says so in one line.
 - **Free practice:** scored by phrase coverage (§5.3). No timer.
   1. The screen shows the prompt and a checklist of phrases to use: the target phrases first, then the vocabulary, in the selected register.
   2. The learner taps **Speak** as many times as they like. Each transcript is shown, and every phrase heard in it gets a tick that stays for the rest of the run.
@@ -647,11 +678,12 @@ Recognition needs https, which GitHub Pages provides. Voices depend on the opera
    - **All languages:**
      - lowercase
      - strip punctuation, including `।` (danda) and `、。！？`
-     - remove the slot text
-   - **French:** remove accents and apostrophes. Hyphens become spaces.
+     - hyphens become spaces (भाई-बहन = भाई बहन)
+   - **French:** remove accents and apostrophes.
    - **Hindi, Devanagari:**
      - fold nukta letters to their base (ज़ → ज, ख़ → ख, फ़ → फ)
      - treat chandrabindu and anusvara as equal (ँ = ं)
+     - `ye-e`: य followed by े or ी becomes ए or ई, except at the start of a word or after ् (virama). Both spellings are common: दीजिये = दीजिए, गये = गए, नयी = नई. The word ये ("these") does not change
    - **Hindi, typed romanization:**
      - lowercase, so T and t match
      - collapse doubled vowels (aa → a, ee → i, oo → u)
@@ -661,8 +693,11 @@ Recognition needs https, which GitHub Pages provides. Voices depend on the opera
 2. **Tokenise** by the profile's `match` mode:
    - **words:** split on spaces
    - **chars:** each Han character is one token
-3. **Score.** Score = 1 − edit distance ÷ the longer token count. A token within 75% character similarity costs 0.3 instead of 1.
-   - **Slots:** a `{slot}` in the model matches any single token. For `chars` mode, it matches a run of 1–4 characters.
+3. **Score.** Score = 1 − edit distance ÷ the longer token count, and never below 0.
+   - **Edit distance** is counted in tokens. Inserting or deleting a token costs 1. Swapping one token for another costs 1, or 0.3 when the two are similar.
+   - **Similar** means a character similarity of 75% or more. Character similarity = 1 − character edit distance ÷ the length of the longer token.
+   - **Slots:** a `{slot}` in the model matches a run of 1–3 tokens at no cost, in `words` mode. In `chars` mode it matches 1–4 characters. This holds for `personal` and `set` slots alike.
+   - **Longer token count:** the larger of the model's and the transcript's token counts. A slot, and the run it matches, count as one token.
 4. **Best match:** compare every recognition alternative (up to 5) against the resolved line for the selected register: its text, every variant and every accept. The best score wins.
 5. **Verdict:**
    - **Good:** 80% or more
@@ -679,7 +714,7 @@ Free practice has no model answer, so it is not scored by distance from one. It 
 
 1. **Phrases to check.** The scenario's `free.targets`, then its vocabulary. Each is resolved in the selected register (§3.4).
    - Each phrase's text, variants and `accept` strings all count.
-   - A `___` in a vocabulary entry matches any single token, like a slot.
+   - A `___` in a vocabulary entry or target matches like a slot (§5.2 step 3).
 2. **Normalise.** Normalise every transcript, and every phrase, as in §5.2 step 1.
 3. **Look for each phrase.** A phrase is used when some run of tokens in a transcript matches it with a score of 80% or more, using the §5.2 scoring.
    - `words` mode: the run is consecutive words.
@@ -716,10 +751,12 @@ Nothing else. No scores are stored.
 | `speak/index.html` | hand-written | Shell. Has `noindex` while parked |
 | `speak/assets/style.css` | hand-written | System fonts plus Noto Sans Devanagari and Noto Sans SC from Google Fonts, with system fallbacks |
 | `speak/assets/content.js` | hand-written | Loads the JSON and resolves lines for a register and slot values. No DOM code |
-| `speak/assets/app.js` | hand-written | Router, screens |
+| `speak/assets/app.js` | hand-written | Router and screens. Exposes the shared screen helpers (storage, toolbar, register switch) for `solo.js` |
+| `speak/assets/solo.js` | hand-written | Solo mode screen (§4.3) |
 | `speak/assets/speech.js` | hand-written | Text-to-speech, recognition, matching (§5). No DOM code, so it can be tested alone |
 | `speak/content/**` | hand-written data | §3 |
 | `_build/check_speak.py` | tooling | Validator. Standard library only |
+| `_build/test_speech.html` | tooling | Runs the matching cases against `speech.js` and lists pass or fail. No dependencies. Open over http: `python -m http.server`, then `/_build/test_speech.html` |
 | `_project/sites/speak.md` | brief | |
 | `_project/sites/speak-spec.md` | this file | |
 
@@ -732,6 +769,8 @@ The checker exits with a non-zero code and one line per problem when any of thes
 - every realization line id exists in its blueprint, and every blueprint line appears in every realization
 - every slot used in `en` appears in `text` and `rom`, including in `byRegister` and `variants`, and nowhere else
 - every `set` slot has at least three `slotValues`
+- every `personal` slot has a `partnerValues` entry with `en` and `text`, plus `rom` when the profile has romanization. `partnerValues` has no other keys
+- every profile `normalize` entry is a known rule: `nukta`, `chandrabindu`, `ye-e`, `devanagari-digits`
 - `review.status` is `draft` or `verified`. `verified` needs `by` and `date`
 - `rom` is present on every line when the profile has romanization, including inside `byRegister` entries that set `text`
 - vocab keys match the blueprint's vocab ids
@@ -753,7 +792,7 @@ Each milestone is shippable on its own, and the card stays parked throughout.
 | | Scope | Done when |
 |---|---|---|
 | **M1** | Schema, checker, profiles for hi/fr/zh, Hindi stages 1–4, class mode with the register switch, script view | Prash runs a Hindi class from a projector using stages 1–4, in both आप and तुम. Checker passes. Script view prints cleanly |
-| **M2** | Solo mode: recognition, matching, wrong-register detection, typed fallback | Each Hindi model line from stages 1–4 scores Good when spoken by Prash in Chrome, in its register. Saying the तुम form while आप is selected gives "Nearly — that was the तुम form". Typed romanization matches. In greetings free practice, saying "aap kaise hain" and "main Theek hoon" ticks both target phrases |
+| **M2** | Solo mode: recognition, matching, wrong-register detection, typed fallback | Each Hindi model line from stages 1–4 scores Good when spoken by Prash in Chrome, in its register. Saying the तुम form while आप is selected gives "Nearly — that was the तुम form". Typed romanization matches. In greetings free practice, saying "aap kaise hain" and "main Theek hoon" ticks both target phrases. `_build/test_speech.html` passes |
 | **M3** | French and Mandarin, stages 1–4 drafted in all their registers. Script view sent to reviewers | Checker passes. Prash has PDFs to send |
 | **M4** | Stages 5–9 in all three languages | Checker passes. Hindi verified by Prash |
 | **List** | Open to search engines | French and Mandarin stages 1–4 verified by native speakers. `noindex` removed from `speak/index.html` and the root `index.html` |

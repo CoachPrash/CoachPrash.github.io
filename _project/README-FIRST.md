@@ -41,6 +41,7 @@ Nothing here is generated. There is no build step.
 5. **LF line endings.** `.gitattributes` enforces them.
 6. **Claude does not run git commands that change the repo** (add, commit, push, checkout) through its shell on this machine. That shell cannot delete files without a permission grant, so git leaves stale lock files behind. Read-only git uses `git --no-optional-locks`. Prash commits and pushes.
 7. **Never let another repo in the CoachPrash account be named like a folder here** (for example `speak`). A project repo named X claims coachprash.github.io/X/ while it exists.
+8. **After each change that needs a commit, Claude gives the full set of commands** for PowerShell: `cd`, checker if needed, `git status`, `git add` with named files, `git commit`, `git push`. Each command goes in its own code block, so Prash can copy them one at a time. Commit messages are one line.
 
 ## Writing style
 
