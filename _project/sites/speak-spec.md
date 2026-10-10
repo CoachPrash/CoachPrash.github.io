@@ -1,12 +1,16 @@
 # Speak — specification
 
-**Status:** M1 built (4 October 2026). M2, solo mode, in progress.
-**Version:** 0.7.1, 9 October 2026
+**Status:** M1 built (4 October 2026). M2 built (9 October 2026), waiting for Prash's spoken test in Chrome (§8).
+**Version:** 0.7.2, 9 October 2026
 **Brief:** `_project/sites/speak.md`
 
 This file is the build contract. When the spec and the code disagree, the spec wins, or the spec is changed first.
 
 ### Changes
+
+**0.7.2** (solo mode built)
+
+- §4.3: after the partner's line plays, the run moves on by itself. Each learner turn keeps its best result for the end summary.
 
 **0.7.1** (found while building the M2 matcher)
 
@@ -616,7 +620,7 @@ Routes are hash-based, so they work on GitHub Pages with no server rules:
 ### 4.3 Solo mode (own device)
 
 - The learner picks a role (A or B), or "both, one after the other": a run as A, then a run as B.
-- **Partner's lines:** shown and played by text-to-speech, with personal slots filled from `partnerValues` (§3.8).
+- **Partner's lines:** shown and played by text-to-speech, with personal slots filled from `partnerValues` (§3.8). When the line ends, the run moves on by itself. Next skips ahead. With no voice for the language, the line is shown and Next moves on.
 - **Set slots in the dialogue:** a run uses the first value in `slotValues`. The cue shows it ("Please give me some water").
 - **Learner's lines:** the English cue is shown. Then:
   1. The learner taps **Speak**.
@@ -635,7 +639,7 @@ Routes are hash-based, so they work on GitHub Pages with no server rules:
   3. A running score shows "4 of 8 phrases used". A phrase said in another register gets a warning instead of a tick: "That was the तुम form".
   4. **Done** shows the final coverage and lists the phrases not yet used.
   - Typed input works the same way, for browsers without recognition.
-- **End:** a summary of turns said well, plus the free-practice coverage. It is not stored.
+- **End:** a summary of turns said well, plus the free-practice coverage. A turn counts its best attempt. It is not stored.
 
 ### 4.4 Script view (for reviewers)
 

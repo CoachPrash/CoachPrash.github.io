@@ -20,6 +20,8 @@ Prash teaches Hindi and is learning French and Mandarin. Beginners rarely get en
 
 **M1 built (4 Oct 2026):** content format, checker, Hindi stages 1–4, French and Mandarin greetings, class mode with the formality switch, script view. Solo mode is M2. All content is `draft`.
 
+**M2 built (9 Oct 2026):** solo mode with speech recognition, matching, wrong-register detection, typed answers and free-practice coverage. `_build/test_speech.html` passes. Waiting for Prash's spoken test in Chrome (spec §8).
+
 The spec is `_project/sites/speak-spec.md`. It is the build contract: read it before touching anything in `speak/`.
 
 ## Structure
@@ -28,11 +30,13 @@ The spec is `_project/sites/speak-spec.md`. It is the build contract: read it be
 |---|---|
 | `speak/index.html` | Hand-written shell |
 | `speak/assets/content.js` | Hand-written. Loads and resolves content |
-| `speak/assets/speech.js` | Hand-written. Text-to-speech now, recognition and matching in M2 |
+| `speak/assets/speech.js` | Hand-written. Text-to-speech, recognition, matching. No DOM code |
 | `speak/assets/app.js` | Hand-written. Router and screens |
+| `speak/assets/solo.js` | Hand-written. Solo mode screen |
 | `speak/assets/style.css` | Hand-written |
 | `speak/content/**` | Hand-written JSON: ladder, blueprints, language profiles, realizations |
 | `_build/check_speak.py` | Content validator. Standard library only |
+| `_build/test_speech.html` | Matching tests. Open over http |
 
 ## Editing rules
 
@@ -48,8 +52,8 @@ The spec is `_project/sites/speak-spec.md`. It is the build contract: read it be
 
 ## Open items
 
-- Next: M2, solo mode. Then M3, French and Mandarin stages 1–4.
+- Next: Prash tests M2 by voice in Chrome (spec §8). Then M3, French and Mandarin stages 1–4.
 - Prash to review the Hindi script views (print → PDF) and mark verified ones.
 - Hindi romanization is Prash's ASCII scheme (spec §3.3). All Hindi content follows it.
 - Milestones M2 to M4 in the spec.
-- Local testing: `python -m http.server` in the repo root, then open http://localhost:8000/speak/. The app loads JSON, so it does not run from file://.
+- Local testing: `python -m http.server` in the repo root, then open http://localhost:8000/speak/ and http://localhost:8000/_build/test_speech.html. The app loads JSON, so it does not run from file://.

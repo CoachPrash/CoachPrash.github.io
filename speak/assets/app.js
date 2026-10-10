@@ -5,7 +5,7 @@
  *   #<lang>               ladder
  *   #<lang>/profile       language profile
  *   #<lang>/<id>/class    class mode (shared screen)
- *   #<lang>/<id>/solo     solo mode (M2)
+ *   #<lang>/<id>/solo     solo mode (solo.js)
  *   #<lang>/<id>/script   printable script view
  *
  * localStorage keys start with "sp.v1." (spec §6). Nothing else is stored.
@@ -100,11 +100,6 @@
     return html;
   }
 
-  function firstText(res, vals) {
-    var f = res.variants && res.variants.length ? res.variants[0] : res;
-    return C.fill(f.text, (vals || {}).text);
-  }
-
   /* ---------- register switch (spec §4.6) ---------- */
 
   function initialRegister(prof, real) {
@@ -135,6 +130,63 @@
       wrap.appendChild(b);
     });
     return wrap;
+  }
+
+  /* ---------- toolbar: register switch and display settings (class and solo) ---------- */
+
+  /* hooks: onRegister(reg) when the register changes, rerender() after a
+   * setting changes, cueOnly: true to show the "Cue only" toggle. */
+  function buildToolbar(prof, real, current, hooks) {
+    var bar = el('<div class="toolbar"></div>');
+    bar.appendChild(registerControl(prof, real, current, hooks.onRegister));
+    var toggles = el('<div class="toggles"></div>');
+    function toggle(key, label) {
+      var t = el('<label class="small"><input type="checkbox"' + (settings[key] ? " checked" : "") + "> " + esc(label) + "</label>");
+      $("input", t).onchange = function () { settings[key] = this.checked; saveSettings(); hooks.rerender(); };
+      return t;
+    }
+    if (prof.romanization) toggles.appendChild(toggle("rom", "Romanization"));
+    toggles.appendChild(toggle("en", "English"));
+    if (hooks.cueOnly) toggles.appendChild(toggle("cueOnly", "Cue only"));
+    var rate = el('<label class="small">Speed <select>' + [0.7, 0.8, 0.9, 1].map(function (r) {
+      return '<option value="' + r + '"' + (settings.rate === r ? " selected" : "") + ">" + (r === 1 ? "1×" : r + "×") + "</option>";
+    }).join("") + "</select></label>");
+    $("select", rate).onchange = function () { settings.rate = parseFloat(this.value); saveSettings(); };
+    toggles.appendChild(rate);
+    var voice = el('<label class="small voice">Voice <select></select></label>');
+    fillVoices($("select", voice), prof);
+    $("select", voice).onchange = function () { save("voice." + prof.code, this.value); };
+    toggles.appendChild(voice);
+    bar.appendChild(toggles);
+    return bar;
+  }
+
+  function fillVoices(sel, prof) {
+    var list = S.voicesFor(prof.locale), chosen = load("voice." + prof.code, null);
+    if (!S.available) { sel.innerHTML = "<option>No speech in this browser</option>"; sel.disabled = true; return; }
+    if (!list.length) {
+      sel.innerHTML = "<option>No " + esc(prof.name) + " voice</option>";
+      sel.disabled = true;
+      sel.title = "Add a " + prof.name + " voice in your system's speech or language settings.";
+      return;
+    }
+    sel.disabled = false;
+    sel.innerHTML = list.map(function (v) { return "<option" + (v.name === chosen ? " selected" : "") + ">" + esc(v.name) + "</option>"; }).join("");
+  }
+
+  /* Speak text with the chosen voice and speed. */
+  function say(text, prof) {
+    return S.speak(text, prof.locale, { rate: settings.rate, voiceName: load("voice." + prof.code, null) });
+  }
+
+  /* Text to speak for a resolved line: slots with no value (a blank) take the
+   * partner's sample value (spec §3.8). */
+  function sayText(res, vals, bp, real) {
+    var sample = C.sampleValues(bp, real, 0).text, t = {};
+    Object.keys(sample).forEach(function (k) { t[k] = sample[k]; });
+    Object.keys((vals || {}).text || {}).forEach(function (k) { if (vals.text[k] !== "___") t[k] = vals.text[k]; });
+    var f = res.variants && res.variants.length ? res.variants[0] : res;
+    return C.fill(f.text, t);
   }
 
   /* ---------- site navigation (every page) ---------- */
@@ -309,21 +361,15 @@
     });
   }
 
-  /* ---------- solo (M2) ---------- */
+  /* ---------- solo (spec §4.3): the screen is in solo.js ---------- */
 
   function soloPage(run, code, id) {
     C.scenario(code, id).then(function (sc) {
       if (!alive(run)) return;
       if (!sc) return notFound("This scenario is not available in this language yet.");
-      soloPlaceholder(code, id, sc);
+      if (!window.SpeakSolo) return notFound("Solo mode did not load. Reload the page.");
+      window.SpeakSolo.start(run, code, id, sc);
     });
-  }
-  function soloPlaceholder(code, id, sc) {
-    document.title = "Solo · " + sc.blueprint.title + " · Speak";
-    $app.innerHTML = '<section class="wrap">' +
-      scenarioTrail(sc.profile, sc.blueprint.title, code, id, "solo") +
-      '<h1>Solo practice</h1><p class="lede">Solo mode, with the browser as your partner and speech checking, arrives in the next milestone (M2). ' +
-      'For now, use <a href="#' + esc(code) + "/" + esc(id) + '/class">class mode</a> or the <a href="#' + esc(code) + "/" + esc(id) + '/script">script view</a>.</p></section>';
   }
 
   /* ---------- class mode (spec §4.2) ---------- */
@@ -474,52 +520,23 @@
       else if (st.step > 0) go(st.step - 1, count(STEPS[st.step - 1].id) - 1);
     }
     function play() {
-      if (st.playText) S.speak(st.playText, prof.locale, { rate: settings.rate, voiceName: load("voice." + code, null) });
+      if (st.playText) say(st.playText, prof);
     }
 
     /* ----- toolbar ----- */
     function toolbar() {
-      var bar = el('<div class="toolbar"></div>');
-      bar.appendChild(registerControl(prof, real, st.reg, function (reg) {
-        var before = snapshot();
-        st.reg = reg;
-        render();
-        var after = snapshot();
-        Object.keys(after).forEach(function (k) { if (before[k] !== undefined && before[k] !== after[k]) st.changed[k] = true; });
-        markChanged();
-      }));
-      var toggles = el('<div class="toggles"></div>');
-      if (prof.romanization) toggles.appendChild(toggle("rom", "Romanization"));
-      toggles.appendChild(toggle("en", "English"));
-      toggles.appendChild(toggle("cueOnly", "Cue only"));
-      var rate = el('<label class="small">Speed <select>' + [0.7, 0.8, 0.9, 1].map(function (r) {
-        return '<option value="' + r + '"' + (settings.rate === r ? " selected" : "") + ">" + (r === 1 ? "1×" : r + "×") + "</option>";
-      }).join("") + "</select></label>");
-      $("select", rate).onchange = function () { settings.rate = parseFloat(this.value); saveSettings(); };
-      toggles.appendChild(rate);
-      var voice = el('<label class="small voice">Voice <select></select></label>');
-      fillVoices($("select", voice));
-      $("select", voice).onchange = function () { save("voice." + code, this.value); };
-      toggles.appendChild(voice);
-      bar.appendChild(toggles);
-      return bar;
-    }
-    function toggle(key, label) {
-      var t = el('<label class="small"><input type="checkbox"' + (settings[key] ? " checked" : "") + "> " + esc(label) + "</label>");
-      $("input", t).onchange = function () { settings[key] = this.checked; saveSettings(); render(); };
-      return t;
-    }
-    function fillVoices(sel) {
-      var list = S.voicesFor(prof.locale), chosen = load("voice." + code, null);
-      if (!S.available) { sel.innerHTML = "<option>No speech in this browser</option>"; sel.disabled = true; return; }
-      if (!list.length) {
-        sel.innerHTML = "<option>No " + esc(prof.name) + " voice</option>";
-        sel.disabled = true;
-        sel.title = "Add a " + prof.name + " voice in your system's speech or language settings.";
-        return;
-      }
-      sel.disabled = false;
-      sel.innerHTML = list.map(function (v) { return "<option" + (v.name === chosen ? " selected" : "") + ">" + esc(v.name) + "</option>"; }).join("");
+      return buildToolbar(prof, real, st.reg, {
+        cueOnly: true,
+        rerender: render,
+        onRegister: function (reg) {
+          var before = snapshot();
+          st.reg = reg;
+          render();
+          var after = snapshot();
+          Object.keys(after).forEach(function (k) { if (before[k] !== undefined && before[k] !== after[k]) st.changed[k] = true; });
+          markChanged();
+        }
+      });
     }
 
     /* ----- changed-line marker ----- */
@@ -549,7 +566,7 @@
 
     function bodyVocab() {
       var v = bp.vocab[st.idx], r = res(real.vocab[v.id]);
-      st.playText = firstText(r);
+      st.playText = sayText(r, null, bp, real);
       return '<div class="counter">' + (st.idx + 1) + " / " + bp.vocab.length + "</div>" +
         '<div class="big" data-key="v-' + esc(v.id) + '">' + target(r, prof, { en: v.en }) + "</div>" +
         playButton() + '<p class="hint">The native speaker says it. Everyone repeats.</p>';
@@ -568,7 +585,7 @@
 
     function bodyDialogue() {
       var line = bp.lines[st.idx];
-      st.playText = firstText(res(real.lines[line.id]), slotVals(null, 0));
+      st.playText = sayText(res(real.lines[line.id]), slotVals(null, 0), bp, real);
       return '<div class="counter">Line ' + (st.idx + 1) + " / " + bp.lines.length + "</div>" +
         '<ol class="dialogue">' + bp.lines.map(function (l, i) { return lineRow(l, i, { current: st.idx, notes: true }); }).join("") + "</ol>" +
         '<div class="actions">' + playButton() + '<button type="button" class="btn" id="playall">Play all</button></div>';
@@ -579,7 +596,7 @@
       var run = st.roster.runs[ri], line = bp.lines[li];
       var vals = slotVals(run[line.role], ri);
       var r = res(real.lines[line.id]);
-      st.playText = firstText(r, vals);
+      st.playText = sayText(r, vals, bp, real);
       var cue = settings.cueOnly;
       return '<div class="counter">Run ' + (ri + 1) + " / " + st.roster.runs.length + " · line " + (li + 1) + " / " + n + "</div>" +
         '<div class="pair"><span class="role a">A: ' + esc(run.A) + '</span><span class="role b">B: ' + esc(run.B) + "</span></div>" +
@@ -603,7 +620,7 @@
           target(r, prof, { en: l.en, vals: vals })) + "</div>";
       }).join("");
       var first = lines[0];
-      st.playText = first ? firstText(res(real.lines[first.id]), slotVals(it.person, 0, override)) : "";
+      st.playText = first ? sayText(res(real.lines[first.id]), slotVals(it.person, 0, override), bp, real) : "";
       var cueText = bp.slots[slot].kind === "personal" ? bp.slots[slot].cue : (it.value ? it.value.en : bp.slots[slot].cue);
       return '<div class="counter">' + (st.idx + 1) + " / " + items.length + "</div>" +
         '<p class="instruction">' + esc(bp.drill.instruction) + "</p>" +
@@ -683,7 +700,7 @@
       (function step() {
         if (token !== page.run || i >= bp.lines.length) return;
         var l = bp.lines[i++];
-        S.speak(firstText(res(real.lines[l.id]), slotVals(null, 0)), prof.locale, { rate: settings.rate, voiceName: load("voice." + code, null) })
+        say(sayText(res(real.lines[l.id]), slotVals(null, 0), bp, real), prof)
           .then(function () { setTimeout(step, 400); });
       })();
     }
@@ -691,7 +708,7 @@
     S.onVoices(function () {
       if (!alive(run)) return;
       var sel = $(".toolbar .voice select");
-      if (sel) fillVoices(sel);
+      if (sel) fillVoices(sel, prof);
     });
     setup();
   }
@@ -786,6 +803,17 @@
     });
   }
 
+  /* Shared with solo.js. */
+  window.SpeakUI = {
+    load: load, save: save, settings: settings, saveSettings: saveSettings,
+    esc: esc, el: el, $: $, $all: $all, toast: toast,
+    statusBadge: statusBadge, scenarioTrail: scenarioTrail, target: target,
+    initialRegister: initialRegister, buildToolbar: buildToolbar, fillVoices: fillVoices,
+    say: say, sayText: sayText, page: page, alive: alive, app: $app
+  };
+
+  /* Start after every script has run, so solo.js is ready. */
   window.addEventListener("hashchange", route);
-  route();
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", route);
+  else route();
 })();

@@ -238,6 +238,53 @@ section.stepbody { max-width: 1100px; margin: 0 auto; padding: 1.5rem 16px 6rem;
 .pager .where { color: var(--muted); font-size: .9rem; }
 .pager .btn { font-size: 1.05rem; padding: .6rem 1.4rem; }
 
+/* solo mode (spec §4.3), sized for a phone first */
+body.solomode .sitefoot { display: none; }
+.solohead { background: var(--surface); border-bottom: 1px solid var(--line); padding: .5rem 16px 0; }
+.solo { padding-bottom: 4rem; }
+.notice { font-size: .9rem; background: var(--accent-soft); border-radius: 8px; padding: .55rem .8rem; }
+.notice.warn { background: var(--warn-soft); color: var(--warn); }
+.roles { display: grid; gap: .5rem; max-width: 520px; }
+.rolebtn { justify-content: flex-start; text-align: left; border-radius: 10px; padding: .75rem 1rem; }
+.card { border-radius: var(--radius); padding: .9rem 1rem 1rem; margin: .8rem 0; border: 1px solid var(--line); background: var(--surface); }
+.card.me { border-color: var(--accent); }
+.card .who { font-weight: 700; font-size: .9rem; color: var(--b); }
+.card.me .who { color: var(--a); }
+.card .big { margin: .4rem 0 .6rem; padding: .9rem 1rem; }
+.card .big .tl { font-size: clamp(1.5rem, 6vw, 2.4rem); }
+.cue { font-size: clamp(1.25rem, 4.5vw, 1.7rem); font-weight: 600; margin: .3rem 0 .6rem; }
+.answer { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin: .6rem 0; }
+.answer .mic { font-size: 1.05rem; padding: .65rem 1.3rem; }
+.answer .mic.on { background: var(--b); border-color: var(--b); }
+.typed { display: flex; gap: .4rem; flex: 1 1 260px; min-width: 0; }
+.typed input { flex: 1; min-width: 0; font: inherit; padding: .5rem .7rem; border: 1px solid var(--line); border-radius: 999px; background: var(--bg); color: var(--ink); }
+.verdict { font-size: 1.15rem; margin: .3rem 0; }
+.v-good { color: var(--ok); }
+.v-nearly { color: var(--warn); }
+.v-notquite { color: #b3261e; }
+.marked { font-size: clamp(1.3rem, 5vw, 1.9rem); line-height: 1.5; }
+.marked.rom { font-size: 1.15rem; }
+.marked .m-near { text-decoration: underline wavy var(--warn); text-underline-offset: .25em; }
+.marked .m-miss { background: var(--warn-soft); color: var(--warn); border-radius: 4px; text-decoration: line-through; }
+.heard { font-size: .9rem; color: var(--muted); margin-top: .2rem; }
+.history { margin-top: .5rem; }
+.history .line { opacity: .8; }
+.history .line.me .who { color: var(--a); }
+.history .line.them .who { color: var(--b); }
+.history .line .tl { font-size: 1.15rem; }
+.goal.small { font-size: clamp(1.25rem, 4.5vw, 1.8rem); }
+.coverage { margin: .6rem 0; }
+.heardlist { margin: .4rem 0; }
+.checklist li { display: flex; gap: .6rem; align-items: flex-start; }
+.checklist .mark { flex: none; width: 1.4rem; height: 1.4rem; border-radius: 50%; border: 1.5px solid var(--line); text-align: center; line-height: 1.3rem; font-weight: 700; }
+.checklist li.tick { border-color: var(--ok); }
+.checklist li.tick .mark { background: var(--ok); border-color: var(--ok); color: var(--surface); }
+.checklist li.flag .mark { border-color: var(--warn); color: var(--warn); }
+.checklist li.unused { opacity: .6; }
+.flagmsg { font-size: .85rem; color: var(--warn); }
+.summary li { margin: .3rem 0; font-size: 1.1rem; }
+@media (prefers-color-scheme: dark) { .v-notquite { color: #f2b8b5; } }
+
 /* script view */
 body.scriptmode { background: var(--surface); }
 .script-page { max-width: 1100px; margin: 0 auto; padding: 1.2rem 16px 3rem; }

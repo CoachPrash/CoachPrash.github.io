@@ -195,6 +195,13 @@
    * A SLOT matches a run of 1..maxRun said tokens at no cost.
    * Returns { score, marks } where marks[i] is "ok", "near" or "miss" per model token. */
   function score(model, said, mode) {
+    /* Align from the end, so the back-trace runs from the start and prefers the
+     * earliest match when a word repeats (मेरा नाम … है। आपका नाम … है?). */
+    var r = align(model.slice().reverse(), said.slice().reverse(), mode);
+    return { score: r.score, marks: r.marks.reverse() };
+  }
+
+  function align(model, said, mode) {
     var maxRun = mode === "chars" ? 4 : 3;
     var m = model.length, n = said.length, i, j, k;
     var D = [], X = [], B = [];          /* cost, extra tokens absorbed by slots, back-pointer */
@@ -314,7 +321,8 @@
    *   byRegister { registerId: resolvedItem } for every allowed register
    *   selected   the selected register id
    *   labels     { registerId: label } for the wrong-register message
-   * Returns { verdict, score, wrongRegister, label, model, units } */
+   * Returns { verdict, score, wrongRegister, label, model, by, units }.
+ * by is "text" or "rom": which form the units are taken from. */
   function matchLine(saidList, byRegister, selected, prof, labels) {
     var sel = bestOf(saidList, formsOf(byRegister[selected]), prof);
     var out = { verdict: verdictOf(sel.score), score: Math.max(0, sel.score), wrongRegister: null, label: null };
@@ -332,7 +340,8 @@
     if (sel.form) {
       var shown = sel.form.model ? sel.form : formsOf(byRegister[selected])[0];
       out.model = shown;
-      out.units = markUp(shown, sel.said, prof, sel.form.model ? sel.by : "text");
+      out.by = sel.form.model ? sel.by : "text";
+      out.units = markUp(shown, sel.said, prof, out.by);
     }
     return out;
   }
