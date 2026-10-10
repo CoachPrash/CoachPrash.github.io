@@ -1,12 +1,19 @@
 # Speak — specification
 
 **Status:** M1 and M2 done. M2.5, chunks and gender, specified here for Prash's review (§3.9, §3.10, §8).
-**Version:** 0.8, 10 October 2026
+**Version:** 0.8.1, 10 October 2026
 **Brief:** `_project/sites/speak.md`
 
 This file is the build contract. When the spec and the code disagree, the spec wins, or the spec is changed first.
 
 ### Changes
+
+**0.8.1** (found while building the M2.5 screens)
+
+- `literal` glosses the default-register form, and the Notice step shows that form (§3.9).
+- Play and Play all move into class mode's fixed bottom bar, with keys P and A (§4.2). Solo's Hear it gets the same kind of bar.
+- Echo skips a build-up piece that would start with a gap, and tells the group to fill a frame's gap (§4.2 step 4).
+- A gap in a chunk may cover a `{slot}` in the line plus words around it: मेरे ___ हैं occurs in मेरे {count} भाई हैं (§3.9). The checker and `locate()` in `speech.js` share the rule.
 
 **0.8** (M2.5: chunks and gender, from `speak-proposals.md`)
 
@@ -597,11 +604,11 @@ The site does not use "vocabulary". Grammar terms appear only in the Notice step
 | Field | Type | Meaning |
 |---|---|---|
 | `kind` | `"fixed"`, `"frame"` or `"collocation"` | Optional. A chunk with `___` is a frame, and any other chunk is fixed, so only `collocation` needs to be written. The Chunks step shows the kind as a small tag |
-| `literal` | string | Optional. A word-by-word English gloss: मेरा नाम ___ है → "my name ___ is". Shown only in the Notice step and the script view |
+| `literal` | string | Optional. A word-by-word English gloss of the default-register form: मेरा नाम ___ है → "my name ___ is". Shown only in the Notice step and the script view, always with the default-register form |
 | `extra` | `true` | The chunk does not occur in the dialogue. It is shown last, under "Also useful". Use it sparingly |
 | `chain` | array of strings | Optional. The build-up pieces for the Echo step, shortest first. Each piece must be an ending of the chunk. Without `chain`, the app builds the pieces from the words. Mandarin needs `chain`, because its text has no spaces |
 
-**Rule: chunks come from the dialogue.** Every chunk that is not `extra` occurs in at least one line of the dialogue, in at least one allowed register. "Occurs" means: after punctuation is removed and case is folded, the chunk's words appear in a row in the line. `___` in the chunk matches a slot in the line, or 1–3 words. A ` / ` choice matches either word. The app uses the same test to underline the chunk where it occurs.
+**Rule: chunks come from the dialogue.** Every chunk that is not `extra` occurs in at least one line of the dialogue, in at least one allowed register. "Occurs" means: after punctuation is removed and case is folded, the chunk's words appear in a row in the line. `___` in the chunk matches 1–3 words, where a slot in the line counts as one word. A ` / ` choice matches either word. The app uses the same test to underline the chunk where it occurs.
 
 **Recycling.** A later scenario may reuse a chunk from an earlier one. The checker lists chunks that recur and where. This is information, not an error.
 
@@ -684,11 +691,13 @@ The order follows the chunking idea: hear the language, take its chunks whole, u
 1. **Goal.** The goal in large type, the roles and the role-play order. No notes yet.
 2. **Hear it.** The whole dialogue. The native speaker performs it, or Play all. Learners only listen. All lines are shown, with the current one highlighted. Play fills an empty personal slot from `partnerValues` (§3.8).
 3. **Chunks.** One chunk per screen: target text, romanization, English, and its kind in plain words (set phrase, phrase with a gap, word partners). Below it, the dialogue line where it occurs, with the chunk underlined. `extra` chunks come last, under "Also useful".
-4. **Echo.** One chunk per screen. The group says it three times after the native speaker. A chunk of four or more words is built up from its end, one piece per Next: है → क्या है → नाम क्या है → आपका नाम क्या है. The pieces come from `chain` when it is set (§3.9).
+4. **Echo.** One chunk per screen. The group says it three times after the native speaker. A chunk of four or more words is built up from its end, one piece per Next: है → क्या है → नाम क्या है → आपका नाम क्या है. A piece that would start with a gap is skipped. The pieces come from `chain` when it is set (§3.9). For a frame, the group fills the gap with any word that fits.
 5. **Role play.** The current pair's names are shown on the A and B sides. One line at a time, in the forms for the pair's genders (§3.10). Toggle: show the target text, or show only the English cue. Use the cue only to test.
 6. **Frame drill.** The next slot value's English cue, plus whose turn it is. Rotates through participants. Each drill line is a frame, and the drill swaps its gap.
 7. **Free practice.** The prompt, with the target phrases and the chunks below it for reference. No timer, no score: the native speaker listens.
 8. **Notice.** Now the grammar: each chunk with its `literal` gloss, every line note, and the scenario's notes. **Done** ends the run.
+
+**Bottom bar:** Back, the step name, Play and Next stay fixed at the bottom of the screen, so they never scroll away. Hear it adds Play all. Keys: P plays, A plays all. On a phone the Play buttons show icons only.
 
 **Display:** text is large enough to read from the back of a room. Minimum target-text size is 40px at 1280px wide. Class mode shows no scores, and nothing is recorded.
 

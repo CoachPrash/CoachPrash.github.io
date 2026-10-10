@@ -189,6 +189,72 @@
     return C.fill(f.text, t);
   }
 
+  /* ---------- chunks (spec §3.9): shared with solo.js ---------- */
+
+  var KIND = { fixed: "set phrase", frame: "phrase with a gap", collocation: "word partners" };
+  function kindLabel(item) {
+    return KIND[item.kind || (/_{2,}/.test(item.text || "") ? "frame" : "fixed")];
+  }
+
+  /* The scenario's chunks in order, with "Also useful" (extra) ones last. */
+  function chunkList(bp, real) {
+    var all = bp.chunks.map(function (c) { return { id: c.id, en: c.en, item: real.chunks[c.id] || {} }; });
+    return all.filter(function (c) { return !c.item.extra; }).concat(all.filter(function (c) { return c.item.extra; }));
+  }
+
+  /* The first dialogue line where a resolved chunk occurs, in this register,
+   * with the chunk marked. Slots show the partner's sample values. "" if none. */
+  function chunkContext(chunkRes, bp, real, prof, reg) {
+    var vals = C.sampleValues(bp, real, 0), mode = prof.match === "chars" ? "chars" : "words";
+    for (var i = 0; i < bp.lines.length; i++) {
+      var l = bp.lines[i], lr = C.resolve(real.lines[l.id], reg, prof.defaultRegister);
+      var forms = lr.variants && lr.variants.length ? lr.variants : [lr];
+      for (var j = 0; j < forms.length; j++) {
+        var span = S.locate(chunkRes.text, forms[j].text, prof);
+        if (!span) continue;
+        var html = S.units(forms[j].text, mode).map(function (u, k) {
+          var t = esc(C.fill(u.text, vals.text));
+          if (k === span.start) t = '<mark class="chunk">' + t;
+          if (k === span.end) t += "</mark>";
+          return t + esc(u.space);
+        }).join("");
+        return '<div class="context"><div class="ctx-label">In the dialogue, line ' + (i + 1) + "</div>" +
+          '<div class="tl" lang="' + esc(prof.code) + '">' + html + "</div>" +
+          (settings.rom && prof.romanization && forms[j].rom ? '<div class="rom">' + esc(C.fill(forms[j].rom, vals.rom)) + "</div>" : "") +
+          (settings.en ? '<div class="en">' + esc(C.fill(l.en, vals.en)) + "</div>" : "") + "</div>";
+      }
+    }
+    return "";
+  }
+
+  /* Echo build-up pieces: in speech.js, so the tests can reach them. */
+  var buildUp = S.buildUp;
+
+  /* The Notice step (spec §4.2 step 8): literal glosses, line notes, scenario notes. */
+  function noticeHtml(bp, real, prof, reg) {
+    var code = prof.code, vals = C.sampleValues(bp, real, 0);
+    var lits = chunkList(bp, real).map(function (c) {
+      var r = C.resolve(c.item, prof.defaultRegister, prof.defaultRegister);   /* literal glosses the default form */
+      if (!c.item.literal) return "";
+      return '<li><div class="tl" lang="' + esc(code) + '">' + esc(r.text) + "</div>" +
+        (settings.rom && prof.romanization && r.rom ? '<div class="rom">' + esc(r.rom) + "</div>" : "") +
+        '<div class="literal">Word by word: <i>' + esc(c.item.literal) + "</i></div>" +
+        '<div class="en">Means: ' + esc(c.en) + "</div></li>";
+    }).join("");
+    var lineNotes = bp.lines.map(function (l, i) {
+      var r = C.resolve(real.lines[l.id], reg, prof.defaultRegister);
+      if (!r.note) return "";
+      var f = r.variants && r.variants.length ? r.variants[0] : r;
+      return '<li><div class="tl" lang="' + esc(code) + '">' + esc(C.fill(f.text, vals.text)) + '</div><div class="note">' + esc(r.note) + "</div></li>";
+    }).join("");
+    var notes = (real.notes || []).map(function (n) { return '<li lang="' + esc(code) + '">' + esc(n) + "</li>"; }).join("");
+    if (!lits && !lineNotes && !notes) return '<p class="hint">Nothing to notice in this scenario yet.</p>';
+    return '<p class="hint">Now that the chunks feel natural, look at how they are built.</p>' +
+      (lits ? '<h3>The chunks, word by word</h3><ul class="phrases notice">' + lits + "</ul>" : "") +
+      (lineNotes ? '<h3>Notes on the dialogue</h3><ul class="phrases notice">' + lineNotes + "</ul>" : "") +
+      (notes ? "<h3>In " + esc(prof.name) + '</h3><ul class="notes">' + notes + "</ul>" : "");
+  }
+
   /* ---------- site navigation (every page) ---------- */
 
   /* Home, then one link per language. From inside a scenario, a language link
@@ -279,6 +345,7 @@
           '<section class="wrap">' +
           "<h1>Speak</h1>" +
           '<p class="lede">Scripted speaking practice for beginners. In class, a native speaker runs each scenario on one shared screen and corrects you as you speak. On your own, the browser plays your partner.</p>' +
+          '<p class="method">You learn whole chunks of language first, the way you learned your own. Grammar comes last, once the chunks feel natural.</p>' +
           '<ol class="langs">' + cards + "</ol>" +
           "</section>";
       });
@@ -324,7 +391,7 @@
           '<section class="wrap">' +
           crumbs([{ label: "Home", href: "#" }, { label: prof.name }]) +
           '<h1>' + esc(prof.name) + ' <span class="native" lang="' + esc(code) + '">' + esc(prof.native) + "</span></h1>" +
-          '<p class="lede">One scenario per stage. Each scenario runs in six steps: goal, chunks, model dialogue, role play, drill, free practice. ' +
+          '<p class="lede">One scenario per stage. Each scenario goes: hear it, chunks, echo, use them, notice. ' +
           '<a href="#' + esc(code) + '/profile">How ' + esc(prof.name) + " works in this app</a>.</p>" +
           '<ol class="ladder">' + stages + "</ol></section>";
       });
@@ -376,11 +443,13 @@
 
   var STEPS = [
     { id: "goal", label: "Goal" },
+    { id: "hear", label: "Hear it" },
     { id: "chunks", label: "Chunks" },
-    { id: "dialogue", label: "Model dialogue" },
+    { id: "echo", label: "Echo" },
     { id: "roleplay", label: "Role play" },
-    { id: "drill", label: "Drill" },
-    { id: "free", label: "Free practice" }
+    { id: "drill", label: "Frame drill" },
+    { id: "free", label: "Free practice" },
+    { id: "notice", label: "Notice" }
   ];
 
   /* Pairing rule: consecutive learners pair up and each pair runs twice with
@@ -497,7 +566,8 @@
     function count(stepId) {
       switch (stepId) {
         case "chunks": return bp.chunks.length;
-        case "dialogue": return bp.lines.length;
+        case "echo": return echoItems().length;
+        case "hear": return bp.lines.length;
         case "roleplay": return st.roster.runs.length * bp.lines.length;
         case "drill": return drillItems().length;
         default: return 1;
@@ -556,20 +626,44 @@
       var runs = st.roster.runs.map(function (r, i) {
         return "<li>Run " + (i + 1) + ": <b>" + esc(r.A) + "</b> is A, <b>" + esc(r.B) + "</b> is B</li>";
       }).join("");
-      var notes = (real.notes || []).map(function (n) { return '<li lang="' + esc(code) + '">' + esc(n) + "</li>"; }).join("");
       st.playText = "";
       return '<div class="goal">' + esc(bp.goal) + "</div>" +
-        '<div class="cols"><div><h3>Roles</h3><ul><li><b>A</b>: ' + esc(bp.roles.A) + "</li><li><b>B</b>: " + esc(bp.roles.B) + "</li></ul>" +
-        "<h3>Role play order</h3><ol>" + runs + "</ol></div>" +
-        (notes ? "<div><h3>In " + esc(prof.name) + "</h3><ul class=\"notes\">" + notes + "</ul></div>" : "") + "</div>";
+        '<div class="cols"><div><h3>Roles</h3><ul><li><b>A</b>: ' + esc(bp.roles.A) + "</li><li><b>B</b>: " + esc(bp.roles.B) + "</li></ul></div>" +
+        "<div><h3>Role play order</h3><ol>" + runs + "</ol></div></div>";
     }
 
     function bodyChunks() {
-      var v = bp.chunks[st.idx], r = res(real.chunks[v.id]);
+      var list = chunkList(bp, real), c = list[st.idx], r = res(c.item);
       st.playText = sayText(r, null, bp, real);
-      return '<div class="counter">' + (st.idx + 1) + " / " + bp.chunks.length + "</div>" +
-        '<div class="big" data-key="v-' + esc(v.id) + '">' + target(r, prof, { en: v.en }) + "</div>" +
-        playButton() + '<p class="hint">The native speaker says it. Everyone repeats.</p>';
+      return '<div class="counter">Chunk ' + (st.idx + 1) + " / " + list.length + "</div>" +
+        (c.item.extra ? '<div class="also">Also useful</div>' : "") +
+        '<div class="big" data-key="c-' + esc(c.id) + '"><span class="kind">' + esc(kindLabel(c.item)) + "</span>" + target(r, prof, { en: c.en }) + "</div>" +
+        '<div data-key="cx-' + esc(c.id) + '">' + chunkContext(r, bp, real, prof, st.reg) + "</div>" +
+        '<p class="hint">Say it whole. Do not take it apart.</p>';
+    }
+
+    /* One screen per build-up piece, chunk by chunk (spec §4.2 step 4). */
+    function echoItems() {
+      var out = [];
+      chunkList(bp, real).forEach(function (c, ci) {
+        var pieces = buildUp(res(c.item), c.item, prof);
+        pieces.forEach(function (p, pi) { out.push({ chunk: c, ci: ci, piece: p, pi: pi, n: pieces.length }); });
+      });
+      return out;
+    }
+
+    function bodyEcho() {
+      var items = echoItems(), it = items[st.idx], total = chunkList(bp, real).length;
+      var whole = it.pi === it.n - 1;
+      st.playText = it.piece.text;
+      return '<div class="counter">Chunk ' + (it.ci + 1) + " / " + total + (it.n > 1 ? " · build-up " + (it.pi + 1) + " / " + it.n : "") + "</div>" +
+        '<div class="big echo" data-key="e-' + esc(it.chunk.id) + "-" + it.pi + '">' +
+        '<div class="tl" lang="' + esc(code) + '">' + esc(it.piece.text) + "</div>" +
+        (settings.rom && prof.romanization && it.piece.rom ? '<div class="rom">' + esc(it.piece.rom) + "</div>" : "") +
+        (whole && settings.en ? '<div class="en">' + esc(it.chunk.en) + "</div>" : "") + "</div>" +
+        '<p class="hint">Everyone says it three times after the native speaker.' +
+        (it.n > 1 ? (whole ? " Now the whole chunk." : " Build it from the end.") : "") +
+        (/_{2,}/.test(it.piece.text) ? " Fill the gap with any word that fits." : "") + "</p>";
     }
 
     function lineRow(line, i, opts) {
@@ -583,12 +677,12 @@
           target(r, prof, { en: line.en, vals: vals, note: opts.notes })) + "</div></li>";
     }
 
-    function bodyDialogue() {
+    function bodyHear() {
       var line = bp.lines[st.idx];
       st.playText = sayText(res(real.lines[line.id]), slotVals(null, 0), bp, real);
       return '<div class="counter">Line ' + (st.idx + 1) + " / " + bp.lines.length + "</div>" +
-        '<ol class="dialogue">' + bp.lines.map(function (l, i) { return lineRow(l, i, { current: st.idx, notes: true }); }).join("") + "</ol>" +
-        '<div class="actions">' + playButton() + '<button type="button" class="btn" id="playall">Play all</button></div>';
+        '<p class="hint">Just listen. The native speaker performs the whole dialogue, or press Play all.</p>' +
+        '<ol class="dialogue">' + bp.lines.map(function (l, i) { return lineRow(l, i, { current: st.idx, notes: false }); }).join("") + "</ol>";
     }
 
     function bodyRoleplay() {
@@ -603,7 +697,6 @@
         '<div class="speaker">' + esc(run[line.role]) + " says:</div>" +
         '<div class="big" data-key="rp-' + esc(line.id) + '">' + (cue ? '<div class="tl en-cue">' + esc(C.fill(line.en, vals.en)) + "</div>" :
           target(r, prof, { en: line.en, vals: vals })) + "</div>" +
-        playButton() +
         '<ol class="dialogue small">' + bp.lines.map(function (l, i) {
           return lineRow(l, i, { current: li, run: run, setIndex: ri, cueOnly: true });
         }).join("") + "</ol>";
@@ -625,7 +718,7 @@
       return '<div class="counter">' + (st.idx + 1) + " / " + items.length + "</div>" +
         '<p class="instruction">' + esc(bp.drill.instruction) + "</p>" +
         '<div class="turn">Turn: <b>' + esc(it.person) + '</b> · <span class="cueword">' + esc(cueText) + "</span></div>" +
-        blocks + playButton();
+        blocks;
     }
 
     function bodyFree() {
@@ -634,13 +727,18 @@
         var r = res(((real.free || {}).targets || {})[t.id] || {});
         return '<li data-key="f-' + esc(t.id) + '">' + target(r, prof, { en: t.en }) + "</li>";
       }).join("");
-      var chunks = bp.chunks.map(function (v) {
-        return '<li data-key="fv-' + esc(v.id) + '">' + target(res(real.chunks[v.id]), prof, { en: v.en }) + "</li>";
+      var chunks = chunkList(bp, real).map(function (c) {
+        return '<li data-key="fv-' + esc(c.id) + '">' + target(res(c.item), prof, { en: c.en }) + "</li>";
       }).join("");
       return '<div class="goal">' + esc(bp.free.prompt) + "</div>" +
         '<p class="hint">No script and no timer. The native speaker listens, and notes errors for afterwards.</p>' +
         '<div class="cols"><div><h3>Phrases to use</h3><ul class="phrases">' + targets + "</ul></div>" +
         "<div><h3>Chunks</h3><ul class=\"phrases\">" + chunks + "</ul></div></div>";
+    }
+
+    function bodyNotice() {
+      st.playText = "";
+      return '<div class="goal small">Notice</div>' + noticeHtml(bp, real, prof, st.reg);
     }
 
     function bodyFinish() {
@@ -651,8 +749,13 @@
         '<a class="btn" href="#' + esc(code) + "/" + esc(id) + '/script">Script view</a></div>';
     }
 
-    function playButton() {
-      return S.available ? '<button type="button" class="btn play" id="play" title="Play (P)">▶ Play</button>' : "";
+    /* Play and Play all live in the bottom bar, so they never scroll away (spec §4.2). */
+    function playButtons(stepId) {
+      if (!S.available) return "";
+      return '<span class="plays">' +
+        (st.playText ? '<button type="button" class="btn" id="play" title="Play (P)">▶<span class="lbl"> Play</span></button>' : "") +
+        (stepId === "hear" ? '<button type="button" class="btn" id="playall" title="Play all (A)">▶▶<span class="lbl"> Play all</span></button>' : "") +
+        "</span>";
     }
 
     /* ----- render ----- */
@@ -660,7 +763,8 @@
       document.body.className = "classmode";
       var done = st.step >= STEPS.length;
       var stepId = done ? "finish" : STEPS[st.step].id;
-      var body = { goal: bodyGoal, chunks: bodyChunks, dialogue: bodyDialogue, roleplay: bodyRoleplay, drill: bodyDrill, free: bodyFree, finish: bodyFinish }[stepId]();
+      var body = { goal: bodyGoal, hear: bodyHear, chunks: bodyChunks, echo: bodyEcho, roleplay: bodyRoleplay, drill: bodyDrill,
+        free: bodyFree, notice: bodyNotice, finish: bodyFinish }[stepId]();
       var tabs = STEPS.map(function (s, i) {
         return '<button type="button" class="tab" data-step="' + i + '"' + (i === st.step ? ' aria-current="step"' : "") + ">" + (i + 1) + ". " + esc(s.label) + "</button>";
       }).join("");
@@ -675,7 +779,7 @@
       $app.appendChild(el('<section class="stepbody step-' + stepId + '">' + body + "</section>"));
       if (!done) {
         $app.appendChild(el('<footer class="pager"><button type="button" class="btn" id="back">← Back</button>' +
-          '<span class="where">' + esc(STEPS[st.step].label) + "</span>" +
+          '<span class="where">' + esc(STEPS[st.step].label) + "</span>" + playButtons(stepId) +
           '<button type="button" class="btn primary" id="next">' + (st.step === STEPS.length - 1 ? "Done" : "Next →") + "</button></footer>"));
         $("#next").onclick = next;
         $("#back").onclick = back;
@@ -693,6 +797,7 @@
         ArrowLeft: back, PageUp: back,
         p: play, P: play
       };
+      if (stepId === "hear") { page.keys.a = playAll; page.keys.A = playAll; }
     }
 
     function playAll() {
@@ -751,17 +856,18 @@
         return regIds.map(function (rid) { return "<td>" + cell(C.resolve(item, rid, prof.defaultRegister)) + "</td>"; }).join("");
       }
       var regHead = allowed.map(function (r) { return '<th lang="' + esc(code) + '">' + esc(r.label) + " <small>" + esc(r.en) + "</small></th>"; }).join("");
-      function table(head, rows) {
-        return '<div class="tscroll"><table class="script"><thead><tr><th class="ck">OK</th>' + head + regHead + '<th class="fix">Correction</th></tr></thead><tbody>' + rows + "</tbody></table></div>";
+      function table(head, rows, tail) {
+        return '<div class="tscroll"><table class="script"><thead><tr><th class="ck">OK</th>' + head + regHead + (tail || "") + '<th class="fix">Correction</th></tr></thead><tbody>' + rows + "</tbody></table></div>";
       }
       var ck = '<td class="ck"><span class="box"></span></td>', fix = '<td class="fix"></td>';
 
       var dialogue = table("<th>#</th><th>Role</th><th>English</th>", bp.lines.map(function (l, i) {
         return "<tr>" + ck + "<td>" + (i + 1) + "</td><td>" + l.role + "</td><td>" + slotMark(l.en) + "</td>" + regCells(real.lines[l.id]) + fix + "</tr>";
       }).join(""));
-      var chunks = table("<th>English</th>", bp.chunks.map(function (v) {
-        return "<tr>" + ck + "<td>" + esc(v.en) + "</td>" + regCells(real.chunks[v.id]) + fix + "</tr>";
-      }).join(""));
+      var chunks = table("<th>English</th><th>Kind</th>", chunkList(bp, real).map(function (c) {
+        return "<tr>" + ck + "<td>" + esc(c.en) + (c.item.extra ? '<div class="acc">Also useful: not in the dialogue</div>' : "") + "</td>" +
+          "<td>" + esc(kindLabel(c.item)) + "</td>" + regCells(c.item) + "<td>" + esc(c.item.literal || "") + "</td>" + fix + "</tr>";
+      }).join(""), "<th>Word by word</th>");
       var targets = ((bp.free || {}).targets || []);
       var free = '<p class="prompt">' + esc(bp.free.prompt) + "</p>" + (targets.length ? table("<th>English</th>", targets.map(function (t) {
         return "<tr>" + ck + "<td>" + esc(t.en) + "</td>" + regCells(((real.free || {}).targets || {})[t.id]) + fix + "</tr>";
@@ -794,7 +900,7 @@
         "[slot] marks a word the speaker fills in.</p>" +
         "<h2>Model dialogue</h2>" + dialogue +
         "<h2>Chunks</h2>" + chunks +
-        (slotTables ? "<h2>Drill values</h2>" + slotTables : "") +
+        (slotTables ? "<h2>Gap words</h2>" + slotTables : "") +
         "<h2>Free practice</h2>" + free +
         (notes ? "<h2>Notes</h2><ul>" + notes + "</ul>" : "") +
         (blocked ? "<h2>Formality</h2><ul>" + blocked + "</ul>" : "") +
@@ -809,7 +915,8 @@
     esc: esc, el: el, $: $, $all: $all, toast: toast,
     statusBadge: statusBadge, scenarioTrail: scenarioTrail, target: target,
     initialRegister: initialRegister, buildToolbar: buildToolbar, fillVoices: fillVoices,
-    say: say, sayText: sayText, page: page, alive: alive, app: $app
+    say: say, sayText: sayText, page: page, alive: alive, app: $app,
+    kindLabel: kindLabel, chunkList: chunkList, chunkContext: chunkContext, buildUp: buildUp, noticeHtml: noticeHtml
   };
 
   /* Start after every script has run, so solo.js is ready. */

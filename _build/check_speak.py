@@ -74,18 +74,16 @@ def tokens(text, mode):
 
 
 def occurs(chunk, line):
-    """Do the chunk's tokens appear in a row in the line? A gap matches a {slot}
-    or 1 to 3 words (1 to 4 characters in chars mode)."""
+    """Do the chunk's tokens appear in a row in the line? A gap matches 1 to 3
+    words (1 to 4 characters in chars mode). A {slot} in the line counts as one
+    word. speak/assets/speech.js locate() uses the same rule."""
     run = 4 if MODE == "chars" else 3
 
     def at(ci, li):
         if ci == len(chunk):
             return True
         if chunk[ci] == WILD:
-            if li < len(line) and line[li] == SLOT_TOKEN and at(ci + 1, li + 1):
-                return True
-            return any(at(ci + 1, li + k) for k in range(1, run + 1)
-                       if li + k <= len(line) and SLOT_TOKEN not in line[li:li + k])
+            return any(at(ci + 1, li + k) for k in range(1, run + 1) if li + k <= len(line))
         return li < len(line) and line[li] == chunk[ci] and at(ci + 1, li + 1)
 
     return any(at(0, i) for i in range(len(line)))

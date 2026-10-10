@@ -129,6 +129,36 @@
     expectPhrase("free: not said", g, t["how-are-you"], "formal", "मेरा नाम प्रश है", false);
     expectPhrase("free: chunk with a gap", g, g.real.chunks["my-name-is"], "formal", "हाँ मेरा नाम प्रश है", true);
     expectPhrase("free: chunk with a choice (रहता / रहती)", w, w.real.chunks["i-live-in"], "formal", "मैं दिल्ली में रहती हूँ", true);
+    /* where a chunk sits in a line (spec §3.9) */
+    function expectLocate(name, sc, chunkText, lineId, reg, want) {
+      var r = C.resolve(sc.real.lines[lineId], reg, sc.profile.defaultRegister);
+      var f = r.variants && r.variants.length ? r.variants[0] : r;
+      var span = S.locate(chunkText, f.text, sc.profile);
+      var us = S.units(f.text, sc.profile.match === "chars" ? "chars" : "words");
+      var got = span ? us.slice(span.start, span.end + 1).map(function (u) { return u.text; }).join(" ") : "(not found)";
+      results.push({ name: "locate: " + name, said: chunkText + " in " + lineId, want: want, got: got, ok: got === want });
+    }
+    expectLocate("frame across a slot", f, "मेरे ___ हैं", "l2", "formal", "मेरे {count} भाई हैं");
+    expectLocate("question frame", f, "क्या आपके ___ हैं?", "l1", "formal", "क्या आपके भाई-बहन हैं?");
+    expectLocate("collocation inside a word unit", f, "भाई-बहन", "l1", "formal", "भाई-बहन");
+    expectLocate("gap word in requests", q, "मुझे ___ दीजिए", "l3", "formal", "मुझे {item} दीजिए।");
+    expectLocate("choice ( / ) and gender", w, "आप क्या करते / करती हैं?", "l3", "formal", "आप क्या करते हैं?");
+    expectLocate("familiar register", g, "तुम्हारा नाम क्या है?", "l3", "familiar", "तुम्हारा नाम क्या है?");
+    expectLocate("not in this line", g, "फिर मिलेंगे", "l1", "formal", "(not found)");
+    expectLocate("zh chars mode", zh, "我叫___", "l3", "familiar", "我 叫 {name}");
+
+    /* Echo build-up pieces (spec §4.2 step 4) */
+    function expectBuildUp(name, sc, chunkId, reg, want) {
+      var item = sc.real.chunks[chunkId], r = C.resolve(item, reg, sc.profile.defaultRegister);
+      var got = S.buildUp(r, item, sc.profile).map(function (p) { return p.text; }).join(" → ");
+      results.push({ name: "build-up: " + name, said: r.text, want: want, got: got, ok: got === want });
+    }
+    expectBuildUp("four Hindi words", g, "your-name", "formal", "है? → क्या है? → नाम क्या है? → आपका नाम क्या है?");
+    expectBuildUp("no piece starts with a gap", f, "do-you-have", "formal", "हैं? → आपके ___ हैं? → क्या आपके ___ हैं?");
+    expectBuildUp("short chunk: no build-up", g, "me-too", "formal", "मुझे भी");
+    expectBuildUp("French space before ? is not a word", fr, "your-name", "formal", "comment vous appelez-vous ?");
+    expectBuildUp("Mandarin without a chain", zh, "your-name", "familiar", "你叫什么名字？");
+
     /* French and Mandarin, greetings */
     expectLine("fr: Salut while vous selected", fr, line(fr, "l1"), "formal", "Salut", "nearly", "familiar");
     expectLine("fr: Bonjour while tu selected (accepted)", fr, line(fr, "l1"), "familiar", "Bonjour", "good");

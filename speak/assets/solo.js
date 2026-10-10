@@ -28,7 +28,9 @@
 
     var st = {
       reg: U.initialRegister(prof, real),
-      phase: "setup",           /* setup, turns, free, end */
+      phase: "setup",           /* setup, hear, echo, turns, free, notice, end (spec §4.3) */
+      echo: { idx: 0, best: {} },
+      heardPlayed: false,
       plan: [], idx: 0,
       attempt: null,            /* last result on the current turn */
       showAnswer: false,
@@ -220,10 +222,10 @@
     /* ---------- screens ---------- */
 
     function setupBody() {
-      var notes = (real.notes || []).map(function (n) { return '<li lang="' + esc(code) + '">' + esc(n) + "</li>"; }).join("");
       var body = el('<section class="wrap solo"><h1>' + esc(bp.title) + '</h1><p class="lede">' + esc(bp.goal) + "</p>" + notices() +
         "<h2>Pick your role</h2><p class=\"hint\">The browser speaks the other part. You answer each of your lines by speaking or typing.</p>" +
-        '<div class="roles"></div>' + (notes ? "<h3>In " + esc(prof.name) + "</h3><ul class=\"notes\">" + notes + "</ul>" : "") + "</section>");
+        '<div class="roles"></div>' +
+        '<p class="hint method">You will hear the dialogue, echo its chunks, then use them in the conversation. Grammar comes last.</p></section>');
       var roles = $(".roles", body);
       [["A", "A: " + bp.roles.A], ["B", "B: " + bp.roles.B], ["both", "Both, one after the other"]].forEach(function (r) {
         var b = el('<button type="button" class="btn rolebtn">' + esc(r[1]) + "</button>");
@@ -231,7 +233,9 @@
           st.plan = buildPlan(r[0]);
           st.idx = 0; st.attempt = null; st.showAnswer = false; st.played = {};
           st.free = { ticks: {}, flags: {}, heard: [], done: false };
-          st.phase = st.plan.length ? "turns" : "free";
+          st.echo = { idx: 0, best: {} };
+          st.heardPlayed = false;
+          st.phase = "hear";
           render();
         };
         roles.appendChild(b);
@@ -242,7 +246,7 @@
     function progress(turn) {
       if (turn.kind === "drill") {
         var drills = st.plan.filter(function (t) { return t.kind === "drill"; });
-        return "Drill · " + (drills.indexOf(turn) + 1) + " of " + drills.length;
+        return "Frame drill · " + (drills.indexOf(turn) + 1) + " of " + drills.length;
       }
       var runs = st.plan.filter(function (t) { return t.kind === "dialogue" && t.run === turn.run; });
       var both = st.plan.some(function (t) { return t.run === 1; });
@@ -295,6 +299,15 @@
       return card;
     }
 
+    /* Verdict, marked model and what was heard (§4.3 step 4). */
+    function resultBox(a, vals) {
+      return '<div class="verdict v-' + a.verdict + '"><b>' + VERDICT[a.verdict] + "</b>" + (a.wrongRegister ? "" : " " + Math.round(a.score * 100) + "%") +
+        (a.wrongRegister ? ' · That was the <span lang="' + esc(code) + '">' + esc(a.label) + "</span> form." : "") + "</div>" +
+        "<div>" + marked(a, vals) +
+        (settings.rom && a.by !== "rom" && a.model && a.model.rom ? '<div class="rom">' + esc(C.fill(a.model.rom, vals.rom)) + "</div>" : "") +
+        '<div class="heard">Heard: <span lang="' + esc(code) + '">' + esc(a.said) + "</span></div></div>";
+    }
+
     function learnerTurn(turn) {
       var item = real.lines[turn.line.id], r = res(item), vals = valsFor(turn, false);
       var cue = C.fill(turn.line.en, vals.en);
@@ -314,13 +327,7 @@
       }
 
       var a = st.attempt;
-      if (a) {
-        $(".result", card).appendChild(el('<div class="verdict v-' + a.verdict + '"><b>' + VERDICT[a.verdict] + "</b> " + Math.round(a.score * 100) + "%" +
-          (a.wrongRegister ? ' · That was the <span lang="' + esc(code) + '">' + esc(a.label) + "</span> form." : "") + "</div>"));
-        $(".result", card).appendChild(el("<div>" + marked(a, vals) +
-          (settings.rom && a.by !== "rom" && a.model && a.model.rom ? '<div class="rom">' + esc(C.fill(a.model.rom, vals.rom)) + "</div>" : "") +
-          '<div class="heard">Heard: <span lang="' + esc(code) + '">' + esc(a.said) + "</span></div></div>"));
-      }
+      if (a) $(".result", card).innerHTML = resultBox(a, vals);
       $(".answer-slot", card).appendChild(answerControls(onSaid, typedHint()));
 
       var more = $(".more", card);
@@ -340,6 +347,99 @@
       return card;
     }
 
+    /* ---------- hear it (§4.3): the whole dialogue, played once ---------- */
+
+    function playAll() {
+      var at = st.phase, i = 0, vals = C.sampleValues(bp, real, 0);
+      (function step() {
+        if (!U.alive(run) || st.phase !== at || i >= bp.lines.length) return;
+        var r = res(real.lines[bp.lines[i++].id]);
+        U.say(U.sayText(r, vals, bp, real), prof).then(function () { setTimeout(step, 400); });
+      })();
+    }
+
+    function hearBody() {
+      var vals = C.sampleValues(bp, real, 0);
+      var body = el('<section class="wrap solo"><div class="counter">Hear it</div>' + notices() +
+        '<p class="hint">Just listen to the whole dialogue first. Read along if you like.</p>' +
+        '<ol class="dialogue small history">' + bp.lines.map(function (l) {
+          var r = res(real.lines[l.id]);
+          return '<li class="line" data-key="hr-' + esc(l.id) + '"><span class="who">' + esc(l.role) + '</span><div class="body">' +
+            U.target(r, prof, { en: l.en, vals: vals }) + "</div></li>";
+        }).join("") + '</ol><div class="solobar"></div></section>');
+      var acts = $(".solobar", body);
+      if (hasVoice()) {
+        var p = el('<button type="button" class="btn">▶ Play all</button>');
+        p.onclick = playAll;
+        acts.appendChild(p);
+      }
+      var nx = el('<button type="button" class="btn primary">Next: echo the chunks →</button>');
+      nx.onclick = function () { S.stop(); st.phase = "echo"; st.echo.idx = 0; st.attempt = null; render(); };
+      acts.appendChild(nx);
+      if (hasVoice() && !st.heardPlayed) { st.heardPlayed = true; playAll(); }
+      return body;
+    }
+
+    /* ---------- echo (§4.3): each chunk, heard then said ---------- */
+
+    function echoBody() {
+      var list = U.chunkList(bp, real), c = list[st.echo.idx], r = res(c.item);
+      var none = { text: {}, rom: {}, en: {} };
+      var pieces = U.buildUp(r, c.item, prof);
+      var card = el('<div class="card me">' + (c.item.extra ? '<div class="also">Also useful</div>' : "") +
+        '<div class="big" data-key="ec-' + esc(c.id) + '"><span class="kind">' + esc(U.kindLabel(c.item)) + "</span>" + U.target(r, prof, { en: c.en }) + "</div>" +
+        '<div data-key="ecx-' + esc(c.id) + '">' + U.chunkContext(r, bp, real, prof, st.reg) + "</div>" +
+        (pieces.length > 1 ? '<div class="buildup"><div class="ctx-label">Build it from the end</div></div>' : "") +
+        '<p class="hint">Hear it, then say the whole chunk.' + (/_{2,}/.test(r.text || "") ? " Fill the gap with any word that fits." : "") + "</p>" +
+        '<div class="answer-slot"></div><div class="result"></div><div class="actions more"></div></div>');
+      if (pieces.length > 1) {
+        var bu = $(".buildup", card);
+        pieces.forEach(function (pc) {
+          var b = el('<button type="button" class="btn small piece" lang="' + esc(code) + '">' + (hasVoice() ? "▶ " : "") + esc(pc.text) + "</button>");
+          b.onclick = function () { if (hasVoice()) U.say(pc.text, prof); };
+          bu.appendChild(b);
+        });
+      }
+      function onSaid(alts) {
+        var m = S.matchLine(alts, byReg(c.item), st.reg, prof, labels);
+        m.said = alts[0];
+        st.attempt = m;
+        if (RANK[m.verdict] > RANK[st.echo.best[c.id] || "skipped"]) st.echo.best[c.id] = m.verdict;
+        render();
+      }
+      if (st.attempt) $(".result", card).innerHTML = resultBox(st.attempt, none);
+      $(".answer-slot", card).appendChild(answerControls(onSaid, typedHint()));
+      var more = $(".more", card);
+      function btn(label, fn, primary) {
+        var b = el('<button type="button" class="btn' + (primary ? " primary" : "") + '">' + label + "</button>");
+        b.onclick = fn;
+        more.appendChild(b);
+      }
+      if (hasVoice()) btn("▶ Hear it", function () { U.say(U.sayText(r, null, bp, real), prof); });
+      if (st.attempt) btn("Try again", function () { st.attempt = null; render(); });
+      btn(st.echo.idx < list.length - 1 ? "Next chunk →" : "Next: the conversation →", function () {
+        S.stop(); S.stopListening();
+        st.attempt = null; st.changed = {};
+        if (st.echo.idx < list.length - 1) st.echo.idx++;
+        else st.phase = st.plan.length ? "turns" : "free";
+        render();
+      }, true);
+      var body = el('<section class="wrap solo"><div class="counter">Echo · chunk ' + (st.echo.idx + 1) + " of " + list.length + "</div>" + notices() + "</section>");
+      body.appendChild(card);
+      return body;
+    }
+
+    /* ---------- notice (§4.3) ---------- */
+
+    function noticeBody() {
+      var body = el('<section class="wrap solo"><div class="counter">Notice</div>' + U.noticeHtml(bp, real, prof, st.reg) +
+        '<div class="actions"></div></section>');
+      var b = el('<button type="button" class="btn primary">See summary →</button>');
+      b.onclick = function () { st.phase = "end"; render(); };
+      $(".actions", body).appendChild(b);
+      return body;
+    }
+
     function turnsBody() {
       var turn = st.plan[st.idx];
       var body = el('<section class="wrap solo"><div class="counter">' + esc(progress(turn)) + "</div>" + notices() + history(turn) + "</section>");
@@ -354,7 +454,7 @@
       ((bp.free || {}).targets || []).forEach(function (t) {
         out.push({ key: "t-" + t.id, en: t.en, item: ((real.free || {}).targets || {})[t.id] || {} });
       });
-      bp.chunks.forEach(function (v) { out.push({ key: "v-" + v.id, en: v.en, item: real.chunks[v.id] || {} }); });
+      U.chunkList(bp, real).forEach(function (c) { out.push({ key: "v-" + c.id, en: c.en, item: c.item }); });
       return out;
     }
 
@@ -400,8 +500,8 @@
         d.onclick = function () { S.stopListening(); f.done = true; render(); };
         acts.appendChild(d);
       } else {
-        var e = el('<button type="button" class="btn primary">See summary →</button>');
-        e.onclick = function () { st.phase = "end"; render(); };
+        var e = el('<button type="button" class="btn primary">Next: notice →</button>');
+        e.onclick = function () { st.phase = "notice"; render(); };
         acts.appendChild(e);
       }
       return body;
@@ -418,8 +518,11 @@
       }
       var list = phrases(), used = list.filter(function (p) { return st.free.ticks[p.key]; });
       var unused = list.filter(function (p) { return !st.free.ticks[p.key]; });
+      var chunks = U.chunkList(bp, real);
+      var echoGood = chunks.filter(function (c) { return st.echo.best[c.id] === "good"; }).length;
       var body = el('<section class="wrap solo"><h1>Done</h1><ul class="summary">' +
-        line("dialogue", "Dialogue") + line("drill", "Drill") +
+        "<li>Echo: <b>" + echoGood + " of " + chunks.length + "</b> chunks said well</li>" +
+        line("dialogue", "Dialogue") + line("drill", "Frame drill") +
         "<li>Free practice: <b>" + used.length + " of " + list.length + "</b> phrases used</li></ul>" +
         (unused.length ? "<h3>Phrases to try next time</h3><ul class=\"phrases\">" + unused.map(function (p) {
           return "<li>" + U.target(res(p.item), prof, { en: p.en }) + "</li>";
@@ -440,7 +543,7 @@
       var y = window.scrollY;
       $app.innerHTML = "";
       $app.appendChild(head());
-      var body = { setup: setupBody, turns: turnsBody, free: freeBody, end: endBody }[st.phase]();
+      var body = { setup: setupBody, hear: hearBody, echo: echoBody, turns: turnsBody, free: freeBody, notice: noticeBody, end: endBody }[st.phase]();
       $app.appendChild(body);
       markChanged();
       window.scrollTo(0, st.phase === "turns" ? document.body.scrollHeight : y);

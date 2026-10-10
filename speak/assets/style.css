@@ -236,7 +236,28 @@ section.stepbody { max-width: 1100px; margin: 0 auto; padding: 1.5rem 16px 6rem;
   padding: .6rem 16px; background: var(--surface); border-top: 1px solid var(--line);
 }
 .pager .where { color: var(--muted); font-size: .9rem; }
-.pager .btn { font-size: 1.05rem; padding: .6rem 1.4rem; }
+.pager .plays { display: flex; gap: .5rem; margin-left: auto; }
+.pager .plays + .btn { margin-left: 0; }
+.solobar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 5; display: flex; justify-content: flex-end; gap: .5rem;
+  padding: .6rem 16px; background: var(--surface); border-top: 1px solid var(--line);
+}
+.pager .btn { font-size: 1.05rem; padding: .6rem 1.4rem; white-space: nowrap; }
+
+/* chunks (spec §3.9) */
+.method { font-size: 1.05rem; border-left: 4px solid var(--accent); padding: .3rem 0 .3rem .8rem; margin: 0 0 1rem; }
+.kind { display: inline-block; font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--accent); background: var(--accent-soft); border-radius: 999px; padding: .1rem .55rem; margin-bottom: .3rem; }
+.also { display: inline-block; font-size: .78rem; font-weight: 700; color: var(--warn); background: var(--warn-soft); border-radius: 999px; padding: .1rem .6rem; margin-bottom: .4rem; }
+.context { border-left: 3px solid var(--line); padding: .2rem 0 .2rem .8rem; margin: .4rem 0 .8rem; }
+.context .tl { font-size: clamp(1.2rem, 2.6vw, 1.8rem); line-height: 1.5; }
+.ctx-label { font-size: .78rem; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; }
+mark.chunk { background: transparent; color: inherit; text-decoration: underline 3px var(--accent); text-underline-offset: .25em; font-weight: 600; }
+.big.echo .tl { font-size: clamp(2.2rem, 6vw, 4.4rem); }
+.buildup { display: flex; flex-wrap: wrap; gap: .4rem; align-items: center; margin: .4rem 0; }
+.buildup .ctx-label { width: 100%; }
+.piece { font-size: 1.05rem; }
+.notice li { display: block; }
+.literal { margin-top: .2rem; }
 
 /* solo mode (spec §4.3), sized for a phone first */
 body.solomode .sitefoot { display: none; }
@@ -316,6 +337,9 @@ table.script .fix { width: 22%; }
   .sitenav .about { margin-left: 0; }
   body { font-size: 16px; }
   .pager .where { display: none; }
+  .pager .plays .lbl { display: none; }
+  .pager { gap: .5rem; }
+  .pager .btn { padding: .55rem .95rem; font-size: 1rem; }
   .stage { gap: .6rem; }
 }
 

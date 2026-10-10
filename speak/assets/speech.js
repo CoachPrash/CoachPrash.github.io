@@ -346,6 +346,72 @@
     return out;
   }
 
+  /* ================================================================ chunks (§3.9) */
+
+  /* Where a chunk sits in a line: { start, end }, indexes of the line's display
+   * units (units(lineText)), or null. The chunk's words must appear in a row. A gap
+   * (___) matches 1–3 words, or 1–4 characters in chars mode; a {slot} in the line
+   * counts as one word. The checker uses the same rule. */
+  function locate(chunkText, lineText, prof) {
+    var mode = prof.match === "chars" ? "chars" : "words", run = mode === "chars" ? 4 : 3;
+    var lt = [], owner = [];
+    units(lineText, mode).forEach(function (u, ui) {
+      tokens(normalise(u.text, prof, "script"), mode).forEach(function (t) { lt.push(t); owner.push(ui); });
+    });
+    function at(ct, ci, li) {      /* end index (exclusive) of a match from li, or -1 */
+      if (ci === ct.length) return li;
+      if (ct[ci] === SLOT) {
+        for (var k = 1; k <= run && li + k <= lt.length; k++) {
+          var e = at(ct, ci + 1, li + k);
+          if (e !== -1) return e;
+        }
+        return -1;
+      }
+      return li < lt.length && lt[li] === ct[ci] ? at(ct, ci + 1, li + 1) : -1;
+    }
+    var choices = expandChoices(chunkText);
+    for (var c = 0; c < choices.length; c++) {
+      var ct = tokens(normalise(choices[c], prof, "script"), mode);
+      if (!ct.length) continue;
+      for (var i = 0; i < lt.length; i++) {
+        var end = at(ct, 0, i);
+        if (end !== -1) return { start: owner[i], end: owner[end - 1] };
+      }
+    }
+    return null;
+  }
+
+  /* Echo build-up pieces for a resolved chunk (spec §4.2 step 4), shortest first,
+   * ending with the whole chunk: its chain when that fits this register, else the
+   * endings by word for chunks of 4 or more words. A word is something with a
+   * letter, digit or gap in it: French "appelez-vous ?" keeps its "?" with the word
+   * before. No piece starts with a gap. Mandarin builds up only from a chain. */
+  function buildUp(res, item, prof) {
+    var text = res.text || "", rom = res.rom || "";
+    var norm = function (t) { return normalise(t, prof, "script"); };
+    var chain = (item && item.chain) || [];
+    if (chain.length && chain.every(function (p) { var a = norm(text), b = norm(p); return a.slice(a.length - b.length) === b; })) {
+      var out = chain.map(function (p) { return { text: p, rom: "" }; });
+      if (norm(chain[chain.length - 1]) !== norm(text)) out.push({ text: text, rom: rom });
+      else out[out.length - 1] = { text: text, rom: rom };
+      return out;
+    }
+    function words(t) {
+      var ws = [];
+      String(t).trim().split(/\s+/).forEach(function (w) {
+        if (ws.length && !/[\p{L}\p{N}_]/u.test(w)) ws[ws.length - 1] += " " + w;
+        else if (w) ws.push(w);
+      });
+      return ws;
+    }
+    var w = words(text), rw = words(rom);
+    if (prof.match === "chars" || w.length < 4) return [{ text: text, rom: rom }];
+    return w.map(function (x, i) {
+      var n = i + 1;
+      return { text: w.slice(w.length - n).join(" "), rom: rw.length === w.length ? rw.slice(rw.length - n).join(" ") : (n === w.length ? rom : "") };
+    }).filter(function (p, i) { return i === w.length - 1 || !/^_{2,}/.test(p.text); });
+  }
+
   /* ================================================================ coverage (§5.3) */
 
   /* Best score of a phrase's forms against any run of tokens in one transcript. */
@@ -400,6 +466,9 @@
     /* matching */
     normalise: normalise,
     tokens: tokens,
+    units: units,
+    locate: locate,
+    buildUp: buildUp,
     score: score,
     formsOf: formsOf,
     matchLine: matchLine,
