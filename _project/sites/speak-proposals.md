@@ -138,10 +138,10 @@ Chrome on Windows offers the Microsoft voices installed on the system, plus Goog
 ## Decisions (Prash, 10 October 2026)
 
 1. **M2.5, chunks and gender, comes before M3.**
-2. **The JSON key stays `vocab`.** The app calls it "Chunks". Schema stays 1. New optional fields: `kind`, `literal`.
+2. **Chunk all the way.** First decided as "keep the key `vocab`", then revised the same day: the key becomes `chunks` and schema becomes 2, because M2.5 rewrites every list anyway. On the site, "chunk" is the main term, "word" means only a gap filler, and "vocabulary" is not used. The site tells students that chunking is the method.
 3. **Gender per person: woman, man, or blank.** Blank shows both forms. Never guessed from a name. Stored on the device only.
 4. **Images:** Claude draws the item icons and avatars as SVG. One sample scene first, then a decision on scene art.
 5. **Review is stateless for now.** Spaced repetition is decided later.
 6. **Notes and `literal` glosses go in a final "Notice" step only.** Script view still shows everything.
 
-Next: spec 0.8 for M2.5, for Prash's review before any code.
+These are now in spec 0.8 (§3.9, §3.10, §4.2, §4.3, §8). The spec is the contract from here on.

@@ -40,9 +40,15 @@ Nothing here is generated. There is no build step.
 3. **No frameworks, no bundlers, no dependencies.** The tools must still work untouched in five years. If a change seems to need tooling, raise it rather than adding it.
 4. **Run `python _build/check_speak.py` before every commit that touches `speak/content/`.** It must print OK.
 5. **LF line endings.** `.gitattributes` enforces them.
-6. **Claude does not run git commands that change the repo** (add, commit, push, checkout) through its shell on this machine. That shell cannot delete files without a permission grant, so git leaves stale lock files behind. Read-only git uses `git --no-optional-locks`. Prash commits and pushes.
+6. **Claude commits, Prash pushes.** Claude's shell runs in a Linux VM on Prash's PC, with this folder mounted.
+   - Before a commit, Claude names the files and the one-line message, and waits for Prash's go.
+   - On go, Claude runs the checker if `speak/content/` changed, then `git add` with named files, then `git commit`, and shows `git log --oneline -1`.
+   - Never `git add -A`. Never push, checkout, reset, rebase or amend.
+   - Git deletes its own lock files, so the shell needs delete permission on this folder. Claude asks for it once per session and uses it only for git.
+   - The VM has no GitHub login, so Prash runs `git push`.
+   - Read-only git uses `git --no-optional-locks`.
 7. **Never let another repo in the CoachPrash account be named like a folder here** (for example `speak`). A project repo named X claims coachprash.github.io/X/ while it exists.
-8. **After each change that needs a commit, Claude gives the full set of commands** for PowerShell: `cd`, checker if needed, `git status`, `git add` with named files, `git commit`, `git push`. Each command goes in its own code block, so Prash can copy them one at a time. Commit messages are one line.
+8. **After each commit, Claude gives Prash the push command** in its own code block. If Claude cannot commit (no delete permission, no shell), it gives the full set for PowerShell instead: `cd`, checker if needed, `git status`, `git add` with named files, `git commit`, `git push`. Each command goes in its own code block. Commit messages are one line.
 
 ## Writing style
 
@@ -72,7 +78,7 @@ Windows, PowerShell: use `curl.exe`, not `curl`. `robocopy` exit code 1 means su
 cd C:\Users\ipras\OneDrive\Documents\Claude\CoachPrash.github.io
 python _build\check_speak.py
 python -m http.server          # then open http://localhost:8000/speak/ and /_build/test_speech.html
-git add -A
+git add <named files>         # never -A
 git status
 git commit -m "..."
 git push

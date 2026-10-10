@@ -14,6 +14,6 @@ Rules that hold regardless of what you have read:
 2. Asset paths stay relative (assets/style.css, never /assets/style.css).
 3. No frameworks, bundlers or dependencies. If a change seems to need tooling, raise it rather than adding it.
 4. Run python _build/check_speak.py before any commit that touches speak/content/.
-5. Do not run git commands that change the repo. Prash commits and pushes.
+5. Commit only after I say go: git add with named files, then git commit. Never push, checkout, reset or rebase. I run git push.
 
 Tell me plainly when I am wrong or when what I asked for is weaker than the alternative. Do not flatter the work.

@@ -8,7 +8,7 @@
 
 ## What it is
 
-Speak is speaking practice for beginners. It uses short, progressive, scripted scenarios in Hindi, French and Mandarin Chinese. In class, a native speaker drives one shared screen and corrects learners live. Alone, a learner practises against the browser's speech synthesis and recognition.
+Speak is speaking practice for beginners. It uses short, progressive, scripted scenarios in Hindi, French and Mandarin Chinese. Its method is **chunking**, after Michael Lewis's Lexical Approach: learners take in whole chunks of language first and notice the grammar last. The site says so to students, and uses "chunk" throughout, never "vocabulary" (spec §3.9, §4.1). In class, a native speaker drives one shared screen and corrects learners live. Alone, a learner practises against the browser's speech synthesis and recognition.
 
 This was "Language Conversation" in the open-items list.
 
@@ -52,7 +52,7 @@ The spec is `_project/sites/speak-spec.md`. It is the build contract: read it be
 
 ## Open items
 
-- Next: decide on `speak-proposals.md` (chunks, gender, images). The proposal puts M2.5 before M3, French and Mandarin stages 1–4.
+- Next: M2.5, chunks and gender (spec 0.8, §3.9, §3.10). Then M3, French and Mandarin stages 1–4, drafted chunk-first.
 - Prash to review the Hindi script views (print → PDF) and mark verified ones.
 - Hindi romanization is Prash's ASCII scheme (spec §3.3). All Hindi content follows it.
 - Milestones M2 to M4 in the spec.

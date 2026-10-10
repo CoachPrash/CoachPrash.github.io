@@ -1,12 +1,23 @@
 # Speak — specification
 
-**Status:** M1 done (4 October 2026). M2 done (10 October 2026): Prash's spoken test in Chrome passed. Proposals for chunks, gender and images: `speak-proposals.md`.
-**Version:** 0.7.3, 10 October 2026
+**Status:** M1 and M2 done. M2.5, chunks and gender, specified here for Prash's review (§3.9, §3.10, §8).
+**Version:** 0.8, 10 October 2026
 **Brief:** `_project/sites/speak.md`
 
 This file is the build contract. When the spec and the code disagree, the spec wins, or the spec is changed first.
 
 ### Changes
+
+**0.8** (M2.5: chunks and gender, from `speak-proposals.md`)
+
+- **Chunks** (§3.9). Chunking is Speak's main method, and the site says so (§4.1). The vocabulary lists become lists of chunks: whole phrases as used. The key `vocab` becomes `chunks`, in blueprints and realizations, so **schema becomes 2** for every file. New optional fields: `kind`, `literal`, `extra`, `chain`. Every chunk must occur in the dialogue, unless it is marked `extra`.
+- **Terms on the site** (§3.9): "chunk" for what learners learn whole, "word" only for the single items that fill a gap. "Vocabulary" is not used.
+- **Class steps** (§4.2): Goal, Hear it, Chunks, Echo, Role play, Frame drill, Free practice, Notice. Notes and literal glosses move to Notice.
+- **Solo steps** (§4.3) follow the same order.
+- **Gender** (§3.10). Variants get `speaker` and `listener` fields. Class names and the solo learner get an optional gender. Blank shows both forms. A form for the other gender scores Nearly, like the wrong register (§5.2 step 6).
+- **Voices** (§4.5): one voice picker for women's lines and one for men's lines.
+- **Storage** (§6): the roster holds genders; settings hold the learner's gender; voice keys split by gender.
+- **Milestones** (§8): M2.5 before M3. M3.5 adds images. M4 adds a stateless Review mode.
 
 **0.7.3** (no change to behaviour)
 
@@ -105,6 +116,8 @@ First languages: **Hindi** (Prash teaches it), **French** and **Mandarin Chinese
 | Native speaker in class | Corrects. Takes a role only to partner a learner left without one |
 | Romanization | Hindi: Prash's ASCII scheme, easy to type (§3.3). Mandarin: Hanyu Pinyin with tone marks. French: none |
 | Register | Switch per scenario. Hindi आप / तुम / तू, French vous / tu, Mandarin 您 / 你 |
+| Chunks | Learners meet language as whole chunks first, and notice grammar last (after Michael Lewis's Lexical Approach). §3.9 |
+| Gender | Optional per person: woman, man or blank. Blank shows both forms. Never guessed from a name. §3.10 |
 | Timers | None anywhere |
 | Reviewer output | Print view. PDF through the browser's Print → Save as PDF |
 | UI language | English |
@@ -137,13 +150,13 @@ speak/content/
 
 Language codes: `hi`, `fr`, `zh`. Scenario ids: lowercase, hyphenated, permanent. **Ids are load-bearing:** they appear in URLs (`#hi/greetings`) and in the checker. Do not rename one after it ships.
 
-Every file carries `"schema": 1`. A change that breaks old files increments it.
+Every file carries `"schema": 2`. A change that breaks old files increments it. Schema 2 (spec 0.8) renamed `vocab` to `chunks`, and the checker rejects schema 1 files.
 
 ### 3.1 `ladder.json`
 
 ```json
 {
-  "schema": 1,
+  "schema": 2,
   "languages": ["hi", "fr", "zh"],
   "stages": [
     { "stage": 1, "level": "A1", "title": "Greetings & self-introduction", "scenarios": ["greetings"] },
@@ -165,7 +178,7 @@ Every file carries `"schema": 1`. A change that breaks old files increments it.
 
 | Field | Type | Required | Meaning |
 |---|---|---|---|
-| `schema` | 1 | yes | |
+| `schema` | 2 | yes | |
 | `id` | string | yes | Matches the file name |
 | `title` | string | yes | English title |
 | `goal` | string | yes | One sentence. What the learner can do after this scenario |
@@ -176,9 +189,9 @@ Every file carries `"schema": 1`. A change that breaks old files increments it.
 | `lines[].role` | `"A"` or `"B"` | yes | Who says it |
 | `lines[].en` | string | yes | English text. Slots written as `{name}` |
 | `lines[].addressesYou` | boolean | no | True when the English speaks to the other person ("you", "your", a command). Each language must then say how it handles every register (§3.4) |
-| `vocab` | array | yes | 5 to 10 items: `{ "id": "...", "en": "...", "addressesYou": bool }` |
+| `chunks` | array | yes | 5 to 10 chunks (§3.9): `{ "id": "...", "en": "...", "addressesYou": bool }`. The `en` is the chunk's meaning, not a word-for-word gloss |
 | `drill` | object | yes | `{ "slot": "<slot name>", "instruction": "..." }` |
-| `free` | object | yes | `{ "prompt": "...", "targets": [ { "id", "en", "addressesYou" } ] }`. No time limit. `targets` are the new phrases the prompt asks for. They are optional, and scored with the vocabulary in solo mode (§5.3) |
+| `free` | object | yes | `{ "prompt": "...", "targets": [ { "id", "en", "addressesYou" } ] }`. No time limit. `targets` are the new phrases the prompt asks for. They are optional, and scored with the chunks in solo mode (§5.3) |
 
 **Slots.** Each slot has a `kind`:
 
@@ -191,7 +204,7 @@ Each slot has a `cue`: the English shown when the learner must supply it ("your 
 
 | Field | Type | Meaning |
 |---|---|---|
-| `schema` | 1 | |
+| `schema` | 2 | |
 | `code` | string | `hi`, `fr`, `zh` |
 | `name`, `native` | string | `"Hindi"`, `"हिन्दी"` |
 | `locale` | string | BCP 47 tag for speech: `hi-IN`, `fr-FR`, `zh-CN` |
@@ -202,6 +215,7 @@ Each slot has a `cue`: the English shown when the learner must supply it ("your 
 | `numerals` | object | Maps digits to number words, so "2" and "दो" match. Keys `"0"`–`"10"` |
 | `registers` | array | The levels of "you", most formal first: `{ "id", "label", "en" }` |
 | `defaultRegister` | string | The register that the base `text` of every line is written in |
+| `partnerGender` | `"f"` or `"m"` | Optional. The gender of the solo partner in this language (§3.10). It matches the partner's name in `partnerValues` |
 | `profile` | object | The adaptation checklist, answered once: `formality`, `script`, `questionWords`, `agreement`, `conjugation`, `wordOrder` |
 
 Register ids are shared across languages: `formal`, `familiar`, `intimate`. A language uses the ones it has.
@@ -259,7 +273,7 @@ Example, `hi/profile.json`:
 
 ```json
 {
-  "schema": 1,
+  "schema": 2,
   "code": "hi",
   "name": "Hindi",
   "native": "हिन्दी",
@@ -302,7 +316,7 @@ Example, `hi/profile.json`:
 
 | Field | Type | Required | Meaning |
 |---|---|---|---|
-| `schema` | 1 | yes | |
+| `schema` | 2 | yes | |
 | `scenario` | string | yes | Blueprint id, or own id for a language-only scenario |
 | `lang` | string | yes | Language code |
 | `review` | object | yes | `{ "status": "draft" \| "verified", "by": "...", "date": "YYYY-MM-DD" }` |
@@ -311,18 +325,18 @@ Example, `hi/profile.json`:
 | `lines` | object | yes | Keyed by blueprint line id. Every blueprint line must appear |
 | `lines.<id>.text` | string | yes | Target script, in the default register. Slots as `{name}`. A slot may move to fit the language's word order |
 | `lines.<id>.rom` | string | if profile has romanization | Romanized form, same slots |
-| `lines.<id>.variants` | array | no | Labelled alternatives, each a correct model: `{ "label": "said by a woman", "text": "...", "rom": "..." }`. The UI shows all of them |
+| `lines.<id>.variants` | array | no | Alternatives, each a correct model: `{ "label", "speaker", "listener", "text", "rom" }`. `speaker` and `listener` are `"f"` or `"m"` (§3.10). `label` is needed only when neither is set |
 | `lines.<id>.accept` | array | no | Extra forms accepted in solo mode. Not shown as models. Each is a string, or `{ "text", "rom" }` so that typed romanization can match it too. With romanization in the profile, use the object |
 | `lines.<id>.note` | string | no | A point of usage for this line |
 | `lines.<id>.byRegister` | object | see rule | Keyed by register id. Each value may hold `text`, `rom`, `variants`, `accept`, `note`, and overrides those fields for that register |
 | `lines.<id>.registerNeutral` | `true` | see rule | Says the line is the same in every register, even though the English addresses "you" |
-| `vocab` | object | yes | Keyed by blueprint vocab id: `{ "text", "rom", "byRegister", "registerNeutral" }`. The same register rule applies as for lines |
+| `chunks` | object | yes | Keyed by blueprint chunk id: `{ "text", "rom", "byRegister", "registerNeutral", "kind", "literal", "extra", "chain" }`. The same register rule applies as for lines. The chunk fields are in §3.9 |
 | `slotValues` | object | if a `set` slot exists | `{ "<slot>": [ { "en": "water", "text": "पानी", "rom": "paanee" } ] }` |
 | `partnerValues` | object | if a `personal` slot exists | `{ "<slot>": { "en", "text", "rom" } }`. One sample value per personal slot, used by text-to-speech (§3.8) |
 | `free` | object | if the blueprint has `free.targets` | `{ "targets": { "<id>": { "text", "rom", "accept", "byRegister", "registerNeutral" } } }`. Same register rule as lines |
 | `notes` | array | no | Points about the whole scenario in this language. Replaces the framework's "adapt note" |
 
-**Register rule.** For every line or vocab item whose blueprint says `addressesYou: true`, the realization must do one of these:
+**Register rule.** For every line or chunk whose blueprint says `addressesYou: true`, the realization must do one of these:
 
 - give `byRegister` entries for every allowed register other than the default, or
 - set `registerNeutral: true`.
@@ -335,7 +349,7 @@ Any line may carry `byRegister`, even when the English does not address "you". F
 
 ### 3.5 Language-only scenarios
 
-A realization whose `scenario` id has no blueprint carries its own `title`, `goal`, `roles`, `lines` (as an array with `id`, `role`, `en`, `addressesYou`, `text`, `rom`), `vocab`, `drill` and `free`. Example uses: a chai stall in Hindi, a tone-pair drill in Mandarin. The checker accepts either shape.
+A realization whose `scenario` id has no blueprint carries its own `title`, `goal`, `roles`, `lines` (as an array with `id`, `role`, `en`, `addressesYou`, `text`, `rom`), `chunks`, `drill` and `free`. Example uses: a chai stall in Hindi, a tone-pair drill in Mandarin. The checker accepts either shape.
 
 ### 3.6 Worked example: stage 1, `greetings`, in all three languages
 
@@ -345,7 +359,7 @@ This example is normative. Together with the profile example in §3.3, each fiel
 
 ```json
 {
-  "schema": 1,
+  "schema": 2,
   "id": "greetings",
   "title": "Greetings & self-introduction",
   "goal": "Greet someone, give your name and ask theirs.",
@@ -358,7 +372,7 @@ This example is normative. Together with the profile example in §3.3, each fiel
     { "id": "l4", "role": "B", "en": "My name is {name}. Nice to meet you.", "addressesYou": true },
     { "id": "l5", "role": "A", "en": "Nice to meet you too. Goodbye!", "addressesYou": true }
   ],
-  "vocab": [
+  "chunks": [
     { "id": "hello", "en": "hello" },
     { "id": "my-name-is", "en": "my name is ___" },
     { "id": "your-name", "en": "what is your name?", "addressesYou": true },
@@ -381,7 +395,7 @@ This example is normative. Together with the profile example in §3.3, each fiel
 
 ```json
 {
-  "schema": 1,
+  "schema": 2,
   "scenario": "greetings",
   "lang": "hi",
   "review": { "status": "draft", "by": null, "date": null },
@@ -416,7 +430,7 @@ This example is normative. Together with the profile example in §3.3, each fiel
       "note": "फिर मिलेंगे (\"we'll meet again\") is the everyday goodbye. अलविदा sounds final and is rare in speech."
     }
   },
-  "vocab": {
+  "chunks": {
     "hello": { "text": "नमस्ते", "rom": "namaste" },
     "my-name-is": { "text": "मेरा नाम ___ है", "rom": "meraa naam ___ hai" },
     "your-name": { "text": "आपका नाम क्या है?", "rom": "aapkaa naam kyaa hai?", "byRegister": { "familiar": { "text": "तुम्हारा नाम क्या है?", "rom": "tumhaaraa naam kyaa hai?" } } },
@@ -438,7 +452,7 @@ This example is normative. Together with the profile example in §3.3, each fiel
 
 ```json
 {
-  "schema": 1,
+  "schema": 2,
   "scenario": "greetings",
   "lang": "fr",
   "review": { "status": "draft", "by": null, "date": null },
@@ -461,7 +475,7 @@ This example is normative. Together with the profile example in §3.3, each fiel
     },
     "l5": { "text": "Moi aussi. Au revoir !", "registerNeutral": true }
   },
-  "vocab": {
+  "chunks": {
     "hello": { "text": "bonjour" },
     "my-name-is": { "text": "je m'appelle ___" },
     "your-name": { "text": "comment vous appelez-vous ?", "byRegister": { "familiar": { "text": "comment tu t'appelles ?" } } },
@@ -483,7 +497,7 @@ This example is normative. Together with the profile example in §3.3, each fiel
 
 ```json
 {
-  "schema": 1,
+  "schema": 2,
   "scenario": "greetings",
   "lang": "zh",
   "review": { "status": "draft", "by": null, "date": null },
@@ -507,7 +521,7 @@ This example is normative. Together with the profile example in §3.3, each fiel
       "byRegister": { "formal": { "text": "我也很高兴认识您。再见！", "rom": "Wǒ yě hěn gāoxìng rènshi nín. Zàijiàn!" } }
     }
   },
-  "vocab": {
+  "chunks": {
     "hello": { "text": "你好", "rom": "nǐ hǎo" },
     "my-name-is": { "text": "我叫___", "rom": "wǒ jiào ___" },
     "your-name": { "text": "你叫什么名字？", "rom": "nǐ jiào shénme míngzi?", "byRegister": { "formal": { "text": "您叫什么名字？", "rom": "nín jiào shénme míngzi?" } } },
@@ -566,6 +580,51 @@ A `personal` slot has no fixed value: each speaker uses their own name or city. 
 - **Solo mode:** the partner is this person. The partner's lines show and speak these values. The learner's own lines show a blank and the cue ("your name").
 - **Everywhere:** when text-to-speech plays a line and a personal slot has no value (no class names entered, or the learner's own line under Hear it), it uses the partner value.
 
+### 3.9 Chunks
+
+A **chunk** is a piece of language that learners take in and use whole: a fixed expression (फिर मिलेंगे), a frame with a gap (मेरा नाम ___ है), or a collocation (ख़ुशी होना). The `chunks` list of each scenario holds them. A single word belongs there only when it is a whole utterance (नमस्ते). Other single words go in `slotValues`.
+
+**Terms on the site.** Students see one word for each idea:
+
+| Idea | On the site | In the JSON |
+|---|---|---|
+| A piece of language learned whole | **chunk** | `chunks` |
+| A single item that fills a gap: पानी, चाय, दो | **word** | `slotValues` |
+| Chunk kinds | **set phrase**, **phrase with a gap**, **word partners** | `fixed`, `frame`, `collocation` |
+
+The site does not use "vocabulary". Grammar terms appear only in the Notice step and on the language profile page.
+
+| Field | Type | Meaning |
+|---|---|---|
+| `kind` | `"fixed"`, `"frame"` or `"collocation"` | Optional. A chunk with `___` is a frame, and any other chunk is fixed, so only `collocation` needs to be written. The Chunks step shows the kind as a small tag |
+| `literal` | string | Optional. A word-by-word English gloss: मेरा नाम ___ है → "my name ___ is". Shown only in the Notice step and the script view |
+| `extra` | `true` | The chunk does not occur in the dialogue. It is shown last, under "Also useful". Use it sparingly |
+| `chain` | array of strings | Optional. The build-up pieces for the Echo step, shortest first. Each piece must be an ending of the chunk. Without `chain`, the app builds the pieces from the words. Mandarin needs `chain`, because its text has no spaces |
+
+**Rule: chunks come from the dialogue.** Every chunk that is not `extra` occurs in at least one line of the dialogue, in at least one allowed register. "Occurs" means: after punctuation is removed and case is folded, the chunk's words appear in a row in the line. `___` in the chunk matches a slot in the line, or 1–3 words. A ` / ` choice matches either word. The app uses the same test to underline the chunk where it occurs.
+
+**Recycling.** A later scenario may reuse a chunk from an earlier one. The checker lists chunks that recur and where. This is information, not an error.
+
+### 3.10 Gender
+
+In Hindi, verbs agree with the speaker and with the listener: मैं करता हूँ / करती हूँ, आप क्या करते / करती हैं?. In French, enchanté / enchantée. The content gives these as variants with structured fields:
+
+```json
+"variants": [
+  { "listener": "m", "text": "मैं {city} से हूँ। आप क्या करते हैं?", "rom": "main {city} se hoon. aap kyaa karte hain?" },
+  { "listener": "f", "text": "मैं {city} से हूँ। आप क्या करती हैं?", "rom": "main {city} se hoon. aap kyaa kartee hain?" }
+]
+```
+
+- `speaker`: the gender of the person saying the line. `listener`: the gender of the person spoken to. Values `"f"` and `"m"`.
+- The app writes the label: "said by a woman", "to a man", "a woman to a man". A free `label` stays for variants that are not about gender.
+- **Who is who.**
+  - Class role play: the speaker is the person in the line's role, and the listener is the other person in the pair. Their genders come from the roster.
+  - Solo: the learner's gender comes from the setting (§4.5). The partner's comes from the profile's `partnerGender`.
+  - A screen with no pair, such as Hear it or Chunks: both are unknown.
+- **Choosing forms.** Keep each variant whose `speaker` and `listener` agree with the known genders. An unset field agrees with anything, and so does an unknown gender. When one variant is left, only that one is shown. When the genders are unknown, all variants are shown, as today.
+- **Voices.** A line is spoken with the women's or the men's voice, by the speaker's gender (§4.5). An unknown speaker uses the women's voice.
+
 ---
 
 ## 4. Screens and flows
@@ -589,6 +648,13 @@ Routes are hash-based, so they work on GitHub Pages with no server rules:
 
 ### 4.1 Home and ladder
 
+**Say the method.** Chunking is how Speak teaches, and students are told so in plain words:
+
+- **Speak home:** two sentences under the title. "You learn whole chunks of language first, the way you learned your own. Grammar comes last, once the chunks feel natural."
+- **Each ladder:** one line naming the steps: hear it, chunks, echo, use them, notice.
+- **The root page's Speak card:** one line about learning in chunks.
+- Michael Lewis is named in the spec and the brief, not on student pages.
+
 - **Home** shows one card per language: its name in English and in its own script, and how many scenarios are drafted and how many verified.
 - **Ladder** lists the stages in order. Each scenario shows its title, goal and review status:
   - **Verified**, with the reviewer's name and date
@@ -602,6 +668,7 @@ Routes are hash-based, so they work on GitHub Pages with no server rules:
 
 1. Enter participant names. One per line.
 2. Mark who the native speaker is, if present.
+3. Optionally, set each person's gender: woman, man, or blank (§3.10). Blank shows both forms. The app never guesses gender from a name.
 
 **Pairing rule:**
 
@@ -612,17 +679,25 @@ Routes are hash-based, so they work on GitHub Pages with no server rules:
 
 **Steps.** Each step is one screen. The facilitator moves on with Next, the right-arrow key or a presenter clicker, which sends PageDown or arrow keys. Back works the same way in reverse.
 
-1. **Goal.** The goal in large type.
-2. **Vocabulary.** One item per screen: target text, romanization, English. Play button (text-to-speech). Show/hide the English.
-3. **Model dialogue.** All lines, with the current one highlighted. Play line, or play all. Play fills an empty personal slot from `partnerValues` (§3.8).
-4. **Role play.** The current pair's names are shown on the A and B sides. One line at a time. Toggle: show the target text, or show only the English cue. Use the cue only to test.
-5. **Drill.** The next slot value's English cue, plus whose turn it is. Rotates through participants.
-6. **Free practice.** The prompt, with the target phrases and the scenario's vocabulary below it for reference. No timer, no score: the native speaker listens. **Done** ends the run.
+The order follows the chunking idea: hear the language, take its chunks whole, use them, and notice the grammar last (§3.9).
+
+1. **Goal.** The goal in large type, the roles and the role-play order. No notes yet.
+2. **Hear it.** The whole dialogue. The native speaker performs it, or Play all. Learners only listen. All lines are shown, with the current one highlighted. Play fills an empty personal slot from `partnerValues` (§3.8).
+3. **Chunks.** One chunk per screen: target text, romanization, English, and its kind in plain words (set phrase, phrase with a gap, word partners). Below it, the dialogue line where it occurs, with the chunk underlined. `extra` chunks come last, under "Also useful".
+4. **Echo.** One chunk per screen. The group says it three times after the native speaker. A chunk of four or more words is built up from its end, one piece per Next: है → क्या है → नाम क्या है → आपका नाम क्या है. The pieces come from `chain` when it is set (§3.9).
+5. **Role play.** The current pair's names are shown on the A and B sides. One line at a time, in the forms for the pair's genders (§3.10). Toggle: show the target text, or show only the English cue. Use the cue only to test.
+6. **Frame drill.** The next slot value's English cue, plus whose turn it is. Rotates through participants. Each drill line is a frame, and the drill swaps its gap.
+7. **Free practice.** The prompt, with the target phrases and the chunks below it for reference. No timer, no score: the native speaker listens.
+8. **Notice.** Now the grammar: each chunk with its `literal` gloss, every line note, and the scenario's notes. **Done** ends the run.
 
 **Display:** text is large enough to read from the back of a room. Minimum target-text size is 40px at 1280px wide. Class mode shows no scores, and nothing is recorded.
 
 ### 4.3 Solo mode (own device)
 
+- **Order:** Hear it, Echo, the dialogue runs, the frame drill, free practice, Notice, then the end summary. It is the class order, less the separate Chunks step, because each Echo card shows the chunk in its line.
+- **Hear it:** the browser plays the whole dialogue once, with the text shown. Next moves on.
+- **Echo:** one chunk per card, underlined in its line. Hear it, then the learner says the chunk. It is matched like a line (§5.2). The build-up pieces are shown, each with its own Hear button. Next is always open: Echo scores count in the summary, but they do not hold the learner back.
+- **Gender:** the learner's own gender comes from the setting (§4.5). The setup screen offers it if it is not set.
 - The learner picks a role (A or B), or "both, one after the other": a run as A, then a run as B.
 - **Partner's lines:** shown and played by text-to-speech, with personal slots filled from `partnerValues` (§3.8). When the line ends, the run moves on by itself. Next skips ahead. With no voice for the language, the line is shown and Next moves on.
 - **Set slots in the dialogue:** a run uses the first value in `slotValues`. The cue shows it ("Please give me some water").
@@ -633,12 +708,12 @@ Routes are hash-based, so they work on GitHub Pages with no server rules:
   4. The result is shown: **Good**, **Nearly** or **Not quite**, with the model and the missed words or characters marked.
 - **Other buttons:** Hear it, Show answer, Try again, Skip.
 - **Typed fallback:** always available. It also accepts the romanization (§5.2).
-- **Drill:** works the same way.
+- **Frame drill:** works the same way.
   - A `set` slot: one turn per value in `slotValues`, in order.
   - A `personal` slot: one turn. The learner says the drill lines with their own detail.
   - The slot is a wildcard (§5.2), so the check covers the sentence around the item, not the item word. The drill screen says so in one line.
 - **Free practice:** scored by phrase coverage (§5.3). No timer.
-  1. The screen shows the prompt and a checklist of phrases to use: the target phrases first, then the vocabulary, in the selected register.
+  1. The screen shows the prompt and a checklist of phrases to use: the target phrases first, then the chunks, in the selected register.
   2. The learner taps **Speak** as many times as they like. Each transcript is shown, and every phrase heard in it gets a tick that stays for the rest of the run.
   3. A running score shows "4 of 8 phrases used". A phrase said in another register gets a warning instead of a tick: "That was the तुम form".
   4. **Done** shows the final coverage and lists the phrases not yet used.
@@ -647,7 +722,7 @@ Routes are hash-based, so they work on GitHub Pages with no server rules:
 
 ### 4.4 Script view (for reviewers)
 
-- **Layout:** one printable page per scenario per language. It shows every line in English, then the target text and romanization in **every allowed register, side by side in columns**. Lines that do not vary span all columns. It also shows variants, accepts, notes, register notes, vocabulary and slot values.
+- **Layout:** one printable page per scenario per language. It shows every line in English, then the target text and romanization in **every allowed register, side by side in columns**. Lines that do not vary span all columns. It also shows variants with their gender labels, accepts, notes, register notes, chunks and slot values. The chunk table adds two columns: kind and `literal`. `extra` chunks are marked.
 - **Review aids:** each line has a checkbox and a blank line for corrections. The header shows the review status and blanks for "Reviewed by" and "Date".
 - **Print:** `@media print` removes navigation. The page fits A4 and US Letter. For a PDF, use the browser's Print → Save as PDF.
 - **Corrections:** reviewers mark up paper or the PDF. Prash or Claude apply the changes to the JSON and set `review` to `verified`.
@@ -660,12 +735,15 @@ Applies everywhere, stored per device:
 - English on/off
 - cue only on/off: role play and drill show only the English cue (§4.2)
 - speech rate (0.7×, 0.8×, 0.9×, 1×)
-- voice choice per language
+- voices per language: one for women's lines and one for men's lines (§3.10)
+  - The defaults come from a short table of known voices in `speech.js`, for example Microsoft Swara (f) and Madhur (m) for Hindi. The Web Speech API does not report a voice's gender.
+  - When both pickers hold the same voice, the other gender's lines get a changed pitch: 0.8 for men's lines, 1.2 for women's. This is artificial, and the picker says so.
+- the solo learner's gender: woman, man, or not set (§3.10)
 
 ### 4.6 Register switch
 
 - **Where:** a segmented control at the top of class, solo and script view. It shows the profile's registers with their labels: `आप · तुम · तू`, `vous · tu`, `您 · 你`. The English name shows on hover and in small text beneath.
-- **What a tap does:** re-renders the current screen at once, mid-dialogue included. Vocabulary, dialogue, drill and free-practice reference all follow the register.
+- **What a tap does:** re-renders the current screen at once, mid-dialogue included. Chunks, dialogue, drill and free-practice reference all follow the register.
 - **Blocked registers:** a register the realization does not allow is greyed out. Tapping it shows its `registerNotes` text.
 - **Changed-line marker:** after a switch, lines whose text changed get a small marker for the rest of that screen, so learners see exactly what formality touches.
 - **Memory:** the last choice is stored per language. A new scenario opens in that register if the scenario allows it, and otherwise in the profile's `defaultRegister`. No separate site-wide setting is needed.
@@ -719,6 +797,8 @@ Recognition needs https, which GitHub Pages provides. Voices depend on the opera
    - **Nearly:** 55% to 79%
    - **Not quite:** below 55%
 6. **Wrong register.** Also score the alternatives against the line in every other allowed register. If another register scores Good and beats the selected one, the verdict is **Nearly**, with "That was the तुम form" (the label of the register the learner used).
+   - **Wrong gender**, the same way. Variants left out by the gender choice (§3.10) are not models. If one of them scores Good and beats the chosen forms, the verdict is **Nearly**, with "That was the form a woman uses" or "That was the form for speaking to a man".
+   - In free practice (§5.3), a phrase said only in the other gender's form gets the same kind of warning instead of a tick.
 7. **Typed input** is also compared against `rom`, with diacritics stripped and the Hindi folds above applied. So `ni hao` matches `Nǐ hǎo`, and `mera nam` matches `meraa naam`.
 
 **Limit, stated in the UI once per session:** recognition shows whether a machine understood the words. It does not judge pronunciation or Mandarin tones. A native speaker does that.
@@ -727,9 +807,9 @@ Recognition needs https, which GitHub Pages provides. Voices depend on the opera
 
 Free practice has no model answer, so it is not scored by distance from one. It is scored by **coverage**: did the learner use, unscripted, the phrases this scenario teaches? That is what the step exists to test.
 
-1. **Phrases to check.** The scenario's `free.targets`, then its vocabulary. Each is resolved in the selected register (§3.4).
+1. **Phrases to check.** The scenario's `free.targets`, then its chunks. Each is resolved in the selected register (§3.4).
    - Each phrase's text, variants and `accept` strings all count.
-   - A `___` in a vocabulary entry or target matches like a slot (§5.2 step 3).
+   - A `___` in a chunk or target matches like a slot (§5.2 step 3).
    - A ` / ` between two words marks a choice: `मैं ___ में रहता / रहती हूँ` matches either word.
 2. **Normalise.** Normalise every transcript, and every phrase, as in §5.2 step 1.
 3. **Look for each phrase.** A phrase is used when some run of tokens in a transcript matches it with a score of 80% or more, using the §5.2 scoring.
@@ -751,10 +831,10 @@ localStorage, prefix `sp.v1.`. Every read and write is wrapped in try/catch, and
 
 | Key | Holds |
 |---|---|
-| `sp.v1.settings` | Display settings (§4.5) |
-| `sp.v1.voice.<lang>` | Chosen voice name |
+| `sp.v1.settings` | Display settings and the solo learner's gender (§4.5) |
+| `sp.v1.voice.<lang>.f`, `sp.v1.voice.<lang>.m` | Chosen voice for women's and men's lines. The old `sp.v1.voice.<lang>` is read as the women's voice if the new key is empty |
 | `sp.v1.register.<lang>` | Last register chosen (§4.6) |
-| `sp.v1.roster` | Last class roster: names, and who the native speaker is |
+| `sp.v1.roster` | Last class roster: names, each person's gender if set, and who the native speaker is |
 
 Nothing else. No scores are stored.
 
@@ -780,7 +860,7 @@ Nothing else. No scores are stored.
 
 The checker exits with a non-zero code and one line per problem when any of these fail:
 
-- every file parses and has `schema: 1`
+- every file parses and has `schema: 2`. A schema 1 file gets its own message: it predates chunks
 - every ladder id has a blueprint, or a language-only realization
 - every realization line id exists in its blueprint, and every blueprint line appears in every realization
 - every slot used in `en` appears in `text` and `rom`, including in `byRegister` and `variants`, and nowhere else
@@ -790,13 +870,23 @@ The checker exits with a non-zero code and one line per problem when any of thes
 - every `accept` entry is a string or an object with `text`, plus `rom` when the profile has romanization. Its slots follow the slot rule above
 - `review.status` is `draft` or `verified`. `verified` needs `by` and `date`
 - `rom` is present on every line when the profile has romanization, including inside `byRegister` entries that set `text`
-- vocab keys match the blueprint's vocab ids
+- chunk keys match the blueprint's chunk ids
 - **Registers:**
   - `registers` includes the profile's `defaultRegister`, and every id in it exists in the profile
   - every profile register left out of `registers` has a `registerNotes` entry
   - `byRegister` keys are allowed registers other than the default
-  - every `addressesYou` line, vocab item and free target has `byRegister` for each allowed non-default register, or `registerNeutral: true`
+  - every `addressesYou` line, chunk and free target has `byRegister` for each allowed non-default register, or `registerNeutral: true`
 - every blueprint `free.targets` id appears in the realization's `free.targets`, and no others
+- **Chunks** (§3.9):
+  - `kind` is `fixed`, `frame` or `collocation`. A chunk with `___` is not `fixed`, and a `frame` has `___`
+  - every chunk that is not `extra` occurs in a dialogue line
+  - every `chain` piece is an ending of the chunk, and the pieces grow in length
+  - a report, not an error: chunks that recur across scenarios
+- **Gender** (§3.10):
+  - `speaker` and `listener` are `f` or `m`
+  - in one variants list, a gender field is set on every variant or on none
+  - a variant with no gender field has a `label`
+  - the profile's `partnerGender`, when set, is `f` or `m`
 
 It runs on every commit that touches `speak/content/`.
 
@@ -810,8 +900,10 @@ Each milestone is shippable on its own, and the card stays parked throughout.
 |---|---|---|
 | **M1** | Schema, checker, profiles for hi/fr/zh, Hindi stages 1–4, class mode with the register switch, script view | Prash runs a Hindi class from a projector using stages 1–4, in both आप and तुम. Checker passes. Script view prints cleanly |
 | **M2** | Solo mode: recognition, matching, wrong-register detection, typed fallback | Each Hindi model line from stages 1–4 scores Good when spoken by Prash in Chrome, in its register. Saying the तुम form while आप is selected gives "Nearly — that was the तुम form". Typed romanization matches. In greetings free practice, saying "aap kaise hain" and "main Theek hoon" ticks both target phrases. `_build/test_speech.html` passes |
-| **M3** | French and Mandarin, stages 1–4 drafted in all their registers. Script view sent to reviewers | Checker passes. Prash has PDFs to send |
-| **M4** | Stages 5–9 in all three languages | Checker passes. Hindi verified by Prash |
+| **M2.5** | Chunks and gender: the fields in §3.9 and §3.10, the class and solo steps, Hindi stages 1–4 rewritten chunk-first, French and Mandarin greetings brought into line, gender in the roster and solo, voice pickers, checker rules | Prash runs a Hindi class through all 8 steps. With genders set in the roster, where-from line 3 shows only the right form. In solo, the other gender's form gives Nearly with its message. Checker and `_build/test_speech.html` pass |
+| **M3** | French and Mandarin, stages 1–4, drafted chunk-first with gender fields, in all their registers. Script view sent to reviewers | Checker passes. Prash has PDFs to send |
+| **M3.5** | Images: SVG item icons and speaker avatars drawn by Claude, a picture-cue toggle for the drill, one sample scene. The scene art is decided after the sample | The frame drill runs on picture cues |
+| **M4** | Stages 5–9 in all three languages, plus a stateless **Review** mode: chunks from earlier stages at random, nothing stored | Checker passes. Hindi verified by Prash. Review draws from every stage before the current one |
 | **List** | Open to search engines | French and Mandarin stages 1–4 verified by native speakers. `noindex` removed from `speak/index.html` and the root `index.html` |
 
 ---
