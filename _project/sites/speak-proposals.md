@@ -1,6 +1,6 @@
 # Speak — proposals after M2
 
-**Status:** proposals for Prash's review, 10 October 2026. Not part of the spec. When Prash agrees, the agreed parts go into `speak-spec.md` first, then into code.
+**Status:** decided 10 October 2026 (see the end). Not part of the spec yet. When Prash agrees, the agreed parts go into `speak-spec.md` first, then into code.
 
 Three ideas: gendered voices, images, and language chunking. The short answer for each:
 
@@ -135,11 +135,13 @@ Chrome on Windows offers the Microsoft voices installed on the system, plus Goog
 | **M3.5** | Images: item icons, avatars, picture cues; one sample scene | Drill runs on picture cues |
 | **M4** | Stages 5–9, plus stateless Review mode | As before, plus review draws from all stages |
 
-## Decisions for Prash
+## Decisions (Prash, 10 October 2026)
 
-1. Is M2.5 before M3 right? That is my recommendation.
-2. Keep the JSON key `vocab` and call it "Chunks" in the UI, or rename the key (schema 2)? I recommend keeping it.
-3. Gender options: f, m, or blank (shows both). Agreed?
-4. Images: should I draw SVG icons and avatars, and who makes the scene art?
-5. Review: stateless now, with stored spaced repetition deferred?
-6. Move the notes to a final "Notice" step? Or keep them visible during practice too?
+1. **M2.5, chunks and gender, comes before M3.**
+2. **The JSON key stays `vocab`.** The app calls it "Chunks". Schema stays 1. New optional fields: `kind`, `literal`.
+3. **Gender per person: woman, man, or blank.** Blank shows both forms. Never guessed from a name. Stored on the device only.
+4. **Images:** Claude draws the item icons and avatars as SVG. One sample scene first, then a decision on scene art.
+5. **Review is stateless for now.** Spaced repetition is decided later.
+6. **Notes and `literal` glosses go in a final "Notice" step only.** Script view still shows everything.
+
+Next: spec 0.8 for M2.5, for Prash's review before any code.
