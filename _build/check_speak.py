@@ -16,6 +16,7 @@ import sys
 REPO = pathlib.Path(__file__).resolve().parent.parent
 CONTENT = REPO / "speak" / "content"
 SLOT = re.compile(r"\{(\w+)\}")
+NORMALIZE_RULES = {"nukta", "chandrabindu", "ye-e", "devanagari-digits", "accents", "apostrophes", "han-punctuation"}
 
 problems = []
 
@@ -138,6 +139,9 @@ for code, (prof_path, prof, reals) in languages.items():
             problem(pwhere, f'missing "{field}"')
     if prof.get("match") not in ("words", "chars"):
         problem(pwhere, 'match must be "words" or "chars"')
+    for rule in prof.get("normalize", []):
+        if rule not in NORMALIZE_RULES:
+            problem(pwhere, f'normalize: unknown rule "{rule}"')
     reg_ids = [r.get("id") for r in prof.get("registers", [])]
     default = prof.get("defaultRegister")
     if default not in reg_ids:
@@ -203,10 +207,23 @@ for code, (prof_path, prof, reals) in languages.items():
                         for fld in ("text", "rom"):
                             if fld in form and slots_in(form[fld]) != want:
                                 problem(where, f"{label} ({name}): {fld} slots {sorted(slots_in(form[fld]))} != {sorted(want)}")
-                if check_slots:
-                    for a in form.get("accept", []):
-                        if slots_in(a) != want:
-                            problem(where, f"{label} ({name}): accept slots {sorted(slots_in(a))} != {sorted(want)}")
+                for a in form.get("accept", []):
+                    # a plain string, or { "text", "rom" } so typed romanization can match it
+                    if isinstance(a, dict):
+                        if not a.get("text"):
+                            problem(where, f"{label} ({name}): an accept object needs text")
+                        if has_rom and not a.get("rom"):
+                            problem(where, f"{label} ({name}): accept {a.get('text')!r} has no rom")
+                        texts = [a.get("text", ""), a.get("rom", "")] if has_rom else [a.get("text", "")]
+                    elif isinstance(a, str):
+                        texts = [a]
+                    else:
+                        problem(where, f"{label} ({name}): accept entries are strings or objects")
+                        continue
+                    if check_slots:
+                        for t in texts:
+                            if t and slots_in(t) != want:
+                                problem(where, f"{label} ({name}): accept slots {sorted(slots_in(t))} != {sorted(want)}")
 
         # lines
         bp_lines = {l["id"]: l for l in bp.get("lines", [])}
@@ -251,6 +268,18 @@ for code, (prof_path, prof, reals) in languages.items():
                     problem(where, f'slotValues "{name}"[{i}]: needs en and text')
                 if has_rom and not v.get("rom"):
                     problem(where, f'slotValues "{name}"[{i}]: missing rom')
+
+        # personal slots: one partner value each, and nothing else
+        personal = {n for n, s in bp.get("slots", {}).items() if s.get("kind") == "personal"}
+        pv = r.get("partnerValues", {})
+        for name in sorted(personal):
+            v = pv.get(name)
+            if not isinstance(v, dict) or not v.get("en") or not v.get("text"):
+                problem(where, f'personal slot "{name}" needs a partnerValues entry with en and text')
+            elif has_rom and not v.get("rom"):
+                problem(where, f'partnerValues "{name}": missing rom')
+        for name in sorted(set(pv) - personal):
+            problem(where, f'partnerValues "{name}" is not a personal slot')
 
 # ---------------------------------------------------------------- report
 

@@ -57,6 +57,9 @@
       { "en": "a nurse", "text": "नर्स", "rom": "nars" }
     ]
   },
+  "partnerValues": {
+    "city": { "en": "Delhi", "text": "दिल्ली", "rom": "dillee" }
+  },
   "free": {
     "targets": {
       "are-you-a-student": { "text": "क्या आप विद्यार्थी हैं?", "rom": "kyaa aap vidyaarthee hain?", "byRegister": { "familiar": { "text": "क्या तुम विद्यार्थी हो?", "rom": "kyaa tum vidyaarthee ho?" } } },

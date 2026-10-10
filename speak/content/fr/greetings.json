@@ -110,10 +110,15 @@
         "text": "Je vais bien, merci.",
         "accept": [
           "Ça va bien, merci.",
-          "Très bien, merci."
+          "Très bien, merci.",
+          "Je vais bien.",
+          "Ça va bien."
         ]
       }
     }
+  },
+  "partnerValues": {
+    "name": { "en": "Claire", "text": "Claire" }
   },
   "notes": [
     "Enchanté and enchantée sound the same. The spelling follows the speaker's gender."

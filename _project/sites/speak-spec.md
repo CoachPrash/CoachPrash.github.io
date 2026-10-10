@@ -1,12 +1,19 @@
 # Speak — specification
 
 **Status:** M1 built (4 October 2026). M2, solo mode, in progress.
-**Version:** 0.7, 9 October 2026
+**Version:** 0.7.1, 9 October 2026
 **Brief:** `_project/sites/speak.md`
 
 This file is the build contract. When the spec and the code disagree, the spec wins, or the spec is changed first.
 
 ### Changes
+
+**0.7.1** (found while building the M2 matcher)
+
+- **`accept` entries may be objects** `{ "text", "rom" }` (§3.4). A plain string has no romanization, so typed romanization could never match it. Hindi accepts now carry `rom`.
+- **A choice inside a phrase** (§5.3): `रहता / रहती` means either word.
+- **Checker:** the known `normalize` rules also include `accents`, `apostrophes` and `han-punctuation`, which the French and Mandarin profiles already use. Accept objects need `text`, and `rom` when the profile has romanization.
+- **Files:** `content.js` reads `window.SPEAK_CONTENT_BASE` when set, so the test page can load the real content.
 
 **0.7** (decisions for M2, found while reading the M1 code against §5)
 
@@ -297,7 +304,7 @@ Example, `hi/profile.json`:
 | `lines.<id>.text` | string | yes | Target script, in the default register. Slots as `{name}`. A slot may move to fit the language's word order |
 | `lines.<id>.rom` | string | if profile has romanization | Romanized form, same slots |
 | `lines.<id>.variants` | array | no | Labelled alternatives, each a correct model: `{ "label": "said by a woman", "text": "...", "rom": "..." }`. The UI shows all of them |
-| `lines.<id>.accept` | array | no | Extra strings accepted in solo mode. Not shown as models |
+| `lines.<id>.accept` | array | no | Extra forms accepted in solo mode. Not shown as models. Each is a string, or `{ "text", "rom" }` so that typed romanization can match it too. With romanization in the profile, use the object |
 | `lines.<id>.note` | string | no | A point of usage for this line |
 | `lines.<id>.byRegister` | object | see rule | Keyed by register id. Each value may hold `text`, `rom`, `variants`, `accept`, `note`, and overrides those fields for that register |
 | `lines.<id>.registerNeutral` | `true` | see rule | Says the line is the same in every register, even though the English addresses "you" |
@@ -715,6 +722,7 @@ Free practice has no model answer, so it is not scored by distance from one. It 
 1. **Phrases to check.** The scenario's `free.targets`, then its vocabulary. Each is resolved in the selected register (§3.4).
    - Each phrase's text, variants and `accept` strings all count.
    - A `___` in a vocabulary entry or target matches like a slot (§5.2 step 3).
+   - A ` / ` between two words marks a choice: `मैं ___ में रहता / रहती हूँ` matches either word.
 2. **Normalise.** Normalise every transcript, and every phrase, as in §5.2 step 1.
 3. **Look for each phrase.** A phrase is used when some run of tokens in a transcript matches it with a score of 80% or more, using the §5.2 scoring.
    - `words` mode: the run is consecutive words.
@@ -750,7 +758,7 @@ Nothing else. No scores are stored.
 |---|---|---|
 | `speak/index.html` | hand-written | Shell. Has `noindex` while parked |
 | `speak/assets/style.css` | hand-written | System fonts plus Noto Sans Devanagari and Noto Sans SC from Google Fonts, with system fallbacks |
-| `speak/assets/content.js` | hand-written | Loads the JSON and resolves lines for a register and slot values. No DOM code |
+| `speak/assets/content.js` | hand-written | Loads the JSON and resolves lines for a register and slot values. No DOM code. Reads the content folder from `window.SPEAK_CONTENT_BASE` when set (test page only) |
 | `speak/assets/app.js` | hand-written | Router and screens. Exposes the shared screen helpers (storage, toolbar, register switch) for `solo.js` |
 | `speak/assets/solo.js` | hand-written | Solo mode screen (§4.3) |
 | `speak/assets/speech.js` | hand-written | Text-to-speech, recognition, matching (§5). No DOM code, so it can be tested alone |
@@ -770,7 +778,8 @@ The checker exits with a non-zero code and one line per problem when any of thes
 - every slot used in `en` appears in `text` and `rom`, including in `byRegister` and `variants`, and nowhere else
 - every `set` slot has at least three `slotValues`
 - every `personal` slot has a `partnerValues` entry with `en` and `text`, plus `rom` when the profile has romanization. `partnerValues` has no other keys
-- every profile `normalize` entry is a known rule: `nukta`, `chandrabindu`, `ye-e`, `devanagari-digits`
+- every profile `normalize` entry is a known rule: `nukta`, `chandrabindu`, `ye-e`, `devanagari-digits`, `accents`, `apostrophes`, `han-punctuation`
+- every `accept` entry is a string or an object with `text`, plus `rom` when the profile has romanization. Its slots follow the slot rule above
 - `review.status` is `draft` or `verified`. `verified` needs `by` and `date`
 - `rom` is present on every line when the profile has romanization, including inside `byRegister` entries that set `text`
 - vocab keys match the blueprint's vocab ids

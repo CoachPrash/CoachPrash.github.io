@@ -20,16 +20,16 @@
     "l3": {
       "text": "मुझे {item} दीजिए।",
       "rom": "mujhe {item} deejie.",
-      "accept": ["मुझे {item} चाहिए।"],
+      "accept": [{ "text": "मुझे {item} चाहिए।", "rom": "mujhe {item} chaahie." }],
       "note": "दीजिए is the polite command form of देना (to give). With तुम it becomes दो.",
-      "byRegister": { "familiar": { "text": "मुझे {item} दो।", "rom": "mujhe {item} do.", "accept": ["मुझे {item} चाहिए।"] } }
+      "byRegister": { "familiar": { "text": "मुझे {item} दो।", "rom": "mujhe {item} do.", "accept": [{ "text": "मुझे {item} चाहिए।", "rom": "mujhe {item} chaahie." }] } }
     },
     "l4": {
       "text": "लीजिए।",
       "rom": "leejie.",
       "byRegister": { "familiar": { "text": "लो।", "rom": "lo." } }
     },
-    "l5": { "text": "धन्यवाद!", "rom": "dhanyavaad!", "accept": ["शुक्रिया!"] },
+    "l5": { "text": "धन्यवाद!", "rom": "dhanyavaad!", "accept": [{ "text": "शुक्रिया!", "rom": "shukriyaa!" }] },
     "l6": {
       "text": "कोई बात नहीं।",
       "rom": "koee baat naheen.",

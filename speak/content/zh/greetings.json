@@ -119,9 +119,13 @@
       },
       "i-am-fine": {
         "text": "我很好，谢谢。",
-        "rom": "Wǒ hěn hǎo, xièxie."
+        "rom": "Wǒ hěn hǎo, xièxie.",
+        "accept": ["我很好。"]
       }
     }
+  },
+  "partnerValues": {
+    "name": { "en": "Wang Ming", "text": "王明", "rom": "Wáng Míng" }
   },
   "notes": [
     "你好 is two third tones in a row. The first one rises: say ní hǎo."

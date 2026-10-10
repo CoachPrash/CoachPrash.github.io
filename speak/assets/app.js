@@ -720,7 +720,10 @@
             '<div class="tl" lang="' + esc(code) + '">' + slotMark(f.text || "") + "</div>" +
             (hasRom && f.rom ? '<div class="rom">' + slotMark(f.rom) + "</div>" : "") + "</div>";
         }).join("");
-        if (r.accept && r.accept.length) html += '<div class="acc">Also accepted: ' + r.accept.map(function (a) { return '<span lang="' + esc(code) + '">' + slotMark(a) + "</span>"; }).join(" · ") + "</div>";
+        if (r.accept && r.accept.length) html += '<div class="acc">Also accepted: ' + r.accept.map(function (a) {
+          var t = typeof a === "string" ? a : a.text, ro = typeof a === "string" ? "" : a.rom;
+          return '<span lang="' + esc(code) + '">' + slotMark(t || "") + "</span>" + (hasRom && ro ? ' <span class="rom">(' + slotMark(ro) + ")</span>" : "");
+        }).join(" · ") + "</div>";
         if (r.note) html += '<div class="note">' + esc(r.note) + "</div>";
         return html;
       }

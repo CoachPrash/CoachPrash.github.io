@@ -19,7 +19,7 @@
       "text": "नमस्ते!",
       "rom": "namaste!",
       "accept": [
-        "नमस्कार"
+        { "text": "नमस्कार", "rom": "namaskaar" }
       ]
     },
     "l2": {
@@ -109,10 +109,14 @@
         "text": "मैं ठीक हूँ, शुक्रिया।",
         "rom": "main Theek hoon, shukriyaa.",
         "accept": [
-          "मैं ठीक हूँ, धन्यवाद।"
+          { "text": "मैं ठीक हूँ, धन्यवाद।", "rom": "main Theek hoon, dhanyavaad." },
+          { "text": "मैं ठीक हूँ।", "rom": "main Theek hoon." }
         ]
       }
     }
+  },
+  "partnerValues": {
+    "name": { "en": "Asha", "text": "आशा", "rom": "aashaa" }
   },
   "notes": [
     "The verb comes last: मेरा नाम Prash है is literally \"my name Prash is\"."

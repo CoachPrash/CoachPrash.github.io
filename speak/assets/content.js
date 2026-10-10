@@ -7,6 +7,8 @@
   "use strict";
 
   var cache = {};
+  /* Content folder, relative to the page. The test page sets SPEAK_CONTENT_BASE. */
+  var BASE = window.SPEAK_CONTENT_BASE || "content/";
 
   function getJSON(path) {
     if (!(path in cache)) {
@@ -17,10 +19,10 @@
     return cache[path];
   }
 
-  function ladder() { return getJSON("content/ladder.json"); }
-  function profile(code) { return getJSON("content/" + code + "/profile.json"); }
-  function blueprint(id) { return getJSON("content/scenarios/" + id + ".json"); }
-  function realization(code, id) { return getJSON("content/" + code + "/" + id + ".json"); }
+  function ladder() { return getJSON(BASE + "ladder.json"); }
+  function profile(code) { return getJSON(BASE + code + "/profile.json"); }
+  function blueprint(id) { return getJSON(BASE + "scenarios/" + id + ".json"); }
+  function realization(code, id) { return getJSON(BASE + code + "/" + id + ".json"); }
 
   /* Everything one scenario screen needs, or null if this language lacks it. */
   function scenario(code, id) {
@@ -65,6 +67,24 @@
     });
   }
 
+  /* Sample values for every slot (spec §3.8): personal slots from
+   * partnerValues, set slots from slotValues[setIndex]. Missing ones stay blank.
+   * Returns { text: {}, rom: {}, en: {} } for fill(). */
+  function sampleValues(bp, real, setIndex) {
+    var v = { text: {}, rom: {}, en: {} };
+    Object.keys(bp.slots || {}).forEach(function (s) {
+      var def = bp.slots[s], val = null;
+      if (def.kind === "set") {
+        var list = (real.slotValues || {})[s] || [];
+        val = list.length ? list[(setIndex || 0) % list.length] : null;
+      } else {
+        val = (real.partnerValues || {})[s] || null;
+      }
+      if (val) { v.text[s] = val.text; v.rom[s] = val.rom || val.text; v.en[s] = val.en; }
+    });
+    return v;
+  }
+
   function slotsIn(text) {
     var out = [], m, re = /\{(\w+)\}/g;
     while ((m = re.exec(text || ""))) out.push(m[1]);
@@ -86,6 +106,7 @@
   window.SpeakContent = {
     ladder: ladder, profile: profile, blueprint: blueprint, realization: realization,
     scenario: scenario, ladderIds: ladderIds,
-    resolve: resolve, sameInAll: sameInAll, fill: fill, slotsIn: slotsIn, registerInfo: registerInfo
+    resolve: resolve, sameInAll: sameInAll, fill: fill, slotsIn: slotsIn, registerInfo: registerInfo,
+    sampleValues: sampleValues
   };
 })();

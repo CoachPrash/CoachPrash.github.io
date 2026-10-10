@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="color-scheme" content="light dark">
+<title>Speak matching tests</title>
+<style>
+  body { font: 15px/1.5 system-ui, "Segoe UI", sans-serif; margin: 0 auto; max-width: 1000px; padding: 1rem 16px 3rem; }
+  h1 { font-size: 1.4rem; }
+  #sum { font-weight: 700; padding: .5rem .8rem; border-radius: 8px; }
+  #sum.pass { background: #dcfce7; color: #14532d; }
+  #sum.fail { background: #fee2e2; color: #7f1d1d; }
+  table { border-collapse: collapse; width: 100%; font-size: .9rem; }
+  td, th { border-bottom: 1px solid #8884; padding: .25rem .4rem; text-align: left; vertical-align: top; }
+  tr.fail td { background: #fee2e2; color: #7f1d1d; }
+  label { font-size: .9rem; }
+</style>
+</head>
+<body>
+<h1>Speak matching tests</h1>
+<p>Runs the M2 matching cases (spec §5.2, §5.3, §8) against <code>speak/assets/speech.js</code> and the real content. Open over http: run <code>python -m http.server</code> in the repo root, then open <code>/_build/test_speech.html</code>.</p>
+<p id="sum">Running…</p>
+<label><input type="checkbox" id="onlyfail"> Show failures only</label>
+<table><thead><tr><th>Case</th><th>Said</th><th>Expected</th><th>Got</th></tr></thead><tbody id="out"></tbody></table>
+
+<script>window.SPEAK_CONTENT_BASE = "../speak/content/";</script>
+<script src="../speak/assets/content.js"></script>
+<script src="../speak/assets/speech.js"></script>
+<script id="cases">
+/* The cases. Plain functions of SpeakContent and SpeakSpeech, so the same code
+ * can run outside a browser. window.SpeakTests resolves to the results. */
+(function () {
+  "use strict";
+  var C = window.SpeakContent, S = window.SpeakSpeech;
+  var HINDI = ["greetings", "where-from", "family", "requests"];
+  var results = [];
+
+  function load(code, id) { return C.scenario(code, id); }
+
+  /* { reg: resolvedItem } for every allowed register */
+  function byReg(sc, item) {
+    var out = {};
+    (sc.real.registers || [sc.profile.defaultRegister]).forEach(function (r) {
+      out[r] = C.resolve(item, r, sc.profile.defaultRegister);
+    });
+    return out;
+  }
+  function labels(sc) {
+    var o = {};
+    sc.profile.registers.forEach(function (r) { o[r.id] = r.label; });
+    return o;
+  }
+  function line(sc, id) { return sc.real.lines[id]; }
+
+  /* How a learner types romanization: lower case, no punctuation, no doubled vowels. */
+  function lazy(rom) {
+    return String(rom).toLowerCase().replace(/[.,!?]/g, "").replace(/aa/g, "a").replace(/ee/g, "i").replace(/oo/g, "u");
+  }
+
+  function expectLine(name, sc, item, reg, said, want, wantReg) {
+    var r = S.matchLine([].concat(said), byReg(sc, item), reg, sc.profile, labels(sc));
+    var got = r.verdict + (r.wrongRegister ? " (" + r.wrongRegister + ")" : "") + " " + Math.round(r.score * 100) + "%";
+    var ok = r.verdict === want && (r.wrongRegister || null) === (wantReg || null);
+    results.push({ name: name, said: [].concat(said).join(" | "), want: want + (wantReg ? " (" + wantReg + ")" : ""), got: got, ok: ok });
+  }
+
+  function expectPhrase(name, sc, item, reg, said, wantUsed, wantReg) {
+    var r = S.phraseUsed(said, byReg(sc, item), reg, sc.profile);
+    var ok = r.used === wantUsed && (r.wrongRegister || null) === (wantReg || null);
+    results.push({ name: name, said: said, want: (wantUsed ? "used" : "not used") + (wantReg ? " (" + wantReg + ")" : ""),
+      got: (r.used ? "used" : "not used") + (r.wrongRegister ? " (" + r.wrongRegister + ")" : ""), ok: ok });
+  }
+
+  /* Every Hindi model line, in every register, said exactly and typed lazily,
+   * scores Good. The other register's form gives Nearly with its label. */
+  function generated(sc) {
+    var p = sc.profile, regs = sc.real.registers;
+    sc.blueprint.lines.forEach(function (bl) {
+      var item = line(sc, bl.id);
+      var vals = C.sampleValues(sc.blueprint, sc.real, 0);
+      regs.forEach(function (reg) {
+        var res = C.resolve(item, reg, p.defaultRegister);
+        var forms = res.variants && res.variants.length ? res.variants : [res];
+        forms.forEach(function (f, i) {
+          var tag = sc.real.scenario + " " + bl.id + " " + reg + (forms.length > 1 ? " v" + (i + 1) : "");
+          expectLine(tag + " spoken", sc, item, reg, C.fill(f.text, vals.text), "good");
+          if (f.rom) expectLine(tag + " typed", sc, item, reg, lazy(C.fill(f.rom, vals.rom)), "good");
+        });
+        regs.forEach(function (other) {
+          if (other === reg) return;
+          var o = C.resolve(item, other, p.defaultRegister);
+          if ((o.text || "") === (res.text || "")) return;
+          expectLine(sc.real.scenario + " " + bl.id + " " + other + " form while " + reg + " selected", sc, item, reg,
+            C.fill(o.text, vals.text), "nearly", other);
+        });
+      });
+    });
+  }
+
+  function handWritten(hi, fr, zh) {
+    var g = hi.greetings, w = hi["where-from"], f = hi.family, q = hi.requests;
+    /* spelling and recognition quirks */
+    expectLine("ye-e: दीजिये = दीजिए", q, line(q, "l3"), "formal", "मुझे पानी दीजिये", "good");
+    expectLine("ye-e on a one-word line", q, line(q, "l4"), "formal", "लीजिये", "good");
+    expectLine("hyphen as a space", f, line(f, "l1"), "formal", "क्या आपके भाई बहन हैं", "good");
+    expectLine("digits as number words", f, line(f, "l2"), "formal", "हाँ मेरे 2 भाई हैं और 1 बहन है", "good");
+    expectLine("nukta left out", g, line(g, "l4"), "formal", "मेरा नाम प्रश है आपसे मिलकर खुशी हुई", "good");
+    expectLine("slot: loanword in Latin script", w, line(w, "l5"), "formal", "मैं teacher हूँ", "good");
+    expectLine("slot: two-word value", q, line(q, "l3"), "formal", "मुझे एक पेन दीजिए", "good");
+    expectLine("slot: two-word city", w, line(w, "l2"), "formal", "मैं न्यू यॉर्क से हूँ और आप", "good");
+    expectLine("accept form", q, line(q, "l5"), "formal", "शुक्रिया", "good");
+    expectLine("several alternatives, best wins", g, line(g, "l1"), "formal", ["नमस्ते जी तो", "नमस्ते"], "good");
+    /* wrong answers */
+    expectLine("wrong line", g, line(g, "l3"), "formal", "नमस्ते", "notquite");
+    expectLine("one word missing", g, line(g, "l3"), "formal", "मेरा नाम प्रश है आपका नाम क्या", "good");
+    expectLine("half the line", g, line(g, "l3"), "formal", "मेरा नाम प्रश है", "notquite");
+    /* M2 done-when cases */
+    expectLine("तुम form while आप selected", g, line(g, "l3"), "formal", "मेरा नाम प्रश है तुम्हारा नाम क्या है", "nearly", "familiar");
+    expectLine("typed romanization", g, line(g, "l3"), "formal", "mera nam prash hai aapka nam kya hai", "good");
+    var t = g.real.free.targets;
+    expectPhrase("free: aap kaise hain (spoken)", g, t["how-are-you"], "formal", "आप कैसे हैं", true);
+    expectPhrase("free: main Theek hoon (spoken)", g, t["i-am-fine"], "formal", "मैं ठीक हूँ", true);
+    expectPhrase("free: aap kaise hain (typed)", g, t["how-are-you"], "formal", "aap kaise hain", true);
+    expectPhrase("free: main Theek hoon (typed)", g, t["i-am-fine"], "formal", "main Theek hoon", true);
+    expectPhrase("free: inside a longer sentence", g, t["how-are-you"], "formal", "नमस्ते आप कैसे हैं आज", true);
+    expectPhrase("free: तुम form while आप selected", g, t["how-are-you"], "formal", "तुम कैसे हो", false, "familiar");
+    expectPhrase("free: not said", g, t["how-are-you"], "formal", "मेरा नाम प्रश है", false);
+    expectPhrase("free: vocab with a blank", g, g.real.vocab["my-name-is"], "formal", "हाँ मेरा नाम प्रश है", true);
+    expectPhrase("free: vocab with a choice (रहता / रहती)", w, w.real.vocab["i-live-in"], "formal", "मैं दिल्ली में रहती हूँ", true);
+    /* French and Mandarin, greetings */
+    expectLine("fr: Salut while vous selected", fr, line(fr, "l1"), "formal", "Salut", "nearly", "familiar");
+    expectLine("fr: Bonjour while tu selected (accepted)", fr, line(fr, "l1"), "familiar", "Bonjour", "good");
+    expectLine("fr: woman's variant, no accents", fr, line(fr, "l4"), "formal", "je m'appelle Paul enchantee", "good");
+    expectLine("fr: tu form", fr, line(fr, "l3"), "familiar", "Je m'appelle Paul. Comment tu t'appelles ?", "good");
+    expectLine("zh: 你好 while 您 selected", zh, line(zh, "l1"), "formal", "你好", "nearly", "familiar");
+    expectLine("zh: typed pinyin", zh, line(zh, "l1"), "familiar", "ni hao", "good");
+    expectLine("zh: name as a run of characters", zh, line(zh, "l3"), "familiar", "我叫李小龙。你叫什么名字？", "good");
+    expectPhrase("zh free: 我很好", zh, zh.real.free.targets["i-am-fine"], "familiar", "我很好", true);
+  }
+
+  window.SpeakTests = Promise.all(HINDI.map(function (id) { return load("hi", id); })
+    .concat([load("fr", "greetings"), load("zh", "greetings")])).then(function (scs) {
+    var hi = {};
+    HINDI.forEach(function (id, i) { hi[id] = scs[i]; if (!scs[i]) throw new Error("could not load hi/" + id); });
+    HINDI.forEach(function (id) { generated(hi[id]); });
+    handWritten(hi, scs[4], scs[5]);
+    return results;
+  });
+})();
+</script>
+<script>
+/* Show the results. */
+(function () {
+  var out = document.getElementById("out"), sum = document.getElementById("sum"), only = document.getElementById("onlyfail");
+  function esc(s) { return String(s).replace(/[&<>]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]; }); }
+  window.SpeakTests.then(function (rs) {
+    function draw() {
+      out.innerHTML = rs.filter(function (r) { return !only.checked || !r.ok; }).map(function (r) {
+        return '<tr class="' + (r.ok ? "ok" : "fail") + '"><td>' + esc(r.name) + "</td><td>" + esc(r.said) + "</td><td>" + esc(r.want) + "</td><td>" + esc(r.got) + "</td></tr>";
+      }).join("");
+    }
+    var bad = rs.filter(function (r) { return !r.ok; }).length;
+    sum.textContent = bad ? bad + " of " + rs.length + " cases failed." : "All " + rs.length + " cases passed.";
+    sum.className = bad ? "fail" : "pass";
+    only.onchange = draw;
+    draw();
+  }, function (e) {
+    sum.textContent = "Could not run: " + e.message + ". Serve the repo over http, not from file://.";
+    sum.className = "fail";
+  });
+})();
+</script>
+</body>
+</html>
