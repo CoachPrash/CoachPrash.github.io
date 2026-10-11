@@ -52,7 +52,8 @@ Nothing here is generated. There is no build step.
 8. **After each commit, Claude gives Prash the push command** in its own code block. If Claude cannot commit (no delete permission, no shell), it gives the full set for PowerShell instead: `cd`, checker if needed, `git status`, `git add` with named files, `git commit`, `git push`. Each command goes in its own code block. Commit messages are one line.
 9. **Spec first.** When the code and the spec disagree, the spec is changed first, with Prash's agreement, then the code.
 10. **Speak teaches by chunking.** On the site, say "chunk", never "vocabulary" (spec §3.9).
-11. **Never set content to `verified`.** Only Prash (Hindi) or a native-speaker reviewer verifies content.
+11. **Never set content to `verified` on Claude's own judgement.** Only Prash (Hindi) or a native-speaker reviewer verifies content. When Prash says "Verified: <lang> <scenario>, <name>, <date>", Claude records it in `review`.
+12. **Release rhythm.** Prash teaches a class every Sunday morning. A new version is tested and pushed by **Saturday evening EDT**. Work that would change Sunday's class and is not ready by then waits a week. Plan each week's changes toward that deadline.
 
 ## Writing style
 
@@ -97,3 +98,4 @@ Speak loads JSON, so it does not run from `file://`. Check that the Actions run 
 - **Status at the move:** M1 done (spec §8). Next is **M2, solo mode**. All content is `draft`, not yet reviewed by native speakers.
 - **9 October 2026:** M2 built (spec 0.7.2).
 - **10 October 2026:** M2 done: Prash's spoken test passed. Proposals in `_project/sites/speak-proposals.md`.
+- **11 October 2026:** M2.5 done (chunks and gender). Used in Prash's Sunday class.

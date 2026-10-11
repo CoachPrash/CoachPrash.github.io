@@ -52,9 +52,9 @@ The spec is `_project/sites/speak-spec.md`. It is the build contract: read it be
 
 ## Open items
 
-- **M2.5 built (10 Oct 2026):** chunks (key, steps, echo, notice, method on the site) and gender (roster, solo setting, forms per person, wrong-gender check, two voice pickers). Waiting for Prash's class test (spec §8).
+- **M2.5 done (11 Oct 2026):** chunks (key, steps, echo, notice, method on the site) and gender (roster, solo setting, forms per person, wrong-gender check, two voice pickers). Used in Prash's Sunday class on 11 Oct 2026.
 - Next: M3, French and Mandarin stages 1–4, drafted chunk-first.
-- Prash to review the Hindi script views (print → PDF) and mark verified ones.
+- Prash to review the Hindi script views (print → PDF), send corrections, and declare each scenario verified (spec §4.4).
 - Hindi romanization is Prash's ASCII scheme (spec §3.3). All Hindi content follows it.
 - Milestones M2 to M4 in the spec.
 - Local testing: `python -m http.server` in the repo root, then open http://localhost:8000/speak/ and http://localhost:8000/_build/test_speech.html. The app loads JSON, so it does not run from file://.

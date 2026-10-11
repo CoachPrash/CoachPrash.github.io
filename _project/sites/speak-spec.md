@@ -1,6 +1,6 @@
 # Speak — specification
 
-**Status:** M1 and M2 done. M2.5, chunks and gender, built (10 October 2026), waiting for Prash's class test (§8).
+**Status:** M1, M2 and M2.5 done. M2.5 passed Prash's test and ran in his Sunday class on 11 October 2026. Next: M3.
 **Version:** 0.8.2, 10 October 2026
 **Brief:** `_project/sites/speak.md`
 
