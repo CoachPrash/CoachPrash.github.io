@@ -54,7 +54,14 @@
       { "en": "a student", "text": "विद्यार्थी", "rom": "vidyaarthee" },
       { "en": "a teacher", "text": "टीचर", "rom": "Teechar" },
       { "en": "an engineer", "text": "इंजीनियर", "rom": "injeeniyar" },
-      { "en": "a nurse", "text": "नर्स", "rom": "nars" }
+      { "en": "a nurse", "text": "नर्स", "rom": "nars" },
+      { "en": "a doctor", "text": "डॉक्टर", "rom": "DokTar" },
+      { "en": "an accountant", "text": "अकाउंटेंट", "rom": "akaaunTenT" },
+      { "en": "a lawyer", "text": "वकील", "rom": "vakeel" },
+      { "en": "a sportsperson", "text": "खिलाड़ी", "rom": "khilaaRee" },
+      { "en": "an actor", "text": "अभिनेता", "rom": "abhinetaa" },
+      { "en": "an actress", "text": "अभिनेत्री", "rom": "abhinetree" },
+      { "en": "a businessman / businesswoman", "text": "व्यापारी", "rom": "vyaapaaree" }
     ]
   },
   "partnerValues": {
