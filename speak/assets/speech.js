@@ -54,6 +54,7 @@
       var v = list.filter(function (x) { return x.name === opts.voiceName; })[0] || list[0];
       if (v) u.voice = v;
       u.rate = opts.rate || 0.9;
+      u.pitch = opts.pitch || 1;
       var done = false;
       function finish() { if (!done) { done = true; clearTimeout(timer); resolve(); } }
       var timer = setTimeout(finish, 3000 + t.length * 160 / u.rate);
@@ -64,6 +65,17 @@
   }
 
   function stop() { if (synth) synth.cancel(); }
+
+  /* The Web Speech API does not say whether a voice is a woman's or a man's.
+   * A short table of known voice names (spec §4.5); unknown names give null. */
+  var VOICE_GENDER = [
+    [/swara|kalpana|lekha|हिन्दी|denise|julie|hortense|elo[iï]se|brigitte|vivienne|am[eé]lie|audrey|aur[eé]lie|xiaoxiao|xiaoyi|huihui|yaoyao|tingting|meijia|google fran[cç]ais|普通话/i, "f"],
+    [/madhur|hemant|rishi|henri|\bpaul\b|r[eé]my|thomas|daniel|yunxi|yunyang|yunjian|kangkang/i, "m"]
+  ];
+  function voiceGender(name) {
+    for (var i = 0; i < VOICE_GENDER.length; i++) if (VOICE_GENDER[i][0].test(name || "")) return VOICE_GENDER[i][1];
+    return null;
+  }
 
   /* ================================================================ recognition */
 
@@ -321,9 +333,11 @@
    *   byRegister { registerId: resolvedItem } for every allowed register
    *   selected   the selected register id
    *   labels     { registerId: label } for the wrong-register message
-   * Returns { verdict, score, wrongRegister, label, model, by, units }.
+   *   gendered   optional: forms left out by gender (content.js forGender), checked
+   *              the same way as another register (spec §5.2 step 6)
+   * Returns { verdict, score, wrongRegister, label, wrongGender, model, by, units }.
  * by is "text" or "rom": which form the units are taken from. */
-  function matchLine(saidList, byRegister, selected, prof, labels) {
+  function matchLine(saidList, byRegister, selected, prof, labels, gendered) {
     var sel = bestOf(saidList, formsOf(byRegister[selected]), prof);
     var out = { verdict: verdictOf(sel.score), score: Math.max(0, sel.score), wrongRegister: null, label: null };
     var other = null;
@@ -336,6 +350,10 @@
       out.verdict = "nearly";
       out.wrongRegister = other.reg;
       out.label = (labels || {})[other.reg] || other.reg;
+    }
+    if (gendered && !out.wrongRegister) {
+      var g = bestOf(saidList, formsOf(gendered), prof);
+      if (g.score >= GOOD && g.score > sel.score + 1e-9) { out.verdict = "nearly"; out.wrongGender = gendered.message; }
     }
     if (sel.form) {
       var shown = sel.form.model ? sel.form : formsOf(byRegister[selected])[0];
@@ -460,6 +478,7 @@
     speak: speak,
     stop: stop,
     /* recognition */
+    voiceGender: voiceGender,
     canListen: !!Rec,
     listen: listen,
     stopListening: stopListening,

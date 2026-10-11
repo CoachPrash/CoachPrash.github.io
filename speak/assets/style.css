@@ -259,6 +259,18 @@ mark.chunk { background: transparent; color: inherit; text-decoration: underline
 .notice li { display: block; }
 .literal { margin-top: .2rem; }
 
+/* an example above a learner's own blank (spec §3.8) */
+ruby.ex { ruby-position: over; }
+ruby.ex rt { font-size: max(.38em, 11px); color: var(--muted); font-weight: 400; letter-spacing: 0; }
+.rom ruby.ex rt { font-size: max(.6em, 11px); }
+
+/* gender (spec §3.10) */
+.genders { display: grid; gap: .35rem; }
+.genders .glabel { font-size: .9rem; color: var(--muted); }
+.genders label.grow { justify-content: space-between; max-width: 320px; }
+.seg.gender button { font-size: .9rem; padding: .4rem .9rem; }
+.roles + .method { margin-top: 1rem; }
+
 /* solo mode (spec §4.3), sized for a phone first */
 body.solomode .sitefoot { display: none; }
 .solohead { background: var(--surface); border-bottom: 1px solid var(--line); padding: .5rem 16px 0; }

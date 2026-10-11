@@ -52,7 +52,8 @@ The spec is `_project/sites/speak-spec.md`. It is the build contract: read it be
 
 ## Open items
 
-- Next: M2.5, chunks and gender (spec 0.8, §3.9, §3.10). Then M3, French and Mandarin stages 1–4, drafted chunk-first.
+- **M2.5 built (10 Oct 2026):** chunks (key, steps, echo, notice, method on the site) and gender (roster, solo setting, forms per person, wrong-gender check, two voice pickers). Waiting for Prash's class test (spec §8).
+- Next: M3, French and Mandarin stages 1–4, drafted chunk-first.
 - Prash to review the Hindi script views (print → PDF) and mark verified ones.
 - Hindi romanization is Prash's ASCII scheme (spec §3.3). All Hindi content follows it.
 - Milestones M2 to M4 in the spec.

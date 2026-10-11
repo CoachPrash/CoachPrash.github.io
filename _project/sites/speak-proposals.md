@@ -163,3 +163,12 @@ Not in any milestone yet. Ideas for after the basic site is built.
    - The columns are not independent. Hindi verbs agree with the subject's person, number and gender (मैं जा रहा / रही हूँ, वे जा रहे हैं). Hindi puts the place before the verb.
    - So each table is authored: every verb cell holds its form for each subject and gender, and each language sets its own column order. The app shows the correct form as the learner picks, which makes it a noticing tool.
    - It needs more verbs than stages 1–4 have. Proposed as **M5**, after stages 5–9. Stage 6 (daily routine) is the natural first table.
+4. **People: profiles of the participants** (Prash, 11 October 2026). Proposed as its own milestone right after M3.
+   - **What it does.** A "People" panel takes the place of "Names". Each person has a name, an optional gender, and values for the scenarios' personal slots (city …). Role play, the frame drill and solo then use each person's own values, so learners say true things about themselves.
+   - **Asks only for what is missing.** Each scenario's slots say what it needs. Before a run, setup asks only for the gaps ("Meera: city?"). Every field is optional.
+   - **Set slots are picked, not typed.** A job comes from the scenario's list, so the target-language forms stay correct. The drill uses the person's own value first, then the others.
+   - **Spelling.** A value is kept in English, and optionally in each language's script. Without a script spelling, the English word shows in the gap. The matcher accepts any word there already.
+   - **Privacy.** Learners are minors. Keep only the fields scenarios use, all optional, and add a "Forget everyone" button. The data stays on the device, which is a shared classroom computer in practice.
+   - **Production.** Profiles that follow a learner across devices need a server. That is the trigger for Railway, and it brings parental-consent and student-data rules: COPPA for under-13s, school-record rules, and Connecticut's student data privacy law. The records are plain JSON per person, so they can move to a server unchanged.
+   - **Spec first.** §4.2 setup, §6 storage, and "When to move to a server" change before any code.
+   - **Done in M2.5 already:** a learner's own blank shows the partner's value as an example ("e.g. दिल्ली"). It still helps when no profile exists.

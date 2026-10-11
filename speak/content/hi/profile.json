@@ -71,6 +71,7 @@
     }
   ],
   "defaultRegister": "formal",
+  "partnerGender": "f",
   "profile": {
     "formality": "Three levels of you: आप (formal), तुम (familiar), तू (intimate). Teach आप first.",
     "script": "Devanagari. Retroflex and aspirated consonants need attention: ट/त, ड/द, क/ख.",

@@ -85,6 +85,41 @@
     return v;
   }
 
+  /* ---------- gender (spec §3.10) ---------- */
+
+  var WHO = { f: "a woman", m: "a man" };
+
+  /* The label shown for a variant: written from speaker and listener when set,
+   * otherwise its own label. */
+  function variantLabel(v) {
+    if (v.speaker && v.listener) return WHO[v.speaker] + " to " + WHO[v.listener];
+    if (v.speaker) return "said by " + WHO[v.speaker];
+    if (v.listener) return "to " + WHO[v.listener];
+    return v.label || "";
+  }
+
+  function agrees(v, speaker, listener) {
+    return (!v.speaker || !speaker || v.speaker === speaker) && (!v.listener || !listener || v.listener === listener);
+  }
+
+  /* Split a resolved item by the known genders ("f", "m" or null).
+   * Returns { res, other }: res keeps the variants that agree, other holds the
+   * ones left out (no accepts) with a message for the wrong-gender check, or null. */
+  function forGender(res, speaker, listener) {
+    var vs = res.variants || [];
+    if (!vs.length || (!speaker && !listener)) return { res: res, other: null };
+    var keep = vs.filter(function (v) { return agrees(v, speaker, listener); });
+    var drop = vs.filter(function (v) { return !agrees(v, speaker, listener); });
+    if (!keep.length || !drop.length) return { res: res, other: null };
+    var out = {};
+    Object.keys(res).forEach(function (k) { out[k] = res[k]; });
+    out.variants = keep;
+    var d = drop[0];
+    var message = d.speaker && speaker && d.speaker !== speaker ?
+      "That was the form " + WHO[d.speaker] + " uses." : "That was the form for speaking to " + WHO[d.listener] + ".";
+    return { res: out, other: { variants: drop, text: d.text, rom: d.rom, message: message } };
+  }
+
   function slotsIn(text) {
     var out = [], m, re = /\{(\w+)\}/g;
     while ((m = re.exec(text || ""))) out.push(m[1]);
@@ -107,6 +142,6 @@
     ladder: ladder, profile: profile, blueprint: blueprint, realization: realization,
     scenario: scenario, ladderIds: ladderIds,
     resolve: resolve, sameInAll: sameInAll, fill: fill, slotsIn: slotsIn, registerInfo: registerInfo,
-    sampleValues: sampleValues
+    sampleValues: sampleValues, variantLabel: variantLabel, forGender: forGender
   };
 })();

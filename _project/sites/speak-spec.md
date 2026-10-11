@@ -1,12 +1,22 @@
 # Speak — specification
 
-**Status:** M1 and M2 done. M2.5, chunks and gender, specified here for Prash's review (§3.9, §3.10, §8).
-**Version:** 0.8.1, 10 October 2026
+**Status:** M1 and M2 done. M2.5, chunks and gender, built (10 October 2026), waiting for Prash's class test (§8).
+**Version:** 0.8.2, 10 October 2026
 **Brief:** `_project/sites/speak.md`
 
 This file is the build contract. When the spec and the code disagree, the spec wins, or the spec is changed first.
 
 ### Changes
+
+**0.8.2** (found while building gender)
+
+- A learner's own blank for a personal slot, other than the name, shows the partner value above it as an example (§3.8).
+
+- Options read Male and Female, in that order. Variant labels and messages keep sentence wording: "to a woman", "the form a man uses".
+
+- New line field `sameSound: true` (§3.10): the gender forms sound the same, as with enchanté / enchantée. Speech cannot tell them apart, so the wrong-gender check runs only on typed answers for that line.
+- Voices (§4.5): the pickers mark voices known to be a woman's or a man's. Pitch changes when the voice chosen for a gender is known to be the other gender's.
+- Solo setup asks "You are: Male · Female · Not set", in scenarios whose lines change by gender (§4.3).
 
 **0.8.1** (found while building the M2.5 screens)
 
@@ -124,7 +134,7 @@ First languages: **Hindi** (Prash teaches it), **French** and **Mandarin Chinese
 | Romanization | Hindi: Prash's ASCII scheme, easy to type (§3.3). Mandarin: Hanyu Pinyin with tone marks. French: none |
 | Register | Switch per scenario. Hindi आप / तुम / तू, French vous / tu, Mandarin 您 / 你 |
 | Chunks | Learners meet language as whole chunks first, and notice grammar last (after Michael Lewis's Lexical Approach). §3.9 |
-| Gender | Optional per person: woman, man or blank. Blank shows both forms. Never guessed from a name. §3.10 |
+| Gender | Optional per person: Male, Female or blank. Blank shows both forms. Never guessed from a name. §3.10 |
 | Timers | None anywhere |
 | Reviewer output | Print view. PDF through the browser's Print → Save as PDF |
 | UI language | English |
@@ -586,6 +596,7 @@ A `personal` slot has no fixed value: each speaker uses their own name or city. 
 
 - **Solo mode:** the partner is this person. The partner's lines show and speak these values. The learner's own lines show a blank and the cue ("your name").
 - **Everywhere:** when text-to-speech plays a line and a personal slot has no value (no class names entered, or the learner's own line under Hear it), it uses the partner value.
+- **An example above the blank:** where a learner sees their own blank for a personal slot, the partner value appears small above it: "e.g. दिल्ली". This matches what Hear it says. The `name` slot shows no example: the partner's name would confuse more than help.
 
 ### 3.9 Chunks
 
@@ -624,6 +635,7 @@ In Hindi, verbs agree with the speaker and with the listener: मैं कर�
 ```
 
 - `speaker`: the gender of the person saying the line. `listener`: the gender of the person spoken to. Values `"f"` and `"m"`.
+- `sameSound: true` on a line says its gender forms sound the same (enchanté / enchantée). Recognition then cannot tell them apart, so the wrong-gender check (§5.2 step 6) runs only on typed answers for that line.
 - The app writes the label: "said by a woman", "to a man", "a woman to a man". A free `label` stays for variants that are not about gender.
 - **Who is who.**
   - Class role play: the speaker is the person in the line's role, and the listener is the other person in the pair. Their genders come from the roster.
@@ -675,7 +687,7 @@ Routes are hash-based, so they work on GitHub Pages with no server rules:
 
 1. Enter participant names. One per line.
 2. Mark who the native speaker is, if present.
-3. Optionally, set each person's gender: woman, man, or blank (§3.10). Blank shows both forms. The app never guesses gender from a name.
+3. Optionally, set each person's gender: Male, Female, or blank (§3.10). Blank shows both forms. The app never guesses gender from a name.
 
 **Pairing rule:**
 
@@ -706,7 +718,7 @@ The order follows the chunking idea: hear the language, take its chunks whole, u
 - **Order:** Hear it, Echo, the dialogue runs, the frame drill, free practice, Notice, then the end summary. It is the class order, less the separate Chunks step, because each Echo card shows the chunk in its line.
 - **Hear it:** the browser plays the whole dialogue once, with the text shown. Next moves on.
 - **Echo:** one chunk per card, underlined in its line. Hear it, then the learner says the chunk. It is matched like a line (§5.2). The build-up pieces are shown, each with its own Hear button. Next is always open: Echo scores count in the summary, but they do not hold the learner back.
-- **Gender:** the learner's own gender comes from the setting (§4.5). The setup screen offers it if it is not set.
+- **Gender:** the learner's own gender comes from the setting (§4.5). The setup screen asks "You are": Male · Female · Not set (shows both forms). It asks only in a scenario whose lines change by gender.
 - The learner picks a role (A or B), or "both, one after the other": a run as A, then a run as B.
 - **Partner's lines:** shown and played by text-to-speech, with personal slots filled from `partnerValues` (§3.8). When the line ends, the run moves on by itself. Next skips ahead. With no voice for the language, the line is shown and Next moves on.
 - **Set slots in the dialogue:** a run uses the first value in `slotValues`. The cue shows it ("Please give me some water").
@@ -744,10 +756,11 @@ Applies everywhere, stored per device:
 - English on/off
 - cue only on/off: role play and drill show only the English cue (§4.2)
 - speech rate (0.7×, 0.8×, 0.9×, 1×)
-- voices per language: one for women's lines and one for men's lines (§3.10)
+- voices per language: a male voice and a female voice (§3.10)
   - The defaults come from a short table of known voices in `speech.js`, for example Microsoft Swara (f) and Madhur (m) for Hindi. The Web Speech API does not report a voice's gender.
-  - When both pickers hold the same voice, the other gender's lines get a changed pitch: 0.8 for men's lines, 1.2 for women's. This is artificial, and the picker says so.
-- the solo learner's gender: woman, man, or not set (§3.10)
+  - Each picker lists the language's voices and marks the ones known to be a woman's or a man's. Its default is a voice known to be that gender, else the first voice.
+  - When the voice chosen for a gender is known to be the other gender's (the device has no voice of the right one), its lines get a changed pitch: 0.8 for men's lines, 1.2 for women's. This is artificial, and the picker says so.
+- the solo learner's gender: Male, Female, or not set (§3.10)
 
 ### 4.6 Register switch
 
@@ -896,6 +909,7 @@ The checker exits with a non-zero code and one line per problem when any of thes
   - in one variants list, a gender field is set on every variant or on none
   - a variant with no gender field has a `label`
   - the profile's `partnerGender`, when set, is `f` or `m`
+  - `sameSound` is `true`, and only on a line with variants
 
 It runs on every commit that touches `speak/content/`.
 

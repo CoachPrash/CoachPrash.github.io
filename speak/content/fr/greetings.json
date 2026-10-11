@@ -51,15 +51,14 @@
     "l4": {
       "text": "Je m'appelle {name}. Enchanté.",
       "registerNeutral": true,
+      "sameSound": true,
       "variants": [
         {
           "speaker": "m",
-          "label": "said by a man",
           "text": "Je m'appelle {name}. Enchanté."
         },
         {
           "speaker": "f",
-          "label": "said by a woman",
           "text": "Je m'appelle {name}. Enchantée."
         }
       ]

@@ -304,6 +304,8 @@ for code, (prof_path, prof, reals) in languages.items():
 
         # gender fields on variants (spec §3.10)
         for lid, item in rl.items():
+            if "sameSound" in item and (item["sameSound"] is not True or not item.get("variants")):
+                problem(where, f'line {lid}: sameSound is true, and only on a line with variants')
             groups = [item.get("variants", [])] + [e.get("variants", []) for e in item.get("byRegister", {}).values()]
             for vs in groups:
                 for fld in ("speaker", "listener"):

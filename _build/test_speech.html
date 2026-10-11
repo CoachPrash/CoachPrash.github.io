@@ -147,6 +147,28 @@
     expectLocate("not in this line", g, "फिर मिलेंगे", "l1", "formal", "(not found)");
     expectLocate("zh chars mode", zh, "我叫___", "l3", "familiar", "我 叫 {name}");
 
+    /* gender (spec §3.10, §5.2 step 6): where-from l3 to a woman */
+    function expectGender(name, sc, lineId, reg, speaker, listener, said, want, wantMsg, typed) {
+      var p = sc.profile, item = sc.real.lines[lineId], by = {};
+      (sc.real.registers || [p.defaultRegister]).forEach(function (rg) { by[rg] = C.forGender(C.resolve(item, rg, p.defaultRegister), speaker, listener).res; });
+      var other = C.forGender(C.resolve(item, reg, p.defaultRegister), speaker, listener).other;
+      if (item.sameSound && !typed) other = null;   /* spoken: the forms sound the same */
+      var r = S.matchLine([said], by, reg, p, labels(sc), other);
+      var got = r.verdict + (r.wrongGender ? " (" + r.wrongGender + ")" : "");
+      var exp = want + (wantMsg ? " (" + wantMsg + ")" : "");
+      results.push({ name: "gender: " + name, said: said, want: exp, got: got, ok: got === exp });
+    }
+    expectGender("right form, to a woman", w, "l3", "formal", null, "f", "मैं दिल्ली से हूँ। आप क्या करती हैं?", "good");
+    expectGender("man's form said to a woman", w, "l3", "formal", null, "f", "मैं दिल्ली से हूँ। आप क्या करते हैं?", "nearly", "That was the form for speaking to a man.");
+    expectGender("listener not set: both good", w, "l3", "formal", null, null, "मैं दिल्ली से हूँ। आप क्या करते हैं?", "good");
+    expectGender("fr spoken: enchanté / enchantée sound the same", fr, "l4", "formal", "f", null, "Je m'appelle Paul. Enchanté.", "good");
+    expectGender("fr typed: a woman types enchanté", fr, "l4", "formal", "f", null, "Je m'appelle Paul. Enchanté.", "nearly", "That was the form a man uses.", true);
+    results.push((function () {
+      var lab = C.variantLabel({ speaker: "f", listener: "m" }) + " | " + C.variantLabel({ listener: "f" }) + " | " + C.variantLabel({ label: "formal letter" });
+      var want = "a woman to a man | to a woman | formal letter";
+      return { name: "gender: labels", said: "", want: want, got: lab, ok: lab === want };
+    })());
+
     /* Echo build-up pieces (spec §4.2 step 4) */
     function expectBuildUp(name, sc, chunkId, reg, want) {
       var item = sc.real.chunks[chunkId], r = C.resolve(item, reg, sc.profile.defaultRegister);

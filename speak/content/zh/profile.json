@@ -22,6 +22,7 @@
     { "id": "familiar", "label": "你", "en": "familiar" }
   ],
   "defaultRegister": "familiar",
+  "partnerGender": "m",
   "profile": {
     "formality": "你 is the everyday you. 您 is respectful: for elders, teachers, customers. Verbs do not change with either.",
     "script": "Simplified characters, one syllable each. Four tones plus a neutral tone change the meaning.",

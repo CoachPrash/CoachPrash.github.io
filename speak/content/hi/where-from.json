@@ -20,16 +20,16 @@
       "text": "मैं {city} से हूँ। आप क्या करते हैं?",
       "rom": "main {city} se hoon. aap kyaa karte hain?",
       "variants": [
-        { "listener": "m", "label": "to a man", "text": "मैं {city} से हूँ। आप क्या करते हैं?", "rom": "main {city} se hoon. aap kyaa karte hain?" },
-        { "listener": "f", "label": "to a woman", "text": "मैं {city} से हूँ। आप क्या करती हैं?", "rom": "main {city} se hoon. aap kyaa kartee hain?" }
+        { "listener": "m", "text": "मैं {city} से हूँ। आप क्या करते हैं?", "rom": "main {city} se hoon. aap kyaa karte hain?" },
+        { "listener": "f", "text": "मैं {city} से हूँ। आप क्या करती हैं?", "rom": "main {city} se hoon. aap kyaa kartee hain?" }
       ],
       "byRegister": {
         "familiar": {
           "text": "मैं {city} से हूँ। तुम क्या करते हो?",
           "rom": "main {city} se hoon. tum kyaa karte ho?",
           "variants": [
-            { "listener": "m", "label": "to a man", "text": "मैं {city} से हूँ। तुम क्या करते हो?", "rom": "main {city} se hoon. tum kyaa karte ho?" },
-            { "listener": "f", "label": "to a woman", "text": "मैं {city} से हूँ। तुम क्या करती हो?", "rom": "main {city} se hoon. tum kyaa kartee ho?" }
+            { "listener": "m", "text": "मैं {city} से हूँ। तुम क्या करते हो?", "rom": "main {city} se hoon. tum kyaa karte ho?" },
+            { "listener": "f", "text": "मैं {city} से हूँ। तुम क्या करती हो?", "rom": "main {city} se hoon. tum kyaa kartee ho?" }
           ]
         }
       }

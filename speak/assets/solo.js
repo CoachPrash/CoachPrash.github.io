@@ -98,12 +98,28 @@
 
     /* ---------- speech ---------- */
 
+    /* ---------- gender (spec §3.10): the learner's own setting, the partner's from the profile ---------- */
+
+    var examples = U.examplesFor(bp, real);
+    function learnerG() { return settings.gender || null; }
+    function partnerG() { return prof.partnerGender || null; }
+    /* A line resolved for this register and the two genders: { res, other }. */
+    function genderLine(turn, partner) {
+      var r = res(real.lines[turn.line.id]);
+      return partner ? C.forGender(r, partnerG(), learnerG()) : C.forGender(r, learnerG(), partnerG());
+    }
+    function byRegGender(item) {
+      var out = {};
+      allowed.forEach(function (rg) { out[rg] = C.forGender(C.resolve(item || {}, rg, prof.defaultRegister), learnerG(), partnerG()).res; });
+      return out;
+    }
+
     function hasVoice() { return S.available && S.voicesFor(prof.locale).length > 0; }
     function canListen() { return S.canListen && !listenBlocked; }
 
     function sayLine(turn, partner) {
-      var r = res(real.lines[turn.line.id]);
-      return U.say(U.sayText(r, valsFor(turn, partner), bp, real), prof);
+      var r = genderLine(turn, partner).res;
+      return U.say(U.sayText(r, valsFor(turn, partner), bp, real), prof, partner ? partnerG() : learnerG());
     }
 
     function listenErr(code) {
@@ -200,7 +216,7 @@
       form.onsubmit = function (e) {
         e.preventDefault();
         var v = $("input", form).value.trim();
-        if (v) { st.refocus = true; onSaid([v]); }
+        if (v) { st.refocus = true; onSaid([v], true); }
       };
       box.appendChild(form);
       return box;
@@ -222,7 +238,14 @@
     /* ---------- screens ---------- */
 
     function setupBody() {
+      var gendered = Object.keys(real.lines).some(function (k) {
+        var it = real.lines[k], vs = (it.variants || []).slice();
+        Object.keys(it.byRegister || {}).forEach(function (r) { vs = vs.concat(it.byRegister[r].variants || []); });
+        return vs.some(function (v) { return v.speaker || v.listener; });
+      });
       var body = el('<section class="wrap solo"><h1>' + esc(bp.title) + '</h1><p class="lede">' + esc(bp.goal) + "</p>" + notices() +
+        (gendered ? '<h2>You are</h2><div class="seg gender" role="group" aria-label="You are"></div>' +
+          '<p class="hint">Some lines in this scenario change for male and female speakers. "Not set" shows both forms.</p>' : "") +
         "<h2>Pick your role</h2><p class=\"hint\">The browser speaks the other part. You answer each of your lines by speaking or typing.</p>" +
         '<div class="roles"></div>' +
         '<p class="hint method">You will hear the dialogue, echo its chunks, then use them in the conversation. Grammar comes last.</p></section>');
@@ -239,6 +262,13 @@
           render();
         };
         roles.appendChild(b);
+      });
+      var seg = $(".gender", body);
+      if (seg) [["m", "Male"], ["f", "Female"], ["", "Not set"]].forEach(function (g) {
+        var b = el('<button type="button">' + esc(g[1]) + "</button>");
+        b.setAttribute("aria-pressed", String((settings.gender || "") === g[0]));
+        b.onclick = function () { settings.gender = g[0]; U.saveSettings(); render(); };
+        seg.appendChild(b);
       });
       return body;
     }
@@ -260,9 +290,9 @@
       var done = st.plan.filter(function (t) { return t.kind === "dialogue" && t.run === turn.run && t.li < turn.li; });
       if (!done.length) return "";
       return '<ol class="dialogue small history">' + done.map(function (t) {
-        var r = res(real.lines[t.line.id]), vals = valsFor(t, !t.mine);
+        var r = genderLine(t, !t.mine).res, vals = valsFor(t, !t.mine);
         return '<li class="line ' + (t.mine ? "me" : "them") + '" data-key="h-' + t.run + "-" + esc(t.line.id) + '"><span class="who">' +
-          (t.mine ? "You" : esc(partnerName())) + '</span><div class="body">' + U.target(r, prof, { vals: vals }) + "</div></li>";
+          (t.mine ? "You" : esc(partnerName())) + '</span><div class="body">' + U.target(r, prof, { vals: vals, examples: examples }) + "</div></li>";
       }).join("") + "</ol>";
     }
 
@@ -275,7 +305,7 @@
     }
 
     function partnerTurn(turn) {
-      var r = res(real.lines[turn.line.id]), vals = valsFor(turn, true);
+      var r = genderLine(turn, true).res, vals = valsFor(turn, true);
       var card = el('<div class="card them"><div class="who">' + esc(partnerName()) + " (" + turn.line.role + ")</div>" +
         '<div class="big" data-key="cur">' + U.target(r, prof, { en: turn.line.en, vals: vals }) + "</div>" +
         '<div class="actions"></div></div>');
@@ -301,25 +331,29 @@
 
     /* Verdict, marked model and what was heard (§4.3 step 4). */
     function resultBox(a, vals) {
-      return '<div class="verdict v-' + a.verdict + '"><b>' + VERDICT[a.verdict] + "</b>" + (a.wrongRegister ? "" : " " + Math.round(a.score * 100) + "%") +
-        (a.wrongRegister ? ' · That was the <span lang="' + esc(code) + '">' + esc(a.label) + "</span> form." : "") + "</div>" +
+      var wrong = a.wrongRegister || a.wrongGender;
+      return '<div class="verdict v-' + a.verdict + '"><b>' + VERDICT[a.verdict] + "</b>" + (wrong ? "" : " " + Math.round(a.score * 100) + "%") +
+        (a.wrongRegister ? ' · That was the <span lang="' + esc(code) + '">' + esc(a.label) + "</span> form." : "") +
+        (a.wrongGender ? " · " + esc(a.wrongGender) : "") + "</div>" +
         "<div>" + marked(a, vals) +
         (settings.rom && a.by !== "rom" && a.model && a.model.rom ? '<div class="rom">' + esc(C.fill(a.model.rom, vals.rom)) + "</div>" : "") +
         '<div class="heard">Heard: <span lang="' + esc(code) + '">' + esc(a.said) + "</span></div></div>";
     }
 
     function learnerTurn(turn) {
-      var item = real.lines[turn.line.id], r = res(item), vals = valsFor(turn, false);
+      var item = real.lines[turn.line.id], gl = genderLine(turn, false), r = gl.res, vals = valsFor(turn, false);
       var cue = C.fill(turn.line.en, vals.en);
       var card = el('<div class="card me"><div class="who">You (' + esc(turn.line.role) + ")</div>" +
         (turn.kind === "drill" ? '<p class="hint">Say the whole line. The check covers the sentence around the ' + esc(bp.slots[bp.drill.slot].cue) +
           ", not that word itself.</p>" : "") +
         '<div class="cue">' + esc(cue) + "</div>" +
-        (st.showAnswer ? '<div class="big answer-model" data-key="cur">' + U.target(r, prof, { vals: vals, note: true }) + "</div>" : "") +
+        (st.showAnswer ? '<div class="big answer-model" data-key="cur">' + U.target(r, prof, { vals: vals, note: true, examples: examples }) + "</div>" : "") +
         '<div class="answer-slot"></div><div class="result"></div><div class="actions more"></div></div>');
 
-      function onSaid(alts) {
-        var m = S.matchLine(alts, byReg(item), st.reg, prof, labels);
+      function onSaid(alts, typed) {
+        /* Forms that sound the same (sameSound) are told apart only when typed. */
+        var other = item.sameSound && !typed ? null : gl.other;
+        var m = S.matchLine(alts, byRegGender(item), st.reg, prof, labels, other);
         m.said = alts[0];
         st.attempt = m;
         if (RANK[m.verdict] > RANK[turn.best || "skipped"]) turn.best = m.verdict;
@@ -557,8 +591,7 @@
 
     S.onVoices(function () {
       if (!U.alive(run)) return;
-      var sel = $(".toolbar .voice select");
-      if (sel) U.fillVoices(sel, prof);
+      $all(".toolbar .voice select").forEach(function (sel) { U.fillVoices(sel, prof); });
     });
     render();
   }

@@ -14,6 +14,7 @@
     { "id": "familiar", "label": "tu", "en": "familiar" }
   ],
   "defaultRegister": "formal",
+  "partnerGender": "f",
   "profile": {
     "formality": "Two levels of you: vous (formal, and also the plural) and tu (familiar). Use vous with strangers, staff and elders. Wait to be invited to use tu.",
     "script": "Latin with accents: é è ê à ç. Many final consonants are silent. Nasal vowels (on, an, in) need attention.",

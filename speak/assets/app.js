@@ -82,17 +82,43 @@
     }).join('<span class="sep">/</span>') + "</nav>";
   }
 
+  /* Fill {slot}s as HTML. A blank (___) whose slot has an example gets it small
+   * above the blank: "e.g. दिल्ली" (spec §3.8). */
+  function fillHtml(text, values, examples) {
+    if (text == null) return "";
+    var out = "", last = 0, re = /\{(\w+)\}/g, m;
+    while ((m = re.exec(text))) {
+      out += esc(text.slice(last, m.index));
+      var v = values && values[m[1]] != null ? values[m[1]] : "___";
+      out += v === "___" && examples && examples[m[1]] ?
+        '<ruby class="ex">___<rt>e.g. ' + esc(examples[m[1]]) + "</rt></ruby>" : esc(v);
+      last = re.lastIndex;
+    }
+    return out + esc(text.slice(last));
+  }
+
+  /* Examples for a learner's own blanks: the partner's sample values for personal
+   * slots, except the name (spec §3.8). */
+  function examplesFor(bp, real) {
+    var ex = { text: {}, rom: {} };
+    Object.keys(bp.slots || {}).forEach(function (s) {
+      var pv = (real.partnerValues || {})[s];
+      if (bp.slots[s].kind === "personal" && s !== "name" && pv) { ex.text[s] = pv.text; ex.rom[s] = pv.rom || pv.text; }
+    });
+    return ex;
+  }
+
   /* Target text block: text (or variants), romanization, English. */
   function target(res, prof, opts) {
     opts = opts || {};
-    var vals = opts.vals || {};
+    var vals = opts.vals || {}, ex = opts.examples || {};
     var showRom = settings.rom && prof.romanization;
     var forms = res.variants && res.variants.length ? res.variants : [{ text: res.text, rom: res.rom }];
     var html = forms.map(function (f) {
       return '<div class="form">' +
-        (f.label ? '<span class="vlabel">' + esc(f.label) + "</span>" : "") +
-        '<div class="tl" lang="' + esc(prof.code) + '">' + esc(C.fill(f.text, vals.text)) + "</div>" +
-        (showRom && f.rom ? '<div class="rom">' + esc(C.fill(f.rom, vals.rom)) + "</div>" : "") +
+        (C.variantLabel(f) ? '<span class="vlabel">' + esc(C.variantLabel(f)) + "</span>" : "") +
+        '<div class="tl" lang="' + esc(prof.code) + '">' + fillHtml(f.text, vals.text, ex.text) + "</div>" +
+        (showRom && f.rom ? '<div class="rom">' + fillHtml(f.rom, vals.rom, ex.rom) + "</div>" : "") +
         "</div>";
     }).join("");
     if (opts.en && settings.en) html += '<div class="en">' + esc(C.fill(opts.en, vals.en)) + "</div>";
@@ -153,16 +179,28 @@
     }).join("") + "</select></label>");
     $("select", rate).onchange = function () { settings.rate = parseFloat(this.value); saveSettings(); };
     toggles.appendChild(rate);
-    var voice = el('<label class="small voice">Voice <select></select></label>');
-    fillVoices($("select", voice), prof);
-    $("select", voice).onchange = function () { save("voice." + prof.code, this.value); };
-    toggles.appendChild(voice);
+    [["m", "Male voice"], ["f", "Female voice"]].forEach(function (g) {
+      var voice = el('<label class="small voice">' + g[1] + ' <select data-g="' + g[0] + '"></select></label>');
+      fillVoices($("select", voice), prof, g[0]);
+      $("select", voice).onchange = function () { save("voice." + prof.code + "." + g[0], this.value); };
+      toggles.appendChild(voice);
+    });
     bar.appendChild(toggles);
     return bar;
   }
 
-  function fillVoices(sel, prof) {
-    var list = S.voicesFor(prof.locale), chosen = load("voice." + prof.code, null);
+  /* One picker per gender (spec §4.5). Known voices are marked; the default is a
+   * voice known to be that gender, else the first voice. */
+  function voiceFor(prof, g) {
+    var list = S.voicesFor(prof.locale);
+    var name = load("voice." + prof.code + "." + g, null) || (g === "f" ? load("voice." + prof.code, null) : null);
+    return list.filter(function (v) { return v.name === name; })[0] ||
+      list.filter(function (v) { return S.voiceGender(v.name) === g; })[0] || list[0] || null;
+  }
+
+  function fillVoices(sel, prof, g) {
+    g = g || sel.getAttribute("data-g") || "f";
+    var list = S.voicesFor(prof.locale), chosenV = voiceFor(prof, g), chosen = chosenV ? chosenV.name : null;
     if (!S.available) { sel.innerHTML = "<option>No speech in this browser</option>"; sel.disabled = true; return; }
     if (!list.length) {
       sel.innerHTML = "<option>No " + esc(prof.name) + " voice</option>";
@@ -171,12 +209,21 @@
       return;
     }
     sel.disabled = false;
-    sel.innerHTML = list.map(function (v) { return "<option" + (v.name === chosen ? " selected" : "") + ">" + esc(v.name) + "</option>"; }).join("");
+    var mark = { f: " (female)", m: " (male)" };
+    sel.innerHTML = list.map(function (v) {
+      var vg = S.voiceGender(v.name);
+      return '<option value="' + esc(v.name) + '"' + (v.name === chosen ? " selected" : "") + ">" + esc(v.name) + (vg ? mark[vg] : "") + "</option>";
+    }).join("");
+    var cg = chosenV ? S.voiceGender(chosenV.name) : null;
+    sel.title = cg && cg !== g ? "No " + (g === "f" ? "female" : "male") + " voice here, so the pitch is changed. It sounds artificial." : "";
   }
 
-  /* Speak text with the chosen voice and speed. */
-  function say(text, prof) {
-    return S.speak(text, prof.locale, { rate: settings.rate, voiceName: load("voice." + prof.code, null) });
+  /* Speak text with the voice for the speaker's gender ("f", "m" or null: the
+   * women's voice). A voice known to be the other gender gets a changed pitch. */
+  function say(text, prof, gender) {
+    var g = gender || "f", v = voiceFor(prof, g), vg = v ? S.voiceGender(v.name) : null;
+    var pitch = vg && vg !== g ? (g === "m" ? 0.8 : 1.2) : 1;
+    return S.speak(text, prof.locale, { rate: settings.rate, voiceName: v ? v.name : null, pitch: pitch });
   }
 
   /* Text to speak for a resolved line: slots with no value (a blank) take the
@@ -480,7 +527,7 @@
   function startClass(run, code, id, sc) {
     var prof = sc.profile, bp = sc.blueprint, real = sc.real;
     document.title = bp.title + " · " + prof.name + " · Speak";
-    var st = { reg: initialRegister(prof, real), step: 0, idx: 0, changed: {}, roster: null, playText: "" };
+    var st = { reg: initialRegister(prof, real), step: 0, idx: 0, changed: {}, roster: null, playText: "", playGender: null, genders: {} };
 
     /* Setup: names and the native speaker, remembered on this device. */
     function setup() {
@@ -494,6 +541,7 @@
         '<textarea id="names" rows="6" spellcheck="false">' + esc(roster.names.join("\n")) + "</textarea>" +
         '<label for="native">Native speaker (corrects, and partners a learner left without one)</label>' +
         '<select id="native"></select>' +
+        '<div class="genders" id="genders"></div>' +
         '<div class="actions"><button class="btn primary" type="submit">Start</button>' +
         '<a class="btn" href="#' + esc(code) + "/" + esc(id) + '/script">Script view</a></div>' +
         "</form></section>";
@@ -505,13 +553,34 @@
           return "<option" + (n === keep ? " selected" : "") + ">" + esc(n) + "</option>";
         }).join("");
       }
+      /* Optional gender per person (spec §3.10). Blank shows both forms. */
+      var genders = {};
+      Object.keys(roster.genders || {}).forEach(function (k) { genders[k] = roster.genders[k]; });
+      function fillGenders() {
+        var names = $names.value.split("\n").map(function (s) { return s.trim(); }).filter(Boolean);
+        var box = $("#genders");
+        box.innerHTML = names.length ? '<div class="glabel">Gender, if you want the matching forms. Leave it blank to show both.</div>' + names.map(function (n) {
+          var g = genders[n] || "";
+          return '<label class="small grow"><span>' + esc(n) + '</span><select data-name="' + esc(n) + '">' +
+            '<option value=""' + (g ? "" : " selected") + ">—</option>" +
+            '<option value="m"' + (g === "m" ? " selected" : "") + ">Male</option>" +
+            '<option value="f"' + (g === "f" ? " selected" : "") + ">Female</option></select></label>";
+        }).join("") : "";
+        $all("select", box).forEach(function (sel) {
+          sel.onchange = function () { genders[sel.getAttribute("data-name")] = sel.value; };
+        });
+      }
       fillNative();
-      $names.addEventListener("input", fillNative);
+      fillGenders();
+      $names.addEventListener("input", function () { fillNative(); fillGenders(); });
       $("#setup").onsubmit = function (e) {
         e.preventDefault();
         var names = $names.value.split("\n").map(function (s) { return s.trim(); }).filter(Boolean);
-        var r = { names: names, native: $native.value };
+        var kept = {};
+        names.forEach(function (n) { if (genders[n]) kept[n] = genders[n]; });
+        var r = { names: names, native: $native.value, genders: kept };
         save("roster", r);
+        st.genders = kept;
         st.roster = buildRuns(names, r.native);
         st.step = 0; st.idx = 0;
         render();
@@ -590,7 +659,7 @@
       else if (st.step > 0) go(st.step - 1, count(STEPS[st.step - 1].id) - 1);
     }
     function play() {
-      if (st.playText) say(st.playText, prof);
+      if (st.playText) say(st.playText, prof, st.playGender);
     }
 
     /* ----- toolbar ----- */
@@ -666,15 +735,25 @@
         (/_{2,}/.test(it.piece.text) ? " Fill the gap with any word that fits." : "") + "</p>";
     }
 
-    function lineRow(line, i, opts) {
+    var examples = examplesFor(bp, real);
+    function genderOf(name) { return (st.genders || {})[name] || null; }
+    function other(role) { return role === "A" ? "B" : "A"; }
+
+    /* A line resolved for the register and, in a pair, for the two people's genders. */
+    function resFor(line, run) {
       var r = res(real.lines[line.id]);
+      return run ? C.forGender(r, genderOf(run[line.role]), genderOf(run[other(line.role)])).res : r;
+    }
+
+    function lineRow(line, i, opts) {
+      var r = resFor(line, opts.run);
       var vals = slotVals(opts.run ? opts.run[line.role] : null, opts.setIndex || 0);
       var who = opts.run ? esc(opts.run[line.role]) + " (" + line.role + ")" : line.role;
       var hideTarget = opts.cueOnly;
       return '<li class="line' + (i === opts.current ? " current" : "") + '" data-key="l-' + esc(line.id) + '">' +
         '<span class="who">' + who + "</span>" +
         '<div class="body">' + (hideTarget ? '<div class="en cue">' + esc(C.fill(line.en, vals.en)) + "</div>" :
-          target(r, prof, { en: line.en, vals: vals, note: opts.notes })) + "</div></li>";
+          target(r, prof, { en: line.en, vals: vals, note: opts.notes, examples: examples })) + "</div></li>";
     }
 
     function bodyHear() {
@@ -689,14 +768,15 @@
       var n = bp.lines.length, ri = Math.floor(st.idx / n), li = st.idx % n;
       var run = st.roster.runs[ri], line = bp.lines[li];
       var vals = slotVals(run[line.role], ri);
-      var r = res(real.lines[line.id]);
+      var r = resFor(line, run);
       st.playText = sayText(r, vals, bp, real);
+      st.playGender = genderOf(run[line.role]);
       var cue = settings.cueOnly;
       return '<div class="counter">Run ' + (ri + 1) + " / " + st.roster.runs.length + " · line " + (li + 1) + " / " + n + "</div>" +
         '<div class="pair"><span class="role a">A: ' + esc(run.A) + '</span><span class="role b">B: ' + esc(run.B) + "</span></div>" +
         '<div class="speaker">' + esc(run[line.role]) + " says:</div>" +
         '<div class="big" data-key="rp-' + esc(line.id) + '">' + (cue ? '<div class="tl en-cue">' + esc(C.fill(line.en, vals.en)) + "</div>" :
-          target(r, prof, { en: line.en, vals: vals })) + "</div>" +
+          target(r, prof, { en: line.en, vals: vals, examples: examples })) + "</div>" +
         '<ol class="dialogue small">' + bp.lines.map(function (l, i) {
           return lineRow(l, i, { current: li, run: run, setIndex: ri, cueOnly: true });
         }).join("") + "</ol>";
@@ -708,12 +788,14 @@
       var override = { slot: slot, value: it.value };
       var cue = settings.cueOnly;
       var blocks = lines.map(function (l) {
-        var vals = slotVals(it.person, 0, override), r = res(real.lines[l.id]);
+        var vals = slotVals(it.person, 0, override);
+        var r = C.forGender(res(real.lines[l.id]), genderOf(it.person), null).res;
         return '<div class="big drill-line" data-key="d-' + esc(l.id) + '">' + (cue ? '<div class="tl en-cue">' + esc(C.fill(l.en, vals.en)) + "</div>" :
-          target(r, prof, { en: l.en, vals: vals })) + "</div>";
+          target(r, prof, { en: l.en, vals: vals, examples: examples })) + "</div>";
       }).join("");
       var first = lines[0];
-      st.playText = first ? sayText(res(real.lines[first.id]), slotVals(it.person, 0, override), bp, real) : "";
+      st.playText = first ? sayText(C.forGender(res(real.lines[first.id]), genderOf(it.person), null).res, slotVals(it.person, 0, override), bp, real) : "";
+      st.playGender = genderOf(it.person);
       var cueText = bp.slots[slot].kind === "personal" ? bp.slots[slot].cue : (it.value ? it.value.en : bp.slots[slot].cue);
       return '<div class="counter">' + (st.idx + 1) + " / " + items.length + "</div>" +
         '<p class="instruction">' + esc(bp.drill.instruction) + "</p>" +
@@ -763,6 +845,7 @@
       document.body.className = "classmode";
       var done = st.step >= STEPS.length;
       var stepId = done ? "finish" : STEPS[st.step].id;
+      st.playGender = null;
       var body = { goal: bodyGoal, hear: bodyHear, chunks: bodyChunks, echo: bodyEcho, roleplay: bodyRoleplay, drill: bodyDrill,
         free: bodyFree, notice: bodyNotice, finish: bodyFinish }[stepId]();
       var tabs = STEPS.map(function (s, i) {
@@ -812,8 +895,7 @@
 
     S.onVoices(function () {
       if (!alive(run)) return;
-      var sel = $(".toolbar .voice select");
-      if (sel) fillVoices(sel, prof);
+      $all(".toolbar .voice select").forEach(function (sel) { fillVoices(sel, prof); });
     });
     setup();
   }
@@ -838,7 +920,7 @@
       function cell(r) {
         var forms = r.variants && r.variants.length ? r.variants : [{ text: r.text, rom: r.rom }];
         var html = forms.map(function (f) {
-          return '<div class="form">' + (f.label ? '<span class="vlabel">' + esc(f.label) + "</span>" : "") +
+          return '<div class="form">' + (C.variantLabel(f) ? '<span class="vlabel">' + esc(C.variantLabel(f)) + "</span>" : "") +
             '<div class="tl" lang="' + esc(code) + '">' + slotMark(f.text || "") + "</div>" +
             (hasRom && f.rom ? '<div class="rom">' + slotMark(f.rom) + "</div>" : "") + "</div>";
         }).join("");
@@ -916,7 +998,7 @@
     statusBadge: statusBadge, scenarioTrail: scenarioTrail, target: target,
     initialRegister: initialRegister, buildToolbar: buildToolbar, fillVoices: fillVoices,
     say: say, sayText: sayText, page: page, alive: alive, app: $app,
-    kindLabel: kindLabel, chunkList: chunkList, chunkContext: chunkContext, buildUp: buildUp, noticeHtml: noticeHtml
+    examplesFor: examplesFor, kindLabel: kindLabel, chunkList: chunkList, chunkContext: chunkContext, buildUp: buildUp, noticeHtml: noticeHtml
   };
 
   /* Start after every script has run, so solo.js is ready. */
