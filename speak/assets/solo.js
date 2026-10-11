@@ -15,6 +15,7 @@
   var listenBlocked = null;     /* why recognition cannot be used, once we know */
 
   var VERDICT = { good: "Good", nearly: "Nearly", notquite: "Not quite" };
+  var DRILL_MAX = 4;   /* gap words per solo frame drill (spec §4.3) */
   var RANK = { skipped: 0, notquite: 1, nearly: 2, good: 3 };
 
   function start(run, code, id, sc) {
@@ -83,10 +84,16 @@
       var slot = bp.drill && bp.drill.slot, def = slot && bp.slots[slot];
       if (def) {
         var lines = bp.lines.filter(function (l) { return C.slotsIn(l.en).indexOf(slot) !== -1; });
-        var n = def.kind === "set" ? ((real.slotValues || {})[slot] || []).length : 1;
-        for (var i = 0; i < n; i++) {
-          lines.forEach(function (l) { plan.push({ kind: "drill", line: l, mine: true, setIndex: i, me: l.role }); });
+        /* A set slot: up to DRILL_MAX values, picked at random each run (spec §4.3). */
+        var picks = [0];
+        if (def.kind === "set") {
+          picks = ((real.slotValues || {})[slot] || []).map(function (v, i) { return i; });
+          for (var k = picks.length - 1; k > 0; k--) { var j = Math.floor(Math.random() * (k + 1)), t = picks[k]; picks[k] = picks[j]; picks[j] = t; }
+          picks = picks.slice(0, DRILL_MAX);
         }
+        picks.forEach(function (i) {
+          lines.forEach(function (l) { plan.push({ kind: "drill", line: l, mine: true, setIndex: i, me: l.role }); });
+        });
       }
       return plan;
     }

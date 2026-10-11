@@ -1,12 +1,16 @@
 # Speak — specification
 
 **Status:** M1, M2 and M2.5 done. M2.5 passed Prash's test and ran in his Sunday class on 11 October 2026. Next: M3.
-**Version:** 0.8.2, 10 October 2026
+**Version:** 0.8.3, 11 October 2026
 **Brief:** `_project/sites/speak.md`
 
 This file is the build contract. When the spec and the code disagree, the spec wins, or the spec is changed first.
 
 ### Changes
+
+**0.8.3**
+
+- Solo frame drill: up to 4 gap words, picked at random each run (§4.3). Hindi where-from now has 11 jobs, which made the drill 22 turns long.
 
 **0.8.2** (found while building gender)
 
@@ -730,7 +734,7 @@ The order follows the chunking idea: hear the language, take its chunks whole, u
 - **Other buttons:** Hear it, Show answer, Try again, Skip.
 - **Typed fallback:** always available. It also accepts the romanization (§5.2).
 - **Frame drill:** works the same way.
-  - A `set` slot: one turn per value in `slotValues`, in order.
+  - A `set` slot: up to 4 values from `slotValues`, picked at random each run, one turn each. Class mode keeps every value, because the facilitator can skip ahead.
   - A `personal` slot: one turn. The learner says the drill lines with their own detail.
   - The slot is a wildcard (§5.2), so the check covers the sentence around the item, not the item word. The drill screen says so in one line.
 - **Free practice:** scored by phrase coverage (§5.3). No timer.
