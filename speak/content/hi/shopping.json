@@ -1,0 +1,188 @@
+{
+  "schema": 2,
+  "scenario": "shopping",
+  "lang": "hi",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "registerNotes": {
+    "intimate": "तू is for very close friends and family. Practise this one with आप and तुम."
+  },
+  "lines": {
+    "l1": {
+      "text": "नमस्ते! आपको क्या चाहिए?",
+      "rom": "namaste! aapko kyaa chaahie?",
+      "byRegister": {
+        "familiar": {
+          "text": "नमस्ते! तुम्हें क्या चाहिए?",
+          "rom": "namaste! tumhen kyaa chaahie?"
+        }
+      }
+    },
+    "l2": {
+      "text": "एक {item} दीजिए।",
+      "rom": "ek {item} deejie.",
+      "accept": [
+        {
+          "text": "मुझे एक {item} चाहिए।",
+          "rom": "mujhe ek {item} chaahie."
+        }
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "एक {item} दो।",
+          "rom": "ek {item} do.",
+          "accept": [
+            {
+              "text": "मुझे एक {item} चाहिए।",
+              "rom": "mujhe ek {item} chaahie."
+            }
+          ]
+        }
+      }
+    },
+    "l3": {
+      "text": "और कुछ?",
+      "rom": "aur kuchh?",
+      "registerNeutral": true
+    },
+    "l4": {
+      "text": "नहीं, बस। कितने हुए?",
+      "rom": "naheen, bas. kitne hue?"
+    },
+    "l5": {
+      "text": "दस रुपये।",
+      "rom": "das rupaye."
+    },
+    "l6": {
+      "text": "ये लीजिए। धन्यवाद!",
+      "rom": "ye leejie. dhanyavaad!",
+      "byRegister": {
+        "familiar": {
+          "text": "ये लो। धन्यवाद!",
+          "rom": "ye lo. dhanyavaad!"
+        }
+      }
+    }
+  },
+  "chunks": {
+    "what-would-you-like": {
+      "text": "आपको क्या चाहिए?",
+      "rom": "aapko kyaa chaahie?",
+      "byRegister": {
+        "familiar": {
+          "text": "तुम्हें क्या चाहिए?",
+          "rom": "tumhen kyaa chaahie?"
+        }
+      },
+      "literal": "to-you what is-needed?"
+    },
+    "id-like": {
+      "text": "एक ___ दीजिए",
+      "rom": "ek ___ deejie",
+      "byRegister": {
+        "familiar": {
+          "text": "एक ___ दो",
+          "rom": "ek ___ do"
+        }
+      },
+      "literal": "one ___ give (please)"
+    },
+    "anything-else": {
+      "text": "और कुछ?",
+      "rom": "aur kuchh?",
+      "registerNeutral": true,
+      "literal": "more something?"
+    },
+    "thats-all": {
+      "text": "नहीं, बस",
+      "rom": "naheen, bas",
+      "literal": "no, enough"
+    },
+    "how-much": {
+      "text": "कितने हुए?",
+      "rom": "kitne hue?",
+      "literal": "how-many became?"
+    },
+    "price": {
+      "text": "___ रुपये",
+      "rom": "___ rupaye",
+      "literal": "___ rupees"
+    },
+    "here-you-are": {
+      "text": "ये लीजिए",
+      "rom": "ye leejie",
+      "byRegister": {
+        "familiar": {
+          "text": "ये लो",
+          "rom": "ye lo"
+        }
+      },
+      "literal": "this take (please)"
+    },
+    "thank-you": {
+      "text": "धन्यवाद",
+      "rom": "dhanyavaad",
+      "literal": "thanks"
+    }
+  },
+  "slotValues": {
+    "item": [
+      {
+        "en": "a samosa",
+        "text": "समोसा",
+        "rom": "samosaa"
+      },
+      {
+        "en": "a kachori",
+        "text": "कचौरी",
+        "rom": "kachauree"
+      },
+      {
+        "en": "a lassi",
+        "text": "लस्सी",
+        "rom": "lassee"
+      },
+      {
+        "en": "a tea",
+        "text": "चाय",
+        "rom": "chaay"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "do-you-have": {
+        "text": "क्या आपके पास ___ है?",
+        "rom": "kyaa aapke paas ___ hai?",
+        "byRegister": {
+          "familiar": {
+            "text": "क्या तुम्हारे पास ___ है?",
+            "rom": "kyaa tumhaare paas ___ hai?"
+          }
+        }
+      },
+      "two-please": {
+        "text": "दो ___ दीजिए",
+        "rom": "do ___ deejie",
+        "byRegister": {
+          "familiar": {
+            "text": "दो ___ दो",
+            "rom": "do ___ do"
+          }
+        }
+      }
+    }
+  },
+  "notes": [
+    "कितने हुए? (\"how many has it come to?\") asks for the total. कितने का है? asks the price of one thing.",
+    "बस means \"that's enough\", \"that's all\". It also means \"bus\".",
+    "एक चाय (\"one tea\") is normal Hindi for a cup of tea."
+  ]
+}

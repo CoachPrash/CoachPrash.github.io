@@ -54,6 +54,8 @@ The spec is `_project/sites/speak-spec.md`. It is the build contract: read it be
 
 - **M2.5 done (11 Oct 2026):** chunks (key, steps, echo, notice, method on the site) and gender (roster, solo setting, forms per person, wrong-gender check, two voice pickers). Used in Prash's Sunday class on 11 Oct 2026.
 - **M3 drafted (12 Oct 2026):** French and Mandarin stages 1–4, chunk-first, all `draft`. Next: script-view PDFs to native-speaker reviewers.
+- **M4 parts 1–3 drafted (12 Oct 2026):** blueprints for stages 5–9 (likes, routine, food stall, directions, small talk), Hindi stages 5–9 (`draft`), and the Review flashcards (Flip and Say it). Next: French and Mandarin stages 5–9.
+- **Progression research (12 Oct 2026):** `_project/sites/speak-progression.md`. Nine scenarios are about a fifth of an honest A1–A2 ladder. To decide later, after M4.
 - Prash to review the Hindi script views (print → PDF), send corrections, and declare each scenario verified (spec §4.4).
 - Hindi romanization is Prash's ASCII scheme (spec §3.3). All Hindi content follows it.
 - Milestones M2 to M4 in the spec.

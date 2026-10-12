@@ -1,0 +1,104 @@
+{
+  "schema": 2,
+  "id": "directions",
+  "title": "Asking the way",
+  "goal": "Ask where a place is, understand simple directions, and thank the person.",
+  "roles": {
+    "A": "Asks the way",
+    "B": "Gives directions"
+  },
+  "slots": {
+    "place": {
+      "kind": "set",
+      "cue": "a place"
+    }
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "role": "A",
+      "en": "Excuse me, where is {place}?",
+      "addressesYou": true
+    },
+    {
+      "id": "l2",
+      "role": "B",
+      "en": "Go straight, then turn left.",
+      "addressesYou": true
+    },
+    {
+      "id": "l3",
+      "role": "A",
+      "en": "Is it far?"
+    },
+    {
+      "id": "l4",
+      "role": "B",
+      "en": "No, it's near. Five minutes on foot."
+    },
+    {
+      "id": "l5",
+      "role": "A",
+      "en": "Thank you very much!"
+    },
+    {
+      "id": "l6",
+      "role": "B",
+      "en": "You're welcome."
+    }
+  ],
+  "chunks": [
+    {
+      "id": "where-is",
+      "en": "excuse me, where is ___?",
+      "addressesYou": true
+    },
+    {
+      "id": "go-straight",
+      "en": "go straight",
+      "addressesYou": true
+    },
+    {
+      "id": "turn-left",
+      "en": "turn left / turn right",
+      "addressesYou": true
+    },
+    {
+      "id": "is-it-far",
+      "en": "is it far?"
+    },
+    {
+      "id": "its-near",
+      "en": "it's near"
+    },
+    {
+      "id": "on-foot",
+      "en": "five minutes on foot"
+    },
+    {
+      "id": "thank-you-very-much",
+      "en": "thank you very much"
+    },
+    {
+      "id": "youre-welcome",
+      "en": "you're welcome"
+    }
+  ],
+  "drill": {
+    "slot": "place",
+    "instruction": "Swap the place each time."
+  },
+  "free": {
+    "prompt": "Draw a simple map. Ask the way to three places on it, and give directions to the others.",
+    "targets": [
+      {
+        "id": "is-there-near",
+        "en": "is there a ___ near here?"
+      },
+      {
+        "id": "on-the-right",
+        "en": "it's on the right / on the left"
+      }
+    ]
+  }
+}

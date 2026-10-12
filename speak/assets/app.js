@@ -7,6 +7,7 @@
  *   #<lang>/<id>/class    class mode (shared screen)
  *   #<lang>/<id>/solo     solo mode (solo.js)
  *   #<lang>/<id>/script   printable script view
+ *   #<lang>/review[/<n>]  review flashcards, stages 1 to n (review.js)
  *
  * localStorage keys start with "sp.v1." (spec §6). Nothing else is stored.
  */
@@ -249,29 +250,82 @@
     return all.filter(function (c) { return !c.item.extra; }).concat(all.filter(function (c) { return c.item.extra; }));
   }
 
-  /* The first dialogue line where a resolved chunk occurs, in this register,
-   * with the chunk marked. Slots show the partner's sample values. "" if none. */
+  /* Where a resolved chunk occurs in the dialogue, in this register: the line
+   * with the tightest match (fewest words under the gap), the earliest on a tie.
+   * So मैं ___ हूँ finds मैं {job} हूँ, not मैं {city} से हूँ. Null if none. */
+  function chunkPlace(chunkRes, bp, real, prof, reg) {
+    var best = null, mode = prof.match === "chars" ? "chars" : "words";
+    var trailing = /_{2,}[\s?？!！.。,，]*$/.test(chunkRes.text || "");
+    bp.lines.forEach(function (l, i) {
+      var lr = C.resolve(real.lines[l.id], reg, prof.defaultRegister);
+      var forms = lr.variants && lr.variants.length ? lr.variants : [lr];
+      forms.forEach(function (f) {
+        var span = S.locate(chunkRes.text, f.text, prof);
+        if (span && trailing) span = toClauseEnd(span, S.units(f.text, mode), mode);
+        if (span && (!best || span.end - span.start < best.span.end - best.span.start)) best = { i: i, line: l, form: f, span: span };
+      });
+    });
+    return best;
+  }
+
+  /* A chunk that ends in a gap (我有___) matches the fewest words it can, which
+   * can cut a word in half (我有两 for 我有两个哥哥). Stretch the gap to the end of
+   * the clause when that is at most 2 more words (3 characters in chars mode). */
+  function toClauseEnd(span, units, mode) {
+    var PUNCT = /[?？!！.。,，;；:：]$/, end = span.end, max = mode === "chars" ? 3 : 2;
+    if (PUNCT.test(units[end].text)) return span;
+    for (var k = 0; k < max && end + 1 < units.length; k++) {
+      var u = units[end + 1].text;
+      if (mode === "chars" && PUNCT.test(u)) return { start: span.start, end: end };
+      end++;
+      if (mode === "words" && PUNCT.test(u)) return { start: span.start, end: end };
+    }
+    return end + 1 >= units.length ? { start: span.start, end: end } : span;
+  }
+
+  /* The dialogue line where a resolved chunk occurs, with the chunk marked.
+   * Slots show the partner's sample values. "" if none. */
   function chunkContext(chunkRes, bp, real, prof, reg) {
     var vals = C.sampleValues(bp, real, 0), mode = prof.match === "chars" ? "chars" : "words";
-    for (var i = 0; i < bp.lines.length; i++) {
-      var l = bp.lines[i], lr = C.resolve(real.lines[l.id], reg, prof.defaultRegister);
-      var forms = lr.variants && lr.variants.length ? lr.variants : [lr];
-      for (var j = 0; j < forms.length; j++) {
-        var span = S.locate(chunkRes.text, forms[j].text, prof);
-        if (!span) continue;
-        var html = S.units(forms[j].text, mode).map(function (u, k) {
-          var t = esc(C.fill(u.text, vals.text));
-          if (k === span.start) t = '<mark class="chunk">' + t;
-          if (k === span.end) t += "</mark>";
-          return t + esc(u.space);
-        }).join("");
-        return '<div class="context"><div class="ctx-label">In the dialogue, line ' + (i + 1) + "</div>" +
-          '<div class="tl" lang="' + esc(prof.code) + '">' + html + "</div>" +
-          (settings.rom && prof.romanization && forms[j].rom ? '<div class="rom">' + esc(C.fill(forms[j].rom, vals.rom)) + "</div>" : "") +
-          (settings.en ? '<div class="en">' + esc(C.fill(l.en, vals.en)) + "</div>" : "") + "</div>";
-      }
+    var at = chunkPlace(chunkRes, bp, real, prof, reg);
+    if (!at) return "";
+    var html = S.units(at.form.text, mode).map(function (u, k) {
+      var t = esc(C.fill(u.text, vals.text));
+      if (k === at.span.start) t = '<mark class="chunk">' + t;
+      if (k === at.span.end) t += "</mark>";
+      return t + esc(u.space);
+    }).join("");
+    return '<div class="context"><div class="ctx-label">In the dialogue, line ' + (at.i + 1) + "</div>" +
+      '<div class="tl" lang="' + esc(prof.code) + '">' + html + "</div>" +
+      (settings.rom && prof.romanization && at.form.rom ? '<div class="rom">' + esc(C.fill(at.form.rom, vals.rom)) + "</div>" : "") +
+      (settings.en ? '<div class="en">' + esc(C.fill(at.line.en, vals.en)) + "</div>" : "") + "</div>";
+  }
+
+  /* What to speak for a chunk: a frame's gap filled from the first dialogue line
+   * where it occurs, with the partner's sample values (spec §4.7). A chunk not in
+   * the dialogue is spoken without its gap. */
+  function chunkSpoken(chunkRes, bp, real, prof, reg) {
+    var vals = C.sampleValues(bp, real, 0), mode = prof.match === "chars" ? "chars" : "words";
+    var at = /_{2,}/.test(chunkRes.text || "") ? chunkPlace(chunkRes, bp, real, prof, reg) : null;
+    if (at) {
+      return C.fill(S.units(at.form.text, mode).slice(at.span.start, at.span.end + 1).map(function (u, k, a) {
+        return u.text + (k < a.length - 1 ? u.space : "");
+      }).join(""), vals.text);
     }
-    return "";
+    return String(chunkRes.text || "").replace(/_{2,}/g, " ").replace(/\s+\/\s+\S+/g, "").replace(/\s+/g, " ").trim();
+  }
+
+  /* Stage number of each scenario id, once the ladder has loaded. */
+  var stageOf = {};
+  C.ladder().then(function (lad) {
+    ((lad && lad.stages) || []).forEach(function (st) { st.scenarios.forEach(function (id) { stageOf[id] = st.stage; }); });
+  });
+
+  /* "Review stages 1–<n−1>", from stage 2 on (spec §4.2, §4.3, §4.7). */
+  function reviewLink(code, id) {
+    var n = stageOf[id];
+    if (!n || n < 2) return "";
+    return '<p class="review-link"><a class="btn" href="#' + esc(code) + "/review/" + (n - 1) + '">Review stages 1–' + (n - 1) + " →</a></p>";
   }
 
   /* Echo build-up pieces: in speech.js, so the tests can reach them. */
@@ -299,7 +353,8 @@
     return '<p class="hint">Now that the chunks feel natural, look at how they are built.</p>' +
       (lits ? '<h3>The chunks, word by word</h3><ul class="phrases notice">' + lits + "</ul>" : "") +
       (lineNotes ? '<h3>Notes on the dialogue</h3><ul class="phrases notice">' + lineNotes + "</ul>" : "") +
-      (notes ? "<h3>In " + esc(prof.name) + '</h3><ul class="notes">' + notes + "</ul>" : "");
+      (notes ? "<h3>In " + esc(prof.name) + '</h3><ul class="notes">' + notes + "</ul>" : "") +
+      reviewLink(code, bp.id);
   }
 
   /* ---------- site navigation (every page) ---------- */
@@ -342,11 +397,16 @@
     var run = ++page.run;
     var parts = location.hash.replace(/^#\/?/, "").split("/").filter(Boolean);
     document.body.className = "";
-    renderNav(parts[0], parts[1] && parts[1] !== "profile" ? parts[1] : null, parts[2] || (parts[1] && parts[1] !== "profile" ? "class" : null));
+    var sid = parts[1] && parts[1] !== "profile" && parts[1] !== "review" ? parts[1] : null;
+    renderNav(parts[0], sid, sid ? parts[2] || "class" : null);
     if (!parts.length) return home(run);
     var code = parts[0];
     if (parts[1] === "profile") return profilePage(run, code);
     if (!parts[1]) return ladderPage(run, code);
+    if (parts[1] === "review") {
+      if (!window.SpeakReview) return notFound("Review did not load. Reload the page.");
+      return window.SpeakReview.start(run, code, parts[2] ? parseInt(parts[2], 10) : null);
+    }
     var mode = parts[2] || "class";
     if (mode === "script") return scriptPage(run, code, parts[1]);
     if (mode === "solo") return soloPage(run, code, parts[1]);
@@ -440,6 +500,7 @@
           '<h1>' + esc(prof.name) + ' <span class="native" lang="' + esc(code) + '">' + esc(prof.native) + "</span></h1>" +
           '<p class="lede">One scenario per stage. Each scenario goes: hear it, chunks, echo, use them, notice. ' +
           '<a href="#' + esc(code) + '/profile">How ' + esc(prof.name) + " works in this app</a>.</p>" +
+          (ids.some(function (id) { return by[id][1]; }) ? '<p class="actions"><a class="btn primary" href="#' + esc(code) + '/review">Review chunks</a></p>' : "") +
           '<ol class="ladder">' + stages + "</ol></section>";
       });
     });
@@ -998,7 +1059,8 @@
     statusBadge: statusBadge, scenarioTrail: scenarioTrail, target: target,
     initialRegister: initialRegister, buildToolbar: buildToolbar, fillVoices: fillVoices,
     say: say, sayText: sayText, page: page, alive: alive, app: $app,
-    examplesFor: examplesFor, kindLabel: kindLabel, chunkList: chunkList, chunkContext: chunkContext, buildUp: buildUp, noticeHtml: noticeHtml
+    examplesFor: examplesFor, kindLabel: kindLabel, chunkList: chunkList, chunkContext: chunkContext, buildUp: buildUp, noticeHtml: noticeHtml,
+    chunkSpoken: chunkSpoken, reviewLink: reviewLink, crumbs: crumbs, notFound: notFound
   };
 
   /* Start after every script has run, so solo.js is ready. */

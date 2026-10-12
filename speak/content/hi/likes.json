@@ -1,0 +1,188 @@
+{
+  "schema": 2,
+  "scenario": "likes",
+  "lang": "hi",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "registerNotes": {
+    "intimate": "तू is for very close friends and family. Practise this one with आप and तुम."
+  },
+  "lines": {
+    "l1": {
+      "text": "क्या आपको {food} पसंद है?",
+      "rom": "kyaa aapko {food} pasand hai?",
+      "byRegister": {
+        "familiar": {
+          "text": "क्या तुम्हें {food} पसंद है?",
+          "rom": "kyaa tumhen {food} pasand hai?"
+        }
+      }
+    },
+    "l2": {
+      "text": "हाँ, बहुत पसंद है। और आपको?",
+      "rom": "haan, bahut pasand hai. aur aapko?",
+      "byRegister": {
+        "familiar": {
+          "text": "हाँ, बहुत पसंद है। और तुम्हें?",
+          "rom": "haan, bahut pasand hai. aur tumhen?"
+        }
+      }
+    },
+    "l3": {
+      "text": "ज़्यादा नहीं। मुझे चाय पसंद है।",
+      "rom": "zyaadaa naheen. mujhe chaay pasand hai."
+    },
+    "l4": {
+      "text": "आपका पसंदीदा खाना क्या है?",
+      "rom": "aapkaa pasandeedaa khaanaa kyaa hai?",
+      "accept": [
+        {
+          "text": "आपको कौन-सा खाना सबसे ज़्यादा पसंद है?",
+          "rom": "aapko kaun-saa khaanaa sabse zyaadaa pasand hai?"
+        }
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "तुम्हारा पसंदीदा खाना क्या है?",
+          "rom": "tumhaaraa pasandeedaa khaanaa kyaa hai?",
+          "accept": [
+            {
+              "text": "तुम्हें कौन-सा खाना सबसे ज़्यादा पसंद है?",
+              "rom": "tumhen kaun-saa khaanaa sabse zyaadaa pasand hai?"
+            }
+          ]
+        }
+      }
+    },
+    "l5": {
+      "text": "मेरा पसंदीदा खाना {fav} है।",
+      "rom": "meraa pasandeedaa khaanaa {fav} hai.",
+      "accept": [
+        {
+          "text": "मुझे {fav} सबसे ज़्यादा पसंद है।",
+          "rom": "mujhe {fav} sabse zyaadaa pasand hai."
+        }
+      ]
+    },
+    "l6": {
+      "text": "सच में? मुझे भी!",
+      "rom": "sach men? mujhe bhee!"
+    }
+  },
+  "chunks": {
+    "do-you-like": {
+      "text": "क्या आपको ___ पसंद है?",
+      "rom": "kyaa aapko ___ pasand hai?",
+      "byRegister": {
+        "familiar": {
+          "text": "क्या तुम्हें ___ पसंद है?",
+          "rom": "kyaa tumhen ___ pasand hai?"
+        }
+      },
+      "literal": "(question) to-you ___ liked is?"
+    },
+    "i-like-it-a-lot": {
+      "text": "बहुत पसंद है",
+      "rom": "bahut pasand hai",
+      "literal": "very-much liked is"
+    },
+    "not-much": {
+      "text": "ज़्यादा नहीं",
+      "rom": "zyaadaa naheen",
+      "literal": "much not"
+    },
+    "i-like": {
+      "text": "मुझे ___ पसंद है",
+      "rom": "mujhe ___ pasand hai",
+      "literal": "to-me ___ liked is"
+    },
+    "whats-your-favourite": {
+      "text": "आपका पसंदीदा खाना क्या है?",
+      "rom": "aapkaa pasandeedaa khaanaa kyaa hai?",
+      "byRegister": {
+        "familiar": {
+          "text": "तुम्हारा पसंदीदा खाना क्या है?",
+          "rom": "tumhaaraa pasandeedaa khaanaa kyaa hai?"
+        }
+      },
+      "literal": "your favourite food what is?"
+    },
+    "my-favourite": {
+      "text": "मेरा पसंदीदा खाना ___ है",
+      "rom": "meraa pasandeedaa khaanaa ___ hai",
+      "literal": "my favourite food ___ is"
+    },
+    "me-too": {
+      "text": "मुझे भी",
+      "rom": "mujhe bhee",
+      "literal": "to-me also"
+    },
+    "i-dont-like": {
+      "extra": true,
+      "text": "मुझे ___ पसंद नहीं है",
+      "rom": "mujhe ___ pasand naheen hai",
+      "literal": "to-me ___ liked not is"
+    }
+  },
+  "slotValues": {
+    "food": [
+      {
+        "en": "coffee",
+        "text": "कॉफ़ी",
+        "rom": "kofee"
+      },
+      {
+        "en": "milk",
+        "text": "दूध",
+        "rom": "doodh"
+      },
+      {
+        "en": "sweets",
+        "text": "मिठाई",
+        "rom": "miThaaee"
+      },
+      {
+        "en": "dal",
+        "text": "दाल",
+        "rom": "daal"
+      }
+    ]
+  },
+  "partnerValues": {
+    "fav": {
+      "en": "biryani",
+      "text": "बिरयानी",
+      "rom": "biryaanee"
+    }
+  },
+  "free": {
+    "targets": {
+      "what-do-you-like": {
+        "text": "आपको क्या पसंद है?",
+        "rom": "aapko kyaa pasand hai?",
+        "byRegister": {
+          "familiar": {
+            "text": "तुम्हें क्या पसंद है?",
+            "rom": "tumhen kyaa pasand hai?"
+          }
+        }
+      },
+      "not-at-all": {
+        "text": "मुझे ___ बिल्कुल पसंद नहीं है",
+        "rom": "mujhe ___ bilkul pasand naheen hai"
+      }
+    }
+  },
+  "notes": [
+    "पसंद है works the other way round from English. The thing liked is the subject, and the person takes को: मुझे (= मुझको) चाय पसंद है is \"to me, tea is liked\".",
+    "With a plural thing, है becomes हैं: मुझे आम पसंद हैं (I like mangoes).",
+    "पसंदीदा (favourite) is common but a little formal. सबसे ज़्यादा पसंद (\"liked most of all\") is just as natural."
+  ]
+}

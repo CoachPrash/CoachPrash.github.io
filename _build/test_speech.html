@@ -34,8 +34,10 @@
 (function () {
   "use strict";
   var C = window.SpeakContent, S = window.SpeakSpeech;
-  var HINDI = ["greetings", "where-from", "family", "requests"];
-  var LANGS = ["hi", "fr", "zh"];   /* every model line in every language is generated as a case */
+  var STAGES_1_4 = ["greetings", "where-from", "family", "requests"];
+  var STAGES_5_9 = ["likes", "routine", "shopping", "directions", "opinions"];
+  /* every model line of every drafted scenario is generated as a case */
+  var DRAFTED = { hi: STAGES_1_4.concat(STAGES_5_9), fr: STAGES_1_4, zh: STAGES_1_4 };
   var results = [];
 
   function load(code, id) { return C.scenario(code, id); }
@@ -198,10 +200,10 @@
     expectPhrase("zh free: 我很好", zh, zh.real.free.targets["i-am-fine"], "familiar", "我很好", true);
   }
 
-  /* Stages 1–4 in every language: each model line, said in its register, is Good;
+  /* Every drafted scenario: each model line, said in its register, is Good;
    * the other register's form is Nearly. Then the hand-written cases. */
   var jobs = [];
-  LANGS.forEach(function (code) { HINDI.forEach(function (id) { jobs.push([code, id]); }); });
+  Object.keys(DRAFTED).forEach(function (code) { DRAFTED[code].forEach(function (id) { jobs.push([code, id]); }); });
   window.SpeakTests = Promise.all(jobs.map(function (j) { return load(j[0], j[1]); })).then(function (scs) {
     var by = {};
     jobs.forEach(function (j, i) {

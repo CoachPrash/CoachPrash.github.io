@@ -366,3 +366,10 @@ table.script .fix { width: 22%; }
   h2 { page-break-after: avoid; }
   @page { margin: 14mm; }
 }
+
+/* ---------- review (spec §4.7) ---------- */
+.review-controls { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1rem; margin: .2rem 0 .8rem; }
+.review-card .rv-front .cue { font-size: clamp(1.5rem, 5vw, 2.4rem); margin: .4rem 0; }
+.rv-source { color: var(--muted); font-size: .85rem; }
+.rv-back { border-top: 1px solid var(--line); margin-top: .8rem; padding-top: .8rem; }
+.review-link { margin-top: 1.2rem; }

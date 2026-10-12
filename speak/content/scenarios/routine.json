@@ -1,0 +1,108 @@
+{
+  "schema": 2,
+  "id": "routine",
+  "title": "Daily routine",
+  "goal": "Say when you get up and what you do in the day, and ask others about theirs.",
+  "roles": {
+    "A": "Asks first",
+    "B": "Answers, then asks back"
+  },
+  "slots": {
+    "time": {
+      "kind": "set",
+      "cue": "a time (an hour)"
+    }
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "role": "A",
+      "en": "What time do you get up?",
+      "addressesYou": true
+    },
+    {
+      "id": "l2",
+      "role": "B",
+      "en": "I get up at {time}. And you?",
+      "addressesYou": true
+    },
+    {
+      "id": "l3",
+      "role": "A",
+      "en": "At seven. Then I have breakfast."
+    },
+    {
+      "id": "l4",
+      "role": "B",
+      "en": "What do you do in the evening?",
+      "addressesYou": true
+    },
+    {
+      "id": "l5",
+      "role": "A",
+      "en": "In the evening I go for a walk. And you?",
+      "addressesYou": true
+    },
+    {
+      "id": "l6",
+      "role": "B",
+      "en": "I go to bed early."
+    }
+  ],
+  "chunks": [
+    {
+      "id": "what-time-get-up",
+      "en": "what time do you get up?",
+      "addressesYou": true
+    },
+    {
+      "id": "i-get-up-at",
+      "en": "I get up at ___"
+    },
+    {
+      "id": "at-oclock",
+      "en": "at ___ o'clock"
+    },
+    {
+      "id": "have-breakfast",
+      "en": "have breakfast"
+    },
+    {
+      "id": "in-the-evening",
+      "en": "in the evening"
+    },
+    {
+      "id": "go-for-a-walk",
+      "en": "go for a walk"
+    },
+    {
+      "id": "go-to-bed-early",
+      "en": "I go to bed early"
+    },
+    {
+      "id": "every-day",
+      "en": "every day"
+    }
+  ],
+  "drill": {
+    "slot": "time",
+    "instruction": "Swap the time each time."
+  },
+  "free": {
+    "prompt": "Describe a normal day, from morning to night.",
+    "targets": [
+      {
+        "id": "in-the-morning",
+        "en": "in the morning"
+      },
+      {
+        "id": "in-the-afternoon",
+        "en": "in the afternoon"
+      },
+      {
+        "id": "at-night",
+        "en": "at night"
+      }
+    ]
+  }
+}

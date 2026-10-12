@@ -1,0 +1,109 @@
+{
+  "schema": 2,
+  "id": "likes",
+  "title": "Likes & dislikes",
+  "goal": "Say what you like and don't like, and ask others what they like.",
+  "roles": {
+    "A": "Asks first",
+    "B": "Answers, then asks back"
+  },
+  "slots": {
+    "food": {
+      "kind": "set",
+      "cue": "a food or drink"
+    },
+    "fav": {
+      "kind": "personal",
+      "cue": "your favourite food"
+    }
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "role": "A",
+      "en": "Do you like {food}?",
+      "addressesYou": true
+    },
+    {
+      "id": "l2",
+      "role": "B",
+      "en": "Yes, I like it a lot. And you?",
+      "addressesYou": true
+    },
+    {
+      "id": "l3",
+      "role": "A",
+      "en": "Not much. I like tea."
+    },
+    {
+      "id": "l4",
+      "role": "B",
+      "en": "What is your favourite food?",
+      "addressesYou": true
+    },
+    {
+      "id": "l5",
+      "role": "A",
+      "en": "My favourite food is {fav}."
+    },
+    {
+      "id": "l6",
+      "role": "B",
+      "en": "Really? Me too!"
+    }
+  ],
+  "chunks": [
+    {
+      "id": "do-you-like",
+      "en": "do you like ___?",
+      "addressesYou": true
+    },
+    {
+      "id": "i-like-it-a-lot",
+      "en": "I like it a lot"
+    },
+    {
+      "id": "not-much",
+      "en": "not much"
+    },
+    {
+      "id": "i-like",
+      "en": "I like ___"
+    },
+    {
+      "id": "whats-your-favourite",
+      "en": "what is your favourite food?",
+      "addressesYou": true
+    },
+    {
+      "id": "my-favourite",
+      "en": "my favourite food is ___"
+    },
+    {
+      "id": "me-too",
+      "en": "me too"
+    },
+    {
+      "id": "i-dont-like",
+      "en": "I don't like ___"
+    }
+  ],
+  "drill": {
+    "slot": "food",
+    "instruction": "Swap the food or drink each time."
+  },
+  "free": {
+    "prompt": "Say three things you like and one thing you don't like. Then ask the others about theirs.",
+    "targets": [
+      {
+        "id": "what-do-you-like",
+        "en": "what do you like?",
+        "addressesYou": true
+      },
+      {
+        "id": "not-at-all",
+        "en": "I don't like ___ at all"
+      }
+    ]
+  }
+}

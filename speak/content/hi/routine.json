@@ -1,0 +1,283 @@
+{
+  "schema": 2,
+  "scenario": "routine",
+  "lang": "hi",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "registerNotes": {
+    "intimate": "तू is for very close friends and family. Practise this one with आप and तुम."
+  },
+  "lines": {
+    "l1": {
+      "text": "आप कितने बजे उठते हैं?",
+      "rom": "aap kitne baje uThte hain?",
+      "variants": [
+        {
+          "listener": "m",
+          "text": "आप कितने बजे उठते हैं?",
+          "rom": "aap kitne baje uThte hain?"
+        },
+        {
+          "listener": "f",
+          "text": "आप कितने बजे उठती हैं?",
+          "rom": "aap kitne baje uThtee hain?"
+        }
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "तुम कितने बजे उठते हो?",
+          "rom": "tum kitne baje uThte ho?",
+          "variants": [
+            {
+              "listener": "m",
+              "text": "तुम कितने बजे उठते हो?",
+              "rom": "tum kitne baje uThte ho?"
+            },
+            {
+              "listener": "f",
+              "text": "तुम कितने बजे उठती हो?",
+              "rom": "tum kitne baje uThtee ho?"
+            }
+          ]
+        }
+      }
+    },
+    "l2": {
+      "text": "मैं {time} बजे उठता हूँ। और आप?",
+      "rom": "main {time} baje uThtaa hoon. aur aap?",
+      "variants": [
+        {
+          "speaker": "m",
+          "text": "मैं {time} बजे उठता हूँ। और आप?",
+          "rom": "main {time} baje uThtaa hoon. aur aap?"
+        },
+        {
+          "speaker": "f",
+          "text": "मैं {time} बजे उठती हूँ। और आप?",
+          "rom": "main {time} baje uThtee hoon. aur aap?"
+        }
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "मैं {time} बजे उठता हूँ। और तुम?",
+          "rom": "main {time} baje uThtaa hoon. aur tum?",
+          "variants": [
+            {
+              "speaker": "m",
+              "text": "मैं {time} बजे उठता हूँ। और तुम?",
+              "rom": "main {time} baje uThtaa hoon. aur tum?"
+            },
+            {
+              "speaker": "f",
+              "text": "मैं {time} बजे उठती हूँ। और तुम?",
+              "rom": "main {time} baje uThtee hoon. aur tum?"
+            }
+          ]
+        }
+      }
+    },
+    "l3": {
+      "text": "सात बजे। फिर मैं नाश्ता करता हूँ।",
+      "rom": "saat baje. phir main naashtaa kartaa hoon.",
+      "variants": [
+        {
+          "speaker": "m",
+          "text": "सात बजे। फिर मैं नाश्ता करता हूँ।",
+          "rom": "saat baje. phir main naashtaa kartaa hoon."
+        },
+        {
+          "speaker": "f",
+          "text": "सात बजे। फिर मैं नाश्ता करती हूँ।",
+          "rom": "saat baje. phir main naashtaa kartee hoon."
+        }
+      ]
+    },
+    "l4": {
+      "text": "आप शाम को क्या करते हैं?",
+      "rom": "aap shaam ko kyaa karte hain?",
+      "variants": [
+        {
+          "listener": "m",
+          "text": "आप शाम को क्या करते हैं?",
+          "rom": "aap shaam ko kyaa karte hain?"
+        },
+        {
+          "listener": "f",
+          "text": "आप शाम को क्या करती हैं?",
+          "rom": "aap shaam ko kyaa kartee hain?"
+        }
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "तुम शाम को क्या करते हो?",
+          "rom": "tum shaam ko kyaa karte ho?",
+          "variants": [
+            {
+              "listener": "m",
+              "text": "तुम शाम को क्या करते हो?",
+              "rom": "tum shaam ko kyaa karte ho?"
+            },
+            {
+              "listener": "f",
+              "text": "तुम शाम को क्या करती हो?",
+              "rom": "tum shaam ko kyaa kartee ho?"
+            }
+          ]
+        }
+      }
+    },
+    "l5": {
+      "text": "मैं शाम को टहलने जाता हूँ। और आप?",
+      "rom": "main shaam ko Tahalne jaataa hoon. aur aap?",
+      "variants": [
+        {
+          "speaker": "m",
+          "text": "मैं शाम को टहलने जाता हूँ। और आप?",
+          "rom": "main shaam ko Tahalne jaataa hoon. aur aap?"
+        },
+        {
+          "speaker": "f",
+          "text": "मैं शाम को टहलने जाती हूँ। और आप?",
+          "rom": "main shaam ko Tahalne jaatee hoon. aur aap?"
+        }
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "मैं शाम को टहलने जाता हूँ। और तुम?",
+          "rom": "main shaam ko Tahalne jaataa hoon. aur tum?",
+          "variants": [
+            {
+              "speaker": "m",
+              "text": "मैं शाम को टहलने जाता हूँ। और तुम?",
+              "rom": "main shaam ko Tahalne jaataa hoon. aur tum?"
+            },
+            {
+              "speaker": "f",
+              "text": "मैं शाम को टहलने जाती हूँ। और तुम?",
+              "rom": "main shaam ko Tahalne jaatee hoon. aur tum?"
+            }
+          ]
+        }
+      }
+    },
+    "l6": {
+      "text": "मैं जल्दी सो जाता हूँ।",
+      "rom": "main jaldee so jaataa hoon.",
+      "variants": [
+        {
+          "speaker": "m",
+          "text": "मैं जल्दी सो जाता हूँ।",
+          "rom": "main jaldee so jaataa hoon."
+        },
+        {
+          "speaker": "f",
+          "text": "मैं जल्दी सो जाती हूँ।",
+          "rom": "main jaldee so jaatee hoon."
+        }
+      ]
+    }
+  },
+  "chunks": {
+    "what-time-get-up": {
+      "text": "आप कितने बजे उठते / उठती हैं?",
+      "rom": "aap kitne baje uThte / uThtee hain?",
+      "byRegister": {
+        "familiar": {
+          "text": "तुम कितने बजे उठते / उठती हो?",
+          "rom": "tum kitne baje uThte / uThtee ho?"
+        }
+      },
+      "literal": "you how-many o'clock rise are?"
+    },
+    "i-get-up-at": {
+      "text": "मैं ___ बजे उठता / उठती हूँ",
+      "rom": "main ___ baje uThtaa / uThtee hoon",
+      "literal": "I ___ o'clock rise am"
+    },
+    "at-oclock": {
+      "text": "___ बजे",
+      "rom": "___ baje",
+      "literal": "___ o'clock"
+    },
+    "have-breakfast": {
+      "kind": "collocation",
+      "text": "नाश्ता करता / करती हूँ",
+      "rom": "naashtaa kartaa / kartee hoon",
+      "literal": "breakfast do am"
+    },
+    "in-the-evening": {
+      "text": "शाम को",
+      "rom": "shaam ko",
+      "literal": "evening at"
+    },
+    "go-for-a-walk": {
+      "kind": "collocation",
+      "text": "टहलने जाता / जाती हूँ",
+      "rom": "Tahalne jaataa / jaatee hoon",
+      "literal": "to-stroll go am"
+    },
+    "go-to-bed-early": {
+      "text": "मैं जल्दी सो जाता / जाती हूँ",
+      "rom": "main jaldee so jaataa / jaatee hoon",
+      "literal": "I early sleep go am"
+    },
+    "every-day": {
+      "extra": true,
+      "text": "हर रोज़",
+      "rom": "har roz",
+      "literal": "every day"
+    }
+  },
+  "slotValues": {
+    "time": [
+      {
+        "en": "six",
+        "text": "छह",
+        "rom": "chhah"
+      },
+      {
+        "en": "eight",
+        "text": "आठ",
+        "rom": "aaTh"
+      },
+      {
+        "en": "five",
+        "text": "पाँच",
+        "rom": "paanch"
+      },
+      {
+        "en": "nine",
+        "text": "नौ",
+        "rom": "nau"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "in-the-morning": {
+        "text": "सुबह",
+        "rom": "subah"
+      },
+      "in-the-afternoon": {
+        "text": "दोपहर को",
+        "rom": "dopahar ko"
+      },
+      "at-night": {
+        "text": "रात को",
+        "rom": "raat ko"
+      }
+    }
+  },
+  "notes": [
+    "बजे marks the hour: सात बजे is \"at seven o'clock\". No word for \"at\" is needed.",
+    "The verb shows who is speaking: उठता / करता / जाता for a man, उठती / करती / जाती for a woman. With आप and तुम it is उठते for a man and उठती for a woman.",
+    "सो जाना (\"sleep go\") means to fall asleep or go to bed. Hindi often pairs a verb with जाना to show the action is completed."
+  ]
+}

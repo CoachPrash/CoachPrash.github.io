@@ -569,6 +569,7 @@
           return "<li>" + U.target(res(p.item), prof, { en: p.en }) + "</li>";
         }).join("") + "</ul>" : "") +
         '<p class="hint">Nothing is saved. Run it again in another formality, or move on.</p>' +
+        U.reviewLink(code, id) +
         '<div class="actions"><button type="button" class="btn primary" id="again">Run again</button>' +
         '<a class="btn" href="#' + esc(code) + '">All scenarios</a>' +
         '<a class="btn" href="#' + esc(code) + "/" + esc(id) + '/class">Class mode</a></div></section>');

@@ -1,0 +1,103 @@
+{
+  "schema": 2,
+  "id": "opinions",
+  "title": "Small talk & opinions",
+  "goal": "Make small talk about the weekend and say what you thought of something.",
+  "roles": {
+    "A": "Starts the chat",
+    "B": "Joins in"
+  },
+  "slots": {
+    "opinion": {
+      "kind": "set",
+      "cue": "an opinion (great, boring…)"
+    }
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "role": "A",
+      "en": "Nice weather today, isn't it?"
+    },
+    {
+      "id": "l2",
+      "role": "B",
+      "en": "Yes, very nice! What did you do at the weekend?",
+      "addressesYou": true
+    },
+    {
+      "id": "l3",
+      "role": "A",
+      "en": "I watched a film."
+    },
+    {
+      "id": "l4",
+      "role": "B",
+      "en": "Oh nice! How was it?"
+    },
+    {
+      "id": "l5",
+      "role": "A",
+      "en": "It was {opinion}. And how was your weekend?",
+      "addressesYou": true
+    },
+    {
+      "id": "l6",
+      "role": "B",
+      "en": "Quiet. I stayed at home."
+    }
+  ],
+  "chunks": [
+    {
+      "id": "nice-weather",
+      "en": "nice weather today, isn't it?"
+    },
+    {
+      "id": "what-did-you-do",
+      "en": "what did you do at the weekend?",
+      "addressesYou": true
+    },
+    {
+      "id": "watch-a-film",
+      "en": "watch a film"
+    },
+    {
+      "id": "how-was-it",
+      "en": "how was it?"
+    },
+    {
+      "id": "it-was",
+      "en": "it was ___"
+    },
+    {
+      "id": "how-was-your-weekend",
+      "en": "how was your weekend?",
+      "addressesYou": true
+    },
+    {
+      "id": "stayed-at-home",
+      "en": "I stayed at home"
+    },
+    {
+      "id": "i-agree",
+      "en": "I agree"
+    }
+  ],
+  "drill": {
+    "slot": "opinion",
+    "instruction": "Swap the opinion each time."
+  },
+  "free": {
+    "prompt": "Give your opinion of a film, a food and a city. The others agree or disagree.",
+    "targets": [
+      {
+        "id": "i-think",
+        "en": "I think ___"
+      },
+      {
+        "id": "i-dont-agree",
+        "en": "I don't agree"
+      }
+    ]
+  }
+}

@@ -1,6 +1,6 @@
 # Speak — specification
 
-**Status:** M1, M2 and M2.5 done. M2.5 passed Prash's test and ran in his Sunday class on 11 October 2026. M3 drafted (12 October 2026): French and Mandarin stages 1–4, waiting for native-speaker review. M4 next. M3.5 (images) is deferred until after M4.
+**Status:** M1, M2 and M2.5 done. M2.5 passed Prash's test and ran in his Sunday class on 11 October 2026. M3 drafted (12 October 2026): French and Mandarin stages 1–4, waiting for native-speaker review. M4 parts 1–3 drafted (12 October 2026): blueprints for stages 5–9, Hindi stages 5–9 and the Review screen. Part 4 (French and Mandarin stages 5–9) next. M3.5 (images) is deferred until after M4.
 **Version:** 0.9, 12 October 2026
 **Brief:** `_project/sites/speak.md`
 

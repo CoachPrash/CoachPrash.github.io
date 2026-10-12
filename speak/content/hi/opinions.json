@@ -1,0 +1,165 @@
+{
+  "schema": 2,
+  "scenario": "opinions",
+  "lang": "hi",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "registerNotes": {
+    "intimate": "तू is for very close friends and family. Practise this one with आप and तुम."
+  },
+  "lines": {
+    "l1": {
+      "text": "आज मौसम बहुत अच्छा है, है ना?",
+      "rom": "aaj mausam bahut achchhaa hai, hai naa?"
+    },
+    "l2": {
+      "text": "हाँ, बहुत अच्छा! आपने वीकेंड पर क्या किया?",
+      "rom": "haan, bahut achchhaa! aapne veekenD par kyaa kiyaa?",
+      "byRegister": {
+        "familiar": {
+          "text": "हाँ, बहुत अच्छा! तुमने वीकेंड पर क्या किया?",
+          "rom": "haan, bahut achchhaa! tumne veekenD par kyaa kiyaa?"
+        }
+      }
+    },
+    "l3": {
+      "text": "मैंने एक फ़िल्म देखी।",
+      "rom": "mainne ek film dekhee."
+    },
+    "l4": {
+      "text": "अच्छा! कैसी थी?",
+      "rom": "achchhaa! kaisee thee?"
+    },
+    "l5": {
+      "text": "{opinion} थी। और आपका वीकेंड कैसा रहा?",
+      "rom": "{opinion} thee. aur aapkaa veekenD kaisaa rahaa?",
+      "byRegister": {
+        "familiar": {
+          "text": "{opinion} थी। और तुम्हारा वीकेंड कैसा रहा?",
+          "rom": "{opinion} thee. aur tumhaaraa veekenD kaisaa rahaa?"
+        }
+      }
+    },
+    "l6": {
+      "text": "आराम से बीता। मैं घर पर ही रहा।",
+      "rom": "aaraam se beetaa. main ghar par hee rahaa.",
+      "variants": [
+        {
+          "speaker": "m",
+          "text": "आराम से बीता। मैं घर पर ही रहा।",
+          "rom": "aaraam se beetaa. main ghar par hee rahaa."
+        },
+        {
+          "speaker": "f",
+          "text": "आराम से बीता। मैं घर पर ही रही।",
+          "rom": "aaraam se beetaa. main ghar par hee rahee."
+        }
+      ]
+    }
+  },
+  "chunks": {
+    "nice-weather": {
+      "text": "आज मौसम बहुत अच्छा है, है ना?",
+      "rom": "aaj mausam bahut achchhaa hai, hai naa?",
+      "literal": "today weather very good is, is not?"
+    },
+    "what-did-you-do": {
+      "text": "आपने वीकेंड पर क्या किया?",
+      "rom": "aapne veekenD par kyaa kiyaa?",
+      "byRegister": {
+        "familiar": {
+          "text": "तुमने वीकेंड पर क्या किया?",
+          "rom": "tumne veekenD par kyaa kiyaa?"
+        }
+      },
+      "literal": "you(ne) weekend on what did?"
+    },
+    "watch-a-film": {
+      "kind": "collocation",
+      "text": "एक फ़िल्म देखी",
+      "rom": "ek film dekhee",
+      "literal": "a film saw"
+    },
+    "how-was-it": {
+      "text": "कैसी थी?",
+      "rom": "kaisee thee?",
+      "literal": "how(f) was(f)?"
+    },
+    "it-was": {
+      "text": "___ थी",
+      "rom": "___ thee",
+      "literal": "___ was(f)"
+    },
+    "how-was-your-weekend": {
+      "text": "आपका वीकेंड कैसा रहा?",
+      "rom": "aapkaa veekenD kaisaa rahaa?",
+      "byRegister": {
+        "familiar": {
+          "text": "तुम्हारा वीकेंड कैसा रहा?",
+          "rom": "tumhaaraa veekenD kaisaa rahaa?"
+        }
+      },
+      "literal": "your weekend how stayed?"
+    },
+    "stayed-at-home": {
+      "text": "मैं घर पर ही रहा / रही",
+      "rom": "main ghar par hee rahaa / rahee",
+      "literal": "I home at just stayed"
+    },
+    "i-agree": {
+      "extra": true,
+      "text": "मैं सहमत हूँ",
+      "rom": "main sahmat hoon",
+      "literal": "I agreed am"
+    }
+  },
+  "slotValues": {
+    "opinion": [
+      {
+        "en": "very good",
+        "text": "बहुत अच्छी",
+        "rom": "bahut achchhee"
+      },
+      {
+        "en": "boring",
+        "text": "बोरिंग",
+        "rom": "boring"
+      },
+      {
+        "en": "okay",
+        "text": "ठीक-ठाक",
+        "rom": "Theek-Thaak"
+      },
+      {
+        "en": "brilliant",
+        "text": "शानदार",
+        "rom": "shaandaar"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "i-think": {
+        "text": "मुझे लगता है कि ___",
+        "rom": "mujhe lagtaa hai ki ___"
+      },
+      "i-dont-agree": {
+        "text": "मैं सहमत नहीं हूँ",
+        "rom": "main sahmat naheen hoon"
+      }
+    }
+  },
+  "notes": [
+    "फ़िल्म is feminine, so it is कैसी थी and अच्छी थी. For a masculine thing such as खाना it is कैसा था, अच्छा था.",
+    "In the past, the doer of an action takes ने: मैंने देखी, आपने किया. The verb then agrees with the thing (फ़िल्म देखी), not with the person.",
+    "वीकेंड is everyday city Hindi. शनिवार-रविवार (Saturday-Sunday) works too.",
+    "है ना? at the end of a sentence asks for agreement, like \"isn't it?\"."
+  ]
+}

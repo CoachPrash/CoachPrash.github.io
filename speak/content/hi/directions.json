@@ -1,0 +1,162 @@
+{
+  "schema": 2,
+  "scenario": "directions",
+  "lang": "hi",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "registerNotes": {
+    "intimate": "तू is for very close friends and family. Practise this one with आप and तुम."
+  },
+  "lines": {
+    "l1": {
+      "text": "सुनिए, {place} कहाँ है?",
+      "rom": "sunie, {place} kahaan hai?",
+      "byRegister": {
+        "familiar": {
+          "text": "सुनो, {place} कहाँ है?",
+          "rom": "suno, {place} kahaan hai?"
+        }
+      }
+    },
+    "l2": {
+      "text": "सीधे जाइए, फिर बाएँ मुड़िए।",
+      "rom": "seedhe jaaie, phir baaen muRie.",
+      "byRegister": {
+        "familiar": {
+          "text": "सीधे जाओ, फिर बाएँ मुड़ो।",
+          "rom": "seedhe jaao, phir baaen muRo."
+        }
+      }
+    },
+    "l3": {
+      "text": "क्या दूर है?",
+      "rom": "kyaa door hai?"
+    },
+    "l4": {
+      "text": "नहीं, पास में है। पैदल पाँच मिनट।",
+      "rom": "naheen, paas men hai. paidal paanch minaT."
+    },
+    "l5": {
+      "text": "बहुत-बहुत धन्यवाद!",
+      "rom": "bahut-bahut dhanyavaad!",
+      "accept": [
+        {
+          "text": "बहुत शुक्रिया!",
+          "rom": "bahut shukriyaa!"
+        }
+      ]
+    },
+    "l6": {
+      "text": "कोई बात नहीं।",
+      "rom": "koee baat naheen."
+    }
+  },
+  "chunks": {
+    "where-is": {
+      "text": "सुनिए, ___ कहाँ है?",
+      "rom": "sunie, ___ kahaan hai?",
+      "byRegister": {
+        "familiar": {
+          "text": "सुनो, ___ कहाँ है?",
+          "rom": "suno, ___ kahaan hai?"
+        }
+      },
+      "literal": "listen (please), ___ where is?"
+    },
+    "go-straight": {
+      "text": "सीधे जाइए",
+      "rom": "seedhe jaaie",
+      "byRegister": {
+        "familiar": {
+          "text": "सीधे जाओ",
+          "rom": "seedhe jaao"
+        }
+      },
+      "literal": "straight go (please)"
+    },
+    "turn-left": {
+      "text": "बाएँ / दाएँ मुड़िए",
+      "rom": "baaen / daaen muRie",
+      "byRegister": {
+        "familiar": {
+          "text": "बाएँ / दाएँ मुड़ो",
+          "rom": "baaen / daaen muRo"
+        }
+      },
+      "literal": "left / right turn (please)"
+    },
+    "is-it-far": {
+      "text": "क्या दूर है?",
+      "rom": "kyaa door hai?",
+      "literal": "(question) far is?"
+    },
+    "its-near": {
+      "text": "पास में है",
+      "rom": "paas men hai",
+      "literal": "near in is"
+    },
+    "on-foot": {
+      "text": "पैदल पाँच मिनट",
+      "rom": "paidal paanch minaT",
+      "literal": "on-foot five minutes"
+    },
+    "thank-you-very-much": {
+      "text": "बहुत-बहुत धन्यवाद",
+      "rom": "bahut-bahut dhanyavaad",
+      "literal": "much-much thanks"
+    },
+    "youre-welcome": {
+      "text": "कोई बात नहीं",
+      "rom": "koee baat naheen",
+      "literal": "any matter not"
+    }
+  },
+  "slotValues": {
+    "place": [
+      {
+        "en": "the station",
+        "text": "स्टेशन",
+        "rom": "sTeshan"
+      },
+      {
+        "en": "the bank",
+        "text": "बैंक",
+        "rom": "baink"
+      },
+      {
+        "en": "the market",
+        "text": "बाज़ार",
+        "rom": "baazaar"
+      },
+      {
+        "en": "the hospital",
+        "text": "अस्पताल",
+        "rom": "aspataal"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "is-there-near": {
+        "text": "क्या यहाँ पास में ___ है?",
+        "rom": "kyaa yahaan paas men ___ hai?"
+      },
+      "on-the-right": {
+        "text": "दाईं / बाईं तरफ़ है",
+        "rom": "daaeen / baaeen taraf hai"
+      }
+    }
+  },
+  "notes": [
+    "बाएँ is left and दाएँ is right. With मुड़िए (turn) they give the direction.",
+    "दाईं तरफ़ / बाईं तरफ़ means \"on the right side / on the left side\": where something is, not where to turn.",
+    "पैदल means \"on foot\". पैदल पाँच मिनट is \"five minutes' walk\"."
+  ]
+}
