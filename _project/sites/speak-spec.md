@@ -1,12 +1,19 @@
 # Speak — specification
 
-**Status:** M1, M2 and M2.5 done. M2.5 passed Prash's test and ran in his Sunday class on 11 October 2026. M3 drafted (12 October 2026): French and Mandarin stages 1–4, waiting for native-speaker review.
-**Version:** 0.8.4, 12 October 2026
+**Status:** M1, M2 and M2.5 done. M2.5 passed Prash's test and ran in his Sunday class on 11 October 2026. M3 drafted (12 October 2026): French and Mandarin stages 1–4, waiting for native-speaker review. M4 next. M3.5 (images) is deferred until after M4.
+**Version:** 0.9, 12 October 2026
 **Brief:** `_project/sites/speak.md`
 
 This file is the build contract. When the spec and the code disagree, the spec wins, or the spec is changed first.
 
 ### Changes
+
+**0.9** (M4 planned)
+
+- New **Review** screen (§4.7): flashcards of chunks from earlier stages, shuffled, nothing stored. Two ways to use it: Flip (self-check, works on a shared screen) and Say it (the matcher checks).
+- Routes `#hi/review` and `#hi/review/<n>` (§4). The ids `profile` and `review` are reserved and cannot be scenario ids (§3, checker).
+- The ladder gets a Review button. A scenario's last screen links to a review of the stages before it (§4.1, §4.2, §4.3).
+- Milestones (§8): M4 comes before M3.5, in four parts. Images wait until Prash picks a source for scenes.
 
 **0.8.4** (M3 drafting)
 
@@ -173,7 +180,7 @@ speak/content/
   <lang>/<id>.json            realizations (one per scenario per language)
 ```
 
-Language codes: `hi`, `fr`, `zh`. Scenario ids: lowercase, hyphenated, permanent. **Ids are load-bearing:** they appear in URLs (`#hi/greetings`) and in the checker. Do not rename one after it ships.
+Language codes: `hi`, `fr`, `zh`. Scenario ids: lowercase, hyphenated, permanent. **Ids are load-bearing:** they appear in URLs (`#hi/greetings`) and in the checker. Do not rename one after it ships. `profile` and `review` are reserved: they are routes (§4), so no scenario may use them.
 
 Every file carries `"schema": 2`. A change that breaks old files increments it. Schema 2 (spec 0.8) renamed `vocab` to `chunks`, and the checker rejects schema 1 files.
 
@@ -662,6 +669,8 @@ Routes are hash-based, so they work on GitHub Pages with no server rules:
 | `#hi/greetings/solo` | Solo mode |
 | `#hi/greetings/script` | Script view |
 | `#hi/profile` | Language profile: the adaptation checklist answered, the levels of "you", the romanization chart and its rules |
+| `#hi/review` | Review: chunks from every stage that has content in this language (§4.7) |
+| `#hi/review/4` | Review: chunks from stages 1 to 4 only |
 
 ### 4.0 Site navigation
 
@@ -684,6 +693,7 @@ Routes are hash-based, so they work on GitHub Pages with no server rules:
   - **Draft** (not reviewed)
   - **Not yet in this language**, which is listed but not clickable
 - Each available scenario offers three buttons: **Class**, **Solo** and **Script**.
+- **Review button**, at the top of the ladder: "Review chunks", which opens `#hi/review`. It shows once the language has content in at least one stage.
 
 ### 4.2 Class mode (shared screen)
 
@@ -711,7 +721,7 @@ The order follows the chunking idea: hear the language, take its chunks whole, u
 5. **Role play.** The current pair's names are shown on the A and B sides. One line at a time, in the forms for the pair's genders (§3.10). Toggle: show the target text, or show only the English cue. Use the cue only to test.
 6. **Frame drill.** The next slot value's English cue, plus whose turn it is. Rotates through participants. Each drill line is a frame, and the drill swaps its gap.
 7. **Free practice.** The prompt, with the target phrases and the chunks below it for reference. No timer, no score: the native speaker listens.
-8. **Notice.** Now the grammar: each chunk with its `literal` gloss, every line note, and the scenario's notes. **Done** ends the run.
+8. **Notice.** Now the grammar: each chunk with its `literal` gloss, every line note, and the scenario's notes. **Done** ends the run. From stage 2 on, the Notice screen also links to "Review stages 1–<n−1>" (§4.7).
 
 **Bottom bar:** Back, the step name, Play and Next stay fixed at the bottom of the screen, so they never scroll away. Hear it adds Play all. Keys: P plays, A plays all. On a phone the Play buttons show icons only.
 
@@ -743,7 +753,7 @@ The order follows the chunking idea: hear the language, take its chunks whole, u
   3. A running score shows "4 of 8 phrases used". A phrase said in another register gets a warning instead of a tick: "That was the तुम form".
   4. **Done** shows the final coverage and lists the phrases not yet used.
   - Typed input works the same way, for browsers without recognition.
-- **End:** a summary of turns said well, plus the free-practice coverage. A turn counts its best attempt. It is not stored.
+- **End:** a summary of turns said well, plus the free-practice coverage. A turn counts its best attempt. It is not stored. From stage 2 on, the end screen links to "Review stages 1–<n−1>" (§4.7).
 
 ### 4.4 Script view (for reviewers)
 
@@ -774,6 +784,23 @@ Applies everywhere, stored per device:
 - **Changed-line marker:** after a switch, lines whose text changed get a small marker for the rest of that screen, so learners see exactly what formality touches.
 - **Memory:** the last choice is stored per language. A new scenario opens in that register if the scenario allows it, and otherwise in the profile's `defaultRegister`. No separate site-wide setting is needed.
 - **Script view:** the switch is replaced by the side-by-side columns.
+
+### 4.7 Review (flashcards)
+
+Review mixes chunks from earlier stages, so learners meet them again out of their dialogue. It stores nothing (§2, Tracking).
+
+- **Route:** `#hi/review` takes every stage with content in this language. `#hi/review/<n>` takes stages 1 to n. The screen has a stage picker: "Stages 1 to [n]".
+- **Deck:** every chunk of every scenario in those stages, `extra` chunks included, shuffled. Free-practice targets and slot words are not cards: cards carry chunks only. A run takes 10 cards. **Another 10** deals the next 10 from the same shuffle, and the deck reshuffles when it runs out.
+- **Register:** the register switch (§4.6) applies to every card. For a scenario that does not allow the selected register, its cards use the profile's `defaultRegister`, and the card shows that register's label.
+- **Gender:** a chunk with a ` / ` choice shows both words, as in the Chunks step.
+- **Front:** the chunk's English (`en`), its kind tag, and its source in small text: "Stage 3 · Numbers & family". A frame shows its gap: "I have ___".
+- **Back:** the target text, romanization when on, Play, and the dialogue line it came from with the chunk underlined (§3.9). Play speaks a frame with the gap filled from the line it came from.
+- **Two ways to use it**, a toggle at the top:
+  - **Flip:** the learner says the chunk aloud, then flips the card (Space, Enter or a tap) and checks. **Got it** moves on. **Again** puts the card back at the end of this run. This works on a shared screen in class.
+  - **Say it:** the learner taps Speak, or types. The answer is matched like an Echo card (§4.3, §5.2): `___` matches like a slot, and the register check applies. The result shows, then the back of the card. A Nearly or Not quite answer puts the card back at the end of this run, once.
+- **End of a run:** "7 of 10 first time", the cards that came back, and **Another 10**. Nothing is stored.
+- **Keys:** Space or Enter flips, the right arrow goes to the next card, P plays.
+- **Pictures:** when M3.5 adds images, a picture can replace the English on the front.
 
 ---
 
@@ -875,6 +902,7 @@ Nothing else. No scores are stored.
 | `speak/assets/content.js` | hand-written | Loads the JSON and resolves lines for a register and slot values. No DOM code. Reads the content folder from `window.SPEAK_CONTENT_BASE` when set (test page only) |
 | `speak/assets/app.js` | hand-written | Router and screens. Exposes the shared screen helpers (storage, toolbar, register switch) for `solo.js` |
 | `speak/assets/solo.js` | hand-written | Solo mode screen (§4.3) |
+| `speak/assets/review.js` | hand-written | Review screen (§4.7) |
 | `speak/assets/speech.js` | hand-written | Text-to-speech, recognition, matching (§5). No DOM code, so it can be tested alone |
 | `speak/content/**` | hand-written data | §3 |
 | `_build/check_speak.py` | tooling | Validator. Standard library only |
@@ -888,6 +916,7 @@ The checker exits with a non-zero code and one line per problem when any of thes
 
 - every file parses and has `schema: 2`. A schema 1 file gets its own message: it predates chunks
 - every ladder id has a blueprint, or a language-only realization
+- no scenario id is `profile` or `review`
 - every realization line id exists in its blueprint, and every blueprint line appears in every realization
 - every slot used in `en` appears in `text` and `rom`, including in `byRegister` and `variants`, and nowhere else
 - every `set` slot has at least three `slotValues`
@@ -929,8 +958,8 @@ Each milestone is shippable on its own, and the card stays parked throughout.
 | **M2** | Solo mode: recognition, matching, wrong-register detection, typed fallback | Each Hindi model line from stages 1–4 scores Good when spoken by Prash in Chrome, in its register. Saying the तुम form while आप is selected gives "Nearly — that was the तुम form". Typed romanization matches. In greetings free practice, saying "aap kaise hain" and "main Theek hoon" ticks both target phrases. `_build/test_speech.html` passes |
 | **M2.5** | Chunks and gender: the fields in §3.9 and §3.10, the class and solo steps, Hindi stages 1–4 rewritten chunk-first, French and Mandarin greetings brought into line, gender in the roster and solo, voice pickers, checker rules | Prash runs a Hindi class through all 8 steps. With genders set in the roster, where-from line 3 shows only the right form. In solo, the other gender's form gives Nearly with its message. Checker and `_build/test_speech.html` pass |
 | **M3** | French and Mandarin, stages 1–4, drafted chunk-first with gender fields, in all their registers. Script view sent to reviewers | Checker passes. Prash has PDFs to send |
-| **M3.5** | Images: SVG item icons and speaker avatars drawn by Claude, a picture-cue toggle for the drill, one sample scene. The scene art is decided after the sample | The frame drill runs on picture cues |
-| **M4** | Stages 5–9 in all three languages, plus a stateless **Review** mode: chunks from earlier stages at random, nothing stored | Checker passes. Hindi verified by Prash. Review draws from every stage before the current one |
+| **M4** | Stages 5–9 in all three languages, plus the **Review** screen (§4.7). In four parts: (1) blueprints for stages 5–9, (2) Hindi stages 5–9, (3) Review, (4) French and Mandarin stages 5–9 | Checker and `_build/test_speech.html` pass. Hindi stages 5–9 verified by Prash. Review from a stage 5 scenario draws from stages 1–4 |
+| **M3.5** | Images, after M4. Item icons and speaker avatars, and a picture-cue toggle for the drill. Prash picks the source for scenes first: AI-generated, Open Peeps (CC0), stock photos, or none | The frame drill runs on picture cues |
 | **List** | Open to search engines | French and Mandarin stages 1–4 verified by native speakers. `noindex` removed from `speak/index.html` and the root `index.html` |
 
 ---
