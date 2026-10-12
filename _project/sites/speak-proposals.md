@@ -172,3 +172,27 @@ Not in any milestone yet. Ideas for after the basic site is built.
    - **Production.** Profiles that follow a learner across devices need a server. That is the trigger for Railway, and it brings parental-consent and student-data rules: COPPA for under-13s, school-record rules, and Connecticut's student data privacy law. The records are plain JSON per person, so they can move to a server unchanged.
    - **Spec first.** §4.2 setup, §6 storage, and "When to move to a server" change before any code.
    - **Done in M2.5 already:** a learner's own blank shows the partner's value as an example ("e.g. दिल्ली"). It still helps when no profile exists.
+
+   - **Tabled (12 October 2026).** Prash tabled People for now. The spec text drafted for it (0.9, §4.7) is kept below, so the work can resume. If it does, add a CSV import and export that read and write a file on the device only. Never commit real participants' data to this public repo: keep any class file in a `_private/` folder that `.gitignore` excludes.
+
+<details><summary>Draft spec §4.7 People (not adopted)</summary>
+
+### 4.7 People
+
+People is the list of participants, kept on the device. Class setup and the solo "About you" both read and write it.
+
+- **A person** has a name, a gender (Male, Female or blank, §3.10), a "native speaker" mark, and **own facts**: values for the scenarios' own slots (§3.2), keyed by slot id. Today that is `city` (personal) and `job` (set, `own`).
+- **Ask only for what is missing.** Setup lists the people here today, with a field for each own slot this scenario uses. An empty field is marked "missing", never required.
+- **Personal facts are typed.** The English spelling is kept, plus an optional spelling in the current language's script ("Hartford", "हार्टफ़र्ड"). Without a script spelling, the English one shows in the gap. The matcher accepts any word there (§5.2).
+- **Set facts are picked** from the scenario's list, so the target-language forms stay correct. They are stored by the value's `en` ("a teacher"), which is the same in every language.
+- **Where the facts are used:**
+  - Class role play: a person's lines show and speak their own facts. A missing fact keeps today's behaviour: a blank with an example, or a value from the list.
+  - Frame drill: each person's turn uses their own value first. The rotation through the list continues as before.
+  - Solo: the learner's lines use their "About you" facts. The solo frame drill starts with the learner's own value, then 3 at random.
+- **Privacy.** Learners are mostly minors, and a classroom computer is shared.
+  - Only the facts scenarios use are asked for. There are no ages, addresses or family details.
+  - "Saved only on this device" shows on the People panel.
+  - "Forget everyone" removes the whole list after a second tap. Each person also has a remove button.
+- **No server.** The list never leaves the device. Moving it to a server is trigger 6 in §2.
+
+</details>
