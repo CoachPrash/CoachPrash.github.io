@@ -1,0 +1,171 @@
+{
+  "schema": 2,
+  "scenario": "requests",
+  "lang": "fr",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "Excusez-moi !",
+      "byRegister": {
+        "familiar": {
+          "text": "Excuse-moi !"
+        }
+      }
+    },
+    "l2": {
+      "text": "Oui, dites-moi.",
+      "accept": [
+        "Oui, je vous écoute."
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Oui, dis-moi.",
+          "accept": [
+            "Oui, je t'écoute."
+          ]
+        }
+      }
+    },
+    "l3": {
+      "text": "Je voudrais {item}, s'il vous plaît.",
+      "accept": [
+        "Donnez-moi {item}, s'il vous plaît."
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Je voudrais {item}, s'il te plaît.",
+          "accept": [
+            "Donne-moi {item}, s'il te plaît."
+          ]
+        }
+      }
+    },
+    "l4": {
+      "text": "Tenez.",
+      "accept": [
+        "Voilà."
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Tiens.",
+          "accept": [
+            "Voilà."
+          ]
+        }
+      }
+    },
+    "l5": {
+      "text": "Merci !",
+      "accept": [
+        "Merci beaucoup !"
+      ]
+    },
+    "l6": {
+      "text": "De rien.",
+      "accept": [
+        "Je vous en prie.",
+        "Avec plaisir."
+      ]
+    }
+  },
+  "chunks": {
+    "excuse-me": {
+      "text": "excusez-moi",
+      "literal": "excuse me",
+      "byRegister": {
+        "familiar": {
+          "text": "excuse-moi"
+        }
+      }
+    },
+    "yes-tell-me": {
+      "text": "oui, dites-moi",
+      "literal": "yes, tell me",
+      "byRegister": {
+        "familiar": {
+          "text": "oui, dis-moi"
+        }
+      }
+    },
+    "give-me": {
+      "text": "je voudrais ___, s'il vous plaît",
+      "literal": "I would like ___, if it pleases you",
+      "byRegister": {
+        "familiar": {
+          "text": "je voudrais ___, s'il te plaît"
+        }
+      }
+    },
+    "here-you-are": {
+      "text": "tenez",
+      "literal": "hold (it)",
+      "byRegister": {
+        "familiar": {
+          "text": "tiens"
+        }
+      }
+    },
+    "thank-you": {
+      "text": "merci",
+      "literal": "thanks"
+    },
+    "youre-welcome": {
+      "text": "de rien",
+      "literal": "of nothing"
+    },
+    "sorry": {
+      "text": "pardon",
+      "literal": "pardon",
+      "extra": true,
+      "registerNeutral": true
+    }
+  },
+  "slotValues": {
+    "item": [
+      {
+        "en": "some water",
+        "text": "de l'eau"
+      },
+      {
+        "en": "some tea",
+        "text": "du thé"
+      },
+      {
+        "en": "a pen",
+        "text": "un stylo"
+      },
+      {
+        "en": "some sugar",
+        "text": "du sucre"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "i-need": {
+        "text": "J'ai besoin de ___."
+      },
+      "do-you-have": {
+        "text": "Vous avez ___ ?",
+        "byRegister": {
+          "familiar": {
+            "text": "Tu as ___ ?"
+          }
+        }
+      }
+    }
+  },
+  "notes": [
+    "Je voudrais (I would like) is the polite way to ask. Donnez-moi sounds abrupt.",
+    "Some, as in some water or some tea: de l'eau, du thé, de la confiture.",
+    "Tenez and tiens literally mean hold: here you are."
+  ]
+}

@@ -1,0 +1,237 @@
+{
+  "schema": 2,
+  "scenario": "where-from",
+  "lang": "zh",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "你是哪里人？",
+      "rom": "Nǐ shì nǎlǐ rén?",
+      "accept": [
+        {
+          "text": "你从哪里来？",
+          "rom": "Nǐ cóng nǎlǐ lái?"
+        }
+      ],
+      "byRegister": {
+        "formal": {
+          "text": "您是哪里人？",
+          "rom": "Nín shì nǎlǐ rén?",
+          "accept": [
+            {
+              "text": "您从哪里来？",
+              "rom": "Nín cóng nǎlǐ lái?"
+            }
+          ]
+        }
+      }
+    },
+    "l2": {
+      "text": "我是{city}人。你呢？",
+      "rom": "Wǒ shì {city} rén. Nǐ ne?",
+      "accept": [
+        {
+          "text": "我来自{city}。你呢？",
+          "rom": "Wǒ láizì {city}. Nǐ ne?"
+        }
+      ],
+      "byRegister": {
+        "formal": {
+          "text": "我是{city}人。您呢？",
+          "rom": "Wǒ shì {city} rén. Nín ne?",
+          "accept": [
+            {
+              "text": "我来自{city}。您呢？",
+              "rom": "Wǒ láizì {city}. Nín ne?"
+            }
+          ]
+        }
+      }
+    },
+    "l3": {
+      "text": "我是{city}人。你做什么工作？",
+      "rom": "Wǒ shì {city} rén. Nǐ zuò shénme gōngzuò?",
+      "byRegister": {
+        "formal": {
+          "text": "我是{city}人。您做什么工作？",
+          "rom": "Wǒ shì {city} rén. Nín zuò shénme gōngzuò?"
+        }
+      }
+    },
+    "l4": {
+      "text": "我是{job}。你呢？",
+      "rom": "Wǒ shì {job}. Nǐ ne?",
+      "byRegister": {
+        "formal": {
+          "text": "我是{job}。您呢？",
+          "rom": "Wǒ shì {job}. Nín ne?"
+        }
+      }
+    },
+    "l5": {
+      "text": "我是{job}。",
+      "rom": "Wǒ shì {job}."
+    }
+  },
+  "chunks": {
+    "where-from": {
+      "text": "你是哪里人？",
+      "rom": "nǐ shì nǎlǐ rén?",
+      "literal": "you are where person?",
+      "chain": [
+        "哪里人？",
+        "是哪里人？"
+      ],
+      "byRegister": {
+        "formal": {
+          "text": "您是哪里人？",
+          "rom": "nín shì nǎlǐ rén?"
+        }
+      }
+    },
+    "i-am-from": {
+      "text": "我是___人",
+      "rom": "wǒ shì ___ rén",
+      "literal": "I am ___ person"
+    },
+    "what-do-you-do": {
+      "text": "你做什么工作？",
+      "rom": "nǐ zuò shénme gōngzuò?",
+      "literal": "you do what work?",
+      "chain": [
+        "工作？",
+        "什么工作？",
+        "做什么工作？"
+      ],
+      "byRegister": {
+        "formal": {
+          "text": "您做什么工作？",
+          "rom": "nín zuò shénme gōngzuò?"
+        }
+      }
+    },
+    "i-am-a": {
+      "text": "我是___",
+      "rom": "wǒ shì ___",
+      "literal": "I am ___"
+    },
+    "and-you": {
+      "text": "你呢？",
+      "rom": "nǐ ne?",
+      "literal": "you (and)?",
+      "byRegister": {
+        "formal": {
+          "text": "您呢？",
+          "rom": "nín ne?"
+        }
+      }
+    },
+    "i-live-in": {
+      "text": "我住在___",
+      "rom": "wǒ zhù zài ___",
+      "literal": "I live at ___",
+      "extra": true
+    }
+  },
+  "slotValues": {
+    "job": [
+      {
+        "en": "a student",
+        "text": "学生",
+        "rom": "xuésheng"
+      },
+      {
+        "en": "a teacher",
+        "text": "老师",
+        "rom": "lǎoshī"
+      },
+      {
+        "en": "an engineer",
+        "text": "工程师",
+        "rom": "gōngchéngshī"
+      },
+      {
+        "en": "a nurse",
+        "text": "护士",
+        "rom": "hùshi"
+      },
+      {
+        "en": "a doctor",
+        "text": "医生",
+        "rom": "yīshēng"
+      },
+      {
+        "en": "an accountant",
+        "text": "会计",
+        "rom": "kuàijì"
+      },
+      {
+        "en": "a lawyer",
+        "text": "律师",
+        "rom": "lǜshī"
+      },
+      {
+        "en": "a sportsperson",
+        "text": "运动员",
+        "rom": "yùndòngyuán"
+      },
+      {
+        "en": "an actor",
+        "text": "演员",
+        "rom": "yǎnyuán"
+      },
+      {
+        "en": "an actress",
+        "text": "女演员",
+        "rom": "nǚ yǎnyuán"
+      },
+      {
+        "en": "a businessman / businesswoman",
+        "text": "商人",
+        "rom": "shāngrén"
+      }
+    ]
+  },
+  "partnerValues": {
+    "city": {
+      "en": "Beijing",
+      "text": "北京",
+      "rom": "Běijīng"
+    }
+  },
+  "free": {
+    "targets": {
+      "are-you-a-student": {
+        "text": "你是学生吗？",
+        "rom": "Nǐ shì xuésheng ma?",
+        "byRegister": {
+          "formal": {
+            "text": "您是学生吗？",
+            "rom": "Nín shì xuésheng ma?"
+          }
+        }
+      },
+      "yes-i-am": {
+        "text": "是，我是学生。",
+        "rom": "Shì, wǒ shì xuésheng."
+      },
+      "no-i-am-not": {
+        "text": "不是，我不是学生。",
+        "rom": "Bú shì, wǒ bú shì xuésheng."
+      }
+    }
+  },
+  "notes": [
+    "我是…人 says where you are from: 我是北京人 is literally \"I am a Beijing person\".",
+    "吗 at the end turns a sentence into a yes/no question.",
+    "To answer yes or no, repeat the verb: 是 or 不是."
+  ]
+}

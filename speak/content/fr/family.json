@@ -1,0 +1,120 @@
+{
+  "schema": 2,
+  "scenario": "family",
+  "lang": "fr",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "Vous avez des frères et sœurs ?",
+      "byRegister": {
+        "familiar": {
+          "text": "Tu as des frères et sœurs ?"
+        }
+      }
+    },
+    "l2": {
+      "text": "Oui. J'ai {count} frères et une sœur."
+    },
+    "l3": {
+      "text": "Vous avez des enfants ?",
+      "byRegister": {
+        "familiar": {
+          "text": "Tu as des enfants ?"
+        }
+      }
+    },
+    "l4": {
+      "text": "Oui, j'ai {count} enfants. Et vous ?",
+      "byRegister": {
+        "familiar": {
+          "text": "Oui, j'ai {count} enfants. Et toi ?"
+        }
+      }
+    },
+    "l5": {
+      "text": "Non, je n'ai pas d'enfants.",
+      "accept": [
+        "Non, j'ai pas d'enfants."
+      ]
+    }
+  },
+  "chunks": {
+    "do-you-have": {
+      "text": "vous avez des ___ ?",
+      "literal": "you have some ___?",
+      "byRegister": {
+        "familiar": {
+          "text": "tu as des ___ ?"
+        }
+      }
+    },
+    "siblings": {
+      "text": "frères et sœurs",
+      "kind": "collocation",
+      "literal": "brothers and sisters"
+    },
+    "i-have": {
+      "text": "j'ai ___",
+      "literal": "I have ___"
+    },
+    "one-x": {
+      "text": "et une ___",
+      "literal": "and one ___ (feminine)"
+    },
+    "and-yours": {
+      "text": "et vous ?",
+      "literal": "and you?",
+      "byRegister": {
+        "familiar": {
+          "text": "et toi ?"
+        }
+      }
+    },
+    "i-dont-have": {
+      "text": "je n'ai pas ___",
+      "literal": "I have not ___"
+    }
+  },
+  "slotValues": {
+    "count": [
+      {
+        "en": "two",
+        "text": "deux"
+      },
+      {
+        "en": "three",
+        "text": "trois"
+      },
+      {
+        "en": "four",
+        "text": "quatre"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "in-my-family": {
+        "text": "Il y a ___ personnes dans ma famille."
+      },
+      "my-mothers-name": {
+        "text": "Ma mère s'appelle ___."
+      },
+      "my-fathers-name": {
+        "text": "Mon père s'appelle ___."
+      }
+    }
+  },
+  "notes": [
+    "Frères et sœurs is the everyday way to say brothers and sisters.",
+    "Un goes with a masculine word, une with a feminine one: un frère, une sœur.",
+    "After pas, des becomes de, or d' before a vowel: je n'ai pas d'enfants."
+  ]
+}

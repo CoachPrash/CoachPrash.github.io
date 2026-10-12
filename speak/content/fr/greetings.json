@@ -70,10 +70,12 @@
   },
   "chunks": {
     "hello": {
-      "text": "bonjour"
+      "text": "bonjour",
+      "literal": "good day"
     },
     "my-name-is": {
-      "text": "je m'appelle ___"
+      "text": "je m'appelle ___",
+      "literal": "I call myself ___"
     },
     "your-name": {
       "text": "comment vous appelez-vous ?",
@@ -81,17 +83,21 @@
         "familiar": {
           "text": "comment tu t'appelles ?"
         }
-      }
+      },
+      "literal": "how you call yourself?"
     },
     "nice-to-meet": {
       "text": "enchanté / enchantée",
-      "registerNeutral": true
+      "registerNeutral": true,
+      "literal": "enchanted"
     },
     "me-too": {
-      "text": "moi aussi"
+      "text": "moi aussi",
+      "literal": "me also"
     },
     "goodbye": {
-      "text": "au revoir"
+      "text": "au revoir",
+      "literal": "until seeing again"
     }
   },
   "free": {
@@ -119,7 +125,10 @@
     }
   },
   "partnerValues": {
-    "name": { "en": "Claire", "text": "Claire" }
+    "name": {
+      "en": "Claire",
+      "text": "Claire"
+    }
   },
   "notes": [
     "Enchanté and enchantée sound the same. The spelling follows the speaker's gender."

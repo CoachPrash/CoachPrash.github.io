@@ -1,12 +1,16 @@
 # Speak — specification
 
-**Status:** M1, M2 and M2.5 done. M2.5 passed Prash's test and ran in his Sunday class on 11 October 2026. Next: M3.
-**Version:** 0.8.3, 11 October 2026
+**Status:** M1, M2 and M2.5 done. M2.5 passed Prash's test and ran in his Sunday class on 11 October 2026. M3 drafted (12 October 2026): French and Mandarin stages 1–4, waiting for native-speaker review.
+**Version:** 0.8.4, 12 October 2026
 **Brief:** `_project/sites/speak.md`
 
 This file is the build contract. When the spec and the code disagree, the spec wins, or the spec is changed first.
 
 ### Changes
+
+**0.8.4** (M3 drafting)
+
+- Worked example §3.6: Mandarin greetings line 5 is now 我也是。再见！, so the chunk 我也是 occurs in the dialogue.
 
 **0.8.3**
 
@@ -536,11 +540,7 @@ This example is normative. Together with the profile example in §3.3, each fiel
       "rom": "Wǒ jiào {name}. Hěn gāoxìng rènshi nǐ.",
       "byRegister": { "formal": { "text": "我叫{name}。很高兴认识您。", "rom": "Wǒ jiào {name}. Hěn gāoxìng rènshi nín." } }
     },
-    "l5": {
-      "text": "我也很高兴认识你。再见！",
-      "rom": "Wǒ yě hěn gāoxìng rènshi nǐ. Zàijiàn!",
-      "byRegister": { "formal": { "text": "我也很高兴认识您。再见！", "rom": "Wǒ yě hěn gāoxìng rènshi nín. Zàijiàn!" } }
-    }
+    "l5": { "text": "我也是。再见！", "rom": "Wǒ yě shì. Zàijiàn!", "registerNeutral": true }
   },
   "chunks": {
     "hello": { "text": "你好", "rom": "nǐ hǎo" },

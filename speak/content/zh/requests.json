@@ -1,0 +1,182 @@
+{
+  "schema": 2,
+  "scenario": "requests",
+  "lang": "zh",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "不好意思！",
+      "rom": "Bù hǎoyìsi!",
+      "registerNeutral": true,
+      "accept": [
+        {
+          "text": "你好！",
+          "rom": "Nǐ hǎo!"
+        }
+      ]
+    },
+    "l2": {
+      "text": "好的，你说。",
+      "rom": "Hǎo de, nǐ shuō.",
+      "byRegister": {
+        "formal": {
+          "text": "好的，您说。",
+          "rom": "Hǎo de, nín shuō."
+        }
+      }
+    },
+    "l3": {
+      "text": "请给我{item}。",
+      "rom": "Qǐng gěi wǒ {item}.",
+      "registerNeutral": true,
+      "accept": [
+        {
+          "text": "我要{item}。",
+          "rom": "Wǒ yào {item}."
+        },
+        {
+          "text": "麻烦给我{item}。",
+          "rom": "Máfan gěi wǒ {item}."
+        }
+      ]
+    },
+    "l4": {
+      "text": "给你。",
+      "rom": "Gěi nǐ.",
+      "byRegister": {
+        "formal": {
+          "text": "给您。",
+          "rom": "Gěi nín."
+        }
+      }
+    },
+    "l5": {
+      "text": "谢谢！",
+      "rom": "Xièxie!",
+      "accept": [
+        {
+          "text": "谢谢你！",
+          "rom": "Xièxie nǐ!"
+        }
+      ]
+    },
+    "l6": {
+      "text": "不客气。",
+      "rom": "Bú kèqi.",
+      "accept": [
+        {
+          "text": "不用谢。",
+          "rom": "Bú yòng xiè."
+        }
+      ]
+    }
+  },
+  "chunks": {
+    "excuse-me": {
+      "text": "不好意思",
+      "rom": "bù hǎoyìsi",
+      "literal": "not good meaning (I am embarrassed)",
+      "registerNeutral": true
+    },
+    "yes-tell-me": {
+      "text": "好的，你说",
+      "rom": "hǎo de, nǐ shuō",
+      "literal": "OK, you speak",
+      "byRegister": {
+        "formal": {
+          "text": "好的，您说",
+          "rom": "hǎo de, nín shuō"
+        }
+      }
+    },
+    "give-me": {
+      "text": "请给我___",
+      "rom": "qǐng gěi wǒ ___",
+      "literal": "please give me ___",
+      "registerNeutral": true
+    },
+    "here-you-are": {
+      "text": "给你",
+      "rom": "gěi nǐ",
+      "literal": "give you",
+      "byRegister": {
+        "formal": {
+          "text": "给您",
+          "rom": "gěi nín"
+        }
+      }
+    },
+    "thank-you": {
+      "text": "谢谢",
+      "rom": "xièxie",
+      "literal": "thank thank"
+    },
+    "youre-welcome": {
+      "text": "不客气",
+      "rom": "bú kèqi",
+      "literal": "not polite-guest"
+    },
+    "sorry": {
+      "text": "对不起",
+      "rom": "duìbuqǐ",
+      "literal": "cannot face (you)",
+      "extra": true,
+      "registerNeutral": true
+    }
+  },
+  "slotValues": {
+    "item": [
+      {
+        "en": "some water",
+        "text": "水",
+        "rom": "shuǐ"
+      },
+      {
+        "en": "some tea",
+        "text": "茶",
+        "rom": "chá"
+      },
+      {
+        "en": "a pen",
+        "text": "一支笔",
+        "rom": "yì zhī bǐ"
+      },
+      {
+        "en": "some sugar",
+        "text": "糖",
+        "rom": "táng"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "i-need": {
+        "text": "我要___。",
+        "rom": "Wǒ yào ___."
+      },
+      "do-you-have": {
+        "text": "你有___吗？",
+        "rom": "Nǐ yǒu ___ ma?",
+        "byRegister": {
+          "formal": {
+            "text": "您有___吗？",
+            "rom": "Nín yǒu ___ ma?"
+          }
+        }
+      }
+    }
+  },
+  "notes": [
+    "请 (qǐng, please) goes before the verb: 请给我…",
+    "给你 means here you are: literally give you.",
+    "不客气 and 不用谢 both answer 谢谢."
+  ]
+}

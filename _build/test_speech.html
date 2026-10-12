@@ -35,6 +35,7 @@
   "use strict";
   var C = window.SpeakContent, S = window.SpeakSpeech;
   var HINDI = ["greetings", "where-from", "family", "requests"];
+  var LANGS = ["hi", "fr", "zh"];   /* every model line in every language is generated as a case */
   var results = [];
 
   function load(code, id) { return C.scenario(code, id); }
@@ -84,7 +85,7 @@
         var res = C.resolve(item, reg, p.defaultRegister);
         var forms = res.variants && res.variants.length ? res.variants : [res];
         forms.forEach(function (f, i) {
-          var tag = sc.real.scenario + " " + bl.id + " " + reg + (forms.length > 1 ? " v" + (i + 1) : "");
+          var tag = sc.real.lang + " " + sc.real.scenario + " " + bl.id + " " + reg + (forms.length > 1 ? " v" + (i + 1) : "");
           expectLine(tag + " spoken", sc, item, reg, C.fill(f.text, vals.text), "good");
           if (f.rom) expectLine(tag + " typed", sc, item, reg, lazy(C.fill(f.rom, vals.rom)), "good");
         });
@@ -92,7 +93,10 @@
           if (other === reg) return;
           var o = C.resolve(item, other, p.defaultRegister);
           if ((o.text || "") === (res.text || "")) return;
-          expectLine(sc.real.scenario + " " + bl.id + " " + other + " form while " + reg + " selected", sc, item, reg,
+          /* skip when the other form is also accepted in this register (French Bonjour with tu) */
+          var acc = (res.accept || []).map(function (x) { return typeof x === "string" ? x : x.text; });
+          if (acc.indexOf(o.text) !== -1) return;
+          expectLine(sc.real.lang + " " + sc.real.scenario + " " + bl.id + " " + other + " form while " + reg + " selected", sc, item, reg,
             C.fill(o.text, vals.text), "nearly", other);
         });
       });
@@ -179,7 +183,9 @@
     expectBuildUp("no piece starts with a gap", f, "do-you-have", "formal", "हैं? → आपके ___ हैं? → क्या आपके ___ हैं?");
     expectBuildUp("short chunk: no build-up", g, "me-too", "formal", "मुझे भी");
     expectBuildUp("French space before ? is not a word", fr, "your-name", "formal", "comment vous appelez-vous ?");
-    expectBuildUp("Mandarin without a chain", zh, "your-name", "familiar", "你叫什么名字？");
+    expectBuildUp("Mandarin with a chain", zh, "your-name", "familiar", "名字？ → 什么名字？ → 叫什么名字？ → 你叫什么名字？");
+    expectBuildUp("Mandarin chain that fits both registers", zh, "your-name", "formal", "名字？ → 什么名字？ → 叫什么名字？ → 您叫什么名字？");
+    expectBuildUp("Mandarin without a chain", zh, "nice-to-meet", "familiar", "很高兴认识你");
 
     /* French and Mandarin, greetings */
     expectLine("fr: Salut while vous selected", fr, line(fr, "l1"), "formal", "Salut", "nearly", "familiar");
@@ -192,12 +198,18 @@
     expectPhrase("zh free: 我很好", zh, zh.real.free.targets["i-am-fine"], "familiar", "我很好", true);
   }
 
-  window.SpeakTests = Promise.all(HINDI.map(function (id) { return load("hi", id); })
-    .concat([load("fr", "greetings"), load("zh", "greetings")])).then(function (scs) {
-    var hi = {};
-    HINDI.forEach(function (id, i) { hi[id] = scs[i]; if (!scs[i]) throw new Error("could not load hi/" + id); });
-    HINDI.forEach(function (id) { generated(hi[id]); });
-    handWritten(hi, scs[4], scs[5]);
+  /* Stages 1–4 in every language: each model line, said in its register, is Good;
+   * the other register's form is Nearly. Then the hand-written cases. */
+  var jobs = [];
+  LANGS.forEach(function (code) { HINDI.forEach(function (id) { jobs.push([code, id]); }); });
+  window.SpeakTests = Promise.all(jobs.map(function (j) { return load(j[0], j[1]); })).then(function (scs) {
+    var by = {};
+    jobs.forEach(function (j, i) {
+      if (!scs[i]) throw new Error("could not load " + j[0] + "/" + j[1]);
+      (by[j[0]] = by[j[0]] || {})[j[1]] = scs[i];
+      generated(scs[i]);
+    });
+    handWritten(by.hi, by.fr.greetings, by.zh.greetings);
     return results;
   });
 })();

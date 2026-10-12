@@ -1,0 +1,140 @@
+{
+  "schema": 2,
+  "scenario": "family",
+  "lang": "zh",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "你有兄弟姐妹吗？",
+      "rom": "Nǐ yǒu xiōngdì jiěmèi ma?",
+      "byRegister": {
+        "formal": {
+          "text": "您有兄弟姐妹吗？",
+          "rom": "Nín yǒu xiōngdì jiěmèi ma?"
+        }
+      }
+    },
+    "l2": {
+      "text": "有。我有{count}个哥哥和一个妹妹。",
+      "rom": "Yǒu. Wǒ yǒu {count} ge gēge hé yí ge mèimei."
+    },
+    "l3": {
+      "text": "你有孩子吗？",
+      "rom": "Nǐ yǒu háizi ma?",
+      "byRegister": {
+        "formal": {
+          "text": "您有孩子吗？",
+          "rom": "Nín yǒu háizi ma?"
+        }
+      }
+    },
+    "l4": {
+      "text": "有，我有{count}个孩子。你呢？",
+      "rom": "Yǒu, wǒ yǒu {count} ge háizi. Nǐ ne?",
+      "byRegister": {
+        "formal": {
+          "text": "有，我有{count}个孩子。您呢？",
+          "rom": "Yǒu, wǒ yǒu {count} ge háizi. Nín ne?"
+        }
+      }
+    },
+    "l5": {
+      "text": "没有，我没有孩子。",
+      "rom": "Méiyǒu, wǒ méiyǒu háizi."
+    }
+  },
+  "chunks": {
+    "do-you-have": {
+      "text": "你有___吗？",
+      "rom": "nǐ yǒu ___ ma?",
+      "literal": "you have ___ (question)?",
+      "byRegister": {
+        "formal": {
+          "text": "您有___吗？",
+          "rom": "nín yǒu ___ ma?"
+        }
+      }
+    },
+    "siblings": {
+      "text": "兄弟姐妹",
+      "rom": "xiōngdì jiěmèi",
+      "kind": "collocation",
+      "literal": "brothers sisters"
+    },
+    "i-have": {
+      "text": "我有___",
+      "rom": "wǒ yǒu ___",
+      "literal": "I have ___"
+    },
+    "one-x": {
+      "text": "一个___",
+      "rom": "yí ge ___",
+      "literal": "one (measure word) ___"
+    },
+    "and-yours": {
+      "text": "你呢？",
+      "rom": "nǐ ne?",
+      "literal": "you (and)?",
+      "byRegister": {
+        "formal": {
+          "text": "您呢？",
+          "rom": "nín ne?"
+        }
+      }
+    },
+    "i-dont-have": {
+      "text": "我没有___",
+      "rom": "wǒ méiyǒu ___",
+      "literal": "I not-have ___"
+    }
+  },
+  "slotValues": {
+    "count": [
+      {
+        "en": "two",
+        "text": "两",
+        "rom": "liǎng"
+      },
+      {
+        "en": "three",
+        "text": "三",
+        "rom": "sān"
+      },
+      {
+        "en": "four",
+        "text": "四",
+        "rom": "sì"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "in-my-family": {
+        "text": "我家有___口人。",
+        "rom": "Wǒ jiā yǒu ___ kǒu rén."
+      },
+      "my-mothers-name": {
+        "text": "我妈妈叫___。",
+        "rom": "Wǒ māma jiào ___."
+      },
+      "my-fathers-name": {
+        "text": "我爸爸叫___。",
+        "rom": "Wǒ bàba jiào ___."
+      }
+    }
+  },
+  "notes": [
+    "Mandarin says older or younger: 哥哥 is an older brother, 妹妹 a younger sister.",
+    "个 (gè) is a measure word. Chinese puts one between a number and a noun: 一个妹妹, 三个孩子.",
+    "Two before a measure word is 两 (liǎng), not 二: 两个哥哥.",
+    "有 (have) is made negative with 没, not 不: 没有孩子."
+  ]
+}

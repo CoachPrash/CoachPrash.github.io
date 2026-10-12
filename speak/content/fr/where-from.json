@@ -1,0 +1,192 @@
+{
+  "schema": 2,
+  "scenario": "where-from",
+  "lang": "fr",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "D'où venez-vous ?",
+      "accept": [
+        "Vous venez d'où ?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Tu viens d'où ?",
+          "accept": [
+            "D'où viens-tu ?"
+          ]
+        }
+      }
+    },
+    "l2": {
+      "text": "Je viens de {city}. Et vous ?",
+      "accept": [
+        "Je suis de {city}. Et vous ?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Je viens de {city}. Et toi ?",
+          "accept": [
+            "Je suis de {city}. Et toi ?"
+          ]
+        }
+      }
+    },
+    "l3": {
+      "text": "Je viens de {city}. Qu'est-ce que vous faites dans la vie ?",
+      "accept": [
+        "Je viens de {city}. Vous faites quoi dans la vie ?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Je viens de {city}. Qu'est-ce que tu fais dans la vie ?",
+          "accept": [
+            "Je viens de {city}. Tu fais quoi dans la vie ?"
+          ]
+        }
+      }
+    },
+    "l4": {
+      "text": "Je suis {job}. Et vous ?",
+      "byRegister": {
+        "familiar": {
+          "text": "Je suis {job}. Et toi ?"
+        }
+      }
+    },
+    "l5": {
+      "text": "Je suis {job}."
+    }
+  },
+  "chunks": {
+    "where-from": {
+      "text": "d'où venez-vous ?",
+      "literal": "from where come you?",
+      "byRegister": {
+        "familiar": {
+          "text": "tu viens d'où ?"
+        }
+      }
+    },
+    "i-am-from": {
+      "text": "je viens de ___",
+      "literal": "I come from ___"
+    },
+    "what-do-you-do": {
+      "text": "qu'est-ce que vous faites dans la vie ?",
+      "literal": "what is it that you do in the life?",
+      "byRegister": {
+        "familiar": {
+          "text": "qu'est-ce que tu fais dans la vie ?"
+        }
+      }
+    },
+    "i-am-a": {
+      "text": "je suis ___",
+      "literal": "I am ___"
+    },
+    "and-you": {
+      "text": "et vous ?",
+      "literal": "and you?",
+      "byRegister": {
+        "familiar": {
+          "text": "et toi ?"
+        }
+      }
+    },
+    "i-live-in": {
+      "text": "j'habite à ___",
+      "literal": "I live at ___",
+      "extra": true
+    }
+  },
+  "slotValues": {
+    "job": [
+      {
+        "en": "a student",
+        "text": "étudiant / étudiante"
+      },
+      {
+        "en": "a teacher",
+        "text": "professeur"
+      },
+      {
+        "en": "an engineer",
+        "text": "ingénieur"
+      },
+      {
+        "en": "a nurse",
+        "text": "infirmier / infirmière"
+      },
+      {
+        "en": "a doctor",
+        "text": "médecin"
+      },
+      {
+        "en": "an accountant",
+        "text": "comptable"
+      },
+      {
+        "en": "a lawyer",
+        "text": "avocat / avocate"
+      },
+      {
+        "en": "a sportsperson",
+        "text": "sportif / sportive"
+      },
+      {
+        "en": "an actor",
+        "text": "acteur"
+      },
+      {
+        "en": "an actress",
+        "text": "actrice"
+      },
+      {
+        "en": "a businessman / businesswoman",
+        "text": "homme d'affaires / femme d'affaires"
+      }
+    ]
+  },
+  "partnerValues": {
+    "city": {
+      "en": "Lyon",
+      "text": "Lyon"
+    }
+  },
+  "free": {
+    "targets": {
+      "are-you-a-student": {
+        "text": "Vous êtes étudiant / étudiante ?",
+        "byRegister": {
+          "familiar": {
+            "text": "Tu es étudiant / étudiante ?"
+          }
+        }
+      },
+      "yes-i-am": {
+        "text": "Oui, je suis étudiant / étudiante."
+      },
+      "no-i-am-not": {
+        "text": "Non, je ne suis pas étudiant / étudiante.",
+        "accept": [
+          "Non, je suis pas étudiant.",
+          "Non, je suis pas étudiante."
+        ]
+      }
+    }
+  },
+  "notes": [
+    "A job takes no article: Je suis médecin, not Je suis un médecin.",
+    "Many job words change for a woman: étudiant → étudiante, avocat → avocate. In speech, some change and some do not.",
+    "De becomes d' before a vowel: Je viens d'Ottawa."
+  ]
+}
