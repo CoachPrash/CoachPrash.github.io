@@ -196,3 +196,12 @@ People is the list of participants, kept on the device. Class setup and the solo
 - **No server.** The list never leaves the device. Moving it to a server is trigger 6 in §2.
 
 </details>
+
+5. **One right answer per card** (Prash, 12 October 2026). Not in a milestone yet: do it with the ladder redesign, after M4.
+   - **The problem.** A chunk's English cue can fit more than one chunk. "I am ___" fits मैं ___ हूँ (a job) and मैं ___ से हूँ (a place). A frame can also fit more than one dialogue line. A learner who gives a correct chunk that is not the one on the card gets "Not quite".
+   - **Options:**
+     - Make every cue name its gap: "I am ___ (a job)", "I come from ___ (a place)".
+     - Add a checker rule: in one language, no two chunks within the review range share a cue once the gap hint is removed.
+     - In Say it, accept any chunk from the deck whose cue matches, and say "That's another chunk: …".
+   - **Already fixed (12 October 2026):** the dialogue line shown under a chunk is the tightest fit, and a gap at the end of a chunk runs to the end of its phrase.
+   - **Still to tidy:** French j'ai ___ and vous avez des ___, and Mandarin 我有___, mark a short phrase, because their clause runs on past what a gap can cover.
