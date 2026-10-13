@@ -413,19 +413,25 @@ for code, (prof_path, prof, reals) in languages.items():
             problem(where, f'partnerValues "{name}" is not a personal slot')
 
 # ---------------------------------------------------------------- recycling (information only)
+# Rule of three returns (speak-progression.md 5.2): each core chunk should come
+# back in at least three LATER scenarios, in ladder order. The checker counts
+# them and reports, per language, how many chunks meet the rule. Run with
+# --recycling for the full list.
 
-notes = []
+order = {sid: i for i, sid in enumerate(ladder_ids)}
+recycling = {}   # code -> list of (home sid, text, later sids)
 for code, sid, text, forms in recur:
-    others = []
+    later = []
+    MODE = languages[code][1].get("match", "words")
     for osid, (opath, oreal) in languages[code][2].items():
         if osid == sid or not isinstance(oreal.get("lines"), dict):
             continue
-        MODE = languages[code][1].get("match", "words")
+        if order.get(osid, -1) <= order.get(sid, 10**6):
+            continue
         lts = [tokens(t, MODE) for item in oreal["lines"].values() for t in item_texts(item)]
         if any(occurs(f, lt) for f in forms for lt in lts if f):
-            others.append(osid)
-    if others:
-        notes.append(f"  {code} {sid}: \"{text}\" also in {', '.join(sorted(others))}")
+            later.append(osid)
+    recycling.setdefault(code, []).append((sid, text, sorted(later, key=lambda x: order.get(x, 0))))
 
 # ---------------------------------------------------------------- report
 
@@ -438,6 +444,15 @@ if problems:
 n_real = sum(len(reals) for _, _, reals in languages.values())
 print(f"OK: {len(blueprints)} blueprints, {len(languages)} languages, {n_real} realizations, "
       f"{len(ladder_ids)} scenarios in the ladder.")
-if notes:
-    print("Chunks that recur in other scenarios (information):")
-    print("\n".join(notes))
+if recycling:
+    print("Recycling, core chunks back in 3+ later scenarios (information; --recycling for the list):")
+    for code in sorted(recycling):
+        rows = recycling[code]
+        ok = sum(1 for r in rows if len(r[2]) >= 3)
+        never = sum(1 for r in rows if not r[2])
+        print(f"  {code}: {ok} of {len(rows)} meet the rule; {never} never come back")
+    if "--recycling" in sys.argv:
+        for code in sorted(recycling):
+            print(f"\n{code}  (home scenario: chunk -> later scenarios)")
+            for home, text, later in sorted(recycling[code], key=lambda r: (order.get(r[0], 0), r[1] or "")):
+                print(f"  {len(later):>2}  {home}: {text}" + (f"  -> {', '.join(later)}" if later else ""))

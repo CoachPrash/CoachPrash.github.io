@@ -1,12 +1,18 @@
 # Speak — specification
 
 **Status:** M1, M2 and M2.5 done. M2.5 passed Prash's test and ran in his Sunday class on 11 October 2026. M3 drafted (12 October 2026): French and Mandarin stages 1–4, waiting for native-speaker review. M4 drafted (12 October 2026): blueprints for stages 5–9, Hindi, French and Mandarin stages 5–9, and the Review screen. Waiting for review: Prash for Hindi, native speakers for French and Mandarin. M3.5 (images) is deferred until after M4. Spanish (Colombian) stages 1–9 drafted (13 October 2026), M-ES in §8.
-**Version:** 0.12, 14 October 2026
+**Version:** 0.12.1, 14 October 2026
 **Brief:** `_project/sites/speak.md`
 
 This file is the build contract. When the spec and the code disagree, the spec wins, or the spec is changed first.
 
 ### Changes
+
+**0.12.1**
+
+- The stage circle shows just "A1" or "A2", and stage 1 shows "Pre-A1" over "→ A1", so the text fits. The line under the ladder explains the labels (§4.1).
+- Review pack by stage: `#hi/script/1-5` prints stages 1 to 5, with a stage picker on the page (§4.4).
+- The checker reports recycling: per language, how many core chunks come back in 3 or more later scenarios. `--recycling` lists every chunk (§7).
 
 **0.12** (M5.1: ladder regrouped, plan in `speak-ladder-plan.md`)
 
@@ -706,6 +712,7 @@ Routes are hash-based, so they work on GitHub Pages with no server rules:
 | `#hi/review` | Review: chunks from every stage that has content in this language (§4.7) |
 | `#hi/review/4` | Review: chunks from stages 1 to 4 only |
 | `#hi/script` | Review pack: every scenario of the language, printable, with the reviewer's guide (§4.4) |
+| `#hi/script/1-5` | Review pack for stages 1 to 5 only (`#hi/script/3` for one stage) |
 | `#check` | Check your device: voices and microphone, for every language (§4.8) |
 
 ### 4.0 Site navigation
@@ -731,7 +738,7 @@ Routes are hash-based, so they work on GitHub Pages with no server rules:
 - Each available scenario offers three buttons: **Class**, **Solo** and **Script**.
 - **Home** also has a button "Before class: check your device" (§4.8). The site bar links to it on every page.
 - **Review pack button**, beside the Review button on the ladder: "Review pack (for reviewers)", which opens `#hi/script` (§4.4).
-- **Level labels:** each stage shows "A1 topics" or "A2 topics" (stage 1: "Pre-A1 → A1"), never a bare level. A line under the ladder says the scenarios practise topics from the CEFR lists and that a level takes far more practice. The Hindi ladder adds that no official Hindi A1/A2 list exists.
+- **Level labels:** the stage circle shows "A1" or "A2"; stage 1 shows "Pre-A1" over "→ A1". A line under the ladder says the scenarios practise topics from the CEFR A1 or A2 lists and that a level takes far more practice. The Hindi ladder adds that no official Hindi A1/A2 list exists.
 - **Review button**, at the top of the ladder: "Review chunks", which opens `#hi/review`. It shows once the language has content in at least one stage.
 
 ### 4.2 Class mode (shared screen)
@@ -808,6 +815,7 @@ The order follows the chunking idea: hear the language, take its chunks whole, u
   5. Gap words, notes and free practice: natural and true?
   6. Romanization, for languages that have it: check it against the profile page.
   - It says what not to check (the English, the layout) and how to send corrections back (a photo or scan, or a list such as "Stage 3, line 2: …").
+- **By stage:** a picker on the pack page chooses the stages to print (`#hi/script/1-5`), so the review can be shared out.
 - Each single script view links to its language's review pack.
 
 ### 4.5 Display settings
@@ -999,7 +1007,7 @@ The checker exits with a non-zero code and one line per problem when any of thes
   - `kind` is `fixed`, `frame` or `collocation`. A chunk with `___` is not `fixed`, and a `frame` has `___`
   - every chunk that is not `extra` occurs in a dialogue line
   - every `chain` piece is an ending of the chunk, and the pieces grow in length
-  - a report, not an error: chunks that recur across scenarios
+  - a report, not an error: per language, how many core chunks come back in 3 or more later scenarios (the rule of three returns, `speak-progression.md` §5.2). `--recycling` lists each chunk and where it returns
 - **Gender** (§3.10):
   - `speaker` and `listener` are `f` or `m`
   - in one variants list, a gender field is set on every variant or on none

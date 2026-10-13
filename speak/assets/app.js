@@ -473,7 +473,7 @@
     var code = parts[0];
     if (parts[1] === "profile") return profilePage(run, code);
     if (!parts[1]) return ladderPage(run, code);
-    if (parts[1] === "script") return packPage(run, code);
+    if (parts[1] === "script") return packPage(run, code, parts[2]);
     if (parts[1] === "review") {
       if (!window.SpeakReview) return notFound("Review did not load. Reload the page.");
       return window.SpeakReview.start(run, code, parts[2] ? parseInt(parts[2], 10) : null);
@@ -563,7 +563,7 @@
               '<a class="btn" href="' + base + 'solo">Solo</a>' +
               '<a class="btn" href="' + base + 'script">Script</a></div></div>';
           }).join("") : '<div class="scen off"><div class="smeta">Coming later</div></div>';
-          return '<li class="stage"><div class="snum"><span>' + st.stage + '</span><small>' + esc(st.label || st.level + " topics") + "</small></div>" +
+          return '<li class="stage"><div class="snum"><span>' + st.stage + '</span><small>' + esc(st.label || st.level).replace(" → ", "<br>→ ") + "</small></div>" +
             '<div class="sbody"><h2>' + esc(st.title) + "</h2>" + items + "</div></li>";
         }).join("");
         $app.innerHTML =
@@ -575,7 +575,7 @@
           (ids.some(function (id) { return by[id][1]; }) ? '<p class="actions"><a class="btn primary" href="#' + esc(code) + '/review">Review chunks</a>' +
             '<a class="btn" href="#' + esc(code) + '/script">Review pack (for reviewers)</a></p>' : "") +
           '<ol class="ladder">' + stages + "</ol>" +
-          '<p class="hint">"A1 topics" means the scenarios practise speaking on topics from the CEFR A1 lists. Reaching a level takes far more practice than these scenarios alone.' +
+          '<p class="hint">A1 and A2 under a stage number mean its scenarios practise speaking on topics from the CEFR A1 or A2 lists. Reaching a level takes far more practice than these scenarios alone.' +
           (code === "hi" ? " There is no official A1 or A2 list for Hindi; the stages follow the shared lists." : "") + "</p></section>";
       });
     });
@@ -1152,13 +1152,23 @@
 
   /* Review pack: every scenario in this language, in ladder order, with the
    * reviewer's guide first. One PDF for a reviewer (spec §4.4). */
-  function packPage(run, code) {
+  function packPage(run, code, range) {
     Promise.all([C.ladder(), C.profile(code)]).then(function (r) {
       if (!alive(run)) return;
       var lad = r[0], prof = r[1];
       if (!lad || !prof) return notFound("No such language.");
+      /* range "3" or "1-5": the stages to print (spec §4.4). */
+      var nums = lad.stages.map(function (st) { return st.stage; });
+      var m = /^(\d+)(?:-(\d+))?$/.exec(range || ""), lo = nums[0], hi = nums[nums.length - 1];
+      if (m) { lo = parseInt(m[1], 10); hi = m[2] ? parseInt(m[2], 10) : lo; }
+      function opts(sel) {
+        return nums.map(function (n) { return '<option value="' + n + '"' + (n === sel ? " selected" : "") + ">" + n + "</option>"; }).join("");
+      }
       var jobs = [];
-      lad.stages.forEach(function (st) { st.scenarios.forEach(function (id) { jobs.push({ stage: st.stage, id: id }); }); });
+      lad.stages.forEach(function (st) {
+        if (st.stage < lo || st.stage > hi) return;
+        st.scenarios.forEach(function (id) { jobs.push({ stage: st.stage, id: id }); });
+      });
       return Promise.all(jobs.map(function (j) { return C.scenario(code, j.id); })).then(function (scs) {
         if (!alive(run)) return;
         document.title = "Review pack · " + prof.name + " · Speak";
@@ -1168,11 +1178,19 @@
         }).join("");
         $app.innerHTML = '<section class="script-page">' +
           '<div class="noprint">' + crumbs([{ label: "Home", href: "#" }, { label: prof.name, href: "#" + code }, { label: "Review pack" }]) +
-          '<p class="actions"><button type="button" class="btn primary" id="print">Print or save as PDF</button></p></div>' +
+          '<p class="actions"><label class="small">Stages <select id="lo">' + opts(lo) + '</select> to <select id="hi">' + opts(hi) + "</select></label> " +
+          '<button type="button" class="btn primary" id="print">Print or save as PDF</button> <span class="small">' + jobs.length + " scenarios</span></p></div>" +
           "<h1>Speak · " + esc(prof.name) + ' <span class="lang">' + esc(prof.native) + "</span></h1>" +
-          '<p class="goalline">Review pack: every scenario, stage by stage. Reviewer: <span class="blank"></span></p>' +
+          '<p class="goalline">Review pack: stage' + (lo === hi ? " " + lo : "s " + lo + " to " + hi) + '. Reviewer: <span class="blank"></span></p>' +
           reviewerGuide(prof) + parts + "</section>";
         $("#print").onclick = function () { window.print(); };
+        function go() {
+          var a = parseInt($("#lo").value, 10), b = parseInt($("#hi").value, 10);
+          if (b < a) { var t = a; a = b; b = t; }
+          location.hash = "#" + code + "/script/" + a + "-" + b;
+        }
+        $("#lo").onchange = go;
+        $("#hi").onchange = go;
       });
     });
   }
