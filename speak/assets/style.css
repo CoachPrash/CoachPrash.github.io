@@ -98,7 +98,8 @@ h3 { font-size: .8rem; text-transform: uppercase; letter-spacing: .06em; color: 
 .navlinks a small { font-size: .72rem; opacity: .75; }
 .navlinks a:hover { opacity: 1; background: rgba(127,127,127,.25); }
 .navlinks a[aria-current] { opacity: 1; background: var(--bg); color: var(--ink); }
-.sitenav .about { margin-left: auto; font-size: .85rem; opacity: .82; }
+.sitenav .navright { margin-left: auto; display: flex; gap: 1rem; }
+.sitenav .about { font-size: .85rem; opacity: .82; }
 .sitenav .about:hover { opacity: 1; text-decoration: underline; }
 
 /* breadcrumbs with mode links */
@@ -346,7 +347,7 @@ table.script .fix { width: 22%; }
 
 @media (max-width: 560px) {
   .navlinks a small { display: none; }
-  .sitenav .about { margin-left: 0; }
+  .sitenav .navright { margin-left: 0; }
   body { font-size: 16px; }
   .pager .where { display: none; }
   .pager .plays .lbl { display: none; }
@@ -364,6 +365,8 @@ table.script .fix { width: 22%; }
   .tscroll { overflow: visible; }
   table.script tr { page-break-inside: avoid; }
   h2 { page-break-after: avoid; }
+  .pack-scen { break-before: page; }
+  .guide { break-inside: avoid; }
   @page { margin: 14mm; }
 }
 
@@ -378,3 +381,16 @@ table.script .fix { width: 22%; }
 .g-m { color: #1d5fbf; }
 .g-f { color: #d0506a; }
 @media (prefers-color-scheme: dark) { .g-m { color: #7fb0ff; } .g-f { color: #ff8fa3; } }
+
+/* ---------- review pack (spec §4.4) ---------- */
+.stagetag { display: inline-block; font-size: .55em; vertical-align: middle; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: .05rem .6rem; margin-right: .3rem; }
+.guide { border: 1px solid var(--line); border-radius: 10px; padding: .6rem 1rem; margin: 1rem 0 1.5rem; background: var(--surface); }
+.guide ol { padding-left: 1.2rem; }
+.pack-scen { margin-top: 2.5rem; border-top: 2px solid var(--line); padding-top: 1rem; }
+
+/* ---------- check your device (spec §4.8) ---------- */
+.checkcard { margin: 0 0 1rem; padding: .8rem 1rem; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+.checkcard h2 { margin: 0 0 .3rem; }
+.voices { margin: .2rem 0 .6rem; padding-left: 1.2rem; font-size: .9rem; }
+.checkcard .heard { margin-top: .5rem; }
+.checkcard .heard.warn, .summary .warn { color: var(--warn); }

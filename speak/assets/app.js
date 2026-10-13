@@ -8,6 +8,8 @@
  *   #<lang>/<id>/solo     solo mode (solo.js)
  *   #<lang>/<id>/script   printable script view
  *   #<lang>/review[/<n>]  review flashcards, stages 1 to n (review.js)
+ *   #<lang>/script        review pack: every scenario, printable
+ *   #check                check your device: voices and microphone (check.js)
  *
  * localStorage keys start with "sp.v1." (spec §6). Nothing else is stored.
  */
@@ -393,7 +395,8 @@
         var cur = rows[lad.languages.indexOf(code)], curProf = cur ? cur[0] : null;
         nav.innerHTML = '<a class="brand" href="#">Speak</a>' +
           '<nav class="navlinks" aria-label="Site"><a href="#"' + (!code ? ' aria-current="true"' : "") + ">Home</a>" + links + "</nav>" +
-          (curProf ? '<a class="about" href="#' + esc(code) + '/profile">About ' + esc(curProf.name) + "</a>" : "");
+          '<span class="navright">' + (curProf ? '<a class="about" href="#' + esc(code) + '/profile">About ' + esc(curProf.name) + "</a>" : "") +
+          '<a class="about" href="#check">Check device</a></span>';
       });
     });
   }
@@ -410,12 +413,17 @@
     var run = ++page.run;
     var parts = location.hash.replace(/^#\/?/, "").split("/").filter(Boolean);
     document.body.className = "";
-    var sid = parts[1] && parts[1] !== "profile" && parts[1] !== "review" ? parts[1] : null;
-    renderNav(parts[0], sid, sid ? parts[2] || "class" : null);
+    var sid = parts[1] && ["profile", "review", "script"].indexOf(parts[1]) === -1 ? parts[1] : null;
+    renderNav(parts[0] === "check" ? null : parts[0], sid, sid ? parts[2] || "class" : null);
     if (!parts.length) return home(run);
+    if (parts[0] === "check") {
+      if (!window.SpeakCheck) return notFound("The device check did not load. Reload the page.");
+      return window.SpeakCheck.start(run);
+    }
     var code = parts[0];
     if (parts[1] === "profile") return profilePage(run, code);
     if (!parts[1]) return ladderPage(run, code);
+    if (parts[1] === "script") return packPage(run, code);
     if (parts[1] === "review") {
       if (!window.SpeakReview) return notFound("Review did not load. Reload the page.");
       return window.SpeakReview.start(run, code, parts[2] ? parseInt(parts[2], 10) : null);
@@ -466,6 +474,7 @@
           "<h1>Speak</h1>" +
           '<p class="lede">Scripted speaking practice for beginners. In class, a native speaker runs each scenario on one shared screen and corrects you as you speak. On your own, the browser plays your partner.</p>' +
           '<p class="method">You learn whole chunks of language first, the way you learned your own. Grammar comes last, once the chunks feel natural.</p>' +
+          '<p><a class="btn" href="#check">Before class: check your device</a></p>' +
           '<ol class="langs">' + cards + "</ol>" +
           "</section>";
       });
@@ -513,7 +522,8 @@
           '<h1>' + esc(prof.name) + ' <span class="native" lang="' + esc(code) + '">' + esc(prof.native) + "</span></h1>" +
           '<p class="lede">One scenario per stage. Each scenario goes: hear it, chunks, echo, use them, notice. ' +
           '<a href="#' + esc(code) + '/profile">How ' + esc(prof.name) + " works in this app</a>.</p>" +
-          (ids.some(function (id) { return by[id][1]; }) ? '<p class="actions"><a class="btn primary" href="#' + esc(code) + '/review">Review chunks</a></p>' : "") +
+          (ids.some(function (id) { return by[id][1]; }) ? '<p class="actions"><a class="btn primary" href="#' + esc(code) + '/review">Review chunks</a>' +
+            '<a class="btn" href="#' + esc(code) + '/script">Review pack (for reviewers)</a></p>' : "") +
           '<ol class="ladder">' + stages + "</ol></section>";
       });
     });
@@ -976,13 +986,10 @@
 
   /* ---------- script view (spec §4.4) ---------- */
 
-  function scriptPage(run, code, id) {
-    C.scenario(code, id).then(function (sc) {
-      if (!alive(run)) return;
-      if (!sc) return notFound("This scenario is not available in this language yet.");
+  /* The printable script of one scenario, from its title down (spec §4.4).
+   * stage: shown before the title in the review pack. */
+  function scriptBody(sc, code, stage) {
       var prof = sc.profile, bp = sc.blueprint, real = sc.real;
-      document.title = "Script: " + bp.title + " · " + prof.name;
-      document.body.className = "scriptmode";
       var info = C.registerInfo(prof, real);
       var allowed = info.filter(function (r) { return r.allowed; });
       var regIds = allowed.map(function (r) { return r.id; });
@@ -1043,11 +1050,7 @@
       var notes = (real.notes || []).map(function (n) { return '<li lang="' + esc(code) + '">' + esc(n) + "</li>"; }).join("");
       var rv = real.review || {};
 
-      $app.innerHTML = '<section class="script-page">' +
-        '<div class="noprint">' + scenarioTrail(prof, bp.title, code, id, "script") +
-        '<p class="actions"><button type="button" class="btn primary" id="print">Print or save as PDF</button>' +
-        '<a class="btn" href="#' + esc(code) + "/" + esc(id) + '/class">Class mode</a></p></div>' +
-        "<h1>" + esc(bp.title) + ' <span class="lang">' + esc(prof.name) + " · " + esc(prof.native) + "</span></h1>" +
+      return "<h1>" + (stage ? '<span class="stagetag">Stage ' + stage + "</span> " : "") + esc(bp.title) + ' <span class="lang">' + esc(prof.name) + " · " + esc(prof.native) + "</span></h1>" +
         '<p class="goalline">' + esc(bp.goal) + "</p>" +
         '<div class="reviewbox"><div>Status: <b>' + esc(rv.status || "draft") + "</b>" + (rv.by ? " · " + esc(rv.by) + " · " + esc(rv.date) : "") + "</div>" +
         "<div>Reviewed by: <span class=\"blank\"></span></div><div>Date: <span class=\"blank short\"></span></div></div>" +
@@ -1059,9 +1062,66 @@
         (slotTables ? "<h2>Gap words</h2>" + slotTables : "") +
         "<h2>Free practice</h2>" + free +
         (notes ? "<h2>Notes</h2><ul>" + notes + "</ul>" : "") +
-        (blocked ? "<h2>Formality</h2><ul>" + blocked + "</ul>" : "") +
-        "</section>";
+        (blocked ? "<h2>Formality</h2><ul>" + blocked + "</ul>" : "");
+  }
+
+  function scriptPage(run, code, id) {
+    C.scenario(code, id).then(function (sc) {
+      if (!alive(run)) return;
+      if (!sc) return notFound("This scenario is not available in this language yet.");
+      document.title = "Script: " + sc.blueprint.title + " · " + sc.profile.name;
+      document.body.className = "scriptmode";
+      $app.innerHTML = '<section class="script-page">' +
+        '<div class="noprint">' + scenarioTrail(sc.profile, sc.blueprint.title, code, id, "script") +
+        '<p class="actions"><button type="button" class="btn primary" id="print">Print or save as PDF</button>' +
+        '<a class="btn" href="#' + esc(code) + "/" + esc(id) + '/class">Class mode</a>' +
+        '<a class="btn" href="#' + esc(code) + '/script">Review pack: every stage</a></p></div>' +
+        scriptBody(sc, code) + "</section>";
       $("#print").onclick = function () { window.print(); };
+    });
+  }
+
+  /* The reviewer's guide, printed first in the review pack (spec §4.4). */
+  function reviewerGuide(prof) {
+    var regs = prof.registers.map(function (r) { return '<b lang="' + esc(prof.code) + '">' + esc(r.label) + "</b>"; }).join(" / ");
+    return '<section class="guide"><h2>How to review</h2>' +
+      "<p>Thank you for checking this. It takes about 10–15 minutes per scenario. You do not need to be a teacher: we need a native speaker's ear.</p>" +
+      "<ol>" +
+      "<li><b>Read each line aloud.</b> Would people really say it this way, in this situation? If not, write what they would say in the Correction column.</li>" +
+      "<li><b>Check each formality column</b> (" + regs + "). Each column should sound right for that level of \"you\".</li>" +
+      "<li><b>Check the man's and woman's forms.</b> They are marked (m) and (f), or labelled \"said by a woman\", \"to a man\".</li>" +
+      "<li><b>Chunks</b> are phrases learners memorise whole. Is each one a natural unit? Is the word-by-word gloss fair?</li>" +
+      "<li><b>Gap words, notes and free practice:</b> are they natural and true?</li>" +
+      (prof.romanization ? "<li><b>Romanization:</b> check it against the rules on the " + esc(prof.name) + " profile page.</li>" : "") +
+      "</ol>" +
+      "<p><b>Mark:</b> tick OK, or write the correction. The English and the layout do not need checking.</p>" +
+      "<p><b>Send back:</b> a photo or scan of the marked pages, or a list such as \"Stage 3, line 2: …\". Sign the box on each scenario you checked.</p></section>";
+  }
+
+  /* Review pack: every scenario in this language, in ladder order, with the
+   * reviewer's guide first. One PDF for a reviewer (spec §4.4). */
+  function packPage(run, code) {
+    Promise.all([C.ladder(), C.profile(code)]).then(function (r) {
+      if (!alive(run)) return;
+      var lad = r[0], prof = r[1];
+      if (!lad || !prof) return notFound("No such language.");
+      var jobs = [];
+      lad.stages.forEach(function (st) { st.scenarios.forEach(function (id) { jobs.push({ stage: st.stage, id: id }); }); });
+      return Promise.all(jobs.map(function (j) { return C.scenario(code, j.id); })).then(function (scs) {
+        if (!alive(run)) return;
+        document.title = "Review pack · " + prof.name + " · Speak";
+        document.body.className = "scriptmode";
+        var parts = jobs.map(function (j, i) {
+          return scs[i] ? '<section class="pack-scen">' + scriptBody(scs[i], code, j.stage) + "</section>" : "";
+        }).join("");
+        $app.innerHTML = '<section class="script-page">' +
+          '<div class="noprint">' + crumbs([{ label: "Home", href: "#" }, { label: prof.name, href: "#" + code }, { label: "Review pack" }]) +
+          '<p class="actions"><button type="button" class="btn primary" id="print">Print or save as PDF</button></p></div>' +
+          "<h1>Speak · " + esc(prof.name) + ' <span class="lang">' + esc(prof.native) + "</span></h1>" +
+          '<p class="goalline">Review pack: every scenario, stage by stage. Reviewer: <span class="blank"></span></p>' +
+          reviewerGuide(prof) + parts + "</section>";
+        $("#print").onclick = function () { window.print(); };
+      });
     });
   }
 

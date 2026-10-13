@@ -1,0 +1,147 @@
+{
+  "schema": 2,
+  "scenario": "repair",
+  "lang": "fr",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "Bonjour ! C'est votre premier cours ?",
+      "byRegister": {
+        "familiar": {
+          "text": "Salut ! C'est ton premier cours ?",
+          "accept": [
+            "Bonjour ! C'est ton premier cours ?"
+          ]
+        }
+      }
+    },
+    "l2": {
+      "text": "Pardon ? Vous pouvez répéter, s'il vous plaît ?",
+      "byRegister": {
+        "familiar": {
+          "text": "Pardon ? Tu peux répéter, s'il te plaît ?"
+        }
+      }
+    },
+    "l3": {
+      "text": "C'est votre premier cours ?",
+      "byRegister": {
+        "familiar": {
+          "text": "C'est ton premier cours ?"
+        }
+      }
+    },
+    "l4": {
+      "text": "Oui. J'apprends. Parlez lentement, s'il vous plaît.",
+      "byRegister": {
+        "familiar": {
+          "text": "Oui. J'apprends. Parle lentement, s'il te plaît."
+        }
+      }
+    },
+    "l5": {
+      "text": "Bien sûr ! Bienvenue."
+    },
+    "l6": {
+      "text": "Merci. Que veut dire {word} ?",
+      "accept": [
+        "Merci. Qu'est-ce que ça veut dire, {word} ?"
+      ]
+    },
+    "l7": {
+      "text": "Ça veut dire « welcome »."
+    }
+  },
+  "chunks": {
+    "sorry-again": {
+      "text": "pardon ? vous pouvez répéter",
+      "byRegister": {
+        "familiar": {
+          "text": "pardon ? tu peux répéter"
+        }
+      },
+      "literal": "pardon? you can repeat"
+    },
+    "i-am-learning": {
+      "text": "j'apprends",
+      "literal": "I learn"
+    },
+    "speak-slowly": {
+      "text": "parlez lentement",
+      "byRegister": {
+        "familiar": {
+          "text": "parle lentement"
+        }
+      },
+      "literal": "speak slowly"
+    },
+    "what-does-mean": {
+      "text": "que veut dire ___ ?",
+      "literal": "what wants to-say ___?"
+    },
+    "it-means": {
+      "text": "ça veut dire ___",
+      "literal": "that wants to-say ___"
+    },
+    "of-course": {
+      "text": "bien sûr",
+      "literal": "well sure"
+    },
+    "how-do-you-say": {
+      "text": "comment dit-on ___ en français ?",
+      "extra": true,
+      "literal": "how says-one ___ in French?"
+    }
+  },
+  "slotValues": {
+    "word": [
+      {
+        "en": "bienvenue (welcome)",
+        "text": "bienvenue"
+      },
+      {
+        "en": "peut-être (maybe)",
+        "text": "peut-être"
+      },
+      {
+        "en": "bien sûr (of course)",
+        "text": "bien sûr"
+      },
+      {
+        "en": "maintenant (now)",
+        "text": "maintenant"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "i-dont-understand": {
+        "text": "Je ne comprends pas.",
+        "accept": [
+          "Je comprends pas."
+        ]
+      },
+      "write-it": {
+        "text": "Vous pouvez l'écrire, s'il vous plaît ?",
+        "byRegister": {
+          "familiar": {
+            "text": "Tu peux l'écrire, s'il te plaît ?"
+          }
+        }
+      }
+    }
+  },
+  "notes": [
+    "Pardon ? with a rising voice means \"sorry, what was that?\". Quoi ? is rude.",
+    "Que veut dire… ? (\"what wants to say…?\") is the set way to ask what a word means.",
+    "Plus lentement (\"more slowly\") also works on its own."
+  ]
+}

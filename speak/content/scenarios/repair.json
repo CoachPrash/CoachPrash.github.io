@@ -1,0 +1,107 @@
+{
+  "schema": 2,
+  "id": "repair",
+  "title": "When you don't understand",
+  "goal": "Ask someone to repeat, to speak slowly, and to explain a word.",
+  "roles": {
+    "A": "A local speaker",
+    "B": "The learner"
+  },
+  "slots": {
+    "word": {
+      "kind": "set",
+      "cue": "a word you don't know"
+    }
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "role": "A",
+      "en": "Hello! Is this your first class?",
+      "addressesYou": true
+    },
+    {
+      "id": "l2",
+      "role": "B",
+      "en": "Sorry? Again, please.",
+      "addressesYou": true
+    },
+    {
+      "id": "l3",
+      "role": "A",
+      "en": "Is this your first class?",
+      "addressesYou": true
+    },
+    {
+      "id": "l4",
+      "role": "B",
+      "en": "Yes. I'm learning. Please speak slowly.",
+      "addressesYou": true
+    },
+    {
+      "id": "l5",
+      "role": "A",
+      "en": "Of course! Welcome."
+    },
+    {
+      "id": "l6",
+      "role": "B",
+      "en": "Thank you. What does {word} mean?"
+    },
+    {
+      "id": "l7",
+      "role": "A",
+      "en": "It means \"welcome\"."
+    }
+  ],
+  "chunks": [
+    {
+      "id": "sorry-again",
+      "en": "sorry? again, please",
+      "addressesYou": true
+    },
+    {
+      "id": "i-am-learning",
+      "en": "I'm learning"
+    },
+    {
+      "id": "speak-slowly",
+      "en": "please speak slowly",
+      "addressesYou": true
+    },
+    {
+      "id": "what-does-mean",
+      "en": "what does ___ mean?"
+    },
+    {
+      "id": "it-means",
+      "en": "it means ___"
+    },
+    {
+      "id": "of-course",
+      "en": "of course"
+    },
+    {
+      "id": "how-do-you-say",
+      "en": "how do you say ___?"
+    }
+  ],
+  "drill": {
+    "slot": "word",
+    "instruction": "Swap the word each time. In real life, use it for any word you miss."
+  },
+  "free": {
+    "prompt": "One person talks quickly about their day. The others stop them: ask them to repeat, to slow down, and what a word means.",
+    "targets": [
+      {
+        "id": "i-dont-understand",
+        "en": "I don't understand"
+      },
+      {
+        "id": "write-it",
+        "en": "can you write it, please?",
+        "addressesYou": true
+      }
+    ]
+  }
+}

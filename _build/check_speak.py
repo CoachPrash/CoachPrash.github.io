@@ -202,6 +202,10 @@ if sorted(listed) != sorted(languages):
     problem("speak/content/ladder.json", f'"languages" {listed} does not match the language folders {sorted(languages)}')
 if len(ladder_ids) != len(set(ladder_ids)):
     problem("speak/content/ladder.json", "a scenario is listed twice")
+RESERVED = {"profile", "review", "script", "check"}   # routes (spec section 4)
+for sid in ladder_ids:
+    if sid in RESERVED:
+        problem("speak/content/ladder.json", f'"{sid}" is a reserved route and cannot be a scenario id')
 
 # ---------------------------------------------------------------- languages
 

@@ -1,12 +1,19 @@
 # Speak — specification
 
 **Status:** M1, M2 and M2.5 done. M2.5 passed Prash's test and ran in his Sunday class on 11 October 2026. M3 drafted (12 October 2026): French and Mandarin stages 1–4, waiting for native-speaker review. M4 drafted (12 October 2026): blueprints for stages 5–9, Hindi, French and Mandarin stages 5–9, and the Review screen. Waiting for review: Prash for Hindi, native speakers for French and Mandarin. M3.5 (images) is deferred until after M4. Spanish (Colombian) stages 1–9 drafted (13 October 2026), M-ES in §8.
-**Version:** 0.10, 13 October 2026
+**Version:** 0.11, 13 October 2026
 **Brief:** `_project/sites/speak.md`
 
 This file is the build contract. When the spec and the code disagree, the spec wins, or the spec is changed first.
 
 ### Changes
+
+**0.11** (review pack, device check, repair)
+
+- **Review pack** (§4.4): `#hi/script` prints every scenario of a language in ladder order, with a one-page reviewer's guide first. One PDF per reviewer.
+- **Check your device** (§4.8): `#check` lists each language's voices, plays a test sentence in the women's and the men's voice, and tests the microphone.
+- **New stage 2, "When you don't understand"** (`repair`): ask to repeat, to slow down, and what a word means. The research (`speak-progression.md`) found repair to be the main A1 gap. Stages 2–9 become 3–10.
+- `script` and `check` are reserved, like `profile` and `review`.
 
 **0.10** (Spanish)
 
@@ -190,7 +197,7 @@ speak/content/
   <lang>/<id>.json            realizations (one per scenario per language)
 ```
 
-Language codes: `hi`, `es`, `fr`, `zh`. Scenario ids: lowercase, hyphenated, permanent. **Ids are load-bearing:** they appear in URLs (`#hi/greetings`) and in the checker. Do not rename one after it ships. `profile` and `review` are reserved: they are routes (§4), so no scenario may use them.
+Language codes: `hi`, `es`, `fr`, `zh`. Scenario ids: lowercase, hyphenated, permanent. **Ids are load-bearing:** they appear in URLs (`#hi/greetings`) and in the checker. Do not rename one after it ships. `profile`, `review`, `script` and `check` are reserved: they are routes (§4), so no scenario may use them.
 
 Every file carries `"schema": 2`. A change that breaks old files increments it. Schema 2 (spec 0.8) renamed `vocab` to `chunks`, and the checker rejects schema 1 files.
 
@@ -202,14 +209,15 @@ Every file carries `"schema": 2`. A change that breaks old files increments it. 
   "languages": ["hi", "es", "fr", "zh"],
   "stages": [
     { "stage": 1, "level": "A1", "title": "Greetings & self-introduction", "scenarios": ["greetings"] },
-    { "stage": 2, "level": "A1", "title": "Personal info", "scenarios": ["where-from"] },
-    { "stage": 3, "level": "A1", "title": "Numbers & family", "scenarios": ["family"] },
-    { "stage": 4, "level": "A1", "title": "Politeness & requests", "scenarios": ["requests"] },
-    { "stage": 5, "level": "A1", "title": "Likes & dislikes", "scenarios": ["likes"] },
-    { "stage": 6, "level": "A2", "title": "Daily routine", "scenarios": ["routine"] },
-    { "stage": 7, "level": "A2", "title": "Shopping & ordering", "scenarios": ["shopping"] },
-    { "stage": 8, "level": "A2", "title": "Directions", "scenarios": ["directions"] },
-    { "stage": 9, "level": "A2", "title": "Small talk & opinions", "scenarios": ["opinions"] }
+    { "stage": 2, "level": "A1", "title": "When you don't understand", "scenarios": ["repair"] },
+    { "stage": 3, "level": "A1", "title": "Personal info", "scenarios": ["where-from"] },
+    { "stage": 4, "level": "A1", "title": "Numbers & family", "scenarios": ["family"] },
+    { "stage": 5, "level": "A1", "title": "Politeness & requests", "scenarios": ["requests"] },
+    { "stage": 6, "level": "A1", "title": "Likes & dislikes", "scenarios": ["likes"] },
+    { "stage": 7, "level": "A2", "title": "Daily routine", "scenarios": ["routine"] },
+    { "stage": 8, "level": "A2", "title": "Shopping & ordering", "scenarios": ["shopping"] },
+    { "stage": 9, "level": "A2", "title": "Directions", "scenarios": ["directions"] },
+    { "stage": 10, "level": "A2", "title": "Small talk & opinions", "scenarios": ["opinions"] }
   ]
 }
 ```
@@ -682,6 +690,8 @@ Routes are hash-based, so they work on GitHub Pages with no server rules:
 | `#hi/profile` | Language profile: the adaptation checklist answered, the levels of "you", the romanization chart and its rules |
 | `#hi/review` | Review: chunks from every stage that has content in this language (§4.7) |
 | `#hi/review/4` | Review: chunks from stages 1 to 4 only |
+| `#hi/script` | Review pack: every scenario of the language, printable, with the reviewer's guide (§4.4) |
+| `#check` | Check your device: voices and microphone, for every language (§4.8) |
 
 ### 4.0 Site navigation
 
@@ -704,6 +714,8 @@ Routes are hash-based, so they work on GitHub Pages with no server rules:
   - **Draft** (not reviewed)
   - **Not yet in this language**, which is listed but not clickable
 - Each available scenario offers three buttons: **Class**, **Solo** and **Script**.
+- **Home** also has a button "Before class: check your device" (§4.8). The site bar links to it on every page.
+- **Review pack button**, beside the Review button on the ladder: "Review pack (for reviewers)", which opens `#hi/script` (§4.4).
 - **Review button**, at the top of the ladder: "Review chunks", which opens `#hi/review`. It shows once the language has content in at least one stage.
 
 ### 4.2 Class mode (shared screen)
@@ -772,6 +784,15 @@ The order follows the chunking idea: hear the language, take its chunks whole, u
 - **Review aids:** each line has a checkbox and a blank line for corrections. The header shows the review status and blanks for "Reviewed by" and "Date".
 - **Print:** `@media print` removes navigation. The page fits A4 and US Letter. For a PDF, use the browser's Print → Save as PDF.
 - **Corrections:** reviewers mark up paper or the PDF. Prash or Claude apply the changes to the JSON and set `review` to `verified`.
+- **Review pack** (`#hi/script`): every scenario of the language in ladder order, each starting on a new printed page, marked "Stage n". It opens with a blank for the reviewer's name and the **reviewer's guide**, one page in plain words:
+  1. Read each line aloud. Would people say it this way? If not, write what they would say.
+  2. Check each formality column.
+  3. Check the man's and woman's forms.
+  4. Chunks: is each a natural unit, and is the word-by-word gloss fair?
+  5. Gap words, notes and free practice: natural and true?
+  6. Romanization, for languages that have it: check it against the profile page.
+  - It says what not to check (the English, the layout) and how to send corrections back (a photo or scan, or a list such as "Stage 3, line 2: …").
+- Each single script view links to its language's review pack.
 
 ### 4.5 Display settings
 
@@ -812,6 +833,18 @@ Review mixes chunks from earlier stages, so learners meet them again out of thei
 - **End of a run:** "7 of 10 first time", the cards that came back, and **Another 10**. Nothing is stored.
 - **Keys:** Space or Enter flips, the right arrow goes to the next card, P plays.
 - **Pictures:** when M3.5 adds images, a picture can replace the English on the front.
+
+### 4.8 Check your device
+
+A page to use before class, at `#check`. It stores nothing.
+
+- **Top:** whether the browser can speak and can recognise speech, and a warning when the page is not on https, which blocks the microphone.
+- **One card per language,** in `ladder.json` order:
+  - the language's voices, each marked female or male when known (§4.5), with how many match the exact locale
+  - **▶ Female voice** and **▶ Male voice**, which speak greetings line 3 with the partner's name, using the voices chosen in the pickers
+  - **🎤 Test the microphone**, which listens once and shows what was heard, or why nothing was
+  - when the device has no voice for the language, where to add one on Windows, Mac, iPhone and Android
+- The recognition limit is stated: it shows whether the browser understood, not pronunciation or tones.
 
 ---
 
@@ -915,6 +948,7 @@ Nothing else. No scores are stored.
 | `speak/assets/app.js` | hand-written | Router and screens. Exposes the shared screen helpers (storage, toolbar, register switch) for `solo.js` |
 | `speak/assets/solo.js` | hand-written | Solo mode screen (§4.3) |
 | `speak/assets/review.js` | hand-written | Review screen (§4.7) |
+| `speak/assets/check.js` | hand-written | Check your device (§4.8) |
 | `speak/assets/speech.js` | hand-written | Text-to-speech, recognition, matching (§5). No DOM code, so it can be tested alone |
 | `speak/content/**` | hand-written data | §3 |
 | `_build/check_speak.py` | tooling | Validator. Standard library only |
@@ -928,7 +962,7 @@ The checker exits with a non-zero code and one line per problem when any of thes
 
 - every file parses and has `schema: 2`. A schema 1 file gets its own message: it predates chunks
 - every ladder id has a blueprint, or a language-only realization
-- no scenario id is `profile` or `review`
+- no scenario id is `profile`, `review`, `script` or `check`
 - every realization line id exists in its blueprint, and every blueprint line appears in every realization
 - every slot used in `en` appears in `text` and `rom`, including in `byRegister` and `variants`, and nowhere else
 - every `set` slot has at least three `slotValues`
@@ -974,6 +1008,7 @@ Each milestone is shippable on its own, and the card stays parked throughout.
 | **M4** | Stages 5–9 in all three languages, plus the **Review** screen (§4.7). In four parts: (1) blueprints for stages 5–9, (2) Hindi stages 5–9, (3) Review, (4) French and Mandarin stages 5–9 | Checker and `_build/test_speech.html` pass. Hindi stages 5–9 verified by Prash. Review from a stage 5 scenario draws from stages 1–4 |
 | **M3.5** | Images, after M4. Item icons and speaker avatars, and a picture-cue toggle for the drill. Prash picks the source for scenes first: AI-generated, Open Peeps (CC0), stock photos, or none | The frame drill runs on picture cues |
 | **M-ES** | Spanish (Colombian): profile, stages 1–9, voices, tests. Drafted in one pass from the French course (13 October 2026) | Checker and `_build/test_speech.html` pass. Stages 1–9 verified by a native speaker |
+| **M4.5** | Review pack and reviewer's guide (§4.4), Check your device (§4.8), new stage 2 `repair` in all four languages (13 October 2026) | Checker and `_build/test_speech.html` pass. A reviewer can print one PDF per language |
 | **List** | Open to search engines | French, Spanish and Mandarin stages 1–4 verified by native speakers. `noindex` removed from `speak/index.html` and the root `index.html` |
 
 ---

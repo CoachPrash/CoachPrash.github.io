@@ -1,0 +1,205 @@
+{
+  "schema": 2,
+  "scenario": "repair",
+  "lang": "hi",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "registerNotes": {
+    "intimate": "तू is for very close friends and family. Practise this one with आप and तुम."
+  },
+  "lines": {
+    "l1": {
+      "text": "नमस्ते! क्या यह आपकी पहली क्लास है?",
+      "rom": "namaste! kyaa yah aapkee pahlee klaas hai?",
+      "byRegister": {
+        "familiar": {
+          "text": "नमस्ते! क्या यह तुम्हारी पहली क्लास है?",
+          "rom": "namaste! kyaa yah tumhaaree pahlee klaas hai?"
+        }
+      }
+    },
+    "l2": {
+      "text": "माफ़ कीजिए? फिर से बोलिए।",
+      "rom": "maaf keejie? phir se bolie.",
+      "accept": [
+        {
+          "text": "माफ़ कीजिए? एक बार फिर बोलिए।",
+          "rom": "maaf keejie? ek baar phir bolie."
+        }
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "माफ़ करना? फिर से बोलो।",
+          "rom": "maaf karnaa? phir se bolo."
+        }
+      }
+    },
+    "l3": {
+      "text": "क्या यह आपकी पहली क्लास है?",
+      "rom": "kyaa yah aapkee pahlee klaas hai?",
+      "byRegister": {
+        "familiar": {
+          "text": "क्या यह तुम्हारी पहली क्लास है?",
+          "rom": "kyaa yah tumhaaree pahlee klaas hai?"
+        }
+      }
+    },
+    "l4": {
+      "text": "जी हाँ। मैं सीख रहा हूँ। धीरे बोलिए।",
+      "rom": "jee haan. main seekh rahaa hoon. dheere bolie.",
+      "variants": [
+        {
+          "speaker": "m",
+          "text": "जी हाँ। मैं सीख रहा हूँ। धीरे बोलिए।",
+          "rom": "jee haan. main seekh rahaa hoon. dheere bolie."
+        },
+        {
+          "speaker": "f",
+          "text": "जी हाँ। मैं सीख रही हूँ। धीरे बोलिए।",
+          "rom": "jee haan. main seekh rahee hoon. dheere bolie."
+        }
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "हाँ। मैं सीख रहा हूँ। धीरे बोलो।",
+          "rom": "haan. main seekh rahaa hoon. dheere bolo.",
+          "variants": [
+            {
+              "speaker": "m",
+              "text": "हाँ। मैं सीख रहा हूँ। धीरे बोलो।",
+              "rom": "haan. main seekh rahaa hoon. dheere bolo."
+            },
+            {
+              "speaker": "f",
+              "text": "हाँ। मैं सीख रही हूँ। धीरे बोलो।",
+              "rom": "haan. main seekh rahee hoon. dheere bolo."
+            }
+          ]
+        }
+      }
+    },
+    "l5": {
+      "text": "ज़रूर! स्वागत है।",
+      "rom": "zaroor! svaagat hai."
+    },
+    "l6": {
+      "text": "धन्यवाद। {word} का मतलब क्या है?",
+      "rom": "dhanyavaad. {word} kaa matlab kyaa hai?",
+      "accept": [
+        {
+          "text": "धन्यवाद। {word} का मतलब?",
+          "rom": "dhanyavaad. {word} kaa matlab?"
+        }
+      ]
+    },
+    "l7": {
+      "text": "इसका मतलब है \"welcome\"।",
+      "rom": "iskaa matlab hai \"welcome\"."
+    }
+  },
+  "chunks": {
+    "sorry-again": {
+      "text": "माफ़ कीजिए? फिर से बोलिए",
+      "rom": "maaf keejie? phir se bolie",
+      "byRegister": {
+        "familiar": {
+          "text": "माफ़ करना? फिर से बोलो",
+          "rom": "maaf karnaa? phir se bolo"
+        }
+      },
+      "literal": "forgiveness do (please)? again speak (please)"
+    },
+    "i-am-learning": {
+      "text": "मैं सीख रहा / रही हूँ",
+      "rom": "main seekh rahaa / rahee hoon",
+      "choice": "mf",
+      "literal": "I learn -ing am"
+    },
+    "speak-slowly": {
+      "text": "धीरे बोलिए",
+      "rom": "dheere bolie",
+      "byRegister": {
+        "familiar": {
+          "text": "धीरे बोलो",
+          "rom": "dheere bolo"
+        }
+      },
+      "literal": "slowly speak (please)"
+    },
+    "what-does-mean": {
+      "text": "___ का मतलब क्या है?",
+      "rom": "___ kaa matlab kyaa hai?",
+      "literal": "___ of meaning what is?"
+    },
+    "it-means": {
+      "text": "इसका मतलब है ___",
+      "rom": "iskaa matlab hai ___",
+      "literal": "its meaning is ___"
+    },
+    "of-course": {
+      "text": "ज़रूर",
+      "rom": "zaroor",
+      "literal": "surely"
+    },
+    "how-do-you-say": {
+      "text": "___ को हिंदी में क्या कहते हैं?",
+      "rom": "___ ko hindee men kyaa kahte hain?",
+      "extra": true,
+      "literal": "___ (to) Hindi in what (they) say?"
+    }
+  },
+  "slotValues": {
+    "word": [
+      {
+        "en": "स्वागत (welcome)",
+        "text": "स्वागत",
+        "rom": "svaagat"
+      },
+      {
+        "en": "शायद (maybe)",
+        "text": "शायद",
+        "rom": "shaayad"
+      },
+      {
+        "en": "ज़रूर (of course)",
+        "text": "ज़रूर",
+        "rom": "zaroor"
+      },
+      {
+        "en": "अभी (now)",
+        "text": "अभी",
+        "rom": "abhee"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "i-dont-understand": {
+        "text": "मुझे समझ नहीं आया।",
+        "rom": "mujhe samajh naheen aayaa."
+      },
+      "write-it": {
+        "text": "लिखकर दिखाइए।",
+        "rom": "likhkar dikhaaie.",
+        "byRegister": {
+          "familiar": {
+            "text": "लिखकर दिखाओ।",
+            "rom": "likhkar dikhaao."
+          }
+        }
+      }
+    }
+  },
+  "notes": [
+    "माफ़ कीजिए? with a rising voice means \"sorry, what was that?\". फिर से means \"again\".",
+    "धीरे बोलिए (\"speak slowly\") is polite as it is: the -इए ending already says please.",
+    "मुझे समझ नहीं आया (\"to me understanding did not come\") is how Hindi says I don't understand."
+  ]
+}

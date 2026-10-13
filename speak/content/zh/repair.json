@@ -1,0 +1,171 @@
+{
+  "schema": 2,
+  "scenario": "repair",
+  "lang": "zh",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "你好！这是你的第一节课吗？",
+      "rom": "Nǐ hǎo! Zhè shì nǐ de dì yī jié kè ma?",
+      "byRegister": {
+        "formal": {
+          "text": "您好！这是您的第一节课吗？",
+          "rom": "Nín hǎo! Zhè shì nín de dì yī jié kè ma?"
+        }
+      }
+    },
+    "l2": {
+      "text": "不好意思？请再说一遍。",
+      "rom": "Bù hǎoyìsi? Qǐng zài shuō yí biàn.",
+      "registerNeutral": true
+    },
+    "l3": {
+      "text": "这是你的第一节课吗？",
+      "rom": "Zhè shì nǐ de dì yī jié kè ma?",
+      "byRegister": {
+        "formal": {
+          "text": "这是您的第一节课吗？",
+          "rom": "Zhè shì nín de dì yī jié kè ma?"
+        }
+      }
+    },
+    "l4": {
+      "text": "对。我在学中文。请说慢一点。",
+      "rom": "Duì. Wǒ zài xué Zhōngwén. Qǐng shuō màn yìdiǎn.",
+      "registerNeutral": true
+    },
+    "l5": {
+      "text": "当然！欢迎欢迎！",
+      "rom": "Dāngrán! Huānyíng huānyíng!",
+      "accept": [
+        {
+          "text": "当然！欢迎！",
+          "rom": "Dāngrán! Huānyíng!"
+        }
+      ]
+    },
+    "l6": {
+      "text": "谢谢。{word}是什么意思？",
+      "rom": "Xièxie. {word} shì shénme yìsi?"
+    },
+    "l7": {
+      "text": "意思是welcome。",
+      "rom": "Yìsi shì welcome."
+    }
+  },
+  "chunks": {
+    "sorry-again": {
+      "text": "请再说一遍",
+      "rom": "qǐng zài shuō yí biàn",
+      "registerNeutral": true,
+      "literal": "please again say one time",
+      "chain": [
+        "一遍",
+        "说一遍",
+        "再说一遍"
+      ]
+    },
+    "i-am-learning": {
+      "text": "我在学中文",
+      "rom": "wǒ zài xué Zhōngwén",
+      "literal": "I (-ing) study Chinese",
+      "chain": [
+        "中文",
+        "学中文"
+      ]
+    },
+    "speak-slowly": {
+      "text": "请说慢一点",
+      "rom": "qǐng shuō màn yìdiǎn",
+      "registerNeutral": true,
+      "literal": "please speak slow a-little",
+      "chain": [
+        "一点",
+        "慢一点",
+        "说慢一点"
+      ]
+    },
+    "what-does-mean": {
+      "text": "___是什么意思？",
+      "rom": "___ shì shénme yìsi?",
+      "literal": "___ is what meaning?"
+    },
+    "it-means": {
+      "text": "意思是___",
+      "rom": "yìsi shì ___",
+      "literal": "meaning is ___"
+    },
+    "of-course": {
+      "text": "当然",
+      "rom": "dāngrán",
+      "literal": "of-course"
+    },
+    "how-do-you-say": {
+      "text": "___用中文怎么说？",
+      "rom": "___ yòng Zhōngwén zěnme shuō?",
+      "extra": true,
+      "literal": "___ using Chinese how say?"
+    }
+  },
+  "slotValues": {
+    "word": [
+      {
+        "en": "欢迎 (welcome)",
+        "text": "欢迎",
+        "rom": "huānyíng"
+      },
+      {
+        "en": "也许 (maybe)",
+        "text": "也许",
+        "rom": "yěxǔ"
+      },
+      {
+        "en": "当然 (of course)",
+        "text": "当然",
+        "rom": "dāngrán"
+      },
+      {
+        "en": "现在 (now)",
+        "text": "现在",
+        "rom": "xiànzài"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "i-dont-understand": {
+        "text": "我听不懂。",
+        "rom": "Wǒ tīng bu dǒng.",
+        "accept": [
+          {
+            "text": "我不明白。",
+            "rom": "Wǒ bù míngbai."
+          }
+        ]
+      },
+      "write-it": {
+        "text": "你能写一下吗？",
+        "rom": "Nǐ néng xiě yíxià ma?",
+        "byRegister": {
+          "formal": {
+            "text": "您能写一下吗？",
+            "rom": "Nín néng xiě yíxià ma?"
+          }
+        }
+      }
+    }
+  },
+  "notes": [
+    "请再说一遍 (\"please say it one more time\") is the standard request to repeat.",
+    "我听不懂 means \"I hear but don't understand\". 我不明白 is \"I don't get it\" in general.",
+    "慢一点 (\"a little slower\") is softer than just 慢."
+  ]
+}

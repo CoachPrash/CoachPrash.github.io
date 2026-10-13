@@ -1,0 +1,170 @@
+{
+  "schema": 2,
+  "scenario": "repair",
+  "lang": "es",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "¡Hola! ¿Es su primera clase?",
+      "byRegister": {
+        "familiar": {
+          "text": "¡Hola! ¿Es tu primera clase?"
+        }
+      }
+    },
+    "l2": {
+      "text": "¿Perdón? ¿Me lo repite, por favor?",
+      "accept": [
+        "¿Perdón? ¿Puede repetir, por favor?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "¿Perdón? ¿Me lo repites, por favor?",
+          "accept": [
+            "¿Perdón? ¿Puedes repetir, por favor?"
+          ]
+        }
+      }
+    },
+    "l3": {
+      "text": "¿Es su primera clase?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿Es tu primera clase?"
+        }
+      }
+    },
+    "l4": {
+      "text": "Sí. Estoy aprendiendo. Hable despacio, por favor.",
+      "accept": [
+        "Sí. Estoy aprendiendo. Más despacio, por favor."
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Sí. Estoy aprendiendo. Habla despacio, por favor.",
+          "accept": [
+            "Sí. Estoy aprendiendo. Más despacio, por favor."
+          ]
+        }
+      }
+    },
+    "l5": {
+      "text": "¡Claro! Bienvenido.",
+      "variants": [
+        {
+          "listener": "m",
+          "text": "¡Claro! Bienvenido."
+        },
+        {
+          "listener": "f",
+          "text": "¡Claro! Bienvenida."
+        }
+      ]
+    },
+    "l6": {
+      "text": "Gracias. ¿Qué quiere decir {word}?",
+      "accept": [
+        "Gracias. ¿Qué significa {word}?"
+      ]
+    },
+    "l7": {
+      "text": "Quiere decir \"welcome\".",
+      "accept": [
+        "Significa \"welcome\"."
+      ]
+    }
+  },
+  "chunks": {
+    "sorry-again": {
+      "text": "¿perdón? ¿me lo repite",
+      "byRegister": {
+        "familiar": {
+          "text": "¿perdón? ¿me lo repites"
+        }
+      },
+      "literal": "pardon? me it you-repeat"
+    },
+    "i-am-learning": {
+      "text": "estoy aprendiendo",
+      "literal": "I-am learning"
+    },
+    "speak-slowly": {
+      "text": "hable despacio",
+      "byRegister": {
+        "familiar": {
+          "text": "habla despacio"
+        }
+      },
+      "literal": "speak slowly"
+    },
+    "what-does-mean": {
+      "text": "¿qué quiere decir ___?",
+      "literal": "what wants to-say ___?"
+    },
+    "it-means": {
+      "text": "quiere decir ___",
+      "literal": "it-wants to-say ___"
+    },
+    "of-course": {
+      "text": "claro",
+      "literal": "clear"
+    },
+    "how-do-you-say": {
+      "text": "¿cómo se dice ___ en español?",
+      "extra": true,
+      "literal": "how itself says ___ in Spanish?"
+    }
+  },
+  "slotValues": {
+    "word": [
+      {
+        "en": "bienvenido (welcome)",
+        "text": "bienvenido"
+      },
+      {
+        "en": "quizás (maybe)",
+        "text": "quizás"
+      },
+      {
+        "en": "claro (of course)",
+        "text": "claro"
+      },
+      {
+        "en": "ahorita (right now)",
+        "text": "ahorita"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "i-dont-understand": {
+        "text": "No entiendo.",
+        "accept": [
+          "No le entiendo.",
+          "No te entiendo."
+        ]
+      },
+      "write-it": {
+        "text": "¿Me lo puede escribir, por favor?",
+        "byRegister": {
+          "familiar": {
+            "text": "¿Me lo puedes escribir, por favor?"
+          }
+        }
+      }
+    }
+  },
+  "notes": [
+    "Bienvenido is said to a man, bienvenida to a woman.",
+    "¿Me lo repite? (\"will you repeat it to me?\") is polite and very common in Colombia.",
+    "Más despacio, por favor (\"more slowly, please\") works on its own too. Colombians may say más despacito."
+  ]
+}
