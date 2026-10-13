@@ -1,0 +1,122 @@
+{
+  "schema": 2,
+  "scenario": "shopping",
+  "lang": "es",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal"
+  ],
+  "registerNotes": {
+    "familiar": "At a stall, the seller and the customer say usted to each other. In Colombia that is the norm."
+  },
+  "lines": {
+    "l1": {
+      "text": "¡Buenas! ¿Qué desea?",
+      "accept": [
+        "¡Buenas! ¿Qué le provoca?",
+        "¡Buenas! ¿Qué va a llevar?"
+      ]
+    },
+    "l2": {
+      "text": "¿Me regala {item}, por favor?",
+      "accept": [
+        "Quisiera {item}, por favor."
+      ]
+    },
+    "l3": {
+      "text": "¿Algo más?"
+    },
+    "l4": {
+      "text": "No, eso es todo. ¿Cuánto es?",
+      "accept": [
+        "No, eso es todo. ¿Cuánto le debo?"
+      ]
+    },
+    "l5": {
+      "text": "Son tres mil pesos.",
+      "accept": [
+        "Son 3000 pesos.",
+        "Tres mil pesos."
+      ]
+    },
+    "l6": {
+      "text": "Aquí tiene. ¡Gracias!"
+    }
+  },
+  "chunks": {
+    "what-would-you-like": {
+      "text": "¿qué desea?",
+      "literal": "what you-wish?"
+    },
+    "id-like": {
+      "text": "¿me regala ___, por favor?",
+      "literal": "me you-gift ___, for favour?"
+    },
+    "anything-else": {
+      "text": "¿algo más?",
+      "literal": "something more?"
+    },
+    "thats-all": {
+      "text": "eso es todo",
+      "literal": "that is all"
+    },
+    "how-much": {
+      "text": "¿cuánto es?",
+      "literal": "how-much is?"
+    },
+    "price": {
+      "text": "___ pesos",
+      "literal": "___ pesos"
+    },
+    "here-you-are": {
+      "text": "aquí tiene",
+      "literal": "here you-have"
+    },
+    "thank-you": {
+      "text": "gracias",
+      "literal": "thanks"
+    }
+  },
+  "slotValues": {
+    "item": [
+      {
+        "en": "an arepa",
+        "text": "una arepa"
+      },
+      {
+        "en": "an empanada",
+        "text": "una empanada"
+      },
+      {
+        "en": "a black coffee",
+        "text": "un tinto"
+      },
+      {
+        "en": "a lulo juice",
+        "text": "un jugo de lulo"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "do-you-have": {
+        "text": "¿Tiene ___?"
+      },
+      "two-please": {
+        "text": "Dos ___, por favor.",
+        "accept": [
+          "¿Me regala dos ___?"
+        ]
+      }
+    }
+  },
+  "notes": [
+    "¿Qué le provoca? (\"what do you feel like?\") is a very Colombian way for a seller to ask what you want.",
+    "Tinto in Colombia is a small black coffee, not red wine.",
+    "Prices are in thousands of pesos: tres mil pesos."
+  ]
+}

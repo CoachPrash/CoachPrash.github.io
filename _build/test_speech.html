@@ -38,7 +38,7 @@
   var STAGES_5_9 = ["likes", "routine", "shopping", "directions", "opinions"];
   /* every model line of every drafted scenario is generated as a case */
   var ALL = STAGES_1_4.concat(STAGES_5_9);
-  var DRAFTED = { hi: ALL, fr: ALL, zh: ALL };
+  var DRAFTED = { hi: ALL, es: ALL, fr: ALL, zh: ALL };
   var results = [];
 
   function load(code, id) { return C.scenario(code, id); }
@@ -201,6 +201,17 @@
     expectPhrase("zh free: 我很好", zh, zh.real.free.targets["i-am-fine"], "familiar", "我很好", true);
   }
 
+  /* Spanish (Colombian), hand-written. */
+  function spanish(es) {
+    var g = es.greetings, sh = es.shopping, lk = es.likes;
+    expectLine("es: typed without accents", g, line(g, "l3"), "formal", "me llamo ana como se llama usted", "good");
+    expectLine("es: tú form while usted selected", g, line(g, "l3"), "formal", "Me llamo Ana. ¿Cómo te llamas?", "nearly", "familiar");
+    expectLine("es: encantada accepted for mucho gusto", g, line(g, "l4"), "formal", "Me llamo Ana. Encantada.", "good");
+    expectLine("es: price heard as digits", sh, line(sh, "l5"), "formal", "son 3000 pesos", "good");
+    expectLine("es: slot run in gustar line", lk, line(lk, "l1"), "formal", "¿Le gusta el buñuelo?", "good");
+    expectPhrase("es free: muy bien gracias", g, g.real.free.targets["i-am-fine"], "formal", "muy bien gracias", true);
+  }
+
   /* Every drafted scenario: each model line, said in its register, is Good;
    * the other register's form is Nearly. Then the hand-written cases. */
   var jobs = [];
@@ -213,6 +224,7 @@
       generated(scs[i]);
     });
     handWritten(by.hi, by.fr.greetings, by.zh.greetings);
+    spanish(by.es);
     return results;
   });
 })();

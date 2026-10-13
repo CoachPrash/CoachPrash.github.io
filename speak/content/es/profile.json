@@ -1,0 +1,48 @@
+{
+  "schema": 2,
+  "code": "es",
+  "name": "Spanish",
+  "native": "Español",
+  "locale": "es-CO",
+  "script": "Latin",
+  "romanization": null,
+  "match": "words",
+  "normalize": [
+    "accents"
+  ],
+  "numerals": {
+    "0": "cero",
+    "1": "uno",
+    "2": "dos",
+    "3": "tres",
+    "4": "cuatro",
+    "5": "cinco",
+    "6": "seis",
+    "7": "siete",
+    "8": "ocho",
+    "9": "nueve",
+    "10": "diez"
+  },
+  "registers": [
+    {
+      "id": "formal",
+      "label": "usted",
+      "en": "formal"
+    },
+    {
+      "id": "familiar",
+      "label": "tú",
+      "en": "familiar"
+    }
+  ],
+  "defaultRegister": "formal",
+  "partnerGender": "f",
+  "profile": {
+    "formality": "Two levels of you: usted (formal) and tú (familiar). Colombians use usted widely, even with friends and family. Vos, used in Argentina and parts of Colombia, is not taught here.",
+    "script": "Latin with accents (á é í ó ú), ñ and ü. Questions and exclamations open with ¿ and ¡. Spelling follows sound closely.",
+    "questionWords": "qué, dónde, cuándo, quién, por qué, cómo, cuánto, cuál",
+    "agreement": "Nouns are masculine or feminine. Adjectives agree in gender and number: encantado / encantada, la película estuvo buena.",
+    "conjugation": "Verbs change with person. Usted takes the same form as he or she: usted es, tú eres.",
+    "wordOrder": "Subject–verb–object, as in English, but the subject pronoun is usually dropped: Soy de Medellín."
+  }
+}

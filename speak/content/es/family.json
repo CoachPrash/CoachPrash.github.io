@@ -1,0 +1,125 @@
+{
+  "schema": 2,
+  "scenario": "family",
+  "lang": "es",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "¿Tiene hermanos?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿Tienes hermanos?"
+        }
+      }
+    },
+    "l2": {
+      "text": "Sí. Tengo {count} hermanos y una hermana."
+    },
+    "l3": {
+      "text": "¿Tiene hijos?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿Tienes hijos?"
+        }
+      }
+    },
+    "l4": {
+      "text": "Sí, tengo {count} hijos. ¿Y usted?",
+      "byRegister": {
+        "familiar": {
+          "text": "Sí, tengo {count} hijos. ¿Y tú?"
+        }
+      }
+    },
+    "l5": {
+      "text": "No, no tengo hijos."
+    }
+  },
+  "chunks": {
+    "do-you-have": {
+      "text": "¿tiene ___?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿tienes ___?"
+        }
+      },
+      "literal": "you-have ___?"
+    },
+    "siblings": {
+      "text": "hermanos",
+      "literal": "brothers (and sisters)"
+    },
+    "i-have": {
+      "text": "tengo ___",
+      "literal": "I-have ___"
+    },
+    "one-x": {
+      "text": "y una ___",
+      "literal": "and one ___ (feminine)"
+    },
+    "and-yours": {
+      "text": "¿y usted?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿y tú?"
+        }
+      },
+      "literal": "and you?"
+    },
+    "i-dont-have": {
+      "text": "no tengo ___",
+      "literal": "not I-have ___"
+    }
+  },
+  "slotValues": {
+    "count": [
+      {
+        "en": "two",
+        "text": "dos"
+      },
+      {
+        "en": "three",
+        "text": "tres"
+      },
+      {
+        "en": "four",
+        "text": "cuatro"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "in-my-family": {
+        "text": "En mi familia somos ___.",
+        "accept": [
+          "Somos ___ en mi familia."
+        ]
+      },
+      "my-mothers-name": {
+        "text": "Mi mamá se llama ___.",
+        "accept": [
+          "Mi madre se llama ___."
+        ]
+      },
+      "my-fathers-name": {
+        "text": "Mi papá se llama ___.",
+        "accept": [
+          "Mi padre se llama ___."
+        ]
+      }
+    }
+  },
+  "notes": [
+    "Hermanos means brothers, or brothers and sisters together. Hijos means sons, or children.",
+    "Un goes with a masculine word, una with a feminine one: un hermano, una hermana.",
+    "En mi familia somos cinco: \"in my family we are five\". Spanish counts the family with somos."
+  ]
+}

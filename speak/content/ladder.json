@@ -1,6 +1,6 @@
 {
   "schema": 2,
-  "languages": ["hi", "fr", "zh"],
+  "languages": ["hi", "es", "fr", "zh"],
   "stages": [
     { "stage": 1, "level": "A1", "title": "Greetings & self-introduction", "scenarios": ["greetings"] },
     { "stage": 2, "level": "A1", "title": "Personal info", "scenarios": ["where-from"] },

@@ -1,0 +1,138 @@
+{
+  "schema": 2,
+  "scenario": "opinions",
+  "lang": "es",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "Hace buen tiempo hoy, ¿no?",
+      "accept": [
+        "Hace buen tiempo hoy, ¿verdad?"
+      ]
+    },
+    "l2": {
+      "text": "Sí, ¡muy bueno! ¿Qué hizo el fin de semana?",
+      "byRegister": {
+        "familiar": {
+          "text": "Sí, ¡muy bueno! ¿Qué hiciste el fin de semana?"
+        }
+      }
+    },
+    "l3": {
+      "text": "Vi una película."
+    },
+    "l4": {
+      "text": "¡Qué bien! ¿Cómo estuvo?",
+      "accept": [
+        "¡Qué bien! ¿Qué tal estuvo?"
+      ]
+    },
+    "l5": {
+      "text": "Estuvo {opinion}. ¿Y su fin de semana, cómo estuvo?",
+      "byRegister": {
+        "familiar": {
+          "text": "Estuvo {opinion}. ¿Y tu fin de semana, cómo estuvo?"
+        }
+      }
+    },
+    "l6": {
+      "text": "Tranquilo. Me quedé en la casa.",
+      "accept": [
+        "Tranquilo. Me quedé en casa."
+      ]
+    }
+  },
+  "chunks": {
+    "nice-weather": {
+      "text": "hace buen tiempo hoy, ¿no?",
+      "literal": "it-makes good weather today, no?"
+    },
+    "what-did-you-do": {
+      "text": "¿qué hizo el fin de semana?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿qué hiciste el fin de semana?"
+        }
+      },
+      "literal": "what you-did the end of week?"
+    },
+    "watch-a-film": {
+      "text": "vi una película",
+      "kind": "collocation",
+      "literal": "I-saw a film"
+    },
+    "how-was-it": {
+      "text": "¿cómo estuvo?",
+      "literal": "how it-was?"
+    },
+    "it-was": {
+      "text": "estuvo ___",
+      "literal": "it-was ___"
+    },
+    "how-was-your-weekend": {
+      "text": "¿y su fin de semana, cómo estuvo?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿y tu fin de semana, cómo estuvo?"
+        }
+      },
+      "literal": "and your end of week, how it-was?"
+    },
+    "stayed-at-home": {
+      "text": "me quedé en la casa",
+      "literal": "myself I-stayed in the house"
+    },
+    "i-agree": {
+      "text": "estoy de acuerdo",
+      "extra": true,
+      "literal": "I-am of agreement"
+    }
+  },
+  "slotValues": {
+    "opinion": [
+      {
+        "en": "very good",
+        "text": "muy buena"
+      },
+      {
+        "en": "boring",
+        "text": "aburrida"
+      },
+      {
+        "en": "okay",
+        "text": "más o menos"
+      },
+      {
+        "en": "brilliant",
+        "text": "buenísima"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "i-think": {
+        "text": "Creo que ___.",
+        "accept": [
+          "Pienso que ___."
+        ]
+      },
+      "i-dont-agree": {
+        "text": "No estoy de acuerdo."
+      }
+    }
+  },
+  "notes": [
+    "Película is feminine, so the opinion agrees with it: estuvo muy buena, aburrida, buenísima. For el libro it would be bueno, aburrido.",
+    "Estuvo (\"it was\") describes how something went. ¿Cómo estuvo? asks how it went.",
+    "Spanish uses hacer for weather, like French faire: hace buen tiempo, hace frío.",
+    "Colombians say en la casa where others say en casa."
+  ]
+}

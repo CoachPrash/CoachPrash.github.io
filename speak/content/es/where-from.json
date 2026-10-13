@@ -1,0 +1,176 @@
+{
+  "schema": 2,
+  "scenario": "where-from",
+  "lang": "es",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "¿De dónde es usted?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿De dónde eres?"
+        }
+      }
+    },
+    "l2": {
+      "text": "Soy de {city}. ¿Y usted?",
+      "byRegister": {
+        "familiar": {
+          "text": "Soy de {city}. ¿Y tú?"
+        }
+      }
+    },
+    "l3": {
+      "text": "Soy de {city}. ¿A qué se dedica?",
+      "accept": [
+        "Soy de {city}. ¿En qué trabaja?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Soy de {city}. ¿A qué te dedicas?",
+          "accept": [
+            "Soy de {city}. ¿En qué trabajas?"
+          ]
+        }
+      }
+    },
+    "l4": {
+      "text": "Soy {job}. ¿Y usted?",
+      "byRegister": {
+        "familiar": {
+          "text": "Soy {job}. ¿Y tú?"
+        }
+      }
+    },
+    "l5": {
+      "text": "Soy {job}."
+    }
+  },
+  "chunks": {
+    "where-from": {
+      "text": "¿de dónde es usted?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿de dónde eres?"
+        }
+      },
+      "literal": "from where are you?"
+    },
+    "i-am-from": {
+      "text": "soy de ___",
+      "literal": "I-am from ___"
+    },
+    "what-do-you-do": {
+      "text": "¿a qué se dedica?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿a qué te dedicas?"
+        }
+      },
+      "literal": "to what yourself you-dedicate?"
+    },
+    "i-am-a": {
+      "text": "soy ___",
+      "literal": "I-am ___"
+    },
+    "and-you": {
+      "text": "¿y usted?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿y tú?"
+        }
+      },
+      "literal": "and you?"
+    },
+    "i-live-in": {
+      "text": "vivo en ___",
+      "extra": true,
+      "literal": "I-live in ___"
+    }
+  },
+  "slotValues": {
+    "job": [
+      {
+        "en": "a student",
+        "text": "estudiante"
+      },
+      {
+        "en": "a teacher",
+        "text": "profesor / profesora"
+      },
+      {
+        "en": "an engineer",
+        "text": "ingeniero / ingeniera"
+      },
+      {
+        "en": "a nurse",
+        "text": "enfermero / enfermera"
+      },
+      {
+        "en": "a doctor",
+        "text": "médico / médica"
+      },
+      {
+        "en": "an accountant",
+        "text": "contador / contadora"
+      },
+      {
+        "en": "a lawyer",
+        "text": "abogado / abogada"
+      },
+      {
+        "en": "a sportsperson",
+        "text": "deportista"
+      },
+      {
+        "en": "an actor",
+        "text": "actor"
+      },
+      {
+        "en": "an actress",
+        "text": "actriz"
+      },
+      {
+        "en": "a businessman / businesswoman",
+        "text": "empresario / empresaria"
+      }
+    ]
+  },
+  "partnerValues": {
+    "city": {
+      "en": "Medellín",
+      "text": "Medellín"
+    }
+  },
+  "free": {
+    "targets": {
+      "are-you-a-student": {
+        "text": "¿Usted es estudiante?",
+        "byRegister": {
+          "familiar": {
+            "text": "¿Eres estudiante?"
+          }
+        }
+      },
+      "yes-i-am": {
+        "text": "Sí, soy estudiante."
+      },
+      "no-i-am-not": {
+        "text": "No, no soy estudiante."
+      }
+    }
+  },
+  "notes": [
+    "A job takes no article: Soy médico, not Soy un médico.",
+    "Many job words change for a woman: profesor → profesora, abogado → abogada. Estudiante and deportista stay the same.",
+    "In Colombia, usted is common even between friends and in families."
+  ]
+}

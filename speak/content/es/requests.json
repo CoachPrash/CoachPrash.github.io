@@ -1,0 +1,161 @@
+{
+  "schema": 2,
+  "scenario": "requests",
+  "lang": "es",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "¡Disculpe!",
+      "byRegister": {
+        "familiar": {
+          "text": "¡Disculpa!"
+        }
+      }
+    },
+    "l2": {
+      "text": "Sí, dígame.",
+      "byRegister": {
+        "familiar": {
+          "text": "Sí, dime."
+        }
+      }
+    },
+    "l3": {
+      "text": "¿Me regala {item}, por favor?",
+      "accept": [
+        "Quisiera {item}, por favor.",
+        "Deme {item}, por favor."
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "¿Me regalas {item}, por favor?",
+          "accept": [
+            "Quisiera {item}, por favor.",
+            "Dame {item}, por favor."
+          ]
+        }
+      }
+    },
+    "l4": {
+      "text": "Aquí tiene.",
+      "byRegister": {
+        "familiar": {
+          "text": "Aquí tienes."
+        }
+      }
+    },
+    "l5": {
+      "text": "¡Gracias!",
+      "accept": [
+        "¡Muchas gracias!"
+      ]
+    },
+    "l6": {
+      "text": "Con mucho gusto.",
+      "accept": [
+        "Con gusto.",
+        "De nada."
+      ]
+    }
+  },
+  "chunks": {
+    "excuse-me": {
+      "text": "disculpe",
+      "byRegister": {
+        "familiar": {
+          "text": "disculpa"
+        }
+      },
+      "literal": "excuse (me)"
+    },
+    "yes-tell-me": {
+      "text": "sí, dígame",
+      "byRegister": {
+        "familiar": {
+          "text": "sí, dime"
+        }
+      },
+      "literal": "yes, tell-me"
+    },
+    "give-me": {
+      "text": "¿me regala ___, por favor?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿me regalas ___, por favor?"
+        }
+      },
+      "literal": "me you-gift ___, for favour?"
+    },
+    "here-you-are": {
+      "text": "aquí tiene",
+      "byRegister": {
+        "familiar": {
+          "text": "aquí tienes"
+        }
+      },
+      "literal": "here you-have"
+    },
+    "thank-you": {
+      "text": "gracias",
+      "literal": "thanks"
+    },
+    "youre-welcome": {
+      "text": "con mucho gusto",
+      "literal": "with much pleasure"
+    },
+    "sorry": {
+      "text": "perdón",
+      "extra": true,
+      "registerNeutral": true,
+      "literal": "pardon"
+    }
+  },
+  "slotValues": {
+    "item": [
+      {
+        "en": "some water",
+        "text": "un vaso de agua"
+      },
+      {
+        "en": "some tea",
+        "text": "un té"
+      },
+      {
+        "en": "a pen",
+        "text": "un esfero"
+      },
+      {
+        "en": "some sugar",
+        "text": "azúcar"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "i-need": {
+        "text": "Necesito ___."
+      },
+      "do-you-have": {
+        "text": "¿Tiene ___?",
+        "byRegister": {
+          "familiar": {
+            "text": "¿Tienes ___?"
+          }
+        }
+      }
+    }
+  },
+  "notes": [
+    "¿Me regala…? (\"will you gift me…?\") is the everyday Colombian way to ask for something, even in a shop where you pay.",
+    "Con mucho gusto (\"with much pleasure\") is the usual Colombian answer to gracias. De nada also works.",
+    "Esfero is Colombian for a pen. Elsewhere you hear bolígrafo or pluma."
+  ]
+}

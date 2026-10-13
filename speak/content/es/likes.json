@@ -1,0 +1,147 @@
+{
+  "schema": 2,
+  "scenario": "likes",
+  "lang": "es",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "¿Le gusta {food}?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿Te gusta {food}?"
+        }
+      }
+    },
+    "l2": {
+      "text": "Sí, me encanta. ¿Y a usted?",
+      "byRegister": {
+        "familiar": {
+          "text": "Sí, me encanta. ¿Y a ti?"
+        }
+      }
+    },
+    "l3": {
+      "text": "No mucho. Me gusta el té.",
+      "accept": [
+        "No tanto. Me gusta el té."
+      ]
+    },
+    "l4": {
+      "text": "¿Cuál es su comida favorita?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿Cuál es tu comida favorita?"
+        }
+      }
+    },
+    "l5": {
+      "text": "Mi comida favorita es {fav}."
+    },
+    "l6": {
+      "text": "¿En serio? ¡A mí también!",
+      "accept": [
+        "¿De verdad? ¡A mí también!"
+      ]
+    }
+  },
+  "chunks": {
+    "do-you-like": {
+      "text": "¿le gusta ___?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿te gusta ___?"
+        }
+      },
+      "literal": "to-you pleases ___?"
+    },
+    "i-like-it-a-lot": {
+      "text": "me encanta",
+      "literal": "to-me it-enchants"
+    },
+    "not-much": {
+      "text": "no mucho",
+      "literal": "not much"
+    },
+    "i-like": {
+      "text": "me gusta ___",
+      "literal": "to-me pleases ___"
+    },
+    "whats-your-favourite": {
+      "text": "¿cuál es su comida favorita?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿cuál es tu comida favorita?"
+        }
+      },
+      "literal": "which is your food favourite?"
+    },
+    "my-favourite": {
+      "text": "mi comida favorita es ___",
+      "literal": "my food favourite is ___"
+    },
+    "me-too": {
+      "text": "a mí también",
+      "literal": "to me also"
+    },
+    "i-dont-like": {
+      "text": "no me gusta ___",
+      "extra": true,
+      "literal": "not to-me pleases ___"
+    }
+  },
+  "slotValues": {
+    "food": [
+      {
+        "en": "coffee",
+        "text": "el café"
+      },
+      {
+        "en": "milk",
+        "text": "la leche"
+      },
+      {
+        "en": "cheese",
+        "text": "el queso"
+      },
+      {
+        "en": "chocolate",
+        "text": "el chocolate"
+      }
+    ]
+  },
+  "partnerValues": {
+    "fav": {
+      "en": "bandeja paisa",
+      "text": "la bandeja paisa"
+    }
+  },
+  "free": {
+    "targets": {
+      "what-do-you-like": {
+        "text": "¿Qué le gusta?",
+        "byRegister": {
+          "familiar": {
+            "text": "¿Qué te gusta?"
+          }
+        }
+      },
+      "not-at-all": {
+        "text": "___ no me gusta para nada."
+      }
+    }
+  },
+  "notes": [
+    "Me gusta works like \"it pleases me\": the thing liked is the subject. With a plural thing it is me gustan: me gustan las arepas.",
+    "After gustar, Spanish keeps el / la: me gusta el café, never me gusta café.",
+    "Me encanta (\"it delights me\") is stronger than me gusta, and very common.",
+    "A mí también agrees with a gustar sentence. After an ordinary verb it is yo también."
+  ]
+}

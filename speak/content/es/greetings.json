@@ -1,0 +1,136 @@
+{
+  "schema": 2,
+  "scenario": "greetings",
+  "lang": "es",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "¡Buenos días!",
+      "byRegister": {
+        "familiar": {
+          "text": "¡Hola!",
+          "accept": [
+            "¡Buenos días!"
+          ]
+        }
+      }
+    },
+    "l2": {
+      "text": "¡Buenos días!",
+      "byRegister": {
+        "familiar": {
+          "text": "¡Hola!",
+          "accept": [
+            "¡Buenos días!"
+          ]
+        }
+      }
+    },
+    "l3": {
+      "text": "Me llamo {name}. ¿Cómo se llama usted?",
+      "accept": [
+        "Me llamo {name}. ¿Y usted?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Me llamo {name}. ¿Cómo te llamas?",
+          "accept": [
+            "Me llamo {name}. ¿Y tú?"
+          ]
+        }
+      }
+    },
+    "l4": {
+      "text": "Me llamo {name}. Mucho gusto.",
+      "registerNeutral": true,
+      "accept": [
+        "Me llamo {name}. Encantado.",
+        "Me llamo {name}. Encantada."
+      ]
+    },
+    "l5": {
+      "text": "Igualmente. ¡Hasta luego!",
+      "registerNeutral": true,
+      "accept": [
+        "Igualmente. ¡Adiós!"
+      ]
+    }
+  },
+  "chunks": {
+    "hello": {
+      "text": "buenos días",
+      "literal": "good days"
+    },
+    "my-name-is": {
+      "text": "me llamo ___",
+      "literal": "myself I-call ___"
+    },
+    "your-name": {
+      "text": "¿cómo se llama usted?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿cómo te llamas?"
+        }
+      },
+      "literal": "how yourself you-call you?"
+    },
+    "nice-to-meet": {
+      "text": "mucho gusto",
+      "registerNeutral": true,
+      "literal": "much pleasure"
+    },
+    "me-too": {
+      "text": "igualmente",
+      "literal": "equally"
+    },
+    "goodbye": {
+      "text": "hasta luego",
+      "literal": "until later"
+    }
+  },
+  "partnerValues": {
+    "name": {
+      "en": "Valentina",
+      "text": "Valentina"
+    }
+  },
+  "free": {
+    "targets": {
+      "how-are-you": {
+        "text": "¿Cómo está?",
+        "accept": [
+          "¿Cómo está usted?"
+        ],
+        "byRegister": {
+          "familiar": {
+            "text": "¿Cómo estás?",
+            "accept": [
+              "¿Qué tal?"
+            ]
+          }
+        }
+      },
+      "i-am-fine": {
+        "text": "Muy bien, gracias.",
+        "accept": [
+          "Bien, gracias.",
+          "Estoy bien, gracias.",
+          "Muy bien."
+        ]
+      }
+    }
+  },
+  "notes": [
+    "Mucho gusto is the safe, everyday \"nice to meet you\". Encantado (said by a man) and encantada (said by a woman) also work.",
+    "Buenos días is for the morning. After noon it is buenas tardes, and after dark buenas noches. Colombians often just say ¡Buenas!",
+    "Igualmente means \"likewise\": the usual answer to mucho gusto."
+  ]
+}

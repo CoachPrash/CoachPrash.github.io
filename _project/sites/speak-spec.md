@@ -1,12 +1,18 @@
 # Speak — specification
 
-**Status:** M1, M2 and M2.5 done. M2.5 passed Prash's test and ran in his Sunday class on 11 October 2026. M3 drafted (12 October 2026): French and Mandarin stages 1–4, waiting for native-speaker review. M4 drafted (12 October 2026): blueprints for stages 5–9, Hindi, French and Mandarin stages 5–9, and the Review screen. Waiting for review: Prash for Hindi, native speakers for French and Mandarin. M3.5 (images) is deferred until after M4.
-**Version:** 0.9.1, 12 October 2026
+**Status:** M1, M2 and M2.5 done. M2.5 passed Prash's test and ran in his Sunday class on 11 October 2026. M3 drafted (12 October 2026): French and Mandarin stages 1–4, waiting for native-speaker review. M4 drafted (12 October 2026): blueprints for stages 5–9, Hindi, French and Mandarin stages 5–9, and the Review screen. Waiting for review: Prash for Hindi, native speakers for French and Mandarin. M3.5 (images) is deferred until after M4. Spanish (Colombian) stages 1–9 drafted (13 October 2026), M-ES in §8.
+**Version:** 0.10, 13 October 2026
 **Brief:** `_project/sites/speak.md`
 
 This file is the build contract. When the spec and the code disagree, the spec wins, or the spec is changed first.
 
 ### Changes
+
+**0.10** (Spanish)
+
+- New language: **Spanish**, Colombian (`es`, locale `es-CO`). Registers usted (default) and tú. No romanization. Matching in words, with accents removed (§5.2). It sits between Hindi and French in `ladder.json`, so the home card does too.
+- Voices: when a device has no `es-CO` voice, the browser's other Spanish voices are offered (any `es-*`), as for every language.
+- Milestone M-ES (§8): Spanish stages 1–9, drafted in one pass from the French course.
 
 **0.9.1**
 
@@ -92,7 +98,7 @@ This file is the build contract. When the spec and the code disagree, the spec w
 
 **0.5** (found while building M1)
 
-- `ladder.json` lists the languages (`"languages": ["hi", "fr", "zh"]`), so a new language needs no code change. The checker compares it with the language folders.
+- `ladder.json` lists the languages (`"languages": ["hi", "es", "fr", "zh"]`), so a new language needs no code change. The checker compares it with the language folders.
 - A ladder stage may have an empty `scenarios` list. The ladder shows it as "Coming later".
 - Content loading lives in `assets/content.js`, separate from the screens.
 - A site bar on every page, and breadcrumbs with mode links on scenario pages (§4.0).
@@ -124,7 +130,7 @@ Speak gives beginners speaking practice through short, progressive, scripted sce
 - **Preferred setting:** a group with a native speaker present. The native speaker models the lines, runs the drills and corrects the learners live.
 - **Fallback:** one learner alone. The browser speaks the partner's lines and checks what the learner says.
 
-First languages: **Hindi** (Prash teaches it), **French** and **Mandarin Chinese** (Prash is learning them).
+Languages: **Hindi** (Prash teaches it), **French** and **Mandarin Chinese** (Prash is learning them), and **Spanish**, Colombian (added 13 October 2026).
 
 ### Users
 
@@ -150,14 +156,14 @@ First languages: **Hindi** (Prash teaches it), **French** and **Mandarin Chinese
 | Content format | JSON files under `speak/content/`, validated by `_build/check_speak.py` (standard library only) |
 | Scenarios per stage | One for now. The schema allows more |
 | Native speaker in class | Corrects. Takes a role only to partner a learner left without one |
-| Romanization | Hindi: Prash's ASCII scheme, easy to type (§3.3). Mandarin: Hanyu Pinyin with tone marks. French: none |
-| Register | Switch per scenario. Hindi आप / तुम / तू, French vous / tu, Mandarin 您 / 你 |
+| Romanization | Hindi: Prash's ASCII scheme, easy to type (§3.3). Mandarin: Hanyu Pinyin with tone marks. French and Spanish: none |
+| Register | Switch per scenario. Hindi आप / तुम / तू, Spanish usted / tú, French vous / tu, Mandarin 您 / 你 |
 | Chunks | Learners meet language as whole chunks first, and notice grammar last (after Michael Lewis's Lexical Approach). §3.9 |
 | Gender | Optional per person: Male, Female or blank. Blank shows both forms. Never guessed from a name. §3.10 |
 | Timers | None anywhere |
 | Reviewer output | Print view. PDF through the browser's Print → Save as PDF |
 | UI language | English |
-| Visibility | Linked from the coachprash.github.io root page. `noindex` on Speak and the root page until French and Mandarin stages 1–4 are verified |
+| Visibility | Linked from the coachprash.github.io root page. `noindex` on Speak and the root page until French, Spanish and Mandarin stages 1–4 are verified |
 | Dependencies | None. No framework, no bundler, no PDF library |
 
 ### When to move to a server (Railway)
@@ -184,7 +190,7 @@ speak/content/
   <lang>/<id>.json            realizations (one per scenario per language)
 ```
 
-Language codes: `hi`, `fr`, `zh`. Scenario ids: lowercase, hyphenated, permanent. **Ids are load-bearing:** they appear in URLs (`#hi/greetings`) and in the checker. Do not rename one after it ships. `profile` and `review` are reserved: they are routes (§4), so no scenario may use them.
+Language codes: `hi`, `es`, `fr`, `zh`. Scenario ids: lowercase, hyphenated, permanent. **Ids are load-bearing:** they appear in URLs (`#hi/greetings`) and in the checker. Do not rename one after it ships. `profile` and `review` are reserved: they are routes (§4), so no scenario may use them.
 
 Every file carries `"schema": 2`. A change that breaks old files increments it. Schema 2 (spec 0.8) renamed `vocab` to `chunks`, and the checker rejects schema 1 files.
 
@@ -193,7 +199,7 @@ Every file carries `"schema": 2`. A change that breaks old files increments it. 
 ```json
 {
   "schema": 2,
-  "languages": ["hi", "fr", "zh"],
+  "languages": ["hi", "es", "fr", "zh"],
   "stages": [
     { "stage": 1, "level": "A1", "title": "Greetings & self-introduction", "scenarios": ["greetings"] },
     { "stage": 2, "level": "A1", "title": "Personal info", "scenarios": ["where-from"] },
@@ -818,7 +824,7 @@ Review mixes chunks from earlier stages, so learners meet them again out of thei
 | Text-to-speech | Yes | Yes | Yes |
 | Recognition | Yes. Audio is sent to Google or Microsoft to transcribe | Yes | No: typed answers only |
 
-Recognition needs https, which GitHub Pages provides. Voices depend on the operating system. Windows and Chrome both ship Hindi, French and Mandarin voices, and Safari has them on macOS and iOS.
+Recognition needs https, which GitHub Pages provides. Voices depend on the operating system. Windows and Chrome both ship Hindi, French, Spanish and Mandarin voices, and Safari has them on macOS and iOS. Colombian voices (`es-CO`) are rarer: Edge has Salome and Gonzalo. Elsewhere the app falls back to another Spanish voice, such as Mexican or Spanish. Recognition for `es-CO` works in Chrome and Edge.
 
 - **No voice installed for a language:** the screen says so and names where to add one.
 - **Recognition missing or blocked:** solo mode switches to typed answers and says why.
@@ -831,6 +837,7 @@ Recognition needs https, which GitHub Pages provides. Voices depend on the opera
      - strip punctuation, including `।` (danda) and `、。！？`
      - hyphens become spaces (भाई-बहन = भाई बहन)
    - **French:** remove accents and apostrophes.
+   - **Spanish:** remove accents (á → a, ñ → n). `¿` and `¡` are punctuation.
    - **Hindi, Devanagari:**
      - fold nukta letters to their base (ज़ → ज, ख़ → ख, फ़ → फ)
      - treat chandrabindu and anusvara as equal (ँ = ं)
@@ -966,7 +973,8 @@ Each milestone is shippable on its own, and the card stays parked throughout.
 | **M3** | French and Mandarin, stages 1–4, drafted chunk-first with gender fields, in all their registers. Script view sent to reviewers | Checker passes. Prash has PDFs to send |
 | **M4** | Stages 5–9 in all three languages, plus the **Review** screen (§4.7). In four parts: (1) blueprints for stages 5–9, (2) Hindi stages 5–9, (3) Review, (4) French and Mandarin stages 5–9 | Checker and `_build/test_speech.html` pass. Hindi stages 5–9 verified by Prash. Review from a stage 5 scenario draws from stages 1–4 |
 | **M3.5** | Images, after M4. Item icons and speaker avatars, and a picture-cue toggle for the drill. Prash picks the source for scenes first: AI-generated, Open Peeps (CC0), stock photos, or none | The frame drill runs on picture cues |
-| **List** | Open to search engines | French and Mandarin stages 1–4 verified by native speakers. `noindex` removed from `speak/index.html` and the root `index.html` |
+| **M-ES** | Spanish (Colombian): profile, stages 1–9, voices, tests. Drafted in one pass from the French course (13 October 2026) | Checker and `_build/test_speech.html` pass. Stages 1–9 verified by a native speaker |
+| **List** | Open to search engines | French, Spanish and Mandarin stages 1–4 verified by native speakers. `noindex` removed from `speak/index.html` and the root `index.html` |
 
 ---
 

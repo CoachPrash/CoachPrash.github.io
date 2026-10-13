@@ -1,0 +1,147 @@
+{
+  "schema": 2,
+  "scenario": "directions",
+  "lang": "es",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "Disculpe, ¿dónde queda {place}?",
+      "accept": [
+        "Disculpe, ¿dónde está {place}?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Disculpa, ¿dónde queda {place}?",
+          "accept": [
+            "Disculpa, ¿dónde está {place}?"
+          ]
+        }
+      }
+    },
+    "l2": {
+      "text": "Siga derecho y luego voltee a la izquierda.",
+      "accept": [
+        "Siga derecho y luego gire a la izquierda."
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Sigue derecho y luego voltea a la izquierda.",
+          "accept": [
+            "Sigue derecho y luego gira a la izquierda."
+          ]
+        }
+      }
+    },
+    "l3": {
+      "text": "¿Queda lejos?"
+    },
+    "l4": {
+      "text": "No, queda cerquita. A cinco minutos caminando.",
+      "accept": [
+        "No, queda cerca. A cinco minutos caminando."
+      ]
+    },
+    "l5": {
+      "text": "¡Muchas gracias!"
+    },
+    "l6": {
+      "text": "Con mucho gusto.",
+      "accept": [
+        "Con gusto.",
+        "De nada."
+      ]
+    }
+  },
+  "chunks": {
+    "where-is": {
+      "text": "disculpe, ¿dónde queda ___?",
+      "byRegister": {
+        "familiar": {
+          "text": "disculpa, ¿dónde queda ___?"
+        }
+      },
+      "literal": "excuse (me), where lies ___?"
+    },
+    "go-straight": {
+      "text": "siga derecho",
+      "byRegister": {
+        "familiar": {
+          "text": "sigue derecho"
+        }
+      },
+      "literal": "carry-on straight"
+    },
+    "turn-left": {
+      "text": "voltee a la izquierda / derecha",
+      "byRegister": {
+        "familiar": {
+          "text": "voltea a la izquierda / derecha"
+        }
+      },
+      "literal": "turn to the left / right"
+    },
+    "is-it-far": {
+      "text": "¿queda lejos?",
+      "literal": "it-lies far?"
+    },
+    "its-near": {
+      "text": "queda cerquita",
+      "literal": "it-lies very-near"
+    },
+    "on-foot": {
+      "text": "a cinco minutos caminando",
+      "literal": "at five minutes walking"
+    },
+    "thank-you-very-much": {
+      "text": "muchas gracias",
+      "literal": "many thanks"
+    },
+    "youre-welcome": {
+      "text": "con mucho gusto",
+      "literal": "with much pleasure"
+    }
+  },
+  "slotValues": {
+    "place": [
+      {
+        "en": "the metro station",
+        "text": "la estación del metro"
+      },
+      {
+        "en": "the bank",
+        "text": "el banco"
+      },
+      {
+        "en": "the market",
+        "text": "la plaza de mercado"
+      },
+      {
+        "en": "the hospital",
+        "text": "el hospital"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "is-there-near": {
+        "text": "¿Hay ___ por aquí cerca?"
+      },
+      "on-the-right": {
+        "text": "Queda a la derecha / izquierda."
+      }
+    }
+  },
+  "notes": [
+    "Quedar is the usual verb for where a place is: ¿Dónde queda el banco?",
+    "Derecho means straight on. A la derecha means to the right.",
+    "Colombians often add -ito or -ita: cerquita (very near), ahorita (right now)."
+  ]
+}

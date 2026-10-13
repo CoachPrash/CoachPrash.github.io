@@ -1,0 +1,143 @@
+{
+  "schema": 2,
+  "scenario": "routine",
+  "lang": "es",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "¿A qué hora se levanta?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿A qué hora te levantas?"
+        }
+      }
+    },
+    "l2": {
+      "text": "Me levanto a las {time}. ¿Y usted?",
+      "byRegister": {
+        "familiar": {
+          "text": "Me levanto a las {time}. ¿Y tú?"
+        }
+      }
+    },
+    "l3": {
+      "text": "A las siete. Luego desayuno.",
+      "accept": [
+        "A las siete. Después desayuno."
+      ]
+    },
+    "l4": {
+      "text": "¿Qué hace por la noche?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿Qué haces por la noche?"
+        }
+      }
+    },
+    "l5": {
+      "text": "Por la noche salgo a caminar. ¿Y usted?",
+      "byRegister": {
+        "familiar": {
+          "text": "Por la noche salgo a caminar. ¿Y tú?"
+        }
+      }
+    },
+    "l6": {
+      "text": "Me acuesto temprano."
+    }
+  },
+  "chunks": {
+    "what-time-get-up": {
+      "text": "¿a qué hora se levanta?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿a qué hora te levantas?"
+        }
+      },
+      "literal": "at what hour yourself you-raise?"
+    },
+    "i-get-up-at": {
+      "text": "me levanto a las ___",
+      "literal": "myself I-raise at the ___"
+    },
+    "at-oclock": {
+      "text": "a las ___",
+      "literal": "at the ___ (hours)"
+    },
+    "have-breakfast": {
+      "text": "luego desayuno",
+      "literal": "then I-breakfast"
+    },
+    "in-the-evening": {
+      "text": "por la noche",
+      "literal": "for the night"
+    },
+    "go-for-a-walk": {
+      "text": "salgo a caminar",
+      "kind": "collocation",
+      "literal": "I-go-out to walk"
+    },
+    "go-to-bed-early": {
+      "text": "me acuesto temprano",
+      "literal": "myself I-lay-down early"
+    },
+    "every-day": {
+      "text": "todos los días",
+      "extra": true,
+      "literal": "all the days"
+    }
+  },
+  "slotValues": {
+    "time": [
+      {
+        "en": "six",
+        "text": "seis"
+      },
+      {
+        "en": "eight",
+        "text": "ocho"
+      },
+      {
+        "en": "five",
+        "text": "cinco"
+      },
+      {
+        "en": "nine",
+        "text": "nueve"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "in-the-morning": {
+        "text": "por la mañana",
+        "accept": [
+          "en la mañana"
+        ]
+      },
+      "in-the-afternoon": {
+        "text": "por la tarde",
+        "accept": [
+          "en la tarde"
+        ]
+      },
+      "at-night": {
+        "text": "en la noche"
+      }
+    }
+  },
+  "notes": [
+    "A las + the hour: a las siete. One o'clock is a la una.",
+    "Levantarse and acostarse take me / se / te: me levanto, usted se levanta, tú te levantas.",
+    "Desayunar is a verb: desayuno means \"I have breakfast\".",
+    "In Colombia, por la noche and en la noche both mean in the evening or at night."
+  ]
+}

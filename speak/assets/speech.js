@@ -69,8 +69,8 @@
   /* The Web Speech API does not say whether a voice is a woman's or a man's.
    * A short table of known voice names (spec §4.5); unknown names give null. */
   var VOICE_GENDER = [
-    [/swara|kalpana|lekha|हिन्दी|denise|julie|hortense|elo[iï]se|brigitte|vivienne|am[eé]lie|audrey|aur[eé]lie|xiaoxiao|xiaoyi|huihui|yaoyao|tingting|meijia|google fran[cç]ais|普通话/i, "f"],
-    [/madhur|hemant|rishi|henri|\bpaul\b|r[eé]my|thomas|daniel|yunxi|yunyang|yunjian|kangkang/i, "m"]
+    [/swara|kalpana|lekha|हिन्दी|denise|julie|hortense|elo[iï]se|brigitte|vivienne|am[eé]lie|audrey|aur[eé]lie|xiaoxiao|xiaoyi|huihui|yaoyao|tingting|meijia|google fran[cç]ais|普通话|salome|sabina|helena|laura|paulina|m[oó]nica|dalia|elvira|paloma|ximena|google espa[nñ]ol/i, "f"],
+    [/madhur|hemant|rishi|henri|\bpaul\b|r[eé]my|thomas|daniel|yunxi|yunyang|yunjian|kangkang|gonzalo|ra[uú]l|pablo|jorge|[aá]lvaro|diego|juan\b/i, "m"]
   ];
   function voiceGender(name) {
     for (var i = 0; i < VOICE_GENDER.length; i++) if (VOICE_GENDER[i][0].test(name || "")) return VOICE_GENDER[i][1];
