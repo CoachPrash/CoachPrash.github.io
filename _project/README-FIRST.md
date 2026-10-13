@@ -20,8 +20,9 @@ CoachPrash.github.io/
 ├── index.html             hand-written root page, links to each tool
 ├── speak/                 Speak app, all hand-written
 │   ├── index.html
-│   ├── assets/            app.js, content.js, solo.js, speech.js, style.css
-│   └── content/           JSON: ladder, scenarios/, hi/, fr/, zh/
+│   ├── assets/            app.js (router, class, script, review pack), content.js, solo.js,
+│   │                      review.js (flashcards), check.js (device check), speech.js, style.css
+│   └── content/           JSON: ladder, scenarios/, hi/, es/, fr/, zh/ (Spanish is Colombian, es-CO)
 ├── _build/
 │   ├── check_speak.py     validates speak/content/** (standard library only)
 │   ├── test_speech.html   matching tests for speak/assets/speech.js (open over http)
@@ -29,7 +30,8 @@ CoachPrash.github.io/
 └── _project/              documentation for Claude, not part of any site
     ├── README-FIRST.md    this file
     ├── INSTRUCTIONS-FIELD.txt   text pasted into the Claude Project settings
-    └── sites/             speak.md (brief), speak-spec.md (spec), speak-proposals.md (ideas not yet in the spec)
+    └── sites/             speak.md (brief), speak-spec.md (spec), speak-proposals.md (ideas not yet in the spec),
+                           speak-progression.md (research for the ladder redesign, M5)
 ```
 
 Nothing here is generated. There is no build step.
@@ -82,6 +84,7 @@ Windows, PowerShell: use `curl.exe`, not `curl`. `robocopy` exit code 1 means su
 ```powershell
 cd C:\Users\ipras\OneDrive\Documents\Claude\CoachPrash.github.io
 python _build\check_speak.py
+node _build\test_speech.js
 python -m http.server          # then open http://localhost:8000/speak/ and /_build/test_speech.html
 git add <named files>         # never -A
 git status
@@ -90,7 +93,7 @@ git push
 curl.exe -sI https://coachprash.github.io/speak/ | Select-Object -First 1
 ```
 
-Speak loads JSON, so it does not run from `file://`. Check that the Actions run went green: a failed Pages build looks the same as nothing happening.
+Speak loads JSON, so it does not run from `file://`. GitHub Pages lets browsers keep a script for 10 minutes: after a push, hard-reload (Ctrl+Shift+R) to see the new version. Check that the Actions run went green: a failed Pages build looks the same as nothing happening.
 
 ## History
 
@@ -99,3 +102,6 @@ Speak loads JSON, so it does not run from `file://`. Check that the Actions run 
 - **9 October 2026:** M2 built (spec 0.7.2).
 - **10 October 2026:** M2 done: Prash's spoken test passed. Proposals in `_project/sites/speak-proposals.md`.
 - **11 October 2026:** M2.5 done (chunks and gender). Used in Prash's Sunday class.
+- **12 October 2026:** M3 drafted (French and Mandarin stages 1–4). M4 built: stages 5–9 in all languages and the Review flashcards. Progression research written. People tabled.
+- **13 October 2026:** Spanish (Colombian) added, between Hindi and French. M4.5: review pack per language (`#hi/script`), Check your device (`#check`), new stage 2 `repair`, so there are 10 stages. Gender forms coloured blue and light red. Spec 0.11.1.
+- **Status:** all 40 realizations are `draft`. Next: Prash verifies Hindi from the review pack; native speakers review Spanish, French and Mandarin; M5 (ladder redesign) is planned from `speak-progression.md`.

@@ -414,9 +414,9 @@
         }).join("");
         var cur = rows[lad.languages.indexOf(code)], curProf = cur ? cur[0] : null;
         nav.innerHTML = '<a class="brand" href="#">Speak</a>' +
-          '<nav class="navlinks" aria-label="Site"><a href="#"' + (!code ? ' aria-current="true"' : "") + ">Home</a>" + links + "</nav>" +
+          '<nav class="navlinks" aria-label="Site"><a href="#"' + (!location.hash.replace(/^#\/?/, "") ? ' aria-current="true"' : "") + ">Home</a>" + links + "</nav>" +
           '<span class="navright">' + (curProf ? '<a class="about" href="#' + esc(code) + '/profile">About ' + esc(curProf.name) + "</a>" : "") +
-          '<a class="about" href="#check">Check device</a></span>';
+          '<a class="about" href="#check"' + (/^#check/.test(location.hash) ? ' aria-current="true"' : "") + ">Check device</a></span>";
       });
     });
   }
