@@ -113,6 +113,26 @@
     return g === "m" ? " g-m" : g === "f" ? " g-f" : "";
   }
 
+  /* Gendered variants shown together (spec §3.10): the words that differ from
+   * the other gender's form, coloured by gender. Returns the html, with fmt
+   * turning one plain word into html (fillHtml or slotMark). Words are compared
+   * by position; forms of different lengths are left plain. */
+  function genderWords(f, forms, field, fmt) {
+    var text = f[field] || "", plain = function () { return fmt(text); };
+    var keys = ["speaker", "listener"];
+    for (var k = 0; k < keys.length; k++) {
+      var key = keys[k], okey = keys[1 - k];
+      if (!f[key]) continue;
+      var other = forms.filter(function (w) { return w !== f && w[key] && w[key] !== f[key] && w[okey] === f[okey]; })[0];
+      if (!other || !other[field]) continue;
+      var a = text.split(" "), b = other[field].split(" ");
+      if (a.length !== b.length) return plain();
+      var cls = f[key] === "m" ? "g-m" : "g-f";
+      return a.map(function (t, i) { return t !== b[i] ? '<span class="' + cls + '">' + fmt(t) + "</span>" : fmt(t); }).join(" ");
+    }
+    return plain();
+  }
+
   /* Examples for a learner's own blanks: the partner's sample values for personal
    * slots, except the name (spec §3.8). */
   function examplesFor(bp, real) {
@@ -133,8 +153,8 @@
     var html = forms.map(function (f) {
       return '<div class="form">' +
         (C.variantLabel(f) ? '<span class="vlabel' + genderClass(f) + '">' + esc(C.variantLabel(f)) + "</span>" : "") +
-        '<div class="tl" lang="' + esc(prof.code) + '">' + markChoice(fillHtml(f.text, vals.text, ex.text), res.choice) + "</div>" +
-        (showRom && f.rom ? '<div class="rom">' + markChoice(fillHtml(f.rom, vals.rom, ex.rom), res.choice) + "</div>" : "") +
+        '<div class="tl" lang="' + esc(prof.code) + '">' + markChoice(genderWords(f, forms, "text", function (t) { return fillHtml(t, vals.text, ex.text); }), res.choice) + "</div>" +
+        (showRom && f.rom ? '<div class="rom">' + markChoice(genderWords(f, forms, "rom", function (t) { return fillHtml(t, vals.rom, ex.rom); }), res.choice) + "</div>" : "") +
         "</div>";
     }).join("");
     if (opts.en && settings.en) html += '<div class="en">' + esc(C.fill(opts.en, vals.en)) + "</div>";
@@ -1002,8 +1022,8 @@
         var forms = r.variants && r.variants.length ? r.variants : [{ text: r.text, rom: r.rom }];
         var html = forms.map(function (f) {
           return '<div class="form">' + (C.variantLabel(f) ? '<span class="vlabel' + genderClass(f) + '">' + esc(C.variantLabel(f)) + "</span>" : "") +
-            '<div class="tl" lang="' + esc(code) + '">' + markChoice(slotMark(f.text || ""), r.choice) + "</div>" +
-            (hasRom && f.rom ? '<div class="rom">' + markChoice(slotMark(f.rom), r.choice) + "</div>" : "") + "</div>";
+            '<div class="tl" lang="' + esc(code) + '">' + markChoice(genderWords(f, forms, "text", slotMark), r.choice) + "</div>" +
+            (hasRom && f.rom ? '<div class="rom">' + markChoice(genderWords(f, forms, "rom", slotMark), r.choice) + "</div>" : "") + "</div>";
         }).join("");
         if (r.accept && r.accept.length) html += '<div class="acc">Also accepted: ' + r.accept.map(function (a) {
           var t = typeof a === "string" ? a : a.text, ro = typeof a === "string" ? "" : a.rom;

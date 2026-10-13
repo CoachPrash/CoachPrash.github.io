@@ -1,12 +1,16 @@
 # Speak — specification
 
 **Status:** M1, M2 and M2.5 done. M2.5 passed Prash's test and ran in his Sunday class on 11 October 2026. M3 drafted (12 October 2026): French and Mandarin stages 1–4, waiting for native-speaker review. M4 drafted (12 October 2026): blueprints for stages 5–9, Hindi, French and Mandarin stages 5–9, and the Review screen. Waiting for review: Prash for Hindi, native speakers for French and Mandarin. M3.5 (images) is deferred until after M4. Spanish (Colombian) stages 1–9 drafted (13 October 2026), M-ES in §8.
-**Version:** 0.11, 13 October 2026
+**Version:** 0.11.1, 13 October 2026
 **Brief:** `_project/sites/speak.md`
 
 This file is the build contract. When the spec and the code disagree, the spec wins, or the spec is changed first.
 
 ### Changes
+
+**0.11.1**
+
+- Gendered variants shown together colour the words that differ: blue for the man's form, light red for the woman's (§3.10).
 
 **0.11** (review pack, device check, repair)
 
@@ -666,7 +670,7 @@ In Hindi, verbs agree with the speaker and with the listener: मैं कर�
 
 - `speaker`: the gender of the person saying the line. `listener`: the gender of the person spoken to. Values `"f"` and `"m"`.
 - `sameSound: true` on a line says its gender forms sound the same (enchanté / enchantée). Recognition then cannot tell them apart, so the wrong-gender check (§5.2 step 6) runs only on typed answers for that line.
-- The app writes the label: "said by a woman", "to a man", "a woman to a man". The label is blue for a man's form and light red for a woman's, by the speaker's gender, else the listener's. A free `label` stays for variants that are not about gender.
+- The app writes the label: "said by a woman", "to a man", "a woman to a man". The label is blue for a man's form and light red for a woman's, by the speaker's gender, else the listener's. When both forms are shown, the words that differ are coloured the same way, in the text and the romanization: उठते (blue) / उठती (light red). A free `label` stays for variants that are not about gender.
 - **Who is who.**
   - Class role play: the speaker is the person in the line's role, and the listener is the other person in the pair. Their genders come from the roster.
   - Solo: the learner's gender comes from the setting (§4.5). The partner's comes from the profile's `partnerGender`.
