@@ -7,7 +7,7 @@ Today it holds one tool: **Speak**, at `speak/`.
 ## Step 1 — always, at the start of a session
 
 1. Confirm you can see the repo on disk. Name the folders you find. If you cannot read files, say so at once rather than working from assumption.
-2. Read `_project/sites/speak.md` (the brief), then `_project/sites/speak-spec.md` (the spec). The spec is the build contract: when spec and code disagree, the spec wins, or the spec is changed first.
+2. Read `_project/sites/speak-status.md` (where things stand, decisions, next steps), then `_project/sites/speak.md` (the brief), then `_project/sites/speak-spec.md` (the spec). The spec is the build contract: when spec and code disagree, the spec wins, or the spec is changed first.
 3. Before any edit, state which files you will change.
 
 ## Layout
@@ -31,7 +31,8 @@ CoachPrash.github.io/
     ├── README-FIRST.md    this file
     ├── INSTRUCTIONS-FIELD.txt   text pasted into the Claude Project settings
     └── sites/             speak.md (brief), speak-spec.md (spec), speak-proposals.md (ideas not yet in the spec),
-                           speak-progression.md (research for the ladder redesign, M5)
+                           speak-progression.md (research for the ladder redesign, M5),
+                           speak-ladder-plan.md (the M5 plan), speak-status.md (status, decisions, next steps)
 ```
 
 Nothing here is generated. There is no build step.
@@ -106,3 +107,4 @@ Speak loads JSON, so it does not run from `file://`. GitHub Pages lets browsers 
 - **13 October 2026:** Spanish (Colombian) added, between Hindi and French. M4.5: review pack per language (`#hi/script`), Check your device (`#check`), new stage 2 `repair`, so there are 10 stages. Gender forms coloured blue and light red. Spec 0.11.1.
 - **Status:** all 40 realizations are `draft`. Next: Prash verifies Hindi from the review pack; native speakers review Spanish, French and Mandarin; M5 (ladder redesign) is planned from `speak-progression.md`.
 - **14 October 2026:** M5 built: ladder regrouped into 11 topic stages, 33 new scenarios (13 A1, 20 A2) in all four languages. 43 scenarios, 172 realizations, all `draft`. Plan: `_project/sites/speak-ladder-plan.md`.
+- **14 October 2026, end of sprint:** stage labels fit the circles; review pack by stage (`#hi/script/1-5`); checker reports recycling. Building pauses for review. Status, decisions and next steps: `_project/sites/speak-status.md`. Last commit `d392024`.

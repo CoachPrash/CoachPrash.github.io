@@ -18,9 +18,7 @@ Prash teaches Hindi and is learning French and Mandarin. Beginners rarely get en
 
 ## Status
 
-**M1 built (4 Oct 2026):** content format, checker, Hindi stages 1–4, French and Mandarin greetings, class mode with the formality switch, script view. Solo mode is M2. All content is `draft`.
-
-**M2 built (9 Oct 2026):** solo mode with speech recognition, matching, wrong-register detection, typed answers and free-practice coverage. `_build/test_speech.html` passes. Prash's spoken test in Chrome passed on 10 Oct 2026, so M2 is done.
+**As of 14 October 2026:** 4 languages, 11 topic stages, 43 scenarios, 172 realizations, all `draft`. Class mode, solo mode, Review flashcards, review packs and the device check are built. Building pauses until the drafts are reviewed and used in class. **The current status, every decision and the next steps are in `_project/sites/speak-status.md`.** Milestone history is under Open items below.
 
 The spec is `_project/sites/speak-spec.md`. It is the build contract: read it before touching anything in `speak/`.
 
@@ -33,10 +31,13 @@ The spec is `_project/sites/speak-spec.md`. It is the build contract: read it be
 | `speak/assets/speech.js` | Hand-written. Text-to-speech, recognition, matching. No DOM code |
 | `speak/assets/app.js` | Hand-written. Router and screens |
 | `speak/assets/solo.js` | Hand-written. Solo mode screen |
+| `speak/assets/review.js` | Hand-written. Review flashcards |
+| `speak/assets/check.js` | Hand-written. Check your device |
 | `speak/assets/style.css` | Hand-written |
 | `speak/content/**` | Hand-written JSON: ladder, blueprints, language profiles, realizations |
 | `_build/check_speak.py` | Content validator. Standard library only |
 | `_build/test_speech.html` | Matching tests. Open over http |
+| `_build/test_speech.js` | The same tests in Node: `node _build/test_speech.js` |
 
 ## Editing rules
 
@@ -63,3 +64,4 @@ The spec is `_project/sites/speak-spec.md`. It is the build contract: read it be
 - Hindi romanization is Prash's ASCII scheme (spec §3.3). All Hindi content follows it.
 - Milestones M2 to M4 in the spec.
 - Local testing: `python -m http.server` in the repo root, then open http://localhost:8000/speak/ and http://localhost:8000/_build/test_speech.html. The app loads JSON, so it does not run from file://.
+- **14 Oct 2026, end of sprint:** stage labels fit; review pack by stage; checker recycling report (17–23 of about 280 core chunks per language come back 3+ times). Building paused for review. Next steps in `speak-status.md`.

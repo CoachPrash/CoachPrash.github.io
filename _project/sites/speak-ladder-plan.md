@@ -62,3 +62,11 @@ Each part ends with the checker, the matching tests and a browser run, then a co
 - Gender: wherever the language marks it, give variants (`speaker` / `listener`) or a `choice: "mf"` chunk.
 - Culture: one local touch per scenario where it fits naturally (chai, tinto, boulangerie, 包子).
 - Numbers above ten: give an `accept` with digits as well, because recognition often returns digits.
+
+## 5. After the build (14 October 2026)
+
+- All of M5.1–M5.3 is built: 43 scenarios in 11 stages, in four languages, all `draft`.
+- **Recycling is the main shortfall.** The checker's recycling report shows that only 17–23 of about 280 core chunks per language come back in three or more later scenarios. The plan's rule 6 (two reused chunks per dialogue) was too weak.
+- **The fix**, done with the reviewers' corrections so that each file is edited once: choose 60–80 high-value chunks per language and weave each one into three later dialogues. Run `python _build/check_speak.py --recycling` to track it.
+- Still deferred: review scenarios, the retrieval warm-up, images, and Mix it. The order is in `speak-status.md` §4.
+
