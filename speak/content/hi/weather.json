@@ -1,0 +1,140 @@
+{
+  "schema": 2,
+  "scenario": "weather",
+  "lang": "hi",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "registerNotes": {
+    "intimate": "तू is for very close friends and family. Practise this one with आप and तुम."
+  },
+  "lines": {
+    "l1": {
+      "text": "हैलो! वहाँ मौसम कैसा है?",
+      "rom": "hailo! vahaan mausam kaisaa hai?"
+    },
+    "l2": {
+      "text": "आज {weather}। और वहाँ?",
+      "rom": "aaj {weather}. aur vahaan?"
+    },
+    "l3": {
+      "text": "यहाँ बहुत बारिश हो रही है।",
+      "rom": "yahaan bahut baarish ho rahee hai."
+    },
+    "l4": {
+      "text": "छाता ले लीजिए!",
+      "rom": "chhaataa le leejie!",
+      "byRegister": {
+        "familiar": {
+          "text": "छाता ले लो!",
+          "rom": "chhaataa le lo!"
+        }
+      }
+    },
+    "l5": {
+      "text": "हाँ। मुझे बारिश बहुत पसंद है।",
+      "rom": "haan. mujhe baarish bahut pasand hai."
+    },
+    "l6": {
+      "text": "मुझे नहीं! मुझे धूप ज़्यादा पसंद है।",
+      "rom": "mujhe naheen! mujhe dhoop zyaadaa pasand hai."
+    }
+  },
+  "chunks": {
+    "hows-the-weather": {
+      "text": "मौसम कैसा है?",
+      "rom": "mausam kaisaa hai?",
+      "literal": "weather how is?"
+    },
+    "today-weather": {
+      "text": "आज ___",
+      "rom": "aaj ___",
+      "literal": "today ___"
+    },
+    "its-raining": {
+      "text": "बारिश हो रही है",
+      "rom": "baarish ho rahee hai",
+      "literal": "rain happening is"
+    },
+    "take-umbrella": {
+      "text": "छाता ले लीजिए",
+      "rom": "chhaataa le leejie",
+      "literal": "umbrella take (please)",
+      "byRegister": {
+        "familiar": {
+          "text": "छाता ले लो",
+          "rom": "chhaataa le lo"
+        }
+      }
+    },
+    "i-love": {
+      "text": "मुझे ___ बहुत पसंद है",
+      "rom": "mujhe ___ bahut pasand hai",
+      "literal": "to-me ___ very-much liked is"
+    },
+    "not-me": {
+      "text": "मुझे नहीं",
+      "rom": "mujhe naheen",
+      "literal": "to-me not"
+    },
+    "i-prefer": {
+      "text": "मुझे ___ ज़्यादा पसंद है",
+      "rom": "mujhe ___ zyaadaa pasand hai",
+      "literal": "to-me ___ more liked is"
+    },
+    "its-cold": {
+      "text": "ठंड है",
+      "rom": "ThanD hai",
+      "extra": true,
+      "literal": "cold is"
+    }
+  },
+  "slotValues": {
+    "weather": [
+      {
+        "en": "it's sunny",
+        "text": "धूप निकली है",
+        "rom": "dhoop niklee hai"
+      },
+      {
+        "en": "it's very hot",
+        "text": "बहुत गर्मी है",
+        "rom": "bahut garmee hai"
+      },
+      {
+        "en": "it's cold",
+        "text": "ठंड है",
+        "rom": "ThanD hai"
+      },
+      {
+        "en": "it's cloudy",
+        "text": "बादल छाए हैं",
+        "rom": "baadal chhaae hain"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "in-my-city": {
+        "text": "मेरे शहर में ___",
+        "rom": "mere shahar men ___"
+      },
+      "when-it-rains": {
+        "text": "जब बारिश होती है, तो मैं ___",
+        "rom": "jab baarish hotee hai, to main ___"
+      }
+    }
+  },
+  "notes": [
+    "Rain \"happens\" in Hindi: बारिश हो रही है (it is raining), बारिश होती है (it rains).",
+    "धूप is sunshine: धूप निकली है (the sun is out). Heat and cold are nouns: गर्मी है, ठंड है.",
+    "\"I prefer\" is मुझे ___ ज़्यादा पसंद है (\"to me ___ is liked more\").",
+    "In the monsoon (बरसात), a rainy day often means hot chai and pakoras at home."
+  ]
+}

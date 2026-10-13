@@ -1,0 +1,206 @@
+{
+  "schema": 2,
+  "scenario": "introduce",
+  "lang": "zh",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "你好！这是我的朋友{friend}。",
+      "rom": "Nǐ hǎo! Zhè shì wǒ de péngyou {friend}.",
+      "byRegister": {
+        "formal": {
+          "text": "您好！这是我的朋友{friend}。",
+          "rom": "Nín hǎo! Zhè shì wǒ de péngyou {friend}."
+        }
+      }
+    },
+    "l2": {
+      "text": "你好！很高兴认识你。",
+      "rom": "Nǐ hǎo! Hěn gāoxìng rènshi nǐ.",
+      "byRegister": {
+        "formal": {
+          "text": "您好！很高兴认识您。",
+          "rom": "Nín hǎo! Hěn gāoxìng rènshi nín."
+        }
+      }
+    },
+    "l3": {
+      "text": "{friend}是{city}人。",
+      "rom": "{friend} shì {city} rén.",
+      "accept": [
+        {
+          "text": "{friend}来自{city}。",
+          "rom": "{friend} láizì {city}."
+        }
+      ]
+    },
+    "l4": {
+      "text": "哦，是吗？{friend}做什么工作？",
+      "rom": "Ò, shì ma? {friend} zuò shénme gōngzuò?",
+      "accept": [
+        {
+          "text": "真的吗？{friend}做什么工作？",
+          "rom": "Zhēn de ma? {friend} zuò shénme gōngzuò?"
+        }
+      ]
+    },
+    "l5": {
+      "text": "{friend}是{job}。",
+      "rom": "{friend} shì {job}."
+    },
+    "l6": {
+      "text": "太好了！欢迎你！",
+      "rom": "Tài hǎo le! Huānyíng nǐ!",
+      "accept": [
+        {
+          "text": "太好了！欢迎！",
+          "rom": "Tài hǎo le! Huānyíng!"
+        }
+      ],
+      "byRegister": {
+        "formal": {
+          "text": "太好了！欢迎您！",
+          "rom": "Tài hǎo le! Huānyíng nín!"
+        }
+      }
+    }
+  },
+  "chunks": {
+    "this-is-my-friend": {
+      "text": "这是我的朋友___",
+      "rom": "zhè shì wǒ de péngyou ___",
+      "literal": "this is my friend ___",
+      "chain": [
+        "朋友___",
+        "我的朋友___"
+      ]
+    },
+    "nice-to-meet": {
+      "text": "很高兴认识你",
+      "rom": "hěn gāoxìng rènshi nǐ",
+      "byRegister": {
+        "formal": {
+          "text": "很高兴认识您",
+          "rom": "hěn gāoxìng rènshi nín"
+        }
+      },
+      "literal": "very glad to-know you",
+      "chain": [
+        "认识你",
+        "高兴认识你"
+      ]
+    },
+    "is-from": {
+      "text": "___是___人",
+      "rom": "___ shì ___ rén",
+      "literal": "___ is ___ person"
+    },
+    "oh-really": {
+      "text": "哦，是吗？",
+      "rom": "ò, shì ma?",
+      "literal": "oh, is (it)?"
+    },
+    "what-does-do": {
+      "text": "___做什么工作？",
+      "rom": "___ zuò shénme gōngzuò?",
+      "literal": "___ does what work?",
+      "chain": [
+        "工作？",
+        "什么工作？",
+        "做什么工作？"
+      ]
+    },
+    "welcome": {
+      "text": "欢迎你",
+      "rom": "huānyíng nǐ",
+      "byRegister": {
+        "formal": {
+          "text": "欢迎您",
+          "rom": "huānyíng nín"
+        }
+      },
+      "literal": "welcome you"
+    },
+    "this-is-my": {
+      "text": "这是我的___",
+      "rom": "zhè shì wǒ de ___",
+      "literal": "this is my ___",
+      "chain": [
+        "我的___"
+      ]
+    }
+  },
+  "slotValues": {
+    "job": [
+      {
+        "en": "teacher",
+        "text": "老师",
+        "rom": "lǎoshī"
+      },
+      {
+        "en": "doctor",
+        "text": "医生",
+        "rom": "yīshēng"
+      },
+      {
+        "en": "engineer",
+        "text": "工程师",
+        "rom": "gōngchéngshī"
+      },
+      {
+        "en": "cook",
+        "text": "厨师",
+        "rom": "chúshī"
+      }
+    ]
+  },
+  "partnerValues": {
+    "friend": {
+      "en": "Li Na",
+      "text": "李娜",
+      "rom": "Lǐ Nà"
+    },
+    "city": {
+      "en": "Shanghai",
+      "text": "上海",
+      "rom": "Shànghǎi"
+    }
+  },
+  "free": {
+    "targets": {
+      "their-name-is": {
+        "text": "他叫___。",
+        "rom": "Tā jiào ___.",
+        "accept": [
+          {
+            "text": "她叫___。",
+            "rom": "Tā jiào ___."
+          }
+        ]
+      },
+      "nice-to-meet-too": {
+        "text": "我也很高兴认识你。",
+        "rom": "Wǒ yě hěn gāoxìng rènshi nǐ.",
+        "byRegister": {
+          "formal": {
+            "text": "我也很高兴认识您。",
+            "rom": "Wǒ yě hěn gāoxìng rènshi nín."
+          }
+        }
+      }
+    }
+  },
+  "notes": [
+    "这是… (zhè shì…, this is…) introduces someone: 这是我的朋友李娜.",
+    "他 (he) and 她 (she) are both said tā. Only the written form differs.",
+    "欢迎 (huānyíng) means welcome. 欢迎你 welcomes one person."
+  ]
+}

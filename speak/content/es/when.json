@@ -1,0 +1,146 @@
+{
+  "schema": 2,
+  "scenario": "when",
+  "lang": "es",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "¿Cuándo es su cumpleaños?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿Cuándo es tu cumpleaños?"
+        }
+      }
+    },
+    "l2": {
+      "text": "Es en {month}. ¿Y el suyo?",
+      "accept": [
+        "En {month}. ¿Y el suyo?",
+        "Es en {month}. ¿Y usted?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Es en {month}. ¿Y el tuyo?",
+          "accept": [
+            "En {month}. ¿Y el tuyo?",
+            "Es en {month}. ¿Y tú?"
+          ]
+        }
+      }
+    },
+    "l3": {
+      "text": "El mío es en mayo.",
+      "accept": [
+        "El mío en mayo.",
+        "Es en mayo."
+      ]
+    },
+    "l4": {
+      "text": "¿Cuándo es nuestra próxima clase?",
+      "accept": [
+        "¿Cuándo es la próxima clase?"
+      ]
+    },
+    "l5": {
+      "text": "El domingo, a las diez.",
+      "accept": [
+        "El domingo a las 10."
+      ]
+    },
+    "l6": {
+      "text": "Listo. ¡Nos vemos el domingo!",
+      "accept": [
+        "Perfecto. ¡Nos vemos el domingo!",
+        "Bueno. ¡Nos vemos el domingo!"
+      ]
+    }
+  },
+  "chunks": {
+    "when-birthday": {
+      "text": "¿cuándo es su cumpleaños?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿cuándo es tu cumpleaños?"
+        }
+      },
+      "literal": "when is your birthday?"
+    },
+    "its-in": {
+      "text": "es en ___",
+      "literal": "it-is in ___"
+    },
+    "and-yours": {
+      "text": "¿y el suyo?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿y el tuyo?"
+        }
+      },
+      "literal": "and the yours?"
+    },
+    "mine-is-in": {
+      "text": "el mío es en ___",
+      "literal": "the mine is in ___"
+    },
+    "next-class": {
+      "text": "¿cuándo es nuestra próxima clase?",
+      "literal": "when is our next class?"
+    },
+    "see-you-on": {
+      "text": "nos vemos el ___",
+      "literal": "ourselves we-see the ___"
+    },
+    "every-week": {
+      "text": "cada semana",
+      "extra": true,
+      "literal": "each week"
+    }
+  },
+  "slotValues": {
+    "month": [
+      {
+        "en": "March",
+        "text": "marzo"
+      },
+      {
+        "en": "July",
+        "text": "julio"
+      },
+      {
+        "en": "October",
+        "text": "octubre"
+      },
+      {
+        "en": "December",
+        "text": "diciembre"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "happy-birthday": {
+        "text": "¡Feliz cumpleaños!"
+      },
+      "whats-the-date": {
+        "text": "¿Qué fecha es hoy?",
+        "accept": [
+          "¿A cuántos estamos hoy?"
+        ]
+      }
+    }
+  },
+  "notes": [
+    "Months and days take no capital letter: en mayo, el domingo.",
+    "\"On Sunday\" is el domingo, with no word for \"on\".",
+    "El suyo (usted) and el tuyo (tú) mean \"yours\". They agree with the thing: el cumpleaños, so el suyo.",
+    "Listo (\"ready\") is the Colombian way to say OK or great."
+  ]
+}

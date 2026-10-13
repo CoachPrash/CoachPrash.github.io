@@ -1,0 +1,100 @@
+{
+  "schema": 2,
+  "id": "have",
+  "title": "Do you have a pen?",
+  "goal": "Ask for something you need, and talk about whose things are whose.",
+  "roles": {
+    "A": "Needs something",
+    "B": "Helps"
+  },
+  "slots": {
+    "thing": {
+      "kind": "set",
+      "cue": "a thing"
+    }
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "role": "A",
+      "en": "Excuse me, do you have a {thing}?",
+      "addressesYou": true
+    },
+    {
+      "id": "l2",
+      "role": "B",
+      "en": "Yes, here it is."
+    },
+    {
+      "id": "l3",
+      "role": "A",
+      "en": "Thanks! I'll give it back later."
+    },
+    {
+      "id": "l4",
+      "role": "B",
+      "en": "No problem. Is this bag yours?",
+      "addressesYou": true
+    },
+    {
+      "id": "l5",
+      "role": "A",
+      "en": "No, it's not mine."
+    },
+    {
+      "id": "l6",
+      "role": "B",
+      "en": "Maybe it's the teacher's."
+    }
+  ],
+  "chunks": [
+    {
+      "id": "do-you-have",
+      "en": "do you have a ___?",
+      "addressesYou": true
+    },
+    {
+      "id": "here-it-is",
+      "en": "here it is"
+    },
+    {
+      "id": "give-back",
+      "en": "I'll give it back later"
+    },
+    {
+      "id": "no-problem",
+      "en": "no problem"
+    },
+    {
+      "id": "is-this-yours",
+      "en": "is this ___ yours?",
+      "addressesYou": true
+    },
+    {
+      "id": "not-mine",
+      "en": "it's not mine"
+    },
+    {
+      "id": "can-i-borrow",
+      "en": "can I borrow ___?",
+      "addressesYou": true
+    }
+  ],
+  "drill": {
+    "slot": "thing",
+    "instruction": "Swap the thing each time."
+  },
+  "free": {
+    "prompt": "Put five things from your bags on the table. Ask whose each one is.",
+    "targets": [
+      {
+        "id": "whose-is",
+        "en": "whose is this?"
+      },
+      {
+        "id": "its-mine",
+        "en": "it's mine"
+      }
+    ]
+  }
+}

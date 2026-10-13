@@ -1,0 +1,152 @@
+{
+  "schema": 2,
+  "scenario": "weekend",
+  "lang": "fr",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "Qu'est-ce que vous faites le week-end ?",
+      "accept": [
+        "Vous faites quoi le week-end ?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Qu'est-ce que tu fais le week-end ?",
+          "accept": [
+            "Tu fais quoi le week-end ?"
+          ]
+        }
+      }
+    },
+    "l2": {
+      "text": "En général, je {activity}. Et vous ?",
+      "accept": [
+        "D'habitude, je {activity}. Et vous ?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "En général, je {activity}. Et toi ?",
+          "accept": [
+            "D'habitude, je {activity}. Et toi ?"
+          ]
+        }
+      }
+    },
+    "l3": {
+      "text": "Moi, je vais au marché avec des amis.",
+      "accept": [
+        "Je vais au marché avec des amis."
+      ]
+    },
+    "l4": {
+      "text": "Ça a l'air sympa !",
+      "accept": [
+        "Ça a l'air bien !"
+      ]
+    },
+    "l5": {
+      "text": "Vous voulez venir samedi ?",
+      "byRegister": {
+        "familiar": {
+          "text": "Tu veux venir samedi ?"
+        }
+      }
+    },
+    "l6": {
+      "text": "Oui, avec plaisir !",
+      "accept": [
+        "Oui, volontiers !"
+      ]
+    }
+  },
+  "chunks": {
+    "what-weekend": {
+      "text": "qu'est-ce que vous faites le week-end ?",
+      "byRegister": {
+        "familiar": {
+          "text": "qu'est-ce que tu fais le week-end ?"
+        }
+      },
+      "literal": "what is it that you do the weekend?"
+    },
+    "i-usually": {
+      "text": "en général, je ___",
+      "literal": "in general, I ___"
+    },
+    "with-friends": {
+      "text": "avec des amis",
+      "literal": "with some friends"
+    },
+    "sounds-fun": {
+      "text": "ça a l'air sympa !",
+      "literal": "that has the air nice!"
+    },
+    "want-to-come": {
+      "text": "vous voulez venir ?",
+      "byRegister": {
+        "familiar": {
+          "text": "tu veux venir ?"
+        }
+      },
+      "literal": "you want to-come?"
+    },
+    "gladly": {
+      "text": "oui, avec plaisir",
+      "literal": "yes, with pleasure"
+    },
+    "every-sunday": {
+      "extra": true,
+      "text": "tous les dimanches",
+      "literal": "all the Sundays"
+    }
+  },
+  "slotValues": {
+    "activity": [
+      {
+        "en": "do sport",
+        "text": "fais du sport"
+      },
+      {
+        "en": "go to the cinema",
+        "text": "vais au cinéma"
+      },
+      {
+        "en": "cook",
+        "text": "fais la cuisine"
+      },
+      {
+        "en": "go cycling",
+        "text": "fais du vélo"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "sometimes": {
+        "text": "Parfois, je ___.",
+        "accept": [
+          "De temps en temps, je ___."
+        ]
+      },
+      "never": {
+        "text": "Je ne ___ jamais.",
+        "accept": [
+          "Je ___ jamais."
+        ]
+      }
+    }
+  },
+  "notes": [
+    "Samedi alone means this Saturday. Le samedi means every Saturday.",
+    "Ne ... jamais goes around the verb: je ne fais jamais de sport. In speech, ne is often dropped.",
+    "Le marché, the weekly open-air market, is a weekend habit in many French towns."
+  ]
+}

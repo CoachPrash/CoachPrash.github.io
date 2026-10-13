@@ -1,0 +1,131 @@
+{
+  "schema": 2,
+  "scenario": "weather",
+  "lang": "fr",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "Bonjour ! Quel temps fait-il chez vous ?",
+      "accept": [
+        "Bonjour ! Il fait quel temps chez vous ?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Salut ! Il fait quel temps chez toi ?",
+          "accept": [
+            "Salut ! Quel temps fait-il chez toi ?"
+          ]
+        }
+      }
+    },
+    "l2": {
+      "text": "Aujourd'hui, {weather}. Et là-bas ?"
+    },
+    "l3": {
+      "text": "Ici, il pleut beaucoup."
+    },
+    "l4": {
+      "text": "Prenez un parapluie !",
+      "byRegister": {
+        "familiar": {
+          "text": "Prends un parapluie !"
+        }
+      }
+    },
+    "l5": {
+      "text": "Oui. Moi, j'adore la pluie.",
+      "accept": [
+        "Oui. J'adore la pluie."
+      ]
+    },
+    "l6": {
+      "text": "Pas moi ! Je préfère le soleil.",
+      "accept": [
+        "Moi non ! Je préfère le soleil."
+      ]
+    }
+  },
+  "chunks": {
+    "hows-the-weather": {
+      "text": "quel temps fait-il ?",
+      "literal": "which weather makes it?"
+    },
+    "today-weather": {
+      "text": "aujourd'hui, ___",
+      "literal": "today, ___"
+    },
+    "its-raining": {
+      "text": "il pleut",
+      "literal": "it rains"
+    },
+    "take-umbrella": {
+      "text": "prenez un parapluie !",
+      "byRegister": {
+        "familiar": {
+          "text": "prends un parapluie !"
+        }
+      },
+      "literal": "take an umbrella!"
+    },
+    "i-love": {
+      "text": "j'adore ___",
+      "literal": "I adore ___"
+    },
+    "not-me": {
+      "text": "pas moi !",
+      "literal": "not me!"
+    },
+    "i-prefer": {
+      "text": "je préfère ___",
+      "literal": "I prefer ___"
+    },
+    "its-cold": {
+      "extra": true,
+      "text": "il fait froid",
+      "literal": "it makes cold"
+    }
+  },
+  "slotValues": {
+    "weather": [
+      {
+        "en": "it's sunny",
+        "text": "il fait beau"
+      },
+      {
+        "en": "it's hot",
+        "text": "il fait chaud"
+      },
+      {
+        "en": "it's cold",
+        "text": "il fait froid"
+      },
+      {
+        "en": "it's snowing",
+        "text": "il neige"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "in-my-city": {
+        "text": "Dans ma ville, ___."
+      },
+      "when-it-rains": {
+        "text": "Quand il pleut, je ___."
+      }
+    }
+  },
+  "notes": [
+    "Most weather uses il fait: il fait beau, il fait chaud, il fait froid.",
+    "Rain and snow have their own verbs: il pleut, il neige.",
+    "Chez vous, chez toi: at your place, where you are."
+  ]
+}

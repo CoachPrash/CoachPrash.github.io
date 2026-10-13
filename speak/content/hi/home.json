@@ -1,0 +1,209 @@
+{
+  "schema": 2,
+  "scenario": "home",
+  "lang": "hi",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "registerNotes": {
+    "intimate": "तू is for very close friends and family. Practise this one with आप and तुम."
+  },
+  "lines": {
+    "l1": {
+      "text": "आप कहाँ रहते हैं?",
+      "rom": "aap kahaan rahte hain?",
+      "variants": [
+        {
+          "listener": "m",
+          "text": "आप कहाँ रहते हैं?",
+          "rom": "aap kahaan rahte hain?"
+        },
+        {
+          "listener": "f",
+          "text": "आप कहाँ रहती हैं?",
+          "rom": "aap kahaan rahtee hain?"
+        }
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "तुम कहाँ रहते हो?",
+          "rom": "tum kahaan rahte ho?",
+          "variants": [
+            {
+              "listener": "m",
+              "text": "तुम कहाँ रहते हो?",
+              "rom": "tum kahaan rahte ho?"
+            },
+            {
+              "listener": "f",
+              "text": "तुम कहाँ रहती हो?",
+              "rom": "tum kahaan rahtee ho?"
+            }
+          ]
+        }
+      }
+    },
+    "l2": {
+      "text": "मैं {area} रहता हूँ। और आप?",
+      "rom": "main {area} rahtaa hoon. aur aap?",
+      "variants": [
+        {
+          "speaker": "m",
+          "text": "मैं {area} रहता हूँ। और आप?",
+          "rom": "main {area} rahtaa hoon. aur aap?"
+        },
+        {
+          "speaker": "f",
+          "text": "मैं {area} रहती हूँ। और आप?",
+          "rom": "main {area} rahtee hoon. aur aap?"
+        }
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "मैं {area} रहता हूँ। और तुम?",
+          "rom": "main {area} rahtaa hoon. aur tum?",
+          "variants": [
+            {
+              "speaker": "m",
+              "text": "मैं {area} रहता हूँ। और तुम?",
+              "rom": "main {area} rahtaa hoon. aur tum?"
+            },
+            {
+              "speaker": "f",
+              "text": "मैं {area} रहती हूँ। और तुम?",
+              "rom": "main {area} rahtee hoon. aur tum?"
+            }
+          ]
+        }
+      }
+    },
+    "l3": {
+      "text": "मैं अपने परिवार के साथ एक फ़्लैट में रहता हूँ।",
+      "rom": "main apne parivaar ke saath ek flaiT men rahtaa hoon.",
+      "variants": [
+        {
+          "speaker": "m",
+          "text": "मैं अपने परिवार के साथ एक फ़्लैट में रहता हूँ।",
+          "rom": "main apne parivaar ke saath ek flaiT men rahtaa hoon."
+        },
+        {
+          "speaker": "f",
+          "text": "मैं अपने परिवार के साथ एक फ़्लैट में रहती हूँ।",
+          "rom": "main apne parivaar ke saath ek flaiT men rahtee hoon."
+        }
+      ]
+    },
+    "l4": {
+      "text": "क्या वो बड़ा है?",
+      "rom": "kyaa vo baRaa hai?"
+    },
+    "l5": {
+      "text": "नहीं, छोटा है, पर अच्छा है।",
+      "rom": "naheen, chhoTaa hai, par achchhaa hai."
+    },
+    "l6": {
+      "text": "मेरा भी ऐसा ही है!",
+      "rom": "meraa bhee aisaa hee hai!"
+    }
+  },
+  "chunks": {
+    "where-live": {
+      "text": "आप कहाँ रहते / रहती हैं?",
+      "rom": "aap kahaan rahte / rahtee hain?",
+      "choice": "mf",
+      "literal": "you where live are?",
+      "byRegister": {
+        "familiar": {
+          "text": "तुम कहाँ रहते / रहती हो?",
+          "rom": "tum kahaan rahte / rahtee ho?"
+        }
+      }
+    },
+    "i-live": {
+      "text": "मैं ___ रहता / रहती हूँ",
+      "rom": "main ___ rahtaa / rahtee hoon",
+      "choice": "mf",
+      "literal": "I ___ live am"
+    },
+    "and-you": {
+      "text": "और आप?",
+      "rom": "aur aap?",
+      "literal": "and you?",
+      "byRegister": {
+        "familiar": {
+          "text": "और तुम?",
+          "rom": "aur tum?"
+        }
+      }
+    },
+    "with-my-family": {
+      "text": "अपने परिवार के साथ",
+      "rom": "apne parivaar ke saath",
+      "literal": "own family of with"
+    },
+    "is-it-big": {
+      "text": "क्या वो बड़ा है?",
+      "rom": "kyaa vo baRaa hai?",
+      "literal": "(question) it big is?"
+    },
+    "small-but-nice": {
+      "text": "छोटा है, पर अच्छा है",
+      "rom": "chhoTaa hai, par achchhaa hai",
+      "literal": "small is, but good is"
+    },
+    "i-live-alone": {
+      "text": "मैं अकेले रहता / रहती हूँ",
+      "rom": "main akele rahtaa / rahtee hoon",
+      "choice": "mf",
+      "extra": true,
+      "literal": "I alone live am"
+    }
+  },
+  "slotValues": {
+    "area": [
+      {
+        "en": "in the city",
+        "text": "शहर में",
+        "rom": "shahar men"
+      },
+      {
+        "en": "in a village",
+        "text": "गाँव में",
+        "rom": "gaanv men"
+      },
+      {
+        "en": "near the station",
+        "text": "स्टेशन के पास",
+        "rom": "sTeshan ke paas"
+      },
+      {
+        "en": "outside the city",
+        "text": "शहर के बाहर",
+        "rom": "shahar ke baahar"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "there-are-rooms": {
+        "text": "इसमें ___ कमरे हैं",
+        "rom": "ismen ___ kamre hain"
+      },
+      "i-like-my-home": {
+        "text": "मुझे अपना घर पसंद है",
+        "rom": "mujhe apnaa ghar pasand hai"
+      }
+    }
+  },
+  "notes": [
+    "अपना (own) points back to the subject: मैं अपने परिवार के साथ रहता हूँ, \"I live with my (own) family\". मेरे परिवार के साथ is also heard, but अपने is more natural here.",
+    "रहता / रहती agrees with the speaker. With आप and तुम, it is रहते for a man and रहती for a woman.",
+    "फ़्लैट is masculine, so it is बड़ा and छोटा. Many Indian families live together: grandparents, parents and children in one home."
+  ]
+}

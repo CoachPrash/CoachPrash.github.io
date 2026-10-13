@@ -1,0 +1,105 @@
+{
+  "schema": 2,
+  "id": "in-class",
+  "title": "In class",
+  "goal": "Use the phrases you need in class with a teacher.",
+  "roles": {
+    "A": "A student",
+    "B": "The teacher"
+  },
+  "slots": {
+    "page": {
+      "kind": "set",
+      "cue": "a page number"
+    }
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "role": "A",
+      "en": "Excuse me, may I come in?",
+      "addressesYou": true
+    },
+    {
+      "id": "l2",
+      "role": "B",
+      "en": "Yes, come in. Sit down.",
+      "addressesYou": true
+    },
+    {
+      "id": "l3",
+      "role": "A",
+      "en": "Sorry I'm late. Which page?"
+    },
+    {
+      "id": "l4",
+      "role": "B",
+      "en": "Page {page}."
+    },
+    {
+      "id": "l5",
+      "role": "A",
+      "en": "I've finished. Is this right?"
+    },
+    {
+      "id": "l6",
+      "role": "B",
+      "en": "Yes, very good!"
+    }
+  ],
+  "chunks": [
+    {
+      "id": "may-i-come-in",
+      "en": "may I come in?",
+      "addressesYou": true
+    },
+    {
+      "id": "come-in",
+      "en": "come in",
+      "addressesYou": true
+    },
+    {
+      "id": "sorry-late",
+      "en": "sorry I'm late"
+    },
+    {
+      "id": "which-page",
+      "en": "which page?"
+    },
+    {
+      "id": "page",
+      "en": "page ___"
+    },
+    {
+      "id": "ive-finished",
+      "en": "I've finished"
+    },
+    {
+      "id": "is-this-right",
+      "en": "is this right?"
+    },
+    {
+      "id": "may-i-go",
+      "en": "may I go to the toilet?",
+      "addressesYou": true
+    }
+  ],
+  "drill": {
+    "slot": "page",
+    "instruction": "Swap the page number each time."
+  },
+  "free": {
+    "prompt": "Play a class: one person is the teacher. The students arrive late, ask for the page, and check their answers.",
+    "targets": [
+      {
+        "id": "i-dont-know",
+        "en": "I don't know"
+      },
+      {
+        "id": "one-more-time",
+        "en": "one more time, please",
+        "addressesYou": true
+      }
+    ]
+  }
+}

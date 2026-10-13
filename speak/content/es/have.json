@@ -1,0 +1,170 @@
+{
+  "schema": 2,
+  "scenario": "have",
+  "lang": "es",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "Disculpe, ¿tiene {thing}?",
+      "accept": [
+        "Disculpe, ¿me presta {thing}?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Disculpa, ¿tienes {thing}?",
+          "accept": [
+            "Disculpa, ¿me prestas {thing}?"
+          ]
+        }
+      }
+    },
+    "l2": {
+      "text": "Sí, aquí está.",
+      "accept": [
+        "Sí, claro. Aquí está.",
+        "Sí, tenga."
+      ]
+    },
+    "l3": {
+      "text": "¡Gracias! Se lo devuelvo ahorita.",
+      "accept": [
+        "¡Gracias! Se lo devuelvo más tarde."
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "¡Gracias! Te lo devuelvo ahorita.",
+          "accept": [
+            "¡Gracias! Te lo devuelvo más tarde."
+          ]
+        }
+      }
+    },
+    "l4": {
+      "text": "No hay problema. ¿Este bolso es suyo?",
+      "accept": [
+        "Tranquilo. ¿Este bolso es suyo?",
+        "Tranquila. ¿Este bolso es suyo?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "No hay problema. ¿Este bolso es tuyo?",
+          "accept": [
+            "Tranquilo. ¿Este bolso es tuyo?",
+            "Tranquila. ¿Este bolso es tuyo?"
+          ]
+        }
+      }
+    },
+    "l5": {
+      "text": "No, no es mío."
+    },
+    "l6": {
+      "text": "De pronto es del profesor.",
+      "accept": [
+        "De pronto es de la profesora.",
+        "Tal vez es del profesor."
+      ]
+    }
+  },
+  "chunks": {
+    "do-you-have": {
+      "text": "¿tiene ___?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿tienes ___?"
+        }
+      },
+      "literal": "you-have ___?"
+    },
+    "here-it-is": {
+      "text": "aquí está",
+      "literal": "here it-is"
+    },
+    "give-back": {
+      "text": "se lo devuelvo ahorita",
+      "byRegister": {
+        "familiar": {
+          "text": "te lo devuelvo ahorita"
+        }
+      },
+      "literal": "you it I-return in-a-bit"
+    },
+    "no-problem": {
+      "text": "no hay problema",
+      "literal": "not there-is problem"
+    },
+    "is-this-yours": {
+      "text": "¿este ___ es suyo?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿este ___ es tuyo?"
+        }
+      },
+      "literal": "this ___ is yours?"
+    },
+    "not-mine": {
+      "text": "no es mío",
+      "literal": "not is mine"
+    },
+    "can-i-borrow": {
+      "text": "¿me presta ___?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿me prestas ___?"
+        }
+      },
+      "extra": true,
+      "literal": "me you-lend ___?"
+    }
+  },
+  "slotValues": {
+    "thing": [
+      {
+        "en": "pen",
+        "text": "un esfero"
+      },
+      {
+        "en": "pencil",
+        "text": "un lápiz"
+      },
+      {
+        "en": "eraser",
+        "text": "un borrador"
+      },
+      {
+        "en": "notebook",
+        "text": "un cuaderno"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "whose-is": {
+        "text": "¿De quién es esto?",
+        "accept": [
+          "¿De quién es?"
+        ]
+      },
+      "its-mine": {
+        "text": "Es mío.",
+        "accept": [
+          "Es mía."
+        ]
+      }
+    }
+  },
+  "notes": [
+    "Ahorita means \"in a little while\" in Colombia, not always \"right now\".",
+    "De pronto (\"suddenly\") means \"maybe\" in Colombia: De pronto es del profesor.",
+    "Mío / mía agrees with the thing, not the owner: el bolso es mío, la maleta es mía.",
+    "Esfero is Colombian for a pen. ¿Me presta un esfero? (\"will you lend me a pen?\") is how most people ask."
+  ]
+}

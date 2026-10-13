@@ -2,15 +2,16 @@
   "schema": 2,
   "languages": ["hi", "es", "fr", "zh"],
   "stages": [
-    { "stage": 1, "level": "A1", "title": "Greetings & self-introduction", "scenarios": ["greetings"] },
-    { "stage": 2, "level": "A1", "title": "When you don't understand", "scenarios": ["repair"] },
-    { "stage": 3, "level": "A1", "title": "Personal info", "scenarios": ["where-from"] },
-    { "stage": 4, "level": "A1", "title": "Numbers & family", "scenarios": ["family"] },
-    { "stage": 5, "level": "A1", "title": "Politeness & requests", "scenarios": ["requests"] },
-    { "stage": 6, "level": "A1", "title": "Likes & dislikes", "scenarios": ["likes"] },
-    { "stage": 7, "level": "A2", "title": "Daily routine", "scenarios": ["routine"] },
-    { "stage": 8, "level": "A2", "title": "Shopping & ordering", "scenarios": ["shopping"] },
-    { "stage": 9, "level": "A2", "title": "Directions", "scenarios": ["directions"] },
-    { "stage": 10, "level": "A2", "title": "Small talk & opinions", "scenarios": ["opinions"] }
+    { "stage": 1, "level": "A1", "label": "Pre-A1 → A1", "title": "First contact", "scenarios": ["greetings", "repair", "where-from", "numbers"] },
+    { "stage": 2, "level": "A1", "title": "People around me", "scenarios": ["family", "introduce", "likes", "feel"] },
+    { "stage": 3, "level": "A1", "title": "Time", "scenarios": ["time", "when", "free"] },
+    { "stage": 4, "level": "A1", "title": "Getting things", "scenarios": ["requests", "shopping", "price", "near"] },
+    { "stage": 5, "level": "A1", "title": "My world", "scenarios": ["home", "weekend", "weather", "have", "in-class"] },
+    { "stage": 6, "level": "A2", "title": "My days", "scenarios": ["routine"] },
+    { "stage": 7, "level": "A2", "title": "Around town", "scenarios": ["directions"] },
+    { "stage": 8, "level": "A2", "title": "Plans and invitations", "scenarios": [] },
+    { "stage": 9, "level": "A2", "title": "What happened", "scenarios": ["opinions"] },
+    { "stage": 10, "level": "A2", "title": "People and wellbeing", "scenarios": [] },
+    { "stage": 11, "level": "A2", "title": "Opinions and choices", "scenarios": [] }
   ]
 }

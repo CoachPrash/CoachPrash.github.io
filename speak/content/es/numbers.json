@@ -1,0 +1,184 @@
+{
+  "schema": 2,
+  "scenario": "numbers",
+  "lang": "es",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "¿Cuántos años tiene?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿Cuántos años tienes?"
+        }
+      }
+    },
+    "l2": {
+      "text": "Tengo {age} años. ¿Y usted?",
+      "byRegister": {
+        "familiar": {
+          "text": "Tengo {age} años. ¿Y tú?"
+        }
+      }
+    },
+    "l3": {
+      "text": "Tengo treinta. ¿Cuál es su número de celular?",
+      "accept": [
+        "Tengo 30. ¿Cuál es su número de celular?",
+        "Tengo treinta años. ¿Cuál es su número de celular?",
+        "Tengo treinta. ¿Cuál es su número de teléfono?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Tengo treinta. ¿Cuál es tu número de celular?",
+          "accept": [
+            "Tengo 30. ¿Cuál es tu número de celular?",
+            "Tengo treinta años. ¿Cuál es tu número de celular?",
+            "Tengo treinta. ¿Cuál es tu número de teléfono?"
+          ]
+        }
+      }
+    },
+    "l4": {
+      "text": "Es el {phone}.",
+      "accept": [
+        "Es {phone}.",
+        "Mi número es el {phone}."
+      ]
+    },
+    "l5": {
+      "text": "¿Perdón? ¿Me lo repite?",
+      "accept": [
+        "¿Perdón? ¿Puede repetir?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "¿Perdón? ¿Me lo repites?",
+          "accept": [
+            "¿Perdón? ¿Puedes repetir?"
+          ]
+        }
+      }
+    },
+    "l6": {
+      "text": "Claro. {phone}.",
+      "accept": [
+        "Claro que sí. {phone}."
+      ]
+    },
+    "l7": {
+      "text": "¡Gracias! Nos vemos.",
+      "accept": [
+        "¡Gracias! Hasta luego.",
+        "¡Gracias! Chao."
+      ]
+    }
+  },
+  "chunks": {
+    "how-old": {
+      "text": "¿cuántos años tiene?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿cuántos años tienes?"
+        }
+      },
+      "literal": "how-many years you-have?"
+    },
+    "i-am-age": {
+      "text": "tengo ___ años",
+      "literal": "I-have ___ years"
+    },
+    "whats-your-number": {
+      "text": "¿cuál es su número de celular?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿cuál es tu número de celular?"
+        }
+      },
+      "literal": "which is your number of mobile?"
+    },
+    "its": {
+      "text": "es el ___",
+      "literal": "it-is the ___"
+    },
+    "can-you-repeat": {
+      "text": "¿me lo repite?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿me lo repites?"
+        }
+      },
+      "literal": "me it you-repeat?"
+    },
+    "of-course": {
+      "text": "claro",
+      "literal": "clear"
+    },
+    "see-you": {
+      "text": "nos vemos",
+      "literal": "ourselves we-see"
+    },
+    "my-number-is": {
+      "text": "mi número es el ___",
+      "extra": true,
+      "literal": "my number is the ___"
+    }
+  },
+  "slotValues": {
+    "phone": [
+      {
+        "en": "310 456 7890",
+        "text": "310 456 7890"
+      },
+      {
+        "en": "315 220 1847",
+        "text": "315 220 1847"
+      },
+      {
+        "en": "300 918 6532",
+        "text": "300 918 6532"
+      },
+      {
+        "en": "320 774 5019",
+        "text": "320 774 5019"
+      }
+    ]
+  },
+  "partnerValues": {
+    "age": {
+      "en": "twenty-five",
+      "text": "veinticinco"
+    }
+  },
+  "free": {
+    "targets": {
+      "is-that-right": {
+        "text": "¿Es correcto?",
+        "accept": [
+          "¿Está bien?",
+          "¿Así es?"
+        ]
+      },
+      "yes-thats-right": {
+        "text": "Sí, correcto.",
+        "accept": [
+          "Sí, exacto.",
+          "Sí, así es.",
+          "Sí, es correcto."
+        ]
+      }
+    }
+  },
+  "notes": [
+    "Age uses tener (to have): tengo veinticinco años, \"I have twenty-five years\". Never soy veinticinco.",
+    "A mobile phone is a celular in Colombia. Mobile numbers have ten digits and start with 3: 310 456 7890.",
+    "Colombians often read a number in groups: trescientos diez, cuatro cinco seis… Saying the digits one by one is fine too."
+  ]
+}

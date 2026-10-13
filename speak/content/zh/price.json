@@ -1,0 +1,199 @@
+{
+  "schema": 2,
+  "scenario": "price",
+  "lang": "zh",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "老板，{item}多少钱一斤？",
+      "rom": "Lǎobǎn, {item} duōshao qián yì jīn?",
+      "accept": [
+        {
+          "text": "你好！{item}多少钱一斤？",
+          "rom": "Nǐ hǎo! {item} duōshao qián yì jīn?"
+        },
+        {
+          "text": "老板，{item}怎么卖？",
+          "rom": "Lǎobǎn, {item} zěnme mài?"
+        }
+      ]
+    },
+    "l2": {
+      "text": "十二块一斤。",
+      "rom": "Shí'èr kuài yì jīn.",
+      "accept": [
+        {
+          "text": "12块一斤。",
+          "rom": "12 kuài yì jīn."
+        },
+        {
+          "text": "十二块钱一斤。",
+          "rom": "Shí'èr kuài qián yì jīn."
+        }
+      ]
+    },
+    "l3": {
+      "text": "太贵了！便宜一点吧？",
+      "rom": "Tài guì le! Piányi yìdiǎn ba?",
+      "accept": [
+        {
+          "text": "太贵了！便宜一点儿吧？",
+          "rom": "Tài guì le! Piányi yìdiǎnr ba?"
+        },
+        {
+          "text": "太贵了！能便宜点吗？",
+          "rom": "Tài guì le! Néng piányi diǎn ma?"
+        }
+      ],
+      "registerNeutral": true
+    },
+    "l4": {
+      "text": "好吧，算你十块。",
+      "rom": "Hǎo ba, suàn nǐ shí kuài.",
+      "accept": [
+        {
+          "text": "好吧，十块。",
+          "rom": "Hǎo ba, shí kuài."
+        }
+      ],
+      "byRegister": {
+        "formal": {
+          "text": "好吧，算您十块。",
+          "rom": "Hǎo ba, suàn nín shí kuài."
+        }
+      }
+    },
+    "l5": {
+      "text": "好，我要两斤。",
+      "rom": "Hǎo, wǒ yào liǎng jīn.",
+      "accept": [
+        {
+          "text": "行，我要两斤。",
+          "rom": "Xíng, wǒ yào liǎng jīn."
+        }
+      ]
+    },
+    "l6": {
+      "text": "给你。",
+      "rom": "Gěi nǐ.",
+      "byRegister": {
+        "formal": {
+          "text": "给您。",
+          "rom": "Gěi nín."
+        }
+      }
+    }
+  },
+  "chunks": {
+    "how-much-are": {
+      "text": "___多少钱一斤？",
+      "rom": "___ duōshao qián yì jīn?",
+      "literal": "___ how-much money one jin?",
+      "chain": [
+        "一斤？",
+        "多少钱一斤？"
+      ]
+    },
+    "a-kilo": {
+      "text": "___一斤",
+      "rom": "___ yì jīn",
+      "literal": "___ one jin (half a kilo)"
+    },
+    "thats-expensive": {
+      "text": "太贵了",
+      "rom": "tài guì le",
+      "literal": "too expensive"
+    },
+    "a-bit-cheaper": {
+      "text": "便宜一点吧？",
+      "rom": "piányi yìdiǎn ba?",
+      "registerNeutral": true,
+      "literal": "cheap a-little (suggest)?",
+      "chain": [
+        "一点吧？"
+      ]
+    },
+    "ill-take": {
+      "text": "我要___",
+      "rom": "wǒ yào ___",
+      "literal": "I want ___"
+    },
+    "here-you-are": {
+      "text": "给你",
+      "rom": "gěi nǐ",
+      "byRegister": {
+        "formal": {
+          "text": "给您",
+          "rom": "gěi nín"
+        }
+      },
+      "literal": "give you"
+    },
+    "too-much": {
+      "text": "这也太贵了",
+      "rom": "zhè yě tài guì le",
+      "literal": "this also too expensive",
+      "extra": true,
+      "chain": [
+        "太贵了",
+        "也太贵了"
+      ]
+    }
+  },
+  "slotValues": {
+    "item": [
+      {
+        "en": "apples",
+        "text": "苹果",
+        "rom": "píngguǒ"
+      },
+      {
+        "en": "tomatoes",
+        "text": "西红柿",
+        "rom": "xīhóngshì"
+      },
+      {
+        "en": "bananas",
+        "text": "香蕉",
+        "rom": "xiāngjiāo"
+      },
+      {
+        "en": "potatoes",
+        "text": "土豆",
+        "rom": "tǔdòu"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "last-price": {
+        "text": "最便宜多少钱？",
+        "rom": "Zuì piányi duōshao qián?",
+        "accept": [
+          {
+            "text": "最低多少钱？",
+            "rom": "Zuì dī duōshao qián?"
+          }
+        ],
+        "registerNeutral": true
+      },
+      "ok-deal": {
+        "text": "好，成交！",
+        "rom": "Hǎo, chéngjiāo!"
+      }
+    }
+  },
+  "notes": [
+    "Markets price by the 斤 (jīn), half a kilo. So one kilo is 两斤 (liǎng jīn).",
+    "老板 (lǎobǎn, boss) is the friendly way to call a stallholder.",
+    "算你十块 (suàn nǐ shí kuài) means \"I'll count it as ten for you\": the seller's way to give a discount."
+  ]
+}

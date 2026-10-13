@@ -1,0 +1,115 @@
+{
+  "schema": 2,
+  "id": "numbers",
+  "title": "Age and phone number",
+  "goal": "Ask someone's age and phone number, and give yours.",
+  "roles": {
+    "A": "Asks first",
+    "B": "Answers"
+  },
+  "slots": {
+    "age": {
+      "kind": "personal",
+      "cue": "your age"
+    },
+    "phone": {
+      "kind": "set",
+      "cue": "a phone number"
+    }
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "role": "A",
+      "en": "How old are you?",
+      "addressesYou": true
+    },
+    {
+      "id": "l2",
+      "role": "B",
+      "en": "I'm {age}. And you?",
+      "addressesYou": true
+    },
+    {
+      "id": "l3",
+      "role": "A",
+      "en": "I'm thirty. What's your phone number?",
+      "addressesYou": true
+    },
+    {
+      "id": "l4",
+      "role": "B",
+      "en": "It's {phone}."
+    },
+    {
+      "id": "l5",
+      "role": "A",
+      "en": "Sorry? Can you repeat that?",
+      "addressesYou": true
+    },
+    {
+      "id": "l6",
+      "role": "B",
+      "en": "Of course. {phone}."
+    },
+    {
+      "id": "l7",
+      "role": "A",
+      "en": "Thanks! See you."
+    }
+  ],
+  "chunks": [
+    {
+      "id": "how-old",
+      "en": "how old are you?",
+      "addressesYou": true
+    },
+    {
+      "id": "i-am-age",
+      "en": "I'm ___ (years old)"
+    },
+    {
+      "id": "whats-your-number",
+      "en": "what's your phone number?",
+      "addressesYou": true
+    },
+    {
+      "id": "its",
+      "en": "it's ___ (a number)"
+    },
+    {
+      "id": "can-you-repeat",
+      "en": "can you repeat that?",
+      "addressesYou": true
+    },
+    {
+      "id": "of-course",
+      "en": "of course"
+    },
+    {
+      "id": "see-you",
+      "en": "see you"
+    },
+    {
+      "id": "my-number-is",
+      "en": "my number is ___"
+    }
+  ],
+  "drill": {
+    "slot": "phone",
+    "instruction": "Swap the phone number each time. Say the digits in pairs or one by one."
+  },
+  "free": {
+    "prompt": "Ask three people their age and phone number. Write the numbers down and read them back.",
+    "targets": [
+      {
+        "id": "is-that-right",
+        "en": "is that right?"
+      },
+      {
+        "id": "yes-thats-right",
+        "en": "yes, that's right"
+      }
+    ]
+  }
+}

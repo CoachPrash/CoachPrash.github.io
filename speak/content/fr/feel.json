@@ -1,0 +1,166 @@
+{
+  "schema": 2,
+  "scenario": "feel",
+  "lang": "fr",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "Vous allez bien ?",
+      "byRegister": {
+        "familiar": {
+          "text": "Ça va ?",
+          "accept": [
+            "Tu vas bien ?"
+          ]
+        }
+      }
+    },
+    "l2": {
+      "text": "J'ai {feeling}."
+    },
+    "l3": {
+      "text": "Moi aussi ! On mange quelque chose ?",
+      "accept": [
+        "Moi aussi ! Allons manger quelque chose."
+      ]
+    },
+    "l4": {
+      "text": "Bonne idée. Vous êtes fatigué ?",
+      "variants": [
+        {
+          "listener": "m",
+          "text": "Bonne idée. Vous êtes fatigué ?"
+        },
+        {
+          "listener": "f",
+          "text": "Bonne idée. Vous êtes fatiguée ?"
+        }
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Bonne idée. Tu es fatigué ?",
+          "variants": [
+            {
+              "listener": "m",
+              "text": "Bonne idée. Tu es fatigué ?"
+            },
+            {
+              "listener": "f",
+              "text": "Bonne idée. Tu es fatiguée ?"
+            }
+          ]
+        }
+      },
+      "sameSound": true
+    },
+    "l5": {
+      "text": "Oui, je suis un peu fatigué.",
+      "variants": [
+        {
+          "speaker": "m",
+          "text": "Oui, je suis un peu fatigué."
+        },
+        {
+          "speaker": "f",
+          "text": "Oui, je suis un peu fatiguée."
+        }
+      ],
+      "sameSound": true
+    },
+    "l6": {
+      "text": "Alors, on se repose un peu.",
+      "accept": [
+        "Alors, reposons-nous un peu."
+      ]
+    }
+  },
+  "chunks": {
+    "are-you-ok": {
+      "text": "vous allez bien ?",
+      "byRegister": {
+        "familiar": {
+          "text": "ça va ?"
+        }
+      },
+      "literal": "you go well?"
+    },
+    "im-feeling": {
+      "text": "j'ai ___",
+      "literal": "I have ___"
+    },
+    "me-too": {
+      "text": "moi aussi",
+      "literal": "me also"
+    },
+    "lets-eat": {
+      "text": "on mange quelque chose",
+      "literal": "one eats some thing"
+    },
+    "good-idea": {
+      "text": "bonne idée",
+      "literal": "good idea"
+    },
+    "a-bit-tired": {
+      "text": "je suis un peu fatigué / fatiguée",
+      "choice": "mf",
+      "literal": "I am a little tired"
+    },
+    "lets-rest": {
+      "text": "on se repose un peu",
+      "literal": "one oneself rests a little"
+    },
+    "im-sleepy": {
+      "extra": true,
+      "text": "j'ai sommeil",
+      "literal": "I have sleep"
+    }
+  },
+  "slotValues": {
+    "feeling": [
+      {
+        "en": "hungry",
+        "text": "faim"
+      },
+      {
+        "en": "thirsty",
+        "text": "soif"
+      },
+      {
+        "en": "cold",
+        "text": "froid"
+      },
+      {
+        "en": "hot",
+        "text": "chaud"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "are-you": {
+        "text": "Vous avez ___ ?",
+        "byRegister": {
+          "familiar": {
+            "text": "Tu as ___ ?"
+          }
+        }
+      },
+      "not-at-all": {
+        "text": "Non, pas du tout."
+      }
+    }
+  },
+  "notes": [
+    "Hungry, thirsty, cold and hot use avoir: j'ai faim, j'ai soif, j'ai froid, j'ai chaud. Never je suis faim.",
+    "Fatigué and fatiguée sound the same. The spelling follows the person's gender.",
+    "On means we in everyday speech: On mange quelque chose ? = Shall we eat something?"
+  ]
+}

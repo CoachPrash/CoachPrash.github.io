@@ -1,0 +1,101 @@
+{
+  "schema": 2,
+  "id": "weather",
+  "title": "Nice day!",
+  "goal": "Talk about the weather and what you like in it.",
+  "roles": {
+    "A": "Calls a friend",
+    "B": "Answers"
+  },
+  "slots": {
+    "weather": {
+      "kind": "set",
+      "cue": "the weather"
+    }
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "role": "A",
+      "en": "Hi! How's the weather there?"
+    },
+    {
+      "id": "l2",
+      "role": "B",
+      "en": "Today {weather}. And there?"
+    },
+    {
+      "id": "l3",
+      "role": "A",
+      "en": "Here it's raining a lot."
+    },
+    {
+      "id": "l4",
+      "role": "B",
+      "en": "Take an umbrella!",
+      "addressesYou": true
+    },
+    {
+      "id": "l5",
+      "role": "A",
+      "en": "Yes. I love the rain."
+    },
+    {
+      "id": "l6",
+      "role": "B",
+      "en": "Not me! I prefer the sun."
+    }
+  ],
+  "chunks": [
+    {
+      "id": "hows-the-weather",
+      "en": "how's the weather?"
+    },
+    {
+      "id": "today-weather",
+      "en": "today ___ (the weather)"
+    },
+    {
+      "id": "its-raining",
+      "en": "it's raining"
+    },
+    {
+      "id": "take-umbrella",
+      "en": "take an umbrella!",
+      "addressesYou": true
+    },
+    {
+      "id": "i-love",
+      "en": "I love ___"
+    },
+    {
+      "id": "not-me",
+      "en": "not me!"
+    },
+    {
+      "id": "i-prefer",
+      "en": "I prefer ___"
+    },
+    {
+      "id": "its-cold",
+      "en": "it's cold"
+    }
+  ],
+  "drill": {
+    "slot": "weather",
+    "instruction": "Swap the weather each time."
+  },
+  "free": {
+    "prompt": "Each person says what the weather is like in their city today, and what they like doing in that weather.",
+    "targets": [
+      {
+        "id": "in-my-city",
+        "en": "in my city ___"
+      },
+      {
+        "id": "when-it-rains",
+        "en": "when it rains, I ___"
+      }
+    ]
+  }
+}

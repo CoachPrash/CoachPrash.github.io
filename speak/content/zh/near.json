@@ -1,0 +1,148 @@
+{
+  "schema": 2,
+  "scenario": "near",
+  "lang": "zh",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "不好意思，这附近有{place}吗？",
+      "rom": "Bù hǎoyìsi, zhè fùjìn yǒu {place} ma?",
+      "accept": [
+        {
+          "text": "请问，这附近有{place}吗？",
+          "rom": "Qǐngwèn, zhè fùjìn yǒu {place} ma?"
+        }
+      ],
+      "registerNeutral": true
+    },
+    "l2": {
+      "text": "有，在那儿。",
+      "rom": "Yǒu, zài nàr.",
+      "accept": [
+        {
+          "text": "有，在那边。",
+          "rom": "Yǒu, zài nàbiān."
+        }
+      ]
+    },
+    "l3": {
+      "text": "在银行旁边吗？",
+      "rom": "Zài yínháng pángbiān ma?"
+    },
+    "l4": {
+      "text": "不是，在银行对面。",
+      "rom": "Bú shì, zài yínháng duìmiàn."
+    },
+    "l5": {
+      "text": "谢谢！",
+      "rom": "Xièxie!",
+      "accept": [
+        {
+          "text": "谢谢你！",
+          "rom": "Xièxie nǐ!"
+        }
+      ]
+    },
+    "l6": {
+      "text": "不客气。",
+      "rom": "Bú kèqi.",
+      "accept": [
+        {
+          "text": "不用谢。",
+          "rom": "Bú yòng xiè."
+        }
+      ]
+    }
+  },
+  "chunks": {
+    "is-there-near": {
+      "text": "这附近有___吗？",
+      "rom": "zhè fùjìn yǒu ___ ma?",
+      "literal": "here nearby have ___?",
+      "chain": [
+        "有___吗？",
+        "附近有___吗？"
+      ]
+    },
+    "over-there": {
+      "text": "在那儿",
+      "rom": "zài nàr",
+      "literal": "at there"
+    },
+    "next-to": {
+      "text": "在___旁边",
+      "rom": "zài ___ pángbiān",
+      "literal": "at ___ side"
+    },
+    "opposite": {
+      "text": "在___对面",
+      "rom": "zài ___ duìmiàn",
+      "literal": "at ___ opposite-side"
+    },
+    "thank-you": {
+      "text": "谢谢",
+      "rom": "xièxie",
+      "literal": "thank thank"
+    },
+    "youre-welcome": {
+      "text": "不客气",
+      "rom": "bú kèqi",
+      "literal": "not polite-guest"
+    },
+    "on-the-corner": {
+      "text": "在拐角",
+      "rom": "zài guǎijiǎo",
+      "literal": "at turn-corner",
+      "extra": true
+    }
+  },
+  "slotValues": {
+    "place": [
+      {
+        "en": "supermarket",
+        "text": "超市",
+        "rom": "chāoshì"
+      },
+      {
+        "en": "pharmacy",
+        "text": "药店",
+        "rom": "yàodiàn"
+      },
+      {
+        "en": "café",
+        "text": "咖啡馆",
+        "rom": "kāfēiguǎn"
+      },
+      {
+        "en": "metro station",
+        "text": "地铁站",
+        "rom": "dìtiězhàn"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "behind": {
+        "text": "在___后面。",
+        "rom": "Zài ___ hòumiàn."
+      },
+      "in-front-of": {
+        "text": "在___前面。",
+        "rom": "Zài ___ qiánmiàn."
+      }
+    }
+  },
+  "notes": [
+    "有 (yǒu) says something exists: 这附近有超市吗？ is there a supermarket near here?",
+    "Place words come after the place: 在银行旁边 is \"at the bank's side\", next to the bank.",
+    "那儿 (nàr) is northern speech. 那里 (nàlǐ) means the same and is heard everywhere."
+  ]
+}

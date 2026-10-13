@@ -1,0 +1,158 @@
+{
+  "schema": 2,
+  "scenario": "in-class",
+  "lang": "fr",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "Excusez-moi, je peux entrer ?",
+      "accept": [
+        "Pardon, je peux entrer ?"
+      ],
+      "note": "Pupils say vous to a teacher, even when the teacher says tu to them.",
+      "registerNeutral": true
+    },
+    "l2": {
+      "text": "Oui, entrez. Asseyez-vous.",
+      "byRegister": {
+        "familiar": {
+          "text": "Oui, entre. Assieds-toi.",
+          "accept": [
+            "Oui, entre. Assois-toi."
+          ]
+        }
+      }
+    },
+    "l3": {
+      "text": "Désolé d'être en retard. Quelle page ?",
+      "variants": [
+        {
+          "speaker": "m",
+          "text": "Désolé d'être en retard. Quelle page ?"
+        },
+        {
+          "speaker": "f",
+          "text": "Désolée d'être en retard. Quelle page ?"
+        }
+      ],
+      "accept": [
+        "Pardon, je suis en retard. Quelle page ?",
+        "Désolé d'être en retard. On est à quelle page ?",
+        "Désolée d'être en retard. On est à quelle page ?"
+      ],
+      "sameSound": true
+    },
+    "l4": {
+      "text": "Page {page}.",
+      "accept": [
+        "À la page {page}."
+      ]
+    },
+    "l5": {
+      "text": "J'ai fini. C'est juste ?",
+      "accept": [
+        "J'ai fini. C'est bon ?",
+        "J'ai terminé. C'est juste ?"
+      ]
+    },
+    "l6": {
+      "text": "Oui, très bien !",
+      "accept": [
+        "Oui, c'est très bien !"
+      ]
+    }
+  },
+  "chunks": {
+    "may-i-come-in": {
+      "text": "je peux entrer ?",
+      "registerNeutral": true,
+      "literal": "I can enter?"
+    },
+    "come-in": {
+      "text": "entrez",
+      "byRegister": {
+        "familiar": {
+          "text": "entre"
+        }
+      },
+      "literal": "enter"
+    },
+    "sorry-late": {
+      "text": "désolé / désolée d'être en retard",
+      "choice": "mf",
+      "literal": "sorry of being in delay"
+    },
+    "which-page": {
+      "text": "quelle page ?",
+      "literal": "which page?"
+    },
+    "page": {
+      "text": "page ___",
+      "literal": "page ___"
+    },
+    "ive-finished": {
+      "text": "j'ai fini",
+      "literal": "I have finished"
+    },
+    "is-this-right": {
+      "text": "c'est juste ?",
+      "literal": "it's right?"
+    },
+    "may-i-go": {
+      "extra": true,
+      "text": "je peux aller aux toilettes ?",
+      "registerNeutral": true,
+      "literal": "I can go to-the toilets?"
+    }
+  },
+  "slotValues": {
+    "page": [
+      {
+        "en": "23",
+        "text": "vingt-trois"
+      },
+      {
+        "en": "15",
+        "text": "quinze"
+      },
+      {
+        "en": "42",
+        "text": "quarante-deux"
+      },
+      {
+        "en": "12",
+        "text": "douze"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "i-dont-know": {
+        "text": "Je ne sais pas.",
+        "accept": [
+          "Je sais pas."
+        ]
+      },
+      "one-more-time": {
+        "text": "Encore une fois, s'il vous plaît.",
+        "registerNeutral": true,
+        "accept": [
+          "Vous pouvez répéter, s'il vous plaît ?"
+        ]
+      }
+    }
+  },
+  "notes": [
+    "In a French school, the teacher says tu to pupils and the pupils say vous to the teacher. The tu setting here changes only the teacher's lines.",
+    "Désolé and désolée sound the same. The spelling follows the speaker's gender.",
+    "Page numbers need no article: page vingt-trois, à la page quinze."
+  ]
+}

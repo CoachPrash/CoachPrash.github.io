@@ -1,0 +1,198 @@
+{
+  "schema": 2,
+  "scenario": "feel",
+  "lang": "zh",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "你没事吧？",
+      "rom": "Nǐ méi shì ba?",
+      "accept": [
+        {
+          "text": "你还好吗？",
+          "rom": "Nǐ hái hǎo ma?"
+        }
+      ],
+      "byRegister": {
+        "formal": {
+          "text": "您没事吧？",
+          "rom": "Nín méi shì ba?",
+          "accept": [
+            {
+              "text": "您还好吗？",
+              "rom": "Nín hái hǎo ma?"
+            }
+          ]
+        }
+      }
+    },
+    "l2": {
+      "text": "我{feeling}。",
+      "rom": "Wǒ {feeling}."
+    },
+    "l3": {
+      "text": "我也是！我们吃点东西吧。",
+      "rom": "Wǒ yě shì! Wǒmen chī diǎn dōngxi ba.",
+      "accept": [
+        {
+          "text": "我也是！我们吃点儿东西吧。",
+          "rom": "Wǒ yě shì! Wǒmen chī diǎnr dōngxi ba."
+        }
+      ]
+    },
+    "l4": {
+      "text": "好主意。你累吗？",
+      "rom": "Hǎo zhǔyi. Nǐ lèi ma?",
+      "byRegister": {
+        "formal": {
+          "text": "好主意。您累吗？",
+          "rom": "Hǎo zhǔyi. Nín lèi ma?"
+        }
+      }
+    },
+    "l5": {
+      "text": "是啊，我有点累。",
+      "rom": "Shì a, wǒ yǒudiǎn lèi.",
+      "accept": [
+        {
+          "text": "是啊，我有点儿累。",
+          "rom": "Shì a, wǒ yǒudiǎnr lèi."
+        },
+        {
+          "text": "累，有点累。",
+          "rom": "Lèi, yǒudiǎn lèi."
+        }
+      ]
+    },
+    "l6": {
+      "text": "那我们休息一下吧。",
+      "rom": "Nà wǒmen xiūxi yíxià ba."
+    }
+  },
+  "chunks": {
+    "are-you-ok": {
+      "text": "你没事吧？",
+      "rom": "nǐ méi shì ba?",
+      "byRegister": {
+        "formal": {
+          "text": "您没事吧？",
+          "rom": "nín méi shì ba?"
+        }
+      },
+      "literal": "you no matter, right?",
+      "chain": [
+        "事吧？",
+        "没事吧？"
+      ]
+    },
+    "im-feeling": {
+      "text": "我___",
+      "rom": "wǒ ___",
+      "literal": "I ___"
+    },
+    "me-too": {
+      "text": "我也是",
+      "rom": "wǒ yě shì",
+      "literal": "I also am"
+    },
+    "lets-eat": {
+      "text": "我们吃点东西吧",
+      "rom": "wǒmen chī diǎn dōngxi ba",
+      "literal": "we eat a-little thing (suggest)",
+      "chain": [
+        "东西吧",
+        "吃点东西吧"
+      ]
+    },
+    "good-idea": {
+      "text": "好主意",
+      "rom": "hǎo zhǔyi",
+      "literal": "good idea"
+    },
+    "a-bit-tired": {
+      "text": "我有点累",
+      "rom": "wǒ yǒudiǎn lèi",
+      "literal": "I a-bit tired",
+      "chain": [
+        "累",
+        "有点累"
+      ]
+    },
+    "lets-rest": {
+      "text": "我们休息一下吧",
+      "rom": "wǒmen xiūxi yíxià ba",
+      "literal": "we rest one-moment (suggest)",
+      "chain": [
+        "一下吧",
+        "休息一下吧"
+      ]
+    },
+    "im-sleepy": {
+      "text": "我困了",
+      "rom": "wǒ kùn le",
+      "literal": "I sleepy (now)",
+      "extra": true
+    }
+  },
+  "slotValues": {
+    "feeling": [
+      {
+        "en": "hungry",
+        "text": "饿了",
+        "rom": "è le"
+      },
+      {
+        "en": "thirsty",
+        "text": "渴了",
+        "rom": "kě le"
+      },
+      {
+        "en": "cold",
+        "text": "很冷",
+        "rom": "hěn lěng"
+      },
+      {
+        "en": "hot",
+        "text": "很热",
+        "rom": "hěn rè"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "are-you": {
+        "text": "你___吗？",
+        "rom": "Nǐ ___ ma?",
+        "byRegister": {
+          "formal": {
+            "text": "您___吗？",
+            "rom": "Nín ___ ma?"
+          }
+        }
+      },
+      "not-at-all": {
+        "text": "不，一点也不。",
+        "rom": "Bù, yìdiǎn yě bù.",
+        "accept": [
+          {
+            "text": "一点儿也不。",
+            "rom": "Yìdiǎnr yě bù."
+          }
+        ]
+      }
+    }
+  },
+  "notes": [
+    "饿了 (è le, hungry) and 渴了 (kě le, thirsty) take 了: the feeling has come on. 冷 and 热 take 很: 我很冷.",
+    "有点 (yǒudiǎn, a bit) goes before a feeling you don't like: 我有点累.",
+    "吧 (ba) at the end makes a suggestion: 我们休息一下吧, let's rest a little."
+  ]
+}

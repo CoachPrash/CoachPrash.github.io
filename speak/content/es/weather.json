@@ -1,0 +1,136 @@
+{
+  "schema": 2,
+  "scenario": "weather",
+  "lang": "es",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "¡Hola! ¿Cómo está el clima por allá?",
+      "accept": [
+        "¡Hola! ¿Qué tal el clima por allá?",
+        "¡Hola! ¿Cómo está el tiempo por allá?"
+      ]
+    },
+    "l2": {
+      "text": "Hoy {weather}. ¿Y por allá?",
+      "accept": [
+        "Hoy {weather}. ¿Y allá?"
+      ]
+    },
+    "l3": {
+      "text": "Aquí está lloviendo mucho.",
+      "accept": [
+        "Acá está lloviendo mucho.",
+        "Aquí llueve mucho."
+      ]
+    },
+    "l4": {
+      "text": "¡Lleve sombrilla!",
+      "accept": [
+        "¡Lleve una sombrilla!",
+        "¡Lleve paraguas!"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "¡Lleva sombrilla!",
+          "accept": [
+            "¡Lleva una sombrilla!",
+            "¡Lleva paraguas!"
+          ]
+        }
+      }
+    },
+    "l5": {
+      "text": "Sí. Me encanta la lluvia."
+    },
+    "l6": {
+      "text": "¡A mí no! Yo prefiero el sol.",
+      "accept": [
+        "¡A mí no! Prefiero el sol."
+      ]
+    }
+  },
+  "chunks": {
+    "hows-the-weather": {
+      "text": "¿cómo está el clima?",
+      "literal": "how is the weather?"
+    },
+    "today-weather": {
+      "text": "hoy ___",
+      "literal": "today ___"
+    },
+    "its-raining": {
+      "text": "está lloviendo",
+      "literal": "it-is raining"
+    },
+    "take-umbrella": {
+      "text": "¡lleve sombrilla!",
+      "byRegister": {
+        "familiar": {
+          "text": "¡lleva sombrilla!"
+        }
+      },
+      "literal": "take umbrella!"
+    },
+    "i-love": {
+      "text": "me encanta ___",
+      "literal": "me it-delights ___"
+    },
+    "not-me": {
+      "text": "¡a mí no!",
+      "literal": "to me no!"
+    },
+    "i-prefer": {
+      "text": "prefiero ___",
+      "literal": "I-prefer ___"
+    },
+    "its-cold": {
+      "text": "hace frío",
+      "extra": true,
+      "literal": "it-makes cold"
+    }
+  },
+  "slotValues": {
+    "weather": [
+      {
+        "en": "it's sunny",
+        "text": "hace sol"
+      },
+      {
+        "en": "it's hot",
+        "text": "hace calor"
+      },
+      {
+        "en": "it's cold",
+        "text": "hace frío"
+      },
+      {
+        "en": "it's cloudy",
+        "text": "está nublado"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "in-my-city": {
+        "text": "En mi ciudad ___."
+      },
+      "when-it-rains": {
+        "text": "Cuando llueve, ___."
+      }
+    }
+  },
+  "notes": [
+    "Hace sol, hace calor, hace frío: weather often uses hacer (to make). Está nublado and está lloviendo use estar.",
+    "Colombia has no summer or winter. The weather depends on altitude: Bogotá is cool, Cartagena is hot all year.",
+    "An umbrella is a sombrilla in Colombia. Paraguas is understood too."
+  ]
+}

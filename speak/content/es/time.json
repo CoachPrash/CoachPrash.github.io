@@ -1,0 +1,140 @@
+{
+  "schema": 2,
+  "scenario": "time",
+  "lang": "es",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "Disculpe, ¿qué hora es?",
+      "accept": [
+        "Disculpe, ¿qué horas son?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Disculpa, ¿qué hora es?",
+          "accept": [
+            "Disculpa, ¿qué horas son?"
+          ]
+        }
+      }
+    },
+    "l2": {
+      "text": "Son las {hour}.",
+      "accept": [
+        "Son las {hour} en punto."
+      ]
+    },
+    "l3": {
+      "text": "¡Gracias! ¿Y qué día es hoy?",
+      "accept": [
+        "¡Gracias! ¿Y hoy qué día es?"
+      ]
+    },
+    "l4": {
+      "text": "Hoy es viernes."
+    },
+    "l5": {
+      "text": "¡Ay, no! Voy tarde.",
+      "accept": [
+        "¡Ay, no! Llego tarde.",
+        "¡Ay, no! Se me hizo tarde."
+      ]
+    },
+    "l6": {
+      "text": "¡Apúrese! ¡Chao!",
+      "accept": [
+        "¡Apúrele! ¡Chao!"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "¡Apúrate! ¡Chao!"
+        }
+      }
+    }
+  },
+  "chunks": {
+    "what-time": {
+      "text": "¿qué hora es?",
+      "literal": "what hour is?"
+    },
+    "its-oclock": {
+      "text": "son las ___",
+      "literal": "they-are the ___ (hours)"
+    },
+    "what-day": {
+      "text": "¿qué día es hoy?",
+      "literal": "what day is today?"
+    },
+    "today-is": {
+      "text": "hoy es ___",
+      "literal": "today is ___"
+    },
+    "im-late": {
+      "text": "voy tarde",
+      "literal": "I-go late"
+    },
+    "hurry-up": {
+      "text": "apúrese",
+      "byRegister": {
+        "familiar": {
+          "text": "apúrate"
+        }
+      },
+      "literal": "hurry-yourself"
+    },
+    "half-past": {
+      "text": "___ y media",
+      "extra": true,
+      "literal": "___ and half"
+    }
+  },
+  "slotValues": {
+    "hour": [
+      {
+        "en": "three",
+        "text": "tres"
+      },
+      {
+        "en": "five",
+        "text": "cinco"
+      },
+      {
+        "en": "eight",
+        "text": "ocho"
+      },
+      {
+        "en": "ten",
+        "text": "diez"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "its-nearly": {
+        "text": "Son casi las ___.",
+        "accept": [
+          "Ya casi son las ___."
+        ]
+      },
+      "its-early": {
+        "text": "Es temprano.",
+        "accept": [
+          "Todavía es temprano."
+        ]
+      }
+    }
+  },
+  "notes": [
+    "Son las tres, son las cinco. One o'clock is singular: es la una.",
+    "Many Colombians ask ¿Qué horas son? instead of ¿Qué hora es?. Both are fine.",
+    "Voy tarde (\"I'm going late\") is the everyday way to say you are late. Chao is the usual Colombian goodbye."
+  ]
+}

@@ -1,0 +1,160 @@
+{
+  "schema": 2,
+  "scenario": "time",
+  "lang": "zh",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "不好意思，现在几点？",
+      "rom": "Bù hǎoyìsi, xiànzài jǐ diǎn?",
+      "accept": [
+        {
+          "text": "请问，现在几点？",
+          "rom": "Qǐngwèn, xiànzài jǐ diǎn?"
+        },
+        {
+          "text": "不好意思，现在几点了？",
+          "rom": "Bù hǎoyìsi, xiànzài jǐ diǎn le?"
+        }
+      ],
+      "registerNeutral": true
+    },
+    "l2": {
+      "text": "现在{hour}点。",
+      "rom": "Xiànzài {hour} diǎn.",
+      "accept": [
+        {
+          "text": "{hour}点。",
+          "rom": "{hour} diǎn."
+        }
+      ]
+    },
+    "l3": {
+      "text": "谢谢！今天星期几？",
+      "rom": "Xièxie! Jīntiān xīngqī jǐ?"
+    },
+    "l4": {
+      "text": "今天星期五。",
+      "rom": "Jīntiān xīngqī wǔ."
+    },
+    "l5": {
+      "text": "哎呀！我迟到了。",
+      "rom": "Āiyā! Wǒ chídào le."
+    },
+    "l6": {
+      "text": "快点！再见！",
+      "rom": "Kuài diǎn! Zàijiàn!",
+      "accept": [
+        {
+          "text": "快点儿！再见！",
+          "rom": "Kuài diǎnr! Zàijiàn!"
+        },
+        {
+          "text": "快点！拜拜！",
+          "rom": "Kuài diǎn! Báibái!"
+        }
+      ],
+      "registerNeutral": true
+    }
+  },
+  "chunks": {
+    "what-time": {
+      "text": "现在几点？",
+      "rom": "xiànzài jǐ diǎn?",
+      "literal": "now how-many o'clock?",
+      "chain": [
+        "几点？"
+      ]
+    },
+    "its-oclock": {
+      "text": "___点",
+      "rom": "___ diǎn",
+      "literal": "___ o'clock"
+    },
+    "what-day": {
+      "text": "今天星期几？",
+      "rom": "jīntiān xīngqī jǐ?",
+      "literal": "today week how-many?",
+      "chain": [
+        "星期几？"
+      ]
+    },
+    "today-is": {
+      "text": "今天星期___",
+      "rom": "jīntiān xīngqī ___",
+      "literal": "today week ___",
+      "chain": [
+        "星期___"
+      ]
+    },
+    "im-late": {
+      "text": "我迟到了",
+      "rom": "wǒ chídào le",
+      "literal": "I late-arrive (now)",
+      "chain": [
+        "迟到了"
+      ]
+    },
+    "hurry-up": {
+      "text": "快点",
+      "rom": "kuài diǎn",
+      "registerNeutral": true,
+      "literal": "fast a-bit"
+    },
+    "half-past": {
+      "text": "___点半",
+      "rom": "___ diǎn bàn",
+      "literal": "___ o'clock half",
+      "extra": true
+    }
+  },
+  "slotValues": {
+    "hour": [
+      {
+        "en": "three",
+        "text": "三",
+        "rom": "sān"
+      },
+      {
+        "en": "two",
+        "text": "两",
+        "rom": "liǎng"
+      },
+      {
+        "en": "eight",
+        "text": "八",
+        "rom": "bā"
+      },
+      {
+        "en": "ten",
+        "text": "十",
+        "rom": "shí"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "its-nearly": {
+        "text": "快___点了。",
+        "rom": "Kuài ___ diǎn le."
+      },
+      "its-early": {
+        "text": "还早呢。",
+        "rom": "Hái zǎo ne."
+      }
+    }
+  },
+  "notes": [
+    "Two o'clock is 两点 (liǎng diǎn), not 二点.",
+    "Days are 星期 + a number: 星期一 is Monday, 星期五 is Friday. Sunday is 星期天 (or 星期日).",
+    "几 (jǐ) asks for a small number: 几点? what time? 星期几? which day?"
+  ]
+}

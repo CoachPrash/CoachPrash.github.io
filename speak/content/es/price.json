@@ -1,0 +1,137 @@
+{
+  "schema": 2,
+  "scenario": "price",
+  "lang": "es",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal"
+  ],
+  "registerNotes": {
+    "familiar": "At the market, the buyer and the seller say usted to each other. In Colombia that is the norm."
+  },
+  "lines": {
+    "l1": {
+      "text": "¡Buenas! ¿A cómo están {item}?",
+      "accept": [
+        "¡Buenas! ¿A cómo tiene {item}?",
+        "¡Buenas! ¿Cuánto valen {item}?"
+      ]
+    },
+    "l2": {
+      "text": "A cuatro mil pesos el kilo.",
+      "accept": [
+        "A 4000 pesos el kilo.",
+        "A 4.000 pesos el kilo.",
+        "Cuatro mil pesos el kilo.",
+        "4000 pesos el kilo."
+      ]
+    },
+    "l3": {
+      "text": "¡Uy, qué caro! ¿Me hace una rebajita?",
+      "accept": [
+        "¡Uy, qué caro! ¿Me lo deja más barato?"
+      ]
+    },
+    "l4": {
+      "text": "Bueno, se lo dejo en tres mil quinientos.",
+      "accept": [
+        "Bueno, se lo dejo en 3500.",
+        "Bueno, se lo dejo en 3.500.",
+        "Bueno, para usted, tres mil quinientos."
+      ]
+    },
+    "l5": {
+      "text": "Listo, me llevo un kilo.",
+      "accept": [
+        "Bueno, me llevo un kilo.",
+        "Listo, me llevo un kilo, por favor."
+      ]
+    },
+    "l6": {
+      "text": "Aquí tiene.",
+      "accept": [
+        "Aquí tiene. ¡Gracias!",
+        "Con mucho gusto, aquí tiene."
+      ]
+    }
+  },
+  "chunks": {
+    "how-much-are": {
+      "text": "¿a cómo están ___?",
+      "literal": "at how are ___?"
+    },
+    "a-kilo": {
+      "text": "___ el kilo",
+      "literal": "___ the kilo"
+    },
+    "thats-expensive": {
+      "text": "¡qué caro!",
+      "literal": "how expensive!"
+    },
+    "a-bit-cheaper": {
+      "text": "¿me hace una rebajita?",
+      "literal": "me you-make a little-discount?"
+    },
+    "ill-take": {
+      "text": "me llevo ___",
+      "literal": "myself I-take ___"
+    },
+    "here-you-are": {
+      "text": "aquí tiene",
+      "literal": "here you-have"
+    },
+    "too-much": {
+      "text": "es demasiado",
+      "extra": true,
+      "literal": "it-is too-much"
+    }
+  },
+  "slotValues": {
+    "item": [
+      {
+        "en": "tomatoes",
+        "text": "los tomates"
+      },
+      {
+        "en": "potatoes",
+        "text": "las papas"
+      },
+      {
+        "en": "mangoes",
+        "text": "los mangos"
+      },
+      {
+        "en": "lulos (a sour fruit)",
+        "text": "los lulos"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "last-price": {
+        "text": "¿En cuánto me lo deja?",
+        "accept": [
+          "¿Cuánto es lo menos?",
+          "¿Cuánto es lo último?"
+        ]
+      },
+      "ok-deal": {
+        "text": "Listo, trato hecho.",
+        "accept": [
+          "Bueno, trato hecho.",
+          "Trato hecho."
+        ]
+      }
+    }
+  },
+  "notes": [
+    "¿A cómo están…? (\"at how much are…?\") is the market way to ask a price that changes by the day.",
+    "¿Me hace una rebajita? (\"will you make me a little discount?\") is a polite, very Colombian way to bargain. The seller answers se lo dejo en… (\"I'll leave it to you at…\").",
+    "Prices are in thousands of pesos: cuatro mil pesos, tres mil quinientos.",
+    "Lulo is a sour Colombian fruit, mostly made into juice."
+  ]
+}

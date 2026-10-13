@@ -1,0 +1,305 @@
+{
+  "schema": 2,
+  "scenario": "numbers",
+  "lang": "hi",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "registerNotes": {
+    "intimate": "तू is for very close friends and family. Practise this one with आप and तुम."
+  },
+  "lines": {
+    "l1": {
+      "text": "आपकी उम्र कितनी है?",
+      "rom": "aapkee umr kitnee hai?",
+      "accept": [
+        {
+          "text": "आप कितने साल के हैं?",
+          "rom": "aap kitne saal ke hain?"
+        },
+        {
+          "text": "आप कितने साल की हैं?",
+          "rom": "aap kitne saal kee hain?"
+        }
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "तुम्हारी उम्र कितनी है?",
+          "rom": "tumhaaree umr kitnee hai?",
+          "accept": [
+            {
+              "text": "तुम कितने साल के हो?",
+              "rom": "tum kitne saal ke ho?"
+            },
+            {
+              "text": "तुम कितने साल की हो?",
+              "rom": "tum kitne saal kee ho?"
+            }
+          ]
+        }
+      }
+    },
+    "l2": {
+      "text": "मैं {age} साल का हूँ। और आप?",
+      "rom": "main {age} saal kaa hoon. aur aap?",
+      "variants": [
+        {
+          "speaker": "m",
+          "text": "मैं {age} साल का हूँ। और आप?",
+          "rom": "main {age} saal kaa hoon. aur aap?"
+        },
+        {
+          "speaker": "f",
+          "text": "मैं {age} साल की हूँ। और आप?",
+          "rom": "main {age} saal kee hoon. aur aap?"
+        }
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "मैं {age} साल का हूँ। और तुम?",
+          "rom": "main {age} saal kaa hoon. aur tum?",
+          "variants": [
+            {
+              "speaker": "m",
+              "text": "मैं {age} साल का हूँ। और तुम?",
+              "rom": "main {age} saal kaa hoon. aur tum?"
+            },
+            {
+              "speaker": "f",
+              "text": "मैं {age} साल की हूँ। और तुम?",
+              "rom": "main {age} saal kee hoon. aur tum?"
+            }
+          ]
+        }
+      }
+    },
+    "l3": {
+      "text": "मैं तीस साल का हूँ। आपका फ़ोन नंबर क्या है?",
+      "rom": "main tees saal kaa hoon. aapkaa fon nambar kyaa hai?",
+      "variants": [
+        {
+          "speaker": "m",
+          "text": "मैं तीस साल का हूँ। आपका फ़ोन नंबर क्या है?",
+          "rom": "main tees saal kaa hoon. aapkaa fon nambar kyaa hai?"
+        },
+        {
+          "speaker": "f",
+          "text": "मैं तीस साल की हूँ। आपका फ़ोन नंबर क्या है?",
+          "rom": "main tees saal kee hoon. aapkaa fon nambar kyaa hai?"
+        }
+      ],
+      "accept": [
+        {
+          "text": "मैं 30 साल का हूँ। आपका फ़ोन नंबर क्या है?",
+          "rom": "main 30 saal kaa hoon. aapkaa fon nambar kyaa hai?"
+        },
+        {
+          "text": "मैं 30 साल की हूँ। आपका फ़ोन नंबर क्या है?",
+          "rom": "main 30 saal kee hoon. aapkaa fon nambar kyaa hai?"
+        }
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "मैं तीस साल का हूँ। तुम्हारा फ़ोन नंबर क्या है?",
+          "rom": "main tees saal kaa hoon. tumhaaraa fon nambar kyaa hai?",
+          "variants": [
+            {
+              "speaker": "m",
+              "text": "मैं तीस साल का हूँ। तुम्हारा फ़ोन नंबर क्या है?",
+              "rom": "main tees saal kaa hoon. tumhaaraa fon nambar kyaa hai?"
+            },
+            {
+              "speaker": "f",
+              "text": "मैं तीस साल की हूँ। तुम्हारा फ़ोन नंबर क्या है?",
+              "rom": "main tees saal kee hoon. tumhaaraa fon nambar kyaa hai?"
+            }
+          ],
+          "accept": [
+            {
+              "text": "मैं 30 साल का हूँ। तुम्हारा फ़ोन नंबर क्या है?",
+              "rom": "main 30 saal kaa hoon. tumhaaraa fon nambar kyaa hai?"
+            },
+            {
+              "text": "मैं 30 साल की हूँ। तुम्हारा फ़ोन नंबर क्या है?",
+              "rom": "main 30 saal kee hoon. tumhaaraa fon nambar kyaa hai?"
+            }
+          ]
+        }
+      }
+    },
+    "l4": {
+      "text": "{phone} है।",
+      "rom": "{phone} hai.",
+      "accept": [
+        {
+          "text": "मेरा नंबर {phone} है।",
+          "rom": "meraa nambar {phone} hai."
+        }
+      ]
+    },
+    "l5": {
+      "text": "माफ़ कीजिए? फिर से बोलिए।",
+      "rom": "maaf keejie? phir se bolie.",
+      "accept": [
+        {
+          "text": "माफ़ कीजिए? एक बार फिर से बोलिए।",
+          "rom": "maaf keejie? ek baar phir se bolie."
+        }
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "माफ़ करना? फिर से बोलो।",
+          "rom": "maaf karnaa? phir se bolo.",
+          "accept": [
+            {
+              "text": "सॉरी? फिर से बोलो।",
+              "rom": "soree? phir se bolo."
+            }
+          ]
+        }
+      }
+    },
+    "l6": {
+      "text": "ज़रूर। {phone}।",
+      "rom": "zaroor. {phone}."
+    },
+    "l7": {
+      "text": "शुक्रिया! फिर मिलेंगे।",
+      "rom": "shukriyaa! phir milenge.",
+      "accept": [
+        {
+          "text": "धन्यवाद! फिर मिलेंगे।",
+          "rom": "dhanyavaad! phir milenge."
+        }
+      ]
+    }
+  },
+  "chunks": {
+    "how-old": {
+      "text": "आपकी उम्र कितनी है?",
+      "rom": "aapkee umr kitnee hai?",
+      "literal": "your age how-much is?",
+      "byRegister": {
+        "familiar": {
+          "text": "तुम्हारी उम्र कितनी है?",
+          "rom": "tumhaaree umr kitnee hai?"
+        }
+      }
+    },
+    "i-am-age": {
+      "text": "मैं ___ साल का / की हूँ",
+      "rom": "main ___ saal kaa / kee hoon",
+      "choice": "mf",
+      "literal": "I ___ years of am"
+    },
+    "whats-your-number": {
+      "text": "आपका फ़ोन नंबर क्या है?",
+      "rom": "aapkaa fon nambar kyaa hai?",
+      "literal": "your phone number what is?",
+      "byRegister": {
+        "familiar": {
+          "text": "तुम्हारा फ़ोन नंबर क्या है?",
+          "rom": "tumhaaraa fon nambar kyaa hai?"
+        }
+      }
+    },
+    "its": {
+      "text": "___ है",
+      "rom": "___ hai",
+      "literal": "___ is"
+    },
+    "can-you-repeat": {
+      "text": "फिर से बोलिए",
+      "rom": "phir se bolie",
+      "literal": "again speak (please)",
+      "byRegister": {
+        "familiar": {
+          "text": "फिर से बोलो",
+          "rom": "phir se bolo"
+        }
+      }
+    },
+    "of-course": {
+      "text": "ज़रूर",
+      "rom": "zaroor",
+      "literal": "surely"
+    },
+    "see-you": {
+      "text": "फिर मिलेंगे",
+      "rom": "phir milenge",
+      "literal": "again (we) will-meet"
+    },
+    "my-number-is": {
+      "text": "मेरा नंबर ___ है",
+      "rom": "meraa nambar ___ hai",
+      "extra": true,
+      "literal": "my number ___ is"
+    }
+  },
+  "slotValues": {
+    "phone": [
+      {
+        "en": "98100 23456",
+        "text": "98100 23456",
+        "rom": "98100 23456"
+      },
+      {
+        "en": "99887 76655",
+        "text": "99887 76655",
+        "rom": "99887 76655"
+      },
+      {
+        "en": "70112 34567",
+        "text": "70112 34567",
+        "rom": "70112 34567"
+      },
+      {
+        "en": "88264 19305",
+        "text": "88264 19305",
+        "rom": "88264 19305"
+      }
+    ]
+  },
+  "partnerValues": {
+    "age": {
+      "en": "25",
+      "text": "पच्चीस",
+      "rom": "pachchees"
+    }
+  },
+  "free": {
+    "targets": {
+      "is-that-right": {
+        "text": "सही है?",
+        "rom": "sahee hai?",
+        "accept": [
+          {
+            "text": "क्या ये सही है?",
+            "rom": "kyaa ye sahee hai?"
+          }
+        ]
+      },
+      "yes-thats-right": {
+        "text": "हाँ, बिल्कुल सही",
+        "rom": "haan, bilkul sahee",
+        "accept": [
+          {
+            "text": "हाँ, सही है",
+            "rom": "haan, sahee hai"
+          }
+        ]
+      }
+    }
+  },
+  "notes": [
+    "उम्र (age) is feminine, so it is आपकी उम्र कितनी है? Another common way to ask is आप कितने साल के हैं? (\"you how-many years of are?\").",
+    "साल का / की agrees with the speaker: a man says मैं तीस साल का हूँ, a woman मैं तीस साल की हूँ.",
+    "Phone numbers are said digit by digit or in pairs. Many people say the digits in English, and ज़ीरो is as common as शून्य. The numbers here are shown in digits because recognition returns digits."
+  ]
+}

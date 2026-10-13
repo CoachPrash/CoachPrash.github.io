@@ -1,0 +1,99 @@
+{
+  "schema": 2,
+  "id": "home",
+  "title": "Where do you live?",
+  "goal": "Say where and how you live, and ask others.",
+  "roles": {
+    "A": "Asks first",
+    "B": "Answers, then asks back"
+  },
+  "slots": {
+    "area": {
+      "kind": "set",
+      "cue": "a part of town"
+    }
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "role": "A",
+      "en": "Where do you live?",
+      "addressesYou": true
+    },
+    {
+      "id": "l2",
+      "role": "B",
+      "en": "I live {area}. And you?",
+      "addressesYou": true
+    },
+    {
+      "id": "l3",
+      "role": "A",
+      "en": "I live with my family in a flat."
+    },
+    {
+      "id": "l4",
+      "role": "B",
+      "en": "Is it big?"
+    },
+    {
+      "id": "l5",
+      "role": "A",
+      "en": "No, it's small but nice."
+    },
+    {
+      "id": "l6",
+      "role": "B",
+      "en": "Like mine!"
+    }
+  ],
+  "chunks": [
+    {
+      "id": "where-live",
+      "en": "where do you live?",
+      "addressesYou": true
+    },
+    {
+      "id": "i-live",
+      "en": "I live ___ (a place)"
+    },
+    {
+      "id": "and-you",
+      "en": "and you?",
+      "addressesYou": true
+    },
+    {
+      "id": "with-my-family",
+      "en": "with my family"
+    },
+    {
+      "id": "is-it-big",
+      "en": "is it big?"
+    },
+    {
+      "id": "small-but-nice",
+      "en": "it's small but nice"
+    },
+    {
+      "id": "i-live-alone",
+      "en": "I live alone"
+    }
+  ],
+  "drill": {
+    "slot": "area",
+    "instruction": "Swap the part of town each time."
+  },
+  "free": {
+    "prompt": "Describe your home in three sentences: where it is, who lives there, and what it is like.",
+    "targets": [
+      {
+        "id": "there-are-rooms",
+        "en": "it has ___ rooms"
+      },
+      {
+        "id": "i-like-my-home",
+        "en": "I like my home"
+      }
+    ]
+  }
+}

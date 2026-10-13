@@ -1,0 +1,103 @@
+{
+  "schema": 2,
+  "id": "feel",
+  "title": "Hungry, tired, cold",
+  "goal": "Say how you feel and suggest what to do.",
+  "roles": {
+    "A": "Asks first",
+    "B": "Says how they feel"
+  },
+  "slots": {
+    "feeling": {
+      "kind": "set",
+      "cue": "a feeling (hungry, cold…)"
+    }
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "role": "A",
+      "en": "Are you OK?",
+      "addressesYou": true
+    },
+    {
+      "id": "l2",
+      "role": "B",
+      "en": "I'm {feeling}."
+    },
+    {
+      "id": "l3",
+      "role": "A",
+      "en": "Me too! Let's eat something."
+    },
+    {
+      "id": "l4",
+      "role": "B",
+      "en": "Good idea. Are you tired?",
+      "addressesYou": true
+    },
+    {
+      "id": "l5",
+      "role": "A",
+      "en": "Yes, I'm a bit tired."
+    },
+    {
+      "id": "l6",
+      "role": "B",
+      "en": "Then let's rest a little."
+    }
+  ],
+  "chunks": [
+    {
+      "id": "are-you-ok",
+      "en": "are you OK?",
+      "addressesYou": true
+    },
+    {
+      "id": "im-feeling",
+      "en": "I'm ___ (hungry, thirsty, cold, hot)"
+    },
+    {
+      "id": "me-too",
+      "en": "me too"
+    },
+    {
+      "id": "lets-eat",
+      "en": "let's eat something"
+    },
+    {
+      "id": "good-idea",
+      "en": "good idea"
+    },
+    {
+      "id": "a-bit-tired",
+      "en": "I'm a bit tired"
+    },
+    {
+      "id": "lets-rest",
+      "en": "let's rest a little"
+    },
+    {
+      "id": "im-sleepy",
+      "en": "I'm sleepy"
+    }
+  ],
+  "drill": {
+    "slot": "feeling",
+    "instruction": "Swap the feeling each time: hungry, thirsty, cold, hot."
+  },
+  "free": {
+    "prompt": "Mime a feeling. The others ask \"Are you hungry? Are you cold?\" until they guess.",
+    "targets": [
+      {
+        "id": "are-you",
+        "en": "are you ___? (a feeling)",
+        "addressesYou": true
+      },
+      {
+        "id": "not-at-all",
+        "en": "no, not at all"
+      }
+    ]
+  }
+}

@@ -1,0 +1,145 @@
+{
+  "schema": 2,
+  "scenario": "free",
+  "lang": "fr",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "Vous êtes libre demain ?",
+      "accept": [
+        "Est-ce que vous êtes libre demain ?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Tu es libre demain ?",
+          "accept": [
+            "Est-ce que tu es libre demain ?"
+          ]
+        }
+      }
+    },
+    "l2": {
+      "text": "Le matin, je suis occupé. L'après-midi, je suis libre.",
+      "variants": [
+        {
+          "speaker": "m",
+          "text": "Le matin, je suis occupé. L'après-midi, je suis libre."
+        },
+        {
+          "speaker": "f",
+          "text": "Le matin, je suis occupée. L'après-midi, je suis libre."
+        }
+      ],
+      "sameSound": true
+    },
+    "l3": {
+      "text": "On prend un café à {time} heures ?",
+      "accept": [
+        "On boit un café à {time} heures ?"
+      ]
+    },
+    "l4": {
+      "text": "Oui, bonne idée. Où ça ?",
+      "accept": [
+        "Oui, bonne idée. Où ?"
+      ]
+    },
+    "l5": {
+      "text": "Au café près de la gare."
+    },
+    "l6": {
+      "text": "D'accord, à demain !",
+      "accept": [
+        "OK, à demain !"
+      ]
+    }
+  },
+  "chunks": {
+    "are-you-free": {
+      "text": "vous êtes libre demain ?",
+      "byRegister": {
+        "familiar": {
+          "text": "tu es libre demain ?"
+        }
+      },
+      "literal": "you are free tomorrow?"
+    },
+    "im-busy": {
+      "text": "je suis occupé / occupée",
+      "choice": "mf",
+      "literal": "I am busy"
+    },
+    "im-free": {
+      "text": "je suis libre",
+      "literal": "I am free"
+    },
+    "shall-we": {
+      "text": "on prend un café à ___ heures ?",
+      "literal": "one takes a coffee at ___ hours?"
+    },
+    "good-idea": {
+      "text": "bonne idée",
+      "literal": "good idea"
+    },
+    "see-you-tomorrow": {
+      "text": "à demain",
+      "literal": "until tomorrow"
+    },
+    "next-week": {
+      "extra": true,
+      "text": "la semaine prochaine",
+      "literal": "the week next"
+    }
+  },
+  "slotValues": {
+    "time": [
+      {
+        "en": "three",
+        "text": "trois"
+      },
+      {
+        "en": "four",
+        "text": "quatre"
+      },
+      {
+        "en": "two",
+        "text": "deux"
+      },
+      {
+        "en": "five",
+        "text": "cinq"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "how-about": {
+        "text": "Pourquoi pas ___ ?",
+        "accept": [
+          "Et ___, ça va ?"
+        ]
+      },
+      "sorry-i-cant": {
+        "text": "Désolé / Désolée, je ne peux pas.",
+        "choice": "mf",
+        "accept": [
+          "Désolé, je peux pas.",
+          "Désolée, je peux pas."
+        ]
+      }
+    }
+  },
+  "notes": [
+    "Libre is the same for a man and a woman. Occupé and occupée sound the same.",
+    "On prend un café ? is the everyday way to suggest a coffee. On means we.",
+    "Le matin, l'après-midi: French needs no word for \"in\"."
+  ]
+}

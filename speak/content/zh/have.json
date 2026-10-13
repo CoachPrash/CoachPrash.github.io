@@ -1,0 +1,207 @@
+{
+  "schema": 2,
+  "scenario": "have",
+  "lang": "zh",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "不好意思，你有{thing}吗？",
+      "rom": "Bù hǎoyìsi, nǐ yǒu {thing} ma?",
+      "byRegister": {
+        "formal": {
+          "text": "不好意思，您有{thing}吗？",
+          "rom": "Bù hǎoyìsi, nín yǒu {thing} ma?"
+        }
+      }
+    },
+    "l2": {
+      "text": "有，给你。",
+      "rom": "Yǒu, gěi nǐ.",
+      "byRegister": {
+        "formal": {
+          "text": "有，给您。",
+          "rom": "Yǒu, gěi nín."
+        }
+      }
+    },
+    "l3": {
+      "text": "谢谢！我一会儿还你。",
+      "rom": "Xièxie! Wǒ yíhuìr huán nǐ.",
+      "accept": [
+        {
+          "text": "谢谢！我待会儿还你。",
+          "rom": "Xièxie! Wǒ dāihuìr huán nǐ."
+        }
+      ],
+      "byRegister": {
+        "formal": {
+          "text": "谢谢！我一会儿还您。",
+          "rom": "Xièxie! Wǒ yíhuìr huán nín.",
+          "accept": [
+            {
+              "text": "谢谢！我待会儿还您。",
+              "rom": "Xièxie! Wǒ dāihuìr huán nín."
+            }
+          ]
+        }
+      }
+    },
+    "l4": {
+      "text": "没问题。这个包是你的吗？",
+      "rom": "Méi wèntí. Zhège bāo shì nǐ de ma?",
+      "byRegister": {
+        "formal": {
+          "text": "没问题。这个包是您的吗？",
+          "rom": "Méi wèntí. Zhège bāo shì nín de ma?"
+        }
+      }
+    },
+    "l5": {
+      "text": "不是，不是我的。",
+      "rom": "Bú shì, bú shì wǒ de."
+    },
+    "l6": {
+      "text": "可能是老师的。",
+      "rom": "Kěnéng shì lǎoshī de."
+    }
+  },
+  "chunks": {
+    "do-you-have": {
+      "text": "你有___吗？",
+      "rom": "nǐ yǒu ___ ma?",
+      "byRegister": {
+        "formal": {
+          "text": "您有___吗？",
+          "rom": "nín yǒu ___ ma?"
+        }
+      },
+      "literal": "you have ___?"
+    },
+    "here-it-is": {
+      "text": "给你",
+      "rom": "gěi nǐ",
+      "byRegister": {
+        "formal": {
+          "text": "给您",
+          "rom": "gěi nín"
+        }
+      },
+      "literal": "give you"
+    },
+    "give-back": {
+      "text": "我一会儿还你",
+      "rom": "wǒ yíhuìr huán nǐ",
+      "byRegister": {
+        "formal": {
+          "text": "我一会儿还您",
+          "rom": "wǒ yíhuìr huán nín"
+        }
+      },
+      "literal": "I in-a-while return you",
+      "chain": [
+        "还你",
+        "一会儿还你"
+      ]
+    },
+    "no-problem": {
+      "text": "没问题",
+      "rom": "méi wèntí",
+      "literal": "no problem"
+    },
+    "is-this-yours": {
+      "text": "这个___是你的吗？",
+      "rom": "zhège ___ shì nǐ de ma?",
+      "byRegister": {
+        "formal": {
+          "text": "这个___是您的吗？",
+          "rom": "zhège ___ shì nín de ma?"
+        }
+      },
+      "literal": "this ___ is yours?",
+      "chain": [
+        "你的吗？",
+        "是你的吗？"
+      ]
+    },
+    "not-mine": {
+      "text": "不是我的",
+      "rom": "bú shì wǒ de",
+      "literal": "not is mine",
+      "chain": [
+        "我的",
+        "是我的"
+      ]
+    },
+    "can-i-borrow": {
+      "text": "能借我___吗？",
+      "rom": "néng jiè wǒ ___ ma?",
+      "registerNeutral": true,
+      "literal": "can lend me ___?",
+      "extra": true,
+      "chain": [
+        "借我___吗？"
+      ]
+    }
+  },
+  "slotValues": {
+    "thing": [
+      {
+        "en": "a pen",
+        "text": "笔",
+        "rom": "bǐ"
+      },
+      {
+        "en": "an eraser",
+        "text": "橡皮",
+        "rom": "xiàngpí"
+      },
+      {
+        "en": "a ruler",
+        "text": "尺子",
+        "rom": "chǐzi"
+      },
+      {
+        "en": "a notebook",
+        "text": "本子",
+        "rom": "běnzi"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "whose-is": {
+        "text": "这是谁的？",
+        "rom": "Zhè shì shéi de?",
+        "accept": [
+          {
+            "text": "这是谁的东西？",
+            "rom": "Zhè shì shéi de dōngxi?"
+          }
+        ]
+      },
+      "its-mine": {
+        "text": "是我的。",
+        "rom": "Shì wǒ de.",
+        "accept": [
+          {
+            "text": "这是我的。",
+            "rom": "Zhè shì wǒ de."
+          }
+        ]
+      }
+    }
+  },
+  "notes": [
+    "的 (de) after a person makes \"whose\": 我的 mine, 老师的 the teacher's, 谁的 whose.",
+    "还 (huán) here means give back. The same character is said hái when it means still.",
+    "没问题 (méi wèntí) is \"no problem\", said just as often as in English."
+  ]
+}

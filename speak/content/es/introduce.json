@@ -1,0 +1,188 @@
+{
+  "schema": 2,
+  "scenario": "introduce",
+  "lang": "es",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "¡Hola! Le presento a mi amigo {friend}.",
+      "variants": [
+        {
+          "label": "introducing a man",
+          "text": "¡Hola! Le presento a mi amigo {friend}."
+        },
+        {
+          "label": "introducing a woman",
+          "text": "¡Hola! Le presento a mi amiga {friend}."
+        }
+      ],
+      "accept": [
+        "¡Hola! Este es mi amigo {friend}.",
+        "¡Hola! Esta es mi amiga {friend}."
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "¡Hola! Te presento a mi amigo {friend}.",
+          "variants": [
+            {
+              "label": "introducing a man",
+              "text": "¡Hola! Te presento a mi amigo {friend}."
+            },
+            {
+              "label": "introducing a woman",
+              "text": "¡Hola! Te presento a mi amiga {friend}."
+            }
+          ],
+          "accept": [
+            "¡Hola! Este es mi amigo {friend}.",
+            "¡Hola! Esta es mi amiga {friend}."
+          ]
+        }
+      }
+    },
+    "l2": {
+      "text": "¡Hola! Mucho gusto.",
+      "accept": [
+        "¡Hola! Encantado.",
+        "¡Hola! Encantada.",
+        "¡Hola! Mucho gusto, bienvenido."
+      ],
+      "registerNeutral": true
+    },
+    "l3": {
+      "text": "{friend} es de {city}."
+    },
+    "l4": {
+      "text": "Ah, ¿sí? ¿Y a qué se dedica {friend}?",
+      "accept": [
+        "Ah, ¿sí? ¿Y qué hace {friend}?",
+        "¿De verdad? ¿Y a qué se dedica {friend}?"
+      ]
+    },
+    "l5": {
+      "text": "{friend} es {job}."
+    },
+    "l6": {
+      "text": "¡Qué chévere! Bienvenido.",
+      "variants": [
+        {
+          "label": "welcoming a man",
+          "text": "¡Qué chévere! Bienvenido."
+        },
+        {
+          "label": "welcoming a woman",
+          "text": "¡Qué chévere! Bienvenida."
+        }
+      ],
+      "accept": [
+        "¡Qué bien! Bienvenido.",
+        "¡Qué bien! Bienvenida."
+      ],
+      "registerNeutral": true
+    }
+  },
+  "chunks": {
+    "this-is-my-friend": {
+      "text": "le presento a mi amigo / amiga ___",
+      "byRegister": {
+        "familiar": {
+          "text": "te presento a mi amigo / amiga ___"
+        }
+      },
+      "choice": "mf",
+      "literal": "you I-present to my friend (m / f) ___"
+    },
+    "nice-to-meet": {
+      "text": "mucho gusto",
+      "registerNeutral": true,
+      "literal": "much pleasure"
+    },
+    "is-from": {
+      "text": "___ es de ___",
+      "literal": "___ is from ___"
+    },
+    "oh-really": {
+      "text": "ah, ¿sí?",
+      "literal": "ah, yes?"
+    },
+    "what-does-do": {
+      "text": "¿a qué se dedica ___?",
+      "literal": "to what himself devotes ___?"
+    },
+    "welcome": {
+      "text": "bienvenido / bienvenida",
+      "registerNeutral": true,
+      "choice": "mf",
+      "literal": "welcome (m / f)"
+    },
+    "this-is-my": {
+      "text": "le presento a mi ___",
+      "byRegister": {
+        "familiar": {
+          "text": "te presento a mi ___"
+        }
+      },
+      "extra": true,
+      "literal": "you I-present to my ___"
+    }
+  },
+  "slotValues": {
+    "job": [
+      {
+        "en": "journalist",
+        "text": "periodista"
+      },
+      {
+        "en": "dentist",
+        "text": "dentista"
+      },
+      {
+        "en": "taxi driver",
+        "text": "taxista"
+      },
+      {
+        "en": "football player",
+        "text": "futbolista"
+      }
+    ]
+  },
+  "partnerValues": {
+    "friend": {
+      "en": "Andrés",
+      "text": "Andrés"
+    },
+    "city": {
+      "en": "Cali",
+      "text": "Cali"
+    }
+  },
+  "free": {
+    "targets": {
+      "their-name-is": {
+        "text": "Se llama ___."
+      },
+      "nice-to-meet-too": {
+        "text": "Igualmente.",
+        "accept": [
+          "El gusto es mío.",
+          "Mucho gusto, igualmente."
+        ],
+        "registerNeutral": true
+      }
+    }
+  },
+  "notes": [
+    "Amigo is a male friend, amiga a female friend. Bienvenido is said to a man, bienvenida to a woman.",
+    "Le presento a… (usted) and te presento a… (tú) mean \"let me introduce…\". Este es mi amigo / esta es mi amiga also works.",
+    "No un or una before a job: Andrés es periodista. Words ending in -ista are the same for men and women.",
+    "¡Qué chévere! (\"how great!\") is very Colombian."
+  ]
+}

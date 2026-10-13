@@ -1,0 +1,145 @@
+{
+  "schema": 2,
+  "scenario": "when",
+  "lang": "fr",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "C'est quand, votre anniversaire ?",
+      "accept": [
+        "Quand est votre anniversaire ?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "C'est quand, ton anniversaire ?",
+          "accept": [
+            "Quand est ton anniversaire ?"
+          ]
+        }
+      }
+    },
+    "l2": {
+      "text": "C'est en {month}. Et le vôtre ?",
+      "byRegister": {
+        "familiar": {
+          "text": "C'est en {month}. Et le tien ?"
+        }
+      }
+    },
+    "l3": {
+      "text": "Le mien, c'est en mai.",
+      "accept": [
+        "Le mien est en mai."
+      ]
+    },
+    "l4": {
+      "text": "C'est quand, notre prochain cours ?",
+      "accept": [
+        "Quand est notre prochain cours ?"
+      ]
+    },
+    "l5": {
+      "text": "Dimanche, à dix heures.",
+      "accept": [
+        "Dimanche, à 10 heures."
+      ]
+    },
+    "l6": {
+      "text": "Super. À dimanche !",
+      "accept": [
+        "Parfait. À dimanche !"
+      ]
+    }
+  },
+  "chunks": {
+    "when-birthday": {
+      "text": "c'est quand, votre anniversaire ?",
+      "byRegister": {
+        "familiar": {
+          "text": "c'est quand, ton anniversaire ?"
+        }
+      },
+      "literal": "it's when, your birthday?"
+    },
+    "its-in": {
+      "text": "c'est en ___",
+      "literal": "it's in ___"
+    },
+    "and-yours": {
+      "text": "et le vôtre ?",
+      "byRegister": {
+        "familiar": {
+          "text": "et le tien ?"
+        }
+      },
+      "literal": "and the yours?"
+    },
+    "mine-is-in": {
+      "text": "le mien, c'est en ___",
+      "literal": "the mine, it's in ___"
+    },
+    "next-class": {
+      "text": "c'est quand, notre prochain cours ?",
+      "literal": "it's when, our next class?"
+    },
+    "see-you-on": {
+      "text": "à ___ !",
+      "literal": "until ___!"
+    },
+    "every-week": {
+      "extra": true,
+      "text": "toutes les semaines",
+      "literal": "all the weeks"
+    }
+  },
+  "slotValues": {
+    "month": [
+      {
+        "en": "March",
+        "text": "mars"
+      },
+      {
+        "en": "July",
+        "text": "juillet"
+      },
+      {
+        "en": "October",
+        "text": "octobre"
+      },
+      {
+        "en": "December",
+        "text": "décembre"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "happy-birthday": {
+        "text": "Joyeux anniversaire !",
+        "accept": [
+          "Bon anniversaire !"
+        ]
+      },
+      "whats-the-date": {
+        "text": "On est le combien aujourd'hui ?",
+        "accept": [
+          "Quelle est la date aujourd'hui ?",
+          "Nous sommes le combien ?"
+        ]
+      }
+    }
+  },
+  "notes": [
+    "Months take en and no capital letter: en mai, en octobre.",
+    "Dimanche alone means this Sunday. Le dimanche means every Sunday.",
+    "À plus a day means see you then: À dimanche ! À demain !"
+  ]
+}

@@ -1,0 +1,177 @@
+{
+  "schema": 2,
+  "scenario": "weather",
+  "lang": "zh",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "喂！你那儿天气怎么样？",
+      "rom": "Wéi! Nǐ nàr tiānqì zěnmeyàng?",
+      "byRegister": {
+        "formal": {
+          "text": "喂！您那儿天气怎么样？",
+          "rom": "Wéi! Nín nàr tiānqì zěnmeyàng?"
+        }
+      }
+    },
+    "l2": {
+      "text": "今天{weather}。你那儿呢？",
+      "rom": "Jīntiān {weather}. Nǐ nàr ne?",
+      "byRegister": {
+        "formal": {
+          "text": "今天{weather}。您那儿呢？",
+          "rom": "Jīntiān {weather}. Nín nàr ne?"
+        }
+      }
+    },
+    "l3": {
+      "text": "我们这儿在下大雨。",
+      "rom": "Wǒmen zhèr zài xià dà yǔ.",
+      "accept": [
+        {
+          "text": "我这儿在下大雨。",
+          "rom": "Wǒ zhèr zài xià dà yǔ."
+        },
+        {
+          "text": "这儿雨很大。",
+          "rom": "Zhèr yǔ hěn dà."
+        }
+      ]
+    },
+    "l4": {
+      "text": "带把伞吧！",
+      "rom": "Dài bǎ sǎn ba!",
+      "accept": [
+        {
+          "text": "带伞吧！",
+          "rom": "Dài sǎn ba!"
+        }
+      ],
+      "registerNeutral": true
+    },
+    "l5": {
+      "text": "好。我很喜欢下雨。",
+      "rom": "Hǎo. Wǒ hěn xǐhuan xià yǔ."
+    },
+    "l6": {
+      "text": "我可不喜欢！我更喜欢晴天。",
+      "rom": "Wǒ kě bù xǐhuan! Wǒ gèng xǐhuan qíngtiān."
+    }
+  },
+  "chunks": {
+    "hows-the-weather": {
+      "text": "天气怎么样？",
+      "rom": "tiānqì zěnmeyàng?",
+      "literal": "weather how?",
+      "chain": [
+        "怎么样？"
+      ]
+    },
+    "today-weather": {
+      "text": "今天___",
+      "rom": "jīntiān ___",
+      "literal": "today ___"
+    },
+    "its-raining": {
+      "text": "下雨",
+      "rom": "xià yǔ",
+      "kind": "collocation",
+      "literal": "fall rain"
+    },
+    "take-umbrella": {
+      "text": "带把伞吧",
+      "rom": "dài bǎ sǎn ba",
+      "registerNeutral": true,
+      "literal": "take (measure) umbrella (suggest)",
+      "chain": [
+        "伞吧",
+        "把伞吧"
+      ]
+    },
+    "i-love": {
+      "text": "我很喜欢___",
+      "rom": "wǒ hěn xǐhuan ___",
+      "literal": "I very like ___",
+      "chain": [
+        "喜欢___",
+        "很喜欢___"
+      ]
+    },
+    "not-me": {
+      "text": "我可不喜欢",
+      "rom": "wǒ kě bù xǐhuan",
+      "literal": "I really not like",
+      "chain": [
+        "不喜欢",
+        "可不喜欢"
+      ]
+    },
+    "i-prefer": {
+      "text": "我更喜欢___",
+      "rom": "wǒ gèng xǐhuan ___",
+      "literal": "I more like ___",
+      "chain": [
+        "喜欢___",
+        "更喜欢___"
+      ]
+    },
+    "its-cold": {
+      "text": "天气很冷",
+      "rom": "tiānqì hěn lěng",
+      "literal": "weather very cold",
+      "extra": true,
+      "chain": [
+        "很冷"
+      ]
+    }
+  },
+  "slotValues": {
+    "weather": [
+      {
+        "en": "it's sunny",
+        "text": "是晴天",
+        "rom": "shì qíngtiān"
+      },
+      {
+        "en": "it's hot",
+        "text": "很热",
+        "rom": "hěn rè"
+      },
+      {
+        "en": "it's cold",
+        "text": "很冷",
+        "rom": "hěn lěng"
+      },
+      {
+        "en": "it's snowing",
+        "text": "下雪了",
+        "rom": "xià xuě le"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "in-my-city": {
+        "text": "在我们城市，___。",
+        "rom": "Zài wǒmen chéngshì, ___."
+      },
+      "when-it-rains": {
+        "text": "下雨的时候，我___。",
+        "rom": "Xià yǔ de shíhou, wǒ ___."
+      }
+    }
+  },
+  "notes": [
+    "喂 (wéi) is \"hello\" on the phone only.",
+    "Rain and snow \"fall\": 下雨 (xià yǔ), 下雪 (xià xuě). 在下雨 means it is raining now.",
+    "更 (gèng, more) before 喜欢 says what you prefer: 我更喜欢晴天."
+  ]
+}

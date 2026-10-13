@@ -1,0 +1,201 @@
+{
+  "schema": 2,
+  "scenario": "feel",
+  "lang": "hi",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "registerNotes": {
+    "intimate": "तू is for very close friends and family. Practise this one with आप and तुम."
+  },
+  "lines": {
+    "l1": {
+      "text": "आप ठीक हैं?",
+      "rom": "aap Theek hain?",
+      "byRegister": {
+        "familiar": {
+          "text": "तुम ठीक हो?",
+          "rom": "tum Theek ho?"
+        }
+      }
+    },
+    "l2": {
+      "text": "मुझे {feeling} लगी है।",
+      "rom": "mujhe {feeling} lagee hai."
+    },
+    "l3": {
+      "text": "मुझे भी! चलो, कुछ खाते हैं।",
+      "rom": "mujhe bhee! chalo, kuchh khaate hain.",
+      "accept": [
+        {
+          "text": "मुझे भी! चलिए, कुछ खाते हैं।",
+          "rom": "mujhe bhee! chalie, kuchh khaate hain."
+        }
+      ]
+    },
+    "l4": {
+      "text": "अच्छा आइडिया। आप थक गए हैं?",
+      "rom": "achchhaa aaiDiyaa. aap thak gae hain?",
+      "variants": [
+        {
+          "listener": "m",
+          "text": "अच्छा आइडिया। आप थक गए हैं?",
+          "rom": "achchhaa aaiDiyaa. aap thak gae hain?"
+        },
+        {
+          "listener": "f",
+          "text": "अच्छा आइडिया। आप थक गई हैं?",
+          "rom": "achchhaa aaiDiyaa. aap thak gaee hain?"
+        }
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "अच्छा आइडिया। तुम थक गए हो?",
+          "rom": "achchhaa aaiDiyaa. tum thak gae ho?",
+          "variants": [
+            {
+              "listener": "m",
+              "text": "अच्छा आइडिया। तुम थक गए हो?",
+              "rom": "achchhaa aaiDiyaa. tum thak gae ho?"
+            },
+            {
+              "listener": "f",
+              "text": "अच्छा आइडिया। तुम थक गई हो?",
+              "rom": "achchhaa aaiDiyaa. tum thak gaee ho?"
+            }
+          ]
+        }
+      }
+    },
+    "l5": {
+      "text": "हाँ, मैं थोड़ा थक गया हूँ।",
+      "rom": "haan, main thoRaa thak gayaa hoon.",
+      "variants": [
+        {
+          "speaker": "m",
+          "text": "हाँ, मैं थोड़ा थक गया हूँ।",
+          "rom": "haan, main thoRaa thak gayaa hoon."
+        },
+        {
+          "speaker": "f",
+          "text": "हाँ, मैं थोड़ा थक गई हूँ।",
+          "rom": "haan, main thoRaa thak gaee hoon."
+        }
+      ]
+    },
+    "l6": {
+      "text": "तो चलो, थोड़ा आराम करते हैं।",
+      "rom": "to chalo, thoRaa aaraam karte hain.",
+      "accept": [
+        {
+          "text": "तो चलिए, थोड़ा आराम करते हैं।",
+          "rom": "to chalie, thoRaa aaraam karte hain."
+        }
+      ]
+    }
+  },
+  "chunks": {
+    "are-you-ok": {
+      "text": "आप ठीक हैं?",
+      "rom": "aap Theek hain?",
+      "literal": "you fine are?",
+      "byRegister": {
+        "familiar": {
+          "text": "तुम ठीक हो?",
+          "rom": "tum Theek ho?"
+        }
+      }
+    },
+    "im-feeling": {
+      "text": "मुझे ___ लगी है",
+      "rom": "mujhe ___ lagee hai",
+      "literal": "to-me ___ struck is"
+    },
+    "me-too": {
+      "text": "मुझे भी",
+      "rom": "mujhe bhee",
+      "literal": "to-me also"
+    },
+    "lets-eat": {
+      "text": "चलो, कुछ खाते हैं",
+      "rom": "chalo, kuchh khaate hain",
+      "literal": "come-on, something (we) eat"
+    },
+    "good-idea": {
+      "text": "अच्छा आइडिया",
+      "rom": "achchhaa aaiDiyaa",
+      "literal": "good idea"
+    },
+    "a-bit-tired": {
+      "text": "मैं थोड़ा थक गया / गई हूँ",
+      "rom": "main thoRaa thak gayaa / gaee hoon",
+      "choice": "mf",
+      "literal": "I a-little tire went am"
+    },
+    "lets-rest": {
+      "text": "थोड़ा आराम करते हैं",
+      "rom": "thoRaa aaraam karte hain",
+      "literal": "a-little rest (we) do"
+    },
+    "im-sleepy": {
+      "text": "मुझे नींद आ रही है",
+      "rom": "mujhe neend aa rahee hai",
+      "extra": true,
+      "literal": "to-me sleep coming is"
+    }
+  },
+  "slotValues": {
+    "feeling": [
+      {
+        "en": "hungry",
+        "text": "भूख",
+        "rom": "bhookh"
+      },
+      {
+        "en": "thirsty",
+        "text": "प्यास",
+        "rom": "pyaas"
+      },
+      {
+        "en": "cold",
+        "text": "ठंड",
+        "rom": "ThanD"
+      },
+      {
+        "en": "hot",
+        "text": "गर्मी",
+        "rom": "garmee"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "are-you": {
+        "text": "क्या आपको ___ लगी है?",
+        "rom": "kyaa aapko ___ lagee hai?",
+        "byRegister": {
+          "familiar": {
+            "text": "क्या तुम्हें ___ लगी है?",
+            "rom": "kyaa tumhen ___ lagee hai?"
+          }
+        }
+      },
+      "not-at-all": {
+        "text": "नहीं, बिल्कुल नहीं",
+        "rom": "naheen, bilkul naheen"
+      }
+    }
+  },
+  "notes": [
+    "Hunger and thirst \"strike\" you in Hindi: मुझे भूख लगी है (\"to me hunger has struck\"), मुझे प्यास लगी है. The person takes मुझे, not मैं.",
+    "For heat and cold right now, मुझे ठंड लग रही है and मुझे गर्मी लग रही है are also common.",
+    "चलो ... ते हैं means \"let's\": चलो, कुछ खाते हैं (let's eat something). चलिए is the polite form.",
+    "थक गया / थक गई agrees with the speaker: a man says मैं थक गया हूँ, a woman मैं थक गई हूँ."
+  ]
+}

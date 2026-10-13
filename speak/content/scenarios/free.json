@@ -1,0 +1,97 @@
+{
+  "schema": 2,
+  "id": "free",
+  "title": "Are you free?",
+  "goal": "Ask if someone is free and agree a time to meet.",
+  "roles": {
+    "A": "Suggests meeting",
+    "B": "Checks their day"
+  },
+  "slots": {
+    "time": {
+      "kind": "set",
+      "cue": "an hour"
+    }
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "role": "A",
+      "en": "Are you free tomorrow?",
+      "addressesYou": true
+    },
+    {
+      "id": "l2",
+      "role": "B",
+      "en": "In the morning I'm busy. In the afternoon I'm free."
+    },
+    {
+      "id": "l3",
+      "role": "A",
+      "en": "Shall we have coffee at {time}?"
+    },
+    {
+      "id": "l4",
+      "role": "B",
+      "en": "Yes, good idea. Where?"
+    },
+    {
+      "id": "l5",
+      "role": "A",
+      "en": "At the café near the station."
+    },
+    {
+      "id": "l6",
+      "role": "B",
+      "en": "OK, see you tomorrow!"
+    }
+  ],
+  "chunks": [
+    {
+      "id": "are-you-free",
+      "en": "are you free tomorrow?",
+      "addressesYou": true
+    },
+    {
+      "id": "im-busy",
+      "en": "I'm busy"
+    },
+    {
+      "id": "im-free",
+      "en": "I'm free"
+    },
+    {
+      "id": "shall-we",
+      "en": "shall we have coffee at ___?"
+    },
+    {
+      "id": "good-idea",
+      "en": "good idea"
+    },
+    {
+      "id": "see-you-tomorrow",
+      "en": "see you tomorrow"
+    },
+    {
+      "id": "next-week",
+      "en": "next week"
+    }
+  ],
+  "drill": {
+    "slot": "time",
+    "instruction": "Swap the time each time."
+  },
+  "free": {
+    "prompt": "Find a time this week to meet each person in the group.",
+    "targets": [
+      {
+        "id": "how-about",
+        "en": "how about ___?"
+      },
+      {
+        "id": "sorry-i-cant",
+        "en": "sorry, I can't"
+      }
+    ]
+  }
+}

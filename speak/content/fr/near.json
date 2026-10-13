@@ -1,0 +1,117 @@
+{
+  "schema": 2,
+  "scenario": "near",
+  "lang": "fr",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "Excusez-moi, il y a {place} près d'ici ?",
+      "accept": [
+        "Excusez-moi, est-ce qu'il y a {place} près d'ici ?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Excuse-moi, il y a {place} près d'ici ?",
+          "accept": [
+            "Excuse-moi, est-ce qu'il y a {place} près d'ici ?"
+          ]
+        }
+      }
+    },
+    "l2": {
+      "text": "Oui, là-bas."
+    },
+    "l3": {
+      "text": "À côté de la banque ?"
+    },
+    "l4": {
+      "text": "Non, en face de la banque."
+    },
+    "l5": {
+      "text": "Merci !",
+      "accept": [
+        "Merci beaucoup !"
+      ]
+    },
+    "l6": {
+      "text": "De rien.",
+      "accept": [
+        "Avec plaisir."
+      ]
+    }
+  },
+  "chunks": {
+    "is-there-near": {
+      "text": "il y a ___ près d'ici ?",
+      "literal": "it there has ___ near of-here?"
+    },
+    "over-there": {
+      "text": "là-bas",
+      "literal": "there-down"
+    },
+    "next-to": {
+      "text": "à côté de ___",
+      "literal": "at side of ___"
+    },
+    "opposite": {
+      "text": "en face de ___",
+      "literal": "in face of ___"
+    },
+    "thank-you": {
+      "text": "merci",
+      "literal": "thanks"
+    },
+    "youre-welcome": {
+      "text": "de rien",
+      "literal": "of nothing"
+    },
+    "on-the-corner": {
+      "extra": true,
+      "text": "au coin de la rue",
+      "literal": "at-the corner of the street"
+    }
+  },
+  "slotValues": {
+    "place": [
+      {
+        "en": "bakery",
+        "text": "une boulangerie"
+      },
+      {
+        "en": "chemist's",
+        "text": "une pharmacie"
+      },
+      {
+        "en": "supermarket",
+        "text": "un supermarché"
+      },
+      {
+        "en": "café",
+        "text": "un café"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "behind": {
+        "text": "derrière ___"
+      },
+      "in-front-of": {
+        "text": "devant ___"
+      }
+    }
+  },
+  "notes": [
+    "Il y a means there is, and also is there? as a question: Il y a une pharmacie près d'ici ?",
+    "De + le becomes du: à côté du supermarché, en face du café.",
+    "A French pharmacy has a green cross outside, often lit up."
+  ]
+}

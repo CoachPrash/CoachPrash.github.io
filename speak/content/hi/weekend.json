@@ -1,0 +1,239 @@
+{
+  "schema": 2,
+  "scenario": "weekend",
+  "lang": "hi",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "registerNotes": {
+    "intimate": "तू is for very close friends and family. Practise this one with आप and तुम."
+  },
+  "lines": {
+    "l1": {
+      "text": "आप वीकेंड पर क्या करते हैं?",
+      "rom": "aap veekenD par kyaa karte hain?",
+      "variants": [
+        {
+          "listener": "m",
+          "text": "आप वीकेंड पर क्या करते हैं?",
+          "rom": "aap veekenD par kyaa karte hain?"
+        },
+        {
+          "listener": "f",
+          "text": "आप वीकेंड पर क्या करती हैं?",
+          "rom": "aap veekenD par kyaa kartee hain?"
+        }
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "तुम वीकेंड पर क्या करते हो?",
+          "rom": "tum veekenD par kyaa karte ho?",
+          "variants": [
+            {
+              "listener": "m",
+              "text": "तुम वीकेंड पर क्या करते हो?",
+              "rom": "tum veekenD par kyaa karte ho?"
+            },
+            {
+              "listener": "f",
+              "text": "तुम वीकेंड पर क्या करती हो?",
+              "rom": "tum veekenD par kyaa kartee ho?"
+            }
+          ]
+        }
+      }
+    },
+    "l2": {
+      "text": "मैं आम तौर पर {activity} जाता हूँ। और आप?",
+      "rom": "main aam taur par {activity} jaataa hoon. aur aap?",
+      "variants": [
+        {
+          "speaker": "m",
+          "text": "मैं आम तौर पर {activity} जाता हूँ। और आप?",
+          "rom": "main aam taur par {activity} jaataa hoon. aur aap?"
+        },
+        {
+          "speaker": "f",
+          "text": "मैं आम तौर पर {activity} जाती हूँ। और आप?",
+          "rom": "main aam taur par {activity} jaatee hoon. aur aap?"
+        }
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "मैं आम तौर पर {activity} जाता हूँ। और तुम?",
+          "rom": "main aam taur par {activity} jaataa hoon. aur tum?",
+          "variants": [
+            {
+              "speaker": "m",
+              "text": "मैं आम तौर पर {activity} जाता हूँ। और तुम?",
+              "rom": "main aam taur par {activity} jaataa hoon. aur tum?"
+            },
+            {
+              "speaker": "f",
+              "text": "मैं आम तौर पर {activity} जाती हूँ। और तुम?",
+              "rom": "main aam taur par {activity} jaatee hoon. aur tum?"
+            }
+          ]
+        }
+      }
+    },
+    "l3": {
+      "text": "मैं दोस्तों के साथ बाज़ार जाता हूँ।",
+      "rom": "main doston ke saath baazaar jaataa hoon.",
+      "variants": [
+        {
+          "speaker": "m",
+          "text": "मैं दोस्तों के साथ बाज़ार जाता हूँ।",
+          "rom": "main doston ke saath baazaar jaataa hoon."
+        },
+        {
+          "speaker": "f",
+          "text": "मैं दोस्तों के साथ बाज़ार जाती हूँ।",
+          "rom": "main doston ke saath baazaar jaatee hoon."
+        }
+      ]
+    },
+    "l4": {
+      "text": "वाह, मज़ेदार!",
+      "rom": "vaah, mazedaar!"
+    },
+    "l5": {
+      "text": "आप भी शनिवार को चलेंगे?",
+      "rom": "aap bhee shanivaar ko chalenge?",
+      "variants": [
+        {
+          "listener": "m",
+          "text": "आप भी शनिवार को चलेंगे?",
+          "rom": "aap bhee shanivaar ko chalenge?"
+        },
+        {
+          "listener": "f",
+          "text": "आप भी शनिवार को चलेंगी?",
+          "rom": "aap bhee shanivaar ko chalengee?"
+        }
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "तुम भी शनिवार को चलोगे?",
+          "rom": "tum bhee shanivaar ko chaloge?",
+          "variants": [
+            {
+              "listener": "m",
+              "text": "तुम भी शनिवार को चलोगे?",
+              "rom": "tum bhee shanivaar ko chaloge?"
+            },
+            {
+              "listener": "f",
+              "text": "तुम भी शनिवार को चलोगी?",
+              "rom": "tum bhee shanivaar ko chalogee?"
+            }
+          ]
+        }
+      }
+    },
+    "l6": {
+      "text": "हाँ, ज़रूर!",
+      "rom": "haan, zaroor!"
+    }
+  },
+  "chunks": {
+    "what-weekend": {
+      "text": "आप वीकेंड पर क्या करते / करती हैं?",
+      "rom": "aap veekenD par kyaa karte / kartee hain?",
+      "choice": "mf",
+      "literal": "you weekend on what do are?",
+      "byRegister": {
+        "familiar": {
+          "text": "तुम वीकेंड पर क्या करते / करती हो?",
+          "rom": "tum veekenD par kyaa karte / kartee ho?"
+        }
+      }
+    },
+    "i-usually": {
+      "text": "मैं आम तौर पर ___",
+      "rom": "main aam taur par ___",
+      "literal": "I common way on ___"
+    },
+    "with-friends": {
+      "text": "दोस्तों के साथ",
+      "rom": "doston ke saath",
+      "literal": "friends of with"
+    },
+    "sounds-fun": {
+      "text": "वाह, मज़ेदार",
+      "rom": "vaah, mazedaar",
+      "literal": "wow, fun"
+    },
+    "want-to-come": {
+      "text": "आप भी ___ चलेंगे / चलेंगी?",
+      "rom": "aap bhee ___ chalenge / chalengee?",
+      "choice": "mf",
+      "literal": "you also ___ will-come?",
+      "byRegister": {
+        "familiar": {
+          "text": "तुम भी ___ चलोगे / चलोगी?",
+          "rom": "tum bhee ___ chaloge / chalogee?"
+        }
+      }
+    },
+    "gladly": {
+      "text": "हाँ, ज़रूर",
+      "rom": "haan, zaroor",
+      "literal": "yes, surely"
+    },
+    "every-sunday": {
+      "text": "हर रविवार",
+      "rom": "har ravivaar",
+      "extra": true,
+      "literal": "every Sunday"
+    }
+  },
+  "slotValues": {
+    "activity": [
+      {
+        "en": "go to see a film",
+        "text": "फ़िल्म देखने",
+        "rom": "film dekhne"
+      },
+      {
+        "en": "go to play cricket",
+        "text": "क्रिकेट खेलने",
+        "rom": "krikeT khelne"
+      },
+      {
+        "en": "go swimming",
+        "text": "तैरने",
+        "rom": "tairne"
+      },
+      {
+        "en": "go to the temple",
+        "text": "मंदिर",
+        "rom": "mandir"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "sometimes": {
+        "text": "कभी-कभी मैं ___",
+        "rom": "kabhee-kabhee main ___"
+      },
+      "never": {
+        "text": "मैं कभी ___ नहीं ___",
+        "rom": "main kabhee ___ naheen ___"
+      }
+    }
+  },
+  "notes": [
+    "वीकेंड is everyday city Hindi. शनिवार-रविवार (Saturday-Sunday) works too.",
+    "आम तौर पर means \"usually\". अक्सर (often) is also common: मैं अक्सर क्रिकेट खेलने जाता हूँ.",
+    "To go and do something, put the verb in -ने before जाना: फ़िल्म देखने जाता हूँ (I go to see a film), तैरने जाती हूँ (I go swimming).",
+    "\"Never\" is कभी ... नहीं: मैं कभी जल्दी नहीं उठता (I never get up early)."
+  ]
+}

@@ -1,0 +1,237 @@
+{
+  "schema": 2,
+  "scenario": "numbers",
+  "lang": "zh",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "你多大了？",
+      "rom": "Nǐ duō dà le?",
+      "byRegister": {
+        "formal": {
+          "text": "您多大年纪了？",
+          "rom": "Nín duō dà niánjì le?",
+          "accept": [
+            {
+              "text": "您多大了？",
+              "rom": "Nín duō dà le?"
+            }
+          ]
+        }
+      }
+    },
+    "l2": {
+      "text": "我{age}岁。你呢？",
+      "rom": "Wǒ {age} suì. Nǐ ne?",
+      "byRegister": {
+        "formal": {
+          "text": "我{age}岁。您呢？",
+          "rom": "Wǒ {age} suì. Nín ne?"
+        }
+      }
+    },
+    "l3": {
+      "text": "我三十岁。你的电话号码是多少？",
+      "rom": "Wǒ sānshí suì. Nǐ de diànhuà hàomǎ shì duōshao?",
+      "accept": [
+        {
+          "text": "我30岁。你的电话号码是多少？",
+          "rom": "Wǒ 30 suì. Nǐ de diànhuà hàomǎ shì duōshao?"
+        }
+      ],
+      "byRegister": {
+        "formal": {
+          "text": "我三十岁。您的电话号码是多少？",
+          "rom": "Wǒ sānshí suì. Nín de diànhuà hàomǎ shì duōshao?",
+          "accept": [
+            {
+              "text": "我30岁。您的电话号码是多少？",
+              "rom": "Wǒ 30 suì. Nín de diànhuà hàomǎ shì duōshao?"
+            }
+          ]
+        }
+      }
+    },
+    "l4": {
+      "text": "是{phone}。",
+      "rom": "Shì {phone}.",
+      "accept": [
+        {
+          "text": "我的号码是{phone}。",
+          "rom": "Wǒ de hàomǎ shì {phone}."
+        }
+      ]
+    },
+    "l5": {
+      "text": "不好意思？你能再说一遍吗？",
+      "rom": "Bù hǎoyìsi? Nǐ néng zài shuō yí biàn ma?",
+      "accept": [
+        {
+          "text": "不好意思？请再说一遍。",
+          "rom": "Bù hǎoyìsi? Qǐng zài shuō yí biàn."
+        }
+      ],
+      "byRegister": {
+        "formal": {
+          "text": "不好意思？您能再说一遍吗？",
+          "rom": "Bù hǎoyìsi? Nín néng zài shuō yí biàn ma?"
+        }
+      }
+    },
+    "l6": {
+      "text": "当然。{phone}。",
+      "rom": "Dāngrán. {phone}."
+    },
+    "l7": {
+      "text": "谢谢！回头见！",
+      "rom": "Xièxie! Huítóu jiàn!",
+      "accept": [
+        {
+          "text": "谢谢！再见！",
+          "rom": "Xièxie! Zàijiàn!"
+        }
+      ]
+    }
+  },
+  "chunks": {
+    "how-old": {
+      "text": "你多大了？",
+      "rom": "nǐ duō dà le?",
+      "byRegister": {
+        "formal": {
+          "text": "您多大年纪了？",
+          "rom": "nín duō dà niánjì le?"
+        }
+      },
+      "literal": "you how big (now)?",
+      "chain": [
+        "大了？",
+        "多大了？"
+      ]
+    },
+    "i-am-age": {
+      "text": "我___岁",
+      "rom": "wǒ ___ suì",
+      "literal": "I ___ years"
+    },
+    "whats-your-number": {
+      "text": "你的电话号码是多少？",
+      "rom": "nǐ de diànhuà hàomǎ shì duōshao?",
+      "byRegister": {
+        "formal": {
+          "text": "您的电话号码是多少？",
+          "rom": "nín de diànhuà hàomǎ shì duōshao?"
+        }
+      },
+      "literal": "your phone number is how-many?",
+      "chain": [
+        "多少？",
+        "是多少？",
+        "号码是多少？",
+        "电话号码是多少？"
+      ]
+    },
+    "its": {
+      "text": "是___",
+      "rom": "shì ___",
+      "literal": "is ___"
+    },
+    "can-you-repeat": {
+      "text": "你能再说一遍吗？",
+      "rom": "nǐ néng zài shuō yí biàn ma?",
+      "byRegister": {
+        "formal": {
+          "text": "您能再说一遍吗？",
+          "rom": "nín néng zài shuō yí biàn ma?"
+        }
+      },
+      "literal": "you can again say one time?",
+      "chain": [
+        "一遍吗？",
+        "再说一遍吗？",
+        "能再说一遍吗？"
+      ]
+    },
+    "of-course": {
+      "text": "当然",
+      "rom": "dāngrán",
+      "literal": "of-course"
+    },
+    "see-you": {
+      "text": "回头见",
+      "rom": "huítóu jiàn",
+      "literal": "turn-head see"
+    },
+    "my-number-is": {
+      "text": "我的号码是___",
+      "rom": "wǒ de hàomǎ shì ___",
+      "literal": "my number is ___",
+      "extra": true,
+      "chain": [
+        "号码是___"
+      ]
+    }
+  },
+  "slotValues": {
+    "phone": [
+      {
+        "en": "3974",
+        "text": "三九七四",
+        "rom": "sānjiǔ qīsì"
+      },
+      {
+        "en": "8256",
+        "text": "八二五六",
+        "rom": "bā'èr wǔliù"
+      },
+      {
+        "en": "6083",
+        "text": "六零八三",
+        "rom": "liùlíng bāsān"
+      },
+      {
+        "en": "5729",
+        "text": "五七二九",
+        "rom": "wǔqī èrjiǔ"
+      }
+    ]
+  },
+  "partnerValues": {
+    "age": {
+      "en": "twenty-five",
+      "text": "二十五",
+      "rom": "èrshíwǔ"
+    }
+  },
+  "free": {
+    "targets": {
+      "is-that-right": {
+        "text": "对吗？",
+        "rom": "Duì ma?"
+      },
+      "yes-thats-right": {
+        "text": "对，没错。",
+        "rom": "Duì, méi cuò.",
+        "accept": [
+          {
+            "text": "对。",
+            "rom": "Duì."
+          }
+        ]
+      }
+    }
+  },
+  "notes": [
+    "Phone numbers are read one digit at a time: 三九七四 is sān jiǔ qī sì, often grouped in pairs: sānjiǔ qīsì. In phone numbers 一 is usually said yāo, so it does not sound like 七 (qī).",
+    "你多大了？ is for a child or someone your age. To an older person, say 您多大年纪了？ (Nín duō dà niánjì le?).",
+    "岁 (suì) comes after the age: 我三十岁 (wǒ sānshí suì)."
+  ]
+}

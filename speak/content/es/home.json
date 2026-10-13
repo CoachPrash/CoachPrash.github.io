@@ -1,0 +1,137 @@
+{
+  "schema": 2,
+  "scenario": "home",
+  "lang": "es",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "¿Dónde vive?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿Dónde vives?"
+        }
+      }
+    },
+    "l2": {
+      "text": "Vivo {area}. ¿Y usted?",
+      "byRegister": {
+        "familiar": {
+          "text": "Vivo {area}. ¿Y tú?"
+        }
+      }
+    },
+    "l3": {
+      "text": "Vivo con mi familia en un apartamento.",
+      "accept": [
+        "Yo vivo con mi familia en un apartamento."
+      ]
+    },
+    "l4": {
+      "text": "¿Es grande?"
+    },
+    "l5": {
+      "text": "No, es pequeño pero bonito.",
+      "accept": [
+        "No, es chiquito pero bonito.",
+        "No, es pequeño pero lindo."
+      ]
+    },
+    "l6": {
+      "text": "¡Como el mío!",
+      "accept": [
+        "¡Igual que el mío!"
+      ]
+    }
+  },
+  "chunks": {
+    "where-live": {
+      "text": "¿dónde vive?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿dónde vives?"
+        }
+      },
+      "literal": "where you-live?"
+    },
+    "i-live": {
+      "text": "vivo ___",
+      "literal": "I-live ___"
+    },
+    "and-you": {
+      "text": "¿y usted?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿y tú?"
+        }
+      },
+      "literal": "and you?"
+    },
+    "with-my-family": {
+      "text": "con mi familia",
+      "literal": "with my family"
+    },
+    "is-it-big": {
+      "text": "¿es grande?",
+      "literal": "is big?"
+    },
+    "small-but-nice": {
+      "text": "es pequeño pero bonito",
+      "literal": "it-is small but pretty"
+    },
+    "i-live-alone": {
+      "text": "vivo solo / sola",
+      "choice": "mf",
+      "extra": true,
+      "literal": "I-live alone (m / f)"
+    }
+  },
+  "slotValues": {
+    "area": [
+      {
+        "en": "in the centre",
+        "text": "en el centro"
+      },
+      {
+        "en": "in the north",
+        "text": "en el norte"
+      },
+      {
+        "en": "in the south",
+        "text": "en el sur"
+      },
+      {
+        "en": "near the park",
+        "text": "cerca del parque"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "there-are-rooms": {
+        "text": "Tiene ___ habitaciones.",
+        "accept": [
+          "Tiene ___ cuartos."
+        ]
+      },
+      "i-like-my-home": {
+        "text": "Me gusta mi casa.",
+        "accept": [
+          "Me gusta mi apartamento."
+        ]
+      }
+    }
+  },
+  "notes": [
+    "Most Colombians in cities live in an apartamento. Casa means a house, and also \"home\".",
+    "Chiquito (\"tiny\") is the Colombian -ito form of chico: es chiquito pero bonito.",
+    "Vivo solo (a man) and vivo sola (a woman) mean \"I live alone\"."
+  ]
+}

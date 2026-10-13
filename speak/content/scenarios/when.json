@@ -1,0 +1,99 @@
+{
+  "schema": 2,
+  "id": "when",
+  "title": "When is it?",
+  "goal": "Ask when birthdays and classes are, and answer with months and days.",
+  "roles": {
+    "A": "Asks first",
+    "B": "Answers, then asks back"
+  },
+  "slots": {
+    "month": {
+      "kind": "set",
+      "cue": "a month"
+    }
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "role": "A",
+      "en": "When is your birthday?",
+      "addressesYou": true
+    },
+    {
+      "id": "l2",
+      "role": "B",
+      "en": "It's in {month}. And yours?",
+      "addressesYou": true
+    },
+    {
+      "id": "l3",
+      "role": "A",
+      "en": "Mine is in May."
+    },
+    {
+      "id": "l4",
+      "role": "B",
+      "en": "When is our next class?"
+    },
+    {
+      "id": "l5",
+      "role": "A",
+      "en": "On Sunday, at ten."
+    },
+    {
+      "id": "l6",
+      "role": "B",
+      "en": "Great. See you on Sunday!"
+    }
+  ],
+  "chunks": [
+    {
+      "id": "when-birthday",
+      "en": "when is your birthday?",
+      "addressesYou": true
+    },
+    {
+      "id": "its-in",
+      "en": "it's in ___ (a month)"
+    },
+    {
+      "id": "and-yours",
+      "en": "and yours?",
+      "addressesYou": true
+    },
+    {
+      "id": "mine-is-in",
+      "en": "mine is in ___"
+    },
+    {
+      "id": "next-class",
+      "en": "when is our next class?"
+    },
+    {
+      "id": "see-you-on",
+      "en": "see you on ___ (a day)"
+    },
+    {
+      "id": "every-week",
+      "en": "every week"
+    }
+  ],
+  "drill": {
+    "slot": "month",
+    "instruction": "Swap the month each time."
+  },
+  "free": {
+    "prompt": "Find someone whose birthday is in the same month as yours.",
+    "targets": [
+      {
+        "id": "happy-birthday",
+        "en": "happy birthday!"
+      },
+      {
+        "id": "whats-the-date",
+        "en": "what's the date today?"
+      }
+    ]
+  }
+}

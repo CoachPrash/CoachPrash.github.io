@@ -1,0 +1,208 @@
+{
+  "schema": 2,
+  "scenario": "in-class",
+  "lang": "hi",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "registerNotes": {
+    "intimate": "तू is for very close friends and family. Practise this one with आप and तुम."
+  },
+  "lines": {
+    "l1": {
+      "text": "सर, क्या मैं अंदर आ सकता हूँ?",
+      "rom": "sar, kyaa main andar aa saktaa hoon?",
+      "variants": [
+        {
+          "speaker": "m",
+          "listener": "m",
+          "text": "सर, क्या मैं अंदर आ सकता हूँ?",
+          "rom": "sar, kyaa main andar aa saktaa hoon?"
+        },
+        {
+          "speaker": "m",
+          "listener": "f",
+          "text": "मैम, क्या मैं अंदर आ सकता हूँ?",
+          "rom": "maim, kyaa main andar aa saktaa hoon?"
+        },
+        {
+          "speaker": "f",
+          "listener": "m",
+          "text": "सर, क्या मैं अंदर आ सकती हूँ?",
+          "rom": "sar, kyaa main andar aa saktee hoon?"
+        },
+        {
+          "speaker": "f",
+          "listener": "f",
+          "text": "मैम, क्या मैं अंदर आ सकती हूँ?",
+          "rom": "maim, kyaa main andar aa saktee hoon?"
+        }
+      ],
+      "registerNeutral": true,
+      "note": "A student always uses आप with a teacher, so this line does not change."
+    },
+    "l2": {
+      "text": "हाँ, आइए। बैठिए।",
+      "rom": "haan, aaie. baiThie.",
+      "byRegister": {
+        "familiar": {
+          "text": "हाँ, आ जाओ। बैठ जाओ।",
+          "rom": "haan, aa jaao. baiTh jaao.",
+          "accept": [
+            {
+              "text": "हाँ, आओ। बैठो।",
+              "rom": "haan, aao. baiTho."
+            }
+          ]
+        }
+      }
+    },
+    "l3": {
+      "text": "सॉरी, मुझे देर हो गई। कौन-सा पेज?",
+      "rom": "soree, mujhe der ho gaee. kaun-saa pej?",
+      "accept": [
+        {
+          "text": "सॉरी, मुझे देर हो गई। कौन-से पेज पर?",
+          "rom": "soree, mujhe der ho gaee. kaun-se pej par?"
+        }
+      ]
+    },
+    "l4": {
+      "text": "पेज नंबर {page}।",
+      "rom": "pej nambar {page}.",
+      "accept": [
+        {
+          "text": "पेज {page}।",
+          "rom": "pej {page}."
+        }
+      ]
+    },
+    "l5": {
+      "text": "मैंने कर लिया। क्या ये सही है?",
+      "rom": "mainne kar liyaa. kyaa ye sahee hai?",
+      "accept": [
+        {
+          "text": "मेरा हो गया। क्या ये सही है?",
+          "rom": "meraa ho gayaa. kyaa ye sahee hai?"
+        }
+      ]
+    },
+    "l6": {
+      "text": "हाँ, बहुत अच्छे!",
+      "rom": "haan, bahut achchhe!",
+      "accept": [
+        {
+          "text": "हाँ, बहुत अच्छा!",
+          "rom": "haan, bahut achchhaa!"
+        }
+      ]
+    }
+  },
+  "chunks": {
+    "may-i-come-in": {
+      "text": "क्या मैं अंदर आ सकता / सकती हूँ?",
+      "rom": "kyaa main andar aa saktaa / saktee hoon?",
+      "choice": "mf",
+      "registerNeutral": true,
+      "literal": "(question) I inside come can am?"
+    },
+    "come-in": {
+      "text": "आइए",
+      "rom": "aaie",
+      "literal": "come (please)",
+      "byRegister": {
+        "familiar": {
+          "text": "आ जाओ",
+          "rom": "aa jaao"
+        }
+      }
+    },
+    "sorry-late": {
+      "text": "सॉरी, मुझे देर हो गई",
+      "rom": "soree, mujhe der ho gaee",
+      "literal": "sorry, to-me lateness happened"
+    },
+    "which-page": {
+      "text": "कौन-सा पेज?",
+      "rom": "kaun-saa pej?",
+      "literal": "which page?"
+    },
+    "page": {
+      "text": "पेज नंबर ___",
+      "rom": "pej nambar ___",
+      "literal": "page number ___"
+    },
+    "ive-finished": {
+      "text": "मैंने कर लिया",
+      "rom": "mainne kar liyaa",
+      "literal": "I(ne) did took"
+    },
+    "is-this-right": {
+      "text": "क्या ये सही है?",
+      "rom": "kyaa ye sahee hai?",
+      "literal": "(question) this right is?"
+    },
+    "may-i-go": {
+      "text": "क्या मैं टॉयलेट जा सकता / सकती हूँ?",
+      "rom": "kyaa main ToyleT jaa saktaa / saktee hoon?",
+      "choice": "mf",
+      "registerNeutral": true,
+      "extra": true,
+      "literal": "(question) I toilet go can am?"
+    }
+  },
+  "slotValues": {
+    "page": [
+      {
+        "en": "twelve",
+        "text": "बारह",
+        "rom": "baarah"
+      },
+      {
+        "en": "fifteen",
+        "text": "पंद्रह",
+        "rom": "pandrah"
+      },
+      {
+        "en": "twenty",
+        "text": "बीस",
+        "rom": "bees"
+      },
+      {
+        "en": "thirty",
+        "text": "तीस",
+        "rom": "tees"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "i-dont-know": {
+        "text": "मुझे नहीं पता",
+        "rom": "mujhe naheen pataa"
+      },
+      "one-more-time": {
+        "text": "एक बार और बताइए",
+        "rom": "ek baar aur bataaie",
+        "byRegister": {
+          "familiar": {
+            "text": "एक बार और बताओ",
+            "rom": "ek baar aur bataao"
+          }
+        }
+      }
+    }
+  },
+  "notes": [
+    "Students call the teacher सर or मैम, and always use आप. Teachers often use तुम with students: आ जाओ, बैठ जाओ.",
+    "क्या मैं ... सकता / सकती हूँ? asks permission (\"may I ...?\"). सकता for a man or boy, सकती for a woman or girl.",
+    "मैंने कर लिया (\"I have done it\") is the same for everyone, because of ने. मेरा हो गया (\"mine is done\") is just as common.",
+    "Page numbers: पेज नंबर बारह. Recognition may write the number in digits; that is fine."
+  ]
+}

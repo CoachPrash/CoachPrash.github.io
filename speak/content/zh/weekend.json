@@ -1,0 +1,194 @@
+{
+  "schema": 2,
+  "scenario": "weekend",
+  "lang": "zh",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "你周末做什么？",
+      "rom": "Nǐ zhōumò zuò shénme?",
+      "accept": [
+        {
+          "text": "你周末干什么？",
+          "rom": "Nǐ zhōumò gàn shénme?"
+        }
+      ],
+      "byRegister": {
+        "formal": {
+          "text": "您周末做什么？",
+          "rom": "Nín zhōumò zuò shénme?",
+          "accept": [
+            {
+              "text": "您周末干什么？",
+              "rom": "Nín zhōumò gàn shénme?"
+            }
+          ]
+        }
+      }
+    },
+    "l2": {
+      "text": "我一般{activity}。你呢？",
+      "rom": "Wǒ yìbān {activity}. Nǐ ne?",
+      "byRegister": {
+        "formal": {
+          "text": "我一般{activity}。您呢？",
+          "rom": "Wǒ yìbān {activity}. Nín ne?"
+        }
+      }
+    },
+    "l3": {
+      "text": "我和朋友去逛夜市。",
+      "rom": "Wǒ hé péngyou qù guàng yèshì.",
+      "accept": [
+        {
+          "text": "我跟朋友去逛夜市。",
+          "rom": "Wǒ gēn péngyou qù guàng yèshì."
+        }
+      ]
+    },
+    "l4": {
+      "text": "听起来很好玩！",
+      "rom": "Tīng qǐlai hěn hǎowán!",
+      "accept": [
+        {
+          "text": "听起来很有意思！",
+          "rom": "Tīng qǐlai hěn yǒu yìsi!"
+        }
+      ]
+    },
+    "l5": {
+      "text": "你星期六想一起去吗？",
+      "rom": "Nǐ xīngqīliù xiǎng yìqǐ qù ma?",
+      "byRegister": {
+        "formal": {
+          "text": "您星期六想一起去吗？",
+          "rom": "Nín xīngqīliù xiǎng yìqǐ qù ma?"
+        }
+      }
+    },
+    "l6": {
+      "text": "好啊，我很乐意！",
+      "rom": "Hǎo a, wǒ hěn lèyì!",
+      "accept": [
+        {
+          "text": "好啊，我很想去！",
+          "rom": "Hǎo a, wǒ hěn xiǎng qù!"
+        }
+      ]
+    }
+  },
+  "chunks": {
+    "what-weekend": {
+      "text": "你周末做什么？",
+      "rom": "nǐ zhōumò zuò shénme?",
+      "byRegister": {
+        "formal": {
+          "text": "您周末做什么？",
+          "rom": "nín zhōumò zuò shénme?"
+        }
+      },
+      "literal": "you weekend do what?",
+      "chain": [
+        "什么？",
+        "做什么？",
+        "周末做什么？"
+      ]
+    },
+    "i-usually": {
+      "text": "我一般___",
+      "rom": "wǒ yìbān ___",
+      "literal": "I usually ___"
+    },
+    "with-friends": {
+      "text": "和朋友",
+      "rom": "hé péngyou",
+      "literal": "with friends"
+    },
+    "sounds-fun": {
+      "text": "听起来很好玩",
+      "rom": "tīng qǐlai hěn hǎowán",
+      "literal": "listen-rise very fun",
+      "chain": [
+        "好玩",
+        "很好玩"
+      ]
+    },
+    "want-to-come": {
+      "text": "想一起去吗？",
+      "rom": "xiǎng yìqǐ qù ma?",
+      "registerNeutral": true,
+      "literal": "want together go?",
+      "chain": [
+        "去吗？",
+        "一起去吗？"
+      ]
+    },
+    "gladly": {
+      "text": "好啊，我很乐意",
+      "rom": "hǎo a, wǒ hěn lèyì",
+      "literal": "good, I very willing",
+      "chain": [
+        "很乐意",
+        "我很乐意"
+      ]
+    },
+    "every-sunday": {
+      "text": "每个星期天",
+      "rom": "měi ge xīngqītiān",
+      "literal": "every (measure) Sunday",
+      "extra": true,
+      "chain": [
+        "星期天"
+      ]
+    }
+  },
+  "slotValues": {
+    "activity": [
+      {
+        "en": "go to the park",
+        "text": "去公园",
+        "rom": "qù gōngyuán"
+      },
+      {
+        "en": "play football",
+        "text": "踢足球",
+        "rom": "tī zúqiú"
+      },
+      {
+        "en": "watch films",
+        "text": "看电影",
+        "rom": "kàn diànyǐng"
+      },
+      {
+        "en": "clean my room",
+        "text": "打扫房间",
+        "rom": "dǎsǎo fángjiān"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "sometimes": {
+        "text": "我有时候___。",
+        "rom": "Wǒ yǒushíhou ___."
+      },
+      "never": {
+        "text": "我从来不___。",
+        "rom": "Wǒ cónglái bù ___."
+      }
+    }
+  },
+  "notes": [
+    "一般 (yìbān, usually) goes before the verb: 我一般踢足球.",
+    "逛夜市 (guàng yèshì) is strolling round a night market for snacks and shopping, a favourite weekend outing.",
+    "周末 (zhōumò) is the weekend. 星期六 is Saturday, 星期天 Sunday."
+  ]
+}

@@ -1,0 +1,189 @@
+{
+  "schema": 2,
+  "scenario": "have",
+  "lang": "hi",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "registerNotes": {
+    "intimate": "तू is for very close friends and family. Practise this one with आप and तुम."
+  },
+  "lines": {
+    "l1": {
+      "text": "सुनिए, क्या आपके पास {thing} है?",
+      "rom": "sunie, kyaa aapke paas {thing} hai?",
+      "byRegister": {
+        "familiar": {
+          "text": "सुनो, क्या तुम्हारे पास {thing} है?",
+          "rom": "suno, kyaa tumhaare paas {thing} hai?"
+        }
+      }
+    },
+    "l2": {
+      "text": "हाँ, ये लीजिए।",
+      "rom": "haan, ye leejie.",
+      "byRegister": {
+        "familiar": {
+          "text": "हाँ, ये लो।",
+          "rom": "haan, ye lo."
+        }
+      }
+    },
+    "l3": {
+      "text": "शुक्रिया! मैं बाद में लौटा दूँगा।",
+      "rom": "shukriyaa! main baad men lauTaa doongaa.",
+      "variants": [
+        {
+          "speaker": "m",
+          "text": "शुक्रिया! मैं बाद में लौटा दूँगा।",
+          "rom": "shukriyaa! main baad men lauTaa doongaa."
+        },
+        {
+          "speaker": "f",
+          "text": "शुक्रिया! मैं बाद में लौटा दूँगी।",
+          "rom": "shukriyaa! main baad men lauTaa doongee."
+        }
+      ],
+      "accept": [
+        {
+          "text": "धन्यवाद! मैं बाद में लौटा दूँगा।",
+          "rom": "dhanyavaad! main baad men lauTaa doongaa."
+        },
+        {
+          "text": "धन्यवाद! मैं बाद में लौटा दूँगी।",
+          "rom": "dhanyavaad! main baad men lauTaa doongee."
+        }
+      ]
+    },
+    "l4": {
+      "text": "कोई बात नहीं। क्या ये बैग आपका है?",
+      "rom": "koee baat naheen. kyaa ye baig aapkaa hai?",
+      "byRegister": {
+        "familiar": {
+          "text": "कोई बात नहीं। क्या ये बैग तुम्हारा है?",
+          "rom": "koee baat naheen. kyaa ye baig tumhaaraa hai?"
+        }
+      }
+    },
+    "l5": {
+      "text": "नहीं, मेरा नहीं है।",
+      "rom": "naheen, meraa naheen hai."
+    },
+    "l6": {
+      "text": "शायद टीचर का है।",
+      "rom": "shaayad Teechar kaa hai."
+    }
+  },
+  "chunks": {
+    "do-you-have": {
+      "text": "क्या आपके पास ___ है?",
+      "rom": "kyaa aapke paas ___ hai?",
+      "literal": "(question) you-of near ___ is?",
+      "byRegister": {
+        "familiar": {
+          "text": "क्या तुम्हारे पास ___ है?",
+          "rom": "kyaa tumhaare paas ___ hai?"
+        }
+      }
+    },
+    "here-it-is": {
+      "text": "ये लीजिए",
+      "rom": "ye leejie",
+      "literal": "this take (please)",
+      "byRegister": {
+        "familiar": {
+          "text": "ये लो",
+          "rom": "ye lo"
+        }
+      }
+    },
+    "give-back": {
+      "text": "मैं बाद में लौटा दूँगा / दूँगी",
+      "rom": "main baad men lauTaa doongaa / doongee",
+      "choice": "mf",
+      "literal": "I later in return give-will"
+    },
+    "no-problem": {
+      "text": "कोई बात नहीं",
+      "rom": "koee baat naheen",
+      "literal": "any matter not"
+    },
+    "is-this-yours": {
+      "text": "क्या ये ___ आपका है?",
+      "rom": "kyaa ye ___ aapkaa hai?",
+      "literal": "(question) this ___ yours is?",
+      "byRegister": {
+        "familiar": {
+          "text": "क्या ये ___ तुम्हारा है?",
+          "rom": "kyaa ye ___ tumhaaraa hai?"
+        }
+      }
+    },
+    "not-mine": {
+      "text": "मेरा नहीं है",
+      "rom": "meraa naheen hai",
+      "literal": "mine not is"
+    },
+    "can-i-borrow": {
+      "text": "क्या मैं आपका ___ ले सकता / सकती हूँ?",
+      "rom": "kyaa main aapkaa ___ le saktaa / saktee hoon?",
+      "choice": "mf",
+      "extra": true,
+      "literal": "(question) I your ___ take can am?",
+      "byRegister": {
+        "familiar": {
+          "text": "क्या मैं तुम्हारा ___ ले सकता / सकती हूँ?",
+          "rom": "kyaa main tumhaaraa ___ le saktaa / saktee hoon?"
+        }
+      }
+    }
+  },
+  "slotValues": {
+    "thing": [
+      {
+        "en": "a pen",
+        "text": "पेन",
+        "rom": "pen"
+      },
+      {
+        "en": "a pencil",
+        "text": "पेंसिल",
+        "rom": "pensil"
+      },
+      {
+        "en": "an eraser",
+        "text": "रबर",
+        "rom": "rabar"
+      },
+      {
+        "en": "a charger",
+        "text": "चार्जर",
+        "rom": "chaarjar"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "whose-is": {
+        "text": "ये किसका है?",
+        "rom": "ye kiskaa hai?"
+      },
+      "its-mine": {
+        "text": "ये मेरा है",
+        "rom": "ye meraa hai"
+      }
+    }
+  },
+  "notes": [
+    "Hindi has no verb \"to have\" for things you carry. It says \"near you\": क्या आपके पास पेन है? (\"is there a pen near you?\").",
+    "मेरा / आपका agree with the thing, not the owner: ये बैग मेरा है, but ये पेंसिल मेरी है (पेंसिल is feminine).",
+    "लौटा दूँगा / लौटा दूँगी (I'll give it back) agrees with the speaker.",
+    "रबर is the everyday word for an eraser in India."
+  ]
+}

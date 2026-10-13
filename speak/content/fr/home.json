@@ -1,0 +1,141 @@
+{
+  "schema": 2,
+  "scenario": "home",
+  "lang": "fr",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "Où habitez-vous ?",
+      "accept": [
+        "Vous habitez où ?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Tu habites où ?",
+          "accept": [
+            "Où habites-tu ?"
+          ]
+        }
+      }
+    },
+    "l2": {
+      "text": "J'habite {area}. Et vous ?",
+      "byRegister": {
+        "familiar": {
+          "text": "J'habite {area}. Et toi ?"
+        }
+      }
+    },
+    "l3": {
+      "text": "J'habite avec ma famille dans un appartement."
+    },
+    "l4": {
+      "text": "Il est grand ?",
+      "accept": [
+        "C'est grand ?"
+      ]
+    },
+    "l5": {
+      "text": "Non, il est petit mais sympa.",
+      "accept": [
+        "Non, il est petit mais agréable.",
+        "Non, c'est petit mais sympa."
+      ]
+    },
+    "l6": {
+      "text": "Comme le mien !",
+      "accept": [
+        "Comme chez moi !"
+      ]
+    }
+  },
+  "chunks": {
+    "where-live": {
+      "text": "où habitez-vous ?",
+      "byRegister": {
+        "familiar": {
+          "text": "tu habites où ?"
+        }
+      },
+      "literal": "where live you?"
+    },
+    "i-live": {
+      "text": "j'habite ___",
+      "literal": "I live ___"
+    },
+    "and-you": {
+      "text": "et vous ?",
+      "byRegister": {
+        "familiar": {
+          "text": "et toi ?"
+        }
+      },
+      "literal": "and you?"
+    },
+    "with-my-family": {
+      "text": "avec ma famille",
+      "literal": "with my family"
+    },
+    "is-it-big": {
+      "text": "il est grand ?",
+      "literal": "it is big?"
+    },
+    "small-but-nice": {
+      "text": "il est petit mais sympa",
+      "literal": "it is small but nice"
+    },
+    "i-live-alone": {
+      "extra": true,
+      "text": "j'habite seul / seule",
+      "choice": "mf",
+      "literal": "I live alone"
+    }
+  },
+  "slotValues": {
+    "area": [
+      {
+        "en": "in the town centre",
+        "text": "en centre-ville"
+      },
+      {
+        "en": "in the suburbs",
+        "text": "en banlieue"
+      },
+      {
+        "en": "in the countryside",
+        "text": "à la campagne"
+      },
+      {
+        "en": "near the park",
+        "text": "près du parc"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "there-are-rooms": {
+        "text": "Il y a ___ pièces."
+      },
+      "i-like-my-home": {
+        "text": "J'aime bien chez moi.",
+        "accept": [
+          "J'aime bien mon appartement.",
+          "J'aime bien ma maison."
+        ]
+      }
+    }
+  },
+  "notes": [
+    "Un appartement is masculine, so il est grand. Une maison is feminine: elle est grande.",
+    "Une pièce is any room. Une chambre is a bedroom.",
+    "Chez moi means at my place, my home."
+  ]
+}

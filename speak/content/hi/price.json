@@ -1,0 +1,232 @@
+{
+  "schema": 2,
+  "scenario": "price",
+  "lang": "hi",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "registerNotes": {
+    "intimate": "तू is for very close friends and family. Practise this one with आप and तुम."
+  },
+  "lines": {
+    "l1": {
+      "text": "नमस्ते भैया! {item} कैसे दिए?",
+      "rom": "namaste bhaiyaa! {item} kaise die?",
+      "accept": [
+        {
+          "text": "नमस्ते भैया! {item} कितने के हैं?",
+          "rom": "namaste bhaiyaa! {item} kitne ke hain?"
+        },
+        {
+          "text": "नमस्ते भैया! {item} कितने का है?",
+          "rom": "namaste bhaiyaa! {item} kitne kaa hai?"
+        }
+      ]
+    },
+    "l2": {
+      "text": "अस्सी रुपये किलो।",
+      "rom": "assee rupaye kilo.",
+      "accept": [
+        {
+          "text": "80 रुपये किलो।",
+          "rom": "80 rupaye kilo."
+        }
+      ]
+    },
+    "l3": {
+      "text": "बहुत महँगा है! थोड़ा कम कीजिए ना?",
+      "rom": "bahut mahangaa hai! thoRaa kam keejie naa?",
+      "byRegister": {
+        "familiar": {
+          "text": "बहुत महँगा है! थोड़ा कम करो ना?",
+          "rom": "bahut mahangaa hai! thoRaa kam karo naa?"
+        }
+      }
+    },
+    "l4": {
+      "text": "चलिए, आपके लिए सत्तर।",
+      "rom": "chalie, aapke lie sattar.",
+      "accept": [
+        {
+          "text": "चलिए, आपके लिए 70।",
+          "rom": "chalie, aapke lie 70."
+        },
+        {
+          "text": "चलिए, आपके लिए सत्तर रुपये।",
+          "rom": "chalie, aapke lie sattar rupaye."
+        }
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "चलो, तुम्हारे लिए सत्तर।",
+          "rom": "chalo, tumhaare lie sattar.",
+          "accept": [
+            {
+              "text": "चलो, तुम्हारे लिए 70।",
+              "rom": "chalo, tumhaare lie 70."
+            },
+            {
+              "text": "चलो, तुम्हारे लिए सत्तर रुपये।",
+              "rom": "chalo, tumhaare lie sattar rupaye."
+            }
+          ]
+        }
+      }
+    },
+    "l5": {
+      "text": "ठीक है, एक किलो ले लूँगा।",
+      "rom": "Theek hai, ek kilo le loongaa.",
+      "variants": [
+        {
+          "speaker": "m",
+          "text": "ठीक है, एक किलो ले लूँगा।",
+          "rom": "Theek hai, ek kilo le loongaa."
+        },
+        {
+          "speaker": "f",
+          "text": "ठीक है, एक किलो ले लूँगी।",
+          "rom": "Theek hai, ek kilo le loongee."
+        }
+      ],
+      "accept": [
+        {
+          "text": "ठीक है, एक किलो दे दीजिए।",
+          "rom": "Theek hai, ek kilo de deejie."
+        }
+      ]
+    },
+    "l6": {
+      "text": "ये लीजिए।",
+      "rom": "ye leejie.",
+      "byRegister": {
+        "familiar": {
+          "text": "ये लो।",
+          "rom": "ye lo."
+        }
+      }
+    }
+  },
+  "chunks": {
+    "how-much-are": {
+      "text": "___ कैसे दिए?",
+      "rom": "___ kaise die?",
+      "literal": "___ how given?"
+    },
+    "a-kilo": {
+      "text": "___ रुपये किलो",
+      "rom": "___ rupaye kilo",
+      "literal": "___ rupees kilo"
+    },
+    "thats-expensive": {
+      "text": "बहुत महँगा है",
+      "rom": "bahut mahangaa hai",
+      "literal": "very expensive is"
+    },
+    "a-bit-cheaper": {
+      "text": "थोड़ा कम कीजिए",
+      "rom": "thoRaa kam keejie",
+      "literal": "a-little less do (please)",
+      "byRegister": {
+        "familiar": {
+          "text": "थोड़ा कम करो",
+          "rom": "thoRaa kam karo"
+        }
+      }
+    },
+    "ill-take": {
+      "text": "___ ले लूँगा / लूँगी",
+      "rom": "___ le loongaa / loongee",
+      "choice": "mf",
+      "literal": "___ take will-take"
+    },
+    "here-you-are": {
+      "text": "ये लीजिए",
+      "rom": "ye leejie",
+      "literal": "this take (please)",
+      "byRegister": {
+        "familiar": {
+          "text": "ये लो",
+          "rom": "ye lo"
+        }
+      }
+    },
+    "too-much": {
+      "text": "ये तो बहुत ज़्यादा है",
+      "rom": "ye to bahut zyaadaa hai",
+      "extra": true,
+      "literal": "this (stress) very much is"
+    }
+  },
+  "slotValues": {
+    "item": [
+      {
+        "en": "mangoes",
+        "text": "आम",
+        "rom": "aam"
+      },
+      {
+        "en": "grapes",
+        "text": "अंगूर",
+        "rom": "angoor"
+      },
+      {
+        "en": "tomatoes",
+        "text": "टमाटर",
+        "rom": "TamaaTar"
+      },
+      {
+        "en": "apples",
+        "text": "सेब",
+        "rom": "seb"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "last-price": {
+        "text": "आख़िरी कितने लगाएँगे?",
+        "rom": "aaKhiree kitne lagaaenge?",
+        "accept": [
+          {
+            "text": "लास्ट प्राइस क्या है?",
+            "rom": "laasT praais kyaa hai?"
+          }
+        ],
+        "byRegister": {
+          "familiar": {
+            "text": "आख़िरी कितने लगाओगे?",
+            "rom": "aaKhiree kitne lagaaoge?",
+            "accept": [
+              {
+                "text": "लास्ट प्राइस क्या है?",
+                "rom": "laasT praais kyaa hai?"
+              }
+            ]
+          }
+        }
+      },
+      "ok-deal": {
+        "text": "ठीक है, पक्का",
+        "rom": "Theek hai, pakkaa",
+        "accept": [
+          {
+            "text": "ठीक है, डील पक्की",
+            "rom": "Theek hai, Deel pakkee"
+          }
+        ]
+      }
+    }
+  },
+  "notes": [
+    "At a sabzi mandi (vegetable market), call the seller भैया (brother) or दीदी (sister). It is friendly and polite.",
+    "___ कैसे दिए? (\"how did you give ___?\") is the market way to ask a price. ___ कितने के हैं? also works.",
+    "Bargaining is normal at a market stall, but not in a shop with printed prices. ना at the end softens a request: थोड़ा कम कीजिए ना?",
+    "ले लूँगा / ले लूँगी (I'll take) agrees with the speaker: a man says लूँगा, a woman लूँगी."
+  ]
+}

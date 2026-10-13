@@ -1,0 +1,163 @@
+{
+  "schema": 2,
+  "scenario": "free",
+  "lang": "hi",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "registerNotes": {
+    "intimate": "तू is for very close friends and family. Practise this one with आप and तुम."
+  },
+  "lines": {
+    "l1": {
+      "text": "क्या आप कल फ़्री हैं?",
+      "rom": "kyaa aap kal free hain?",
+      "accept": [
+        {
+          "text": "क्या आप कल ख़ाली हैं?",
+          "rom": "kyaa aap kal Khaalee hain?"
+        }
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "क्या तुम कल फ़्री हो?",
+          "rom": "kyaa tum kal free ho?",
+          "accept": [
+            {
+              "text": "क्या तुम कल ख़ाली हो?",
+              "rom": "kyaa tum kal Khaalee ho?"
+            }
+          ]
+        }
+      }
+    },
+    "l2": {
+      "text": "सुबह मैं बिज़ी हूँ। दोपहर को मैं फ़्री हूँ।",
+      "rom": "subah main bizee hoon. dopahar ko main free hoon.",
+      "accept": [
+        {
+          "text": "सुबह मैं व्यस्त हूँ। दोपहर को मैं फ़्री हूँ।",
+          "rom": "subah main vyast hoon. dopahar ko main free hoon."
+        }
+      ]
+    },
+    "l3": {
+      "text": "{time} बजे कॉफ़ी पीने चलें?",
+      "rom": "{time} baje kofee peene chalen?"
+    },
+    "l4": {
+      "text": "हाँ, अच्छा आइडिया। कहाँ?",
+      "rom": "haan, achchhaa aaiDiyaa. kahaan?"
+    },
+    "l5": {
+      "text": "स्टेशन के पास वाले कैफ़े में।",
+      "rom": "sTeshan ke paas vaale kaife men."
+    },
+    "l6": {
+      "text": "ठीक है, कल मिलते हैं!",
+      "rom": "Theek hai, kal milte hain!"
+    }
+  },
+  "chunks": {
+    "are-you-free": {
+      "text": "क्या आप कल फ़्री हैं?",
+      "rom": "kyaa aap kal free hain?",
+      "literal": "(question) you tomorrow free are?",
+      "byRegister": {
+        "familiar": {
+          "text": "क्या तुम कल फ़्री हो?",
+          "rom": "kyaa tum kal free ho?"
+        }
+      }
+    },
+    "im-busy": {
+      "text": "मैं बिज़ी हूँ",
+      "rom": "main bizee hoon",
+      "literal": "I busy am"
+    },
+    "im-free": {
+      "text": "मैं फ़्री हूँ",
+      "rom": "main free hoon",
+      "literal": "I free am"
+    },
+    "shall-we": {
+      "text": "___ बजे कॉफ़ी पीने चलें?",
+      "rom": "___ baje kofee peene chalen?",
+      "literal": "___ o'clock coffee to-drink shall-(we)-go?"
+    },
+    "good-idea": {
+      "text": "अच्छा आइडिया",
+      "rom": "achchhaa aaiDiyaa",
+      "literal": "good idea"
+    },
+    "see-you-tomorrow": {
+      "text": "कल मिलते हैं",
+      "rom": "kal milte hain",
+      "literal": "tomorrow (we) meet"
+    },
+    "next-week": {
+      "text": "अगले हफ़्ते",
+      "rom": "agle hafte",
+      "extra": true,
+      "literal": "next week"
+    }
+  },
+  "slotValues": {
+    "time": [
+      {
+        "en": "four",
+        "text": "चार",
+        "rom": "chaar"
+      },
+      {
+        "en": "five",
+        "text": "पाँच",
+        "rom": "paanch"
+      },
+      {
+        "en": "three",
+        "text": "तीन",
+        "rom": "teen"
+      },
+      {
+        "en": "six",
+        "text": "छह",
+        "rom": "chhah"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "how-about": {
+        "text": "___ कैसा रहेगा?",
+        "rom": "___ kaisaa rahegaa?"
+      },
+      "sorry-i-cant": {
+        "text": "सॉरी, नहीं हो पाएगा",
+        "rom": "soree, naheen ho paaegaa",
+        "accept": [
+          {
+            "text": "सॉरी, मैं नहीं आ सकता",
+            "rom": "soree, main naheen aa saktaa"
+          },
+          {
+            "text": "सॉरी, मैं नहीं आ सकती",
+            "rom": "soree, main naheen aa saktee"
+          }
+        ]
+      }
+    }
+  },
+  "notes": [
+    "फ़्री and बिज़ी are everyday Hindi in cities. ख़ाली (free) and व्यस्त (busy) are the Hindi words; व्यस्त sounds a little formal.",
+    "कल means both \"tomorrow\" and \"yesterday\". The verb tells you which: कल मिलते हैं (tomorrow), कल मिले थे (yesterday).",
+    "चलें? (\"shall we go?\") makes a friendly suggestion: कॉफ़ी पीने चलें? Over chai, it is चाय पीने चलें?",
+    "सॉरी, नहीं हो पाएगा (\"sorry, it won't be possible\") is a soft way to say no. It is the same for a man and a woman."
+  ]
+}

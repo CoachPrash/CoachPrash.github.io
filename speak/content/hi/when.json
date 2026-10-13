@@ -1,0 +1,183 @@
+{
+  "schema": 2,
+  "scenario": "when",
+  "lang": "hi",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "registerNotes": {
+    "intimate": "तू is for very close friends and family. Practise this one with आप and तुम."
+  },
+  "lines": {
+    "l1": {
+      "text": "आपका जन्मदिन कब है?",
+      "rom": "aapkaa janmdin kab hai?",
+      "accept": [
+        {
+          "text": "आपका बर्थडे कब है?",
+          "rom": "aapkaa barthDe kab hai?"
+        }
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "तुम्हारा जन्मदिन कब है?",
+          "rom": "tumhaaraa janmdin kab hai?",
+          "accept": [
+            {
+              "text": "तुम्हारा बर्थडे कब है?",
+              "rom": "tumhaaraa barthDe kab hai?"
+            }
+          ]
+        }
+      }
+    },
+    "l2": {
+      "text": "{month} में है। और आपका?",
+      "rom": "{month} men hai. aur aapkaa?",
+      "byRegister": {
+        "familiar": {
+          "text": "{month} में है। और तुम्हारा?",
+          "rom": "{month} men hai. aur tumhaaraa?"
+        }
+      }
+    },
+    "l3": {
+      "text": "मेरा मई में है।",
+      "rom": "meraa maee men hai."
+    },
+    "l4": {
+      "text": "हमारी अगली क्लास कब है?",
+      "rom": "hamaaree aglee klaas kab hai?"
+    },
+    "l5": {
+      "text": "रविवार को, दस बजे।",
+      "rom": "ravivaar ko, das baje.",
+      "accept": [
+        {
+          "text": "संडे को, दस बजे।",
+          "rom": "sanDe ko, das baje."
+        }
+      ]
+    },
+    "l6": {
+      "text": "बढ़िया। रविवार को मिलते हैं!",
+      "rom": "baRhiyaa. ravivaar ko milte hain!",
+      "accept": [
+        {
+          "text": "बढ़िया। संडे को मिलते हैं!",
+          "rom": "baRhiyaa. sanDe ko milte hain!"
+        }
+      ]
+    }
+  },
+  "chunks": {
+    "when-birthday": {
+      "text": "आपका जन्मदिन कब है?",
+      "rom": "aapkaa janmdin kab hai?",
+      "literal": "your birthday when is?",
+      "byRegister": {
+        "familiar": {
+          "text": "तुम्हारा जन्मदिन कब है?",
+          "rom": "tumhaaraa janmdin kab hai?"
+        }
+      }
+    },
+    "its-in": {
+      "text": "___ में है",
+      "rom": "___ men hai",
+      "literal": "___ in is"
+    },
+    "and-yours": {
+      "text": "और आपका?",
+      "rom": "aur aapkaa?",
+      "literal": "and yours?",
+      "byRegister": {
+        "familiar": {
+          "text": "और तुम्हारा?",
+          "rom": "aur tumhaaraa?"
+        }
+      }
+    },
+    "mine-is-in": {
+      "text": "मेरा ___ में है",
+      "rom": "meraa ___ men hai",
+      "literal": "mine ___ in is"
+    },
+    "next-class": {
+      "text": "हमारी अगली क्लास कब है?",
+      "rom": "hamaaree aglee klaas kab hai?",
+      "literal": "our next class when is?"
+    },
+    "see-you-on": {
+      "text": "___ को मिलते हैं",
+      "rom": "___ ko milte hain",
+      "literal": "___ on (we) meet"
+    },
+    "every-week": {
+      "text": "हर हफ़्ते",
+      "rom": "har hafte",
+      "extra": true,
+      "literal": "every week"
+    }
+  },
+  "slotValues": {
+    "month": [
+      {
+        "en": "March",
+        "text": "मार्च",
+        "rom": "maarch"
+      },
+      {
+        "en": "January",
+        "text": "जनवरी",
+        "rom": "janvaree"
+      },
+      {
+        "en": "August",
+        "text": "अगस्त",
+        "rom": "agast"
+      },
+      {
+        "en": "December",
+        "text": "दिसंबर",
+        "rom": "disambar"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "happy-birthday": {
+        "text": "जन्मदिन मुबारक हो!",
+        "rom": "janmdin mubaarak ho!",
+        "accept": [
+          {
+            "text": "हैप्पी बर्थडे!",
+            "rom": "haipee barthDe!"
+          }
+        ]
+      },
+      "whats-the-date": {
+        "text": "आज कौन-सी तारीख़ है?",
+        "rom": "aaj kaun-see taareeKh hai?",
+        "accept": [
+          {
+            "text": "आज क्या तारीख़ है?",
+            "rom": "aaj kyaa taareeKh hai?"
+          }
+        ]
+      }
+    }
+  },
+  "notes": [
+    "Months take में (in): मई में. Days take को (on): रविवार को.",
+    "The month names come from English: जनवरी, फ़रवरी, मार्च, अप्रैल, मई, जून, जुलाई, अगस्त, सितंबर, अक्टूबर, नवंबर, दिसंबर.",
+    "मिलते हैं (\"we meet\") is the everyday \"see you\": कल मिलते हैं, रविवार को मिलते हैं.",
+    "जन्मदिन मुबारक हो! and हैप्पी बर्थडे! are both common. Many families also mark birthdays with a visit to the temple and sweets."
+  ]
+}

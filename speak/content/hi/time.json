@@ -1,0 +1,163 @@
+{
+  "schema": 2,
+  "scenario": "time",
+  "lang": "hi",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "registerNotes": {
+    "intimate": "तू is for very close friends and family. Practise this one with आप and तुम."
+  },
+  "lines": {
+    "l1": {
+      "text": "सुनिए, कितने बजे हैं?",
+      "rom": "sunie, kitne baje hain?",
+      "accept": [
+        {
+          "text": "सुनिए, टाइम क्या हुआ है?",
+          "rom": "sunie, Taaim kyaa huaa hai?"
+        }
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "सुनो, कितने बजे हैं?",
+          "rom": "suno, kitne baje hain?",
+          "accept": [
+            {
+              "text": "सुनो, टाइम क्या हुआ है?",
+              "rom": "suno, Taaim kyaa huaa hai?"
+            }
+          ]
+        }
+      }
+    },
+    "l2": {
+      "text": "{hour} बजे हैं।",
+      "rom": "{hour} baje hain."
+    },
+    "l3": {
+      "text": "शुक्रिया! और आज क्या दिन है?",
+      "rom": "shukriyaa! aur aaj kyaa din hai?",
+      "accept": [
+        {
+          "text": "शुक्रिया! और आज कौन-सा दिन है?",
+          "rom": "shukriyaa! aur aaj kaun-saa din hai?"
+        },
+        {
+          "text": "धन्यवाद! और आज क्या दिन है?",
+          "rom": "dhanyavaad! aur aaj kyaa din hai?"
+        }
+      ]
+    },
+    "l4": {
+      "text": "आज शुक्रवार है।",
+      "rom": "aaj shukravaar hai."
+    },
+    "l5": {
+      "text": "अरे नहीं! मुझे देर हो गई।",
+      "rom": "are naheen! mujhe der ho gaee."
+    },
+    "l6": {
+      "text": "जल्दी कीजिए! बाय!",
+      "rom": "jaldee keejie! baay!",
+      "byRegister": {
+        "familiar": {
+          "text": "जल्दी करो! बाय!",
+          "rom": "jaldee karo! baay!"
+        }
+      }
+    }
+  },
+  "chunks": {
+    "what-time": {
+      "text": "कितने बजे हैं?",
+      "rom": "kitne baje hain?",
+      "literal": "how-many o'clock are?"
+    },
+    "its-oclock": {
+      "text": "___ बजे हैं",
+      "rom": "___ baje hain",
+      "literal": "___ o'clock are"
+    },
+    "what-day": {
+      "text": "आज क्या दिन है?",
+      "rom": "aaj kyaa din hai?",
+      "literal": "today what day is?"
+    },
+    "today-is": {
+      "text": "आज ___ है",
+      "rom": "aaj ___ hai",
+      "literal": "today ___ is"
+    },
+    "im-late": {
+      "text": "मुझे देर हो गई",
+      "rom": "mujhe der ho gaee",
+      "literal": "to-me lateness happened"
+    },
+    "hurry-up": {
+      "text": "जल्दी कीजिए",
+      "rom": "jaldee keejie",
+      "literal": "quickly do (please)",
+      "byRegister": {
+        "familiar": {
+          "text": "जल्दी करो",
+          "rom": "jaldee karo"
+        }
+      }
+    },
+    "half-past": {
+      "text": "साढ़े ___",
+      "rom": "saaRhe ___",
+      "extra": true,
+      "literal": "half-more ___"
+    }
+  },
+  "slotValues": {
+    "hour": [
+      {
+        "en": "nine",
+        "text": "नौ",
+        "rom": "nau"
+      },
+      {
+        "en": "four",
+        "text": "चार",
+        "rom": "chaar"
+      },
+      {
+        "en": "eleven",
+        "text": "ग्यारह",
+        "rom": "gyaarah"
+      },
+      {
+        "en": "seven",
+        "text": "सात",
+        "rom": "saat"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "its-nearly": {
+        "text": "लगभग ___ बजे हैं",
+        "rom": "lagbhag ___ baje hain"
+      },
+      "its-early": {
+        "text": "अभी जल्दी है",
+        "rom": "abhee jaldee hai"
+      }
+    }
+  },
+  "notes": [
+    "बजे marks the hour: नौ बजे हैं is \"it's nine o'clock\". One o'clock is singular: एक बजा है.",
+    "साढ़े adds a half: साढ़े चार is 4:30. But 1:30 is डेढ़ and 2:30 is ढाई. सवा adds a quarter (सवा पाँच, 5:15) and पौने takes one away (पौने छह, 5:45).",
+    "The days: सोमवार, मंगलवार, बुधवार, गुरुवार, शुक्रवार, शनिवार, रविवार. In cities, Monday, Sunday and so on are common too.",
+    "मुझे देर हो गई (\"to me lateness happened\") is the same for a man and a woman."
+  ]
+}

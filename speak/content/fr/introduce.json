@@ -1,0 +1,147 @@
+{
+  "schema": 2,
+  "scenario": "introduce",
+  "lang": "fr",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "Bonjour ! Voici mon ami {friend}.",
+      "variants": [
+        {
+          "label": "a male friend",
+          "text": "Bonjour ! Voici mon ami {friend}."
+        },
+        {
+          "label": "a female friend",
+          "text": "Bonjour ! Voici mon amie {friend}."
+        }
+      ],
+      "note": "Ami and amie sound the same. The spelling follows the friend's gender."
+    },
+    "l2": {
+      "text": "Bonjour ! Enchanté.",
+      "variants": [
+        {
+          "speaker": "m",
+          "text": "Bonjour ! Enchanté."
+        },
+        {
+          "speaker": "f",
+          "text": "Bonjour ! Enchantée."
+        }
+      ],
+      "registerNeutral": true,
+      "sameSound": true
+    },
+    "l3": {
+      "text": "{friend} vient de {city}.",
+      "accept": [
+        "{friend} est de {city}."
+      ]
+    },
+    "l4": {
+      "text": "Ah bon ? Qu'est-ce que {friend} fait dans la vie ?",
+      "accept": [
+        "Ah bon ? {friend} fait quoi dans la vie ?"
+      ]
+    },
+    "l5": {
+      "text": "{friend} est {job}."
+    },
+    "l6": {
+      "text": "Super ! Bienvenue !",
+      "registerNeutral": true
+    }
+  },
+  "chunks": {
+    "this-is-my-friend": {
+      "text": "voici mon ami / amie ___",
+      "literal": "here-is my friend ___"
+    },
+    "nice-to-meet": {
+      "text": "enchanté / enchantée",
+      "choice": "mf",
+      "registerNeutral": true,
+      "literal": "enchanted"
+    },
+    "is-from": {
+      "text": "___ vient de ___",
+      "literal": "___ comes from ___"
+    },
+    "oh-really": {
+      "text": "ah bon ?",
+      "literal": "ah good?"
+    },
+    "what-does-do": {
+      "text": "qu'est-ce que ___ fait dans la vie ?",
+      "literal": "what is it that ___ does in the life?"
+    },
+    "welcome": {
+      "text": "bienvenue !",
+      "registerNeutral": true,
+      "literal": "well-come"
+    },
+    "this-is-my": {
+      "text": "voici mon / ma ___",
+      "literal": "here-is my ___"
+    }
+  },
+  "slotValues": {
+    "job": [
+      {
+        "en": "doctor",
+        "text": "médecin"
+      },
+      {
+        "en": "teacher",
+        "text": "professeur"
+      },
+      {
+        "en": "engineer",
+        "text": "ingénieur"
+      },
+      {
+        "en": "accountant",
+        "text": "comptable"
+      }
+    ]
+  },
+  "partnerValues": {
+    "friend": {
+      "en": "Thomas",
+      "text": "Thomas"
+    },
+    "city": {
+      "en": "Marseille",
+      "text": "Marseille"
+    }
+  },
+  "free": {
+    "targets": {
+      "their-name-is": {
+        "text": "Il / Elle s'appelle ___."
+      },
+      "nice-to-meet-too": {
+        "text": "Moi de même.",
+        "accept": [
+          "Moi aussi.",
+          "Également."
+        ],
+        "registerNeutral": true
+      }
+    }
+  },
+  "notes": [
+    "Mon ami for a man, mon amie for a woman. They sound the same. Before a vowel, ma becomes mon: mon amie.",
+    "A job takes no article: Julie est médecin.",
+    "De becomes d' before a vowel: Il vient d'Avignon."
+  ]
+}

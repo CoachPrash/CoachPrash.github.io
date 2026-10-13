@@ -1,0 +1,147 @@
+{
+  "schema": 2,
+  "scenario": "near",
+  "lang": "hi",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "registerNotes": {
+    "intimate": "तू is for very close friends and family. Practise this one with आप and तुम."
+  },
+  "lines": {
+    "l1": {
+      "text": "सुनिए, क्या यहाँ पास में कोई {place} है?",
+      "rom": "sunie, kyaa yahaan paas men koee {place} hai?",
+      "byRegister": {
+        "familiar": {
+          "text": "सुनो, क्या यहाँ पास में कोई {place} है?",
+          "rom": "suno, kyaa yahaan paas men koee {place} hai?"
+        }
+      }
+    },
+    "l2": {
+      "text": "हाँ, वहाँ है।",
+      "rom": "haan, vahaan hai.",
+      "accept": [
+        {
+          "text": "हाँ, वो वहाँ है।",
+          "rom": "haan, vo vahaan hai."
+        }
+      ]
+    },
+    "l3": {
+      "text": "बैंक के बगल में?",
+      "rom": "baink ke bagal men?",
+      "accept": [
+        {
+          "text": "बैंक के पास?",
+          "rom": "baink ke paas?"
+        }
+      ]
+    },
+    "l4": {
+      "text": "नहीं, बैंक के सामने।",
+      "rom": "naheen, baink ke saamne."
+    },
+    "l5": {
+      "text": "धन्यवाद!",
+      "rom": "dhanyavaad!",
+      "accept": [
+        {
+          "text": "शुक्रिया!",
+          "rom": "shukriyaa!"
+        }
+      ]
+    },
+    "l6": {
+      "text": "कोई बात नहीं।",
+      "rom": "koee baat naheen."
+    }
+  },
+  "chunks": {
+    "is-there-near": {
+      "text": "क्या यहाँ पास में कोई ___ है?",
+      "rom": "kyaa yahaan paas men koee ___ hai?",
+      "literal": "(question) here near in any ___ is?"
+    },
+    "over-there": {
+      "text": "वहाँ है",
+      "rom": "vahaan hai",
+      "literal": "there is"
+    },
+    "next-to": {
+      "text": "___ के बगल में",
+      "rom": "___ ke bagal men",
+      "literal": "___ of side in"
+    },
+    "opposite": {
+      "text": "___ के सामने",
+      "rom": "___ ke saamne",
+      "literal": "___ of facing"
+    },
+    "thank-you": {
+      "text": "धन्यवाद",
+      "rom": "dhanyavaad",
+      "literal": "thanks"
+    },
+    "youre-welcome": {
+      "text": "कोई बात नहीं",
+      "rom": "koee baat naheen",
+      "literal": "any matter not"
+    },
+    "on-the-corner": {
+      "text": "कोने पर",
+      "rom": "kone par",
+      "extra": true,
+      "literal": "corner on"
+    }
+  },
+  "slotValues": {
+    "place": [
+      {
+        "en": "a chemist",
+        "text": "दवाई की दुकान",
+        "rom": "davaaee kee dukaan"
+      },
+      {
+        "en": "a bus stop",
+        "text": "बस स्टॉप",
+        "rom": "bas sTop"
+      },
+      {
+        "en": "an ATM",
+        "text": "एटीएम",
+        "rom": "eTeeem"
+      },
+      {
+        "en": "a hospital",
+        "text": "अस्पताल",
+        "rom": "aspataal"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "behind": {
+        "text": "___ के पीछे",
+        "rom": "___ ke peechhe"
+      },
+      "in-front-of": {
+        "text": "___ के आगे",
+        "rom": "___ ke aage"
+      }
+    }
+  },
+  "notes": [
+    "Place words come after the noun, with के: बैंक के बगल में (next to the bank), बैंक के सामने (opposite the bank), बैंक के पीछे (behind the bank).",
+    "सामने means \"facing\": opposite, or in front of. के आगे is \"in front of\" when you mean on the near side.",
+    "दवाई की दुकान is a chemist. Many people just say केमिस्ट or मेडिकल स्टोर.",
+    "सुनिए gets a stranger's attention politely. With a young person, भैया or दीदी works too."
+  ]
+}

@@ -1,0 +1,149 @@
+{
+  "schema": 2,
+  "scenario": "free",
+  "lang": "es",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "¿Está libre mañana?",
+      "accept": [
+        "¿Tiene tiempo mañana?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "¿Estás libre mañana?",
+          "accept": [
+            "¿Tienes tiempo mañana?"
+          ]
+        }
+      }
+    },
+    "l2": {
+      "text": "En la mañana estoy ocupado. En la tarde estoy libre.",
+      "variants": [
+        {
+          "speaker": "m",
+          "text": "En la mañana estoy ocupado. En la tarde estoy libre."
+        },
+        {
+          "speaker": "f",
+          "text": "En la mañana estoy ocupada. En la tarde estoy libre."
+        }
+      ],
+      "accept": [
+        "Por la mañana estoy ocupado. Por la tarde estoy libre.",
+        "Por la mañana estoy ocupada. Por la tarde estoy libre."
+      ]
+    },
+    "l3": {
+      "text": "¿Nos tomamos un tinto a las {time}?",
+      "accept": [
+        "¿Nos tomamos un café a las {time}?",
+        "¿Tomamos un tinto a las {time}?"
+      ]
+    },
+    "l4": {
+      "text": "Sí, buena idea. ¿Dónde?"
+    },
+    "l5": {
+      "text": "En la cafetería cerca de la estación.",
+      "accept": [
+        "En el café cerca de la estación."
+      ]
+    },
+    "l6": {
+      "text": "¡Listo, nos vemos mañana!",
+      "accept": [
+        "Bueno, nos vemos mañana.",
+        "Bueno, hasta mañana."
+      ]
+    }
+  },
+  "chunks": {
+    "are-you-free": {
+      "text": "¿está libre mañana?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿estás libre mañana?"
+        }
+      },
+      "literal": "you-are free tomorrow?"
+    },
+    "im-busy": {
+      "text": "estoy ocupado / ocupada",
+      "choice": "mf",
+      "literal": "I-am busy (m / f)"
+    },
+    "im-free": {
+      "text": "estoy libre",
+      "literal": "I-am free"
+    },
+    "shall-we": {
+      "text": "¿nos tomamos un tinto a las ___?",
+      "literal": "ourselves we-take a tinto at the ___?"
+    },
+    "good-idea": {
+      "text": "buena idea",
+      "literal": "good idea"
+    },
+    "see-you-tomorrow": {
+      "text": "nos vemos mañana",
+      "literal": "ourselves we-see tomorrow"
+    },
+    "next-week": {
+      "text": "la próxima semana",
+      "extra": true,
+      "literal": "the next week"
+    }
+  },
+  "slotValues": {
+    "time": [
+      {
+        "en": "three",
+        "text": "tres"
+      },
+      {
+        "en": "four",
+        "text": "cuatro"
+      },
+      {
+        "en": "five",
+        "text": "cinco"
+      },
+      {
+        "en": "six",
+        "text": "seis"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "how-about": {
+        "text": "¿Qué tal ___?",
+        "accept": [
+          "¿Y si ___?"
+        ]
+      },
+      "sorry-i-cant": {
+        "text": "Lo siento, no puedo.",
+        "accept": [
+          "Qué pena, no puedo.",
+          "No puedo, lo siento."
+        ]
+      }
+    }
+  },
+  "notes": [
+    "Ocupado and libre use estar. A man says estoy ocupado, a woman estoy ocupada. Libre is the same for both.",
+    "Un tinto is a small black coffee. ¿Nos tomamos un tinto? is a common, friendly invitation in Colombia.",
+    "Qué pena (\"what a shame\") is the usual Colombian way to say sorry: Qué pena, no puedo."
+  ]
+}

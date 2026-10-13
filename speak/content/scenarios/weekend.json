@@ -1,0 +1,100 @@
+{
+  "schema": 2,
+  "id": "weekend",
+  "title": "At the weekend",
+  "goal": "Say what you usually do at the weekend and invite someone along.",
+  "roles": {
+    "A": "Asks first",
+    "B": "Answers, then asks back"
+  },
+  "slots": {
+    "activity": {
+      "kind": "set",
+      "cue": "an activity"
+    }
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "role": "A",
+      "en": "What do you do at the weekend?",
+      "addressesYou": true
+    },
+    {
+      "id": "l2",
+      "role": "B",
+      "en": "I usually {activity}. And you?",
+      "addressesYou": true
+    },
+    {
+      "id": "l3",
+      "role": "A",
+      "en": "I go to the market with friends."
+    },
+    {
+      "id": "l4",
+      "role": "B",
+      "en": "Sounds fun!"
+    },
+    {
+      "id": "l5",
+      "role": "A",
+      "en": "Do you want to come on Saturday?",
+      "addressesYou": true
+    },
+    {
+      "id": "l6",
+      "role": "B",
+      "en": "Yes, gladly!"
+    }
+  ],
+  "chunks": [
+    {
+      "id": "what-weekend",
+      "en": "what do you do at the weekend?",
+      "addressesYou": true
+    },
+    {
+      "id": "i-usually",
+      "en": "I usually ___"
+    },
+    {
+      "id": "with-friends",
+      "en": "with friends"
+    },
+    {
+      "id": "sounds-fun",
+      "en": "sounds fun!"
+    },
+    {
+      "id": "want-to-come",
+      "en": "do you want to come?",
+      "addressesYou": true
+    },
+    {
+      "id": "gladly",
+      "en": "yes, gladly"
+    },
+    {
+      "id": "every-sunday",
+      "en": "every Sunday"
+    }
+  ],
+  "drill": {
+    "slot": "activity",
+    "instruction": "Swap the activity each time."
+  },
+  "free": {
+    "prompt": "Tell the group two things you usually do at the weekend, and one thing you never do.",
+    "targets": [
+      {
+        "id": "sometimes",
+        "en": "sometimes I ___"
+      },
+      {
+        "id": "never",
+        "en": "I never ___"
+      }
+    ]
+  }
+}

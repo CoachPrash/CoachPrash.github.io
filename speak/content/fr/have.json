@@ -1,0 +1,177 @@
+{
+  "schema": 2,
+  "scenario": "have",
+  "lang": "fr",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "Excusez-moi, vous avez {thing} ?",
+      "accept": [
+        "Excusez-moi, est-ce que vous avez {thing} ?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Excuse-moi, tu as {thing} ?",
+          "accept": [
+            "Excuse-moi, est-ce que tu as {thing} ?"
+          ]
+        }
+      }
+    },
+    "l2": {
+      "text": "Oui, tenez.",
+      "accept": [
+        "Oui, voilà."
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Oui, tiens.",
+          "accept": [
+            "Oui, voilà."
+          ]
+        }
+      }
+    },
+    "l3": {
+      "text": "Merci ! Je vous le rends tout à l'heure.",
+      "accept": [
+        "Merci ! Je vous le rends plus tard."
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Merci ! Je te le rends tout à l'heure.",
+          "accept": [
+            "Merci ! Je te le rends plus tard."
+          ]
+        }
+      }
+    },
+    "l4": {
+      "text": "Pas de problème. Ce sac est à vous ?",
+      "accept": [
+        "Pas de problème. C'est votre sac ?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Pas de problème. Ce sac est à toi ?",
+          "accept": [
+            "Pas de problème. C'est ton sac ?"
+          ]
+        }
+      }
+    },
+    "l5": {
+      "text": "Non, ce n'est pas à moi.",
+      "accept": [
+        "Non, c'est pas à moi.",
+        "Non, il n'est pas à moi."
+      ]
+    },
+    "l6": {
+      "text": "C'est peut-être au professeur.",
+      "accept": [
+        "C'est peut-être au prof."
+      ]
+    }
+  },
+  "chunks": {
+    "do-you-have": {
+      "text": "vous avez ___ ?",
+      "byRegister": {
+        "familiar": {
+          "text": "tu as ___ ?"
+        }
+      },
+      "literal": "you have ___?"
+    },
+    "here-it-is": {
+      "text": "tenez",
+      "byRegister": {
+        "familiar": {
+          "text": "tiens"
+        }
+      },
+      "literal": "hold (it)"
+    },
+    "give-back": {
+      "text": "je vous le rends tout à l'heure",
+      "byRegister": {
+        "familiar": {
+          "text": "je te le rends tout à l'heure"
+        }
+      },
+      "literal": "I to-you it give-back all at the hour"
+    },
+    "no-problem": {
+      "text": "pas de problème",
+      "literal": "not of problem"
+    },
+    "is-this-yours": {
+      "text": "ce ___ est à vous ?",
+      "byRegister": {
+        "familiar": {
+          "text": "ce ___ est à toi ?"
+        }
+      },
+      "literal": "this ___ is to you?"
+    },
+    "not-mine": {
+      "text": "ce n'est pas à moi",
+      "literal": "it (ne) is not to me"
+    },
+    "can-i-borrow": {
+      "extra": true,
+      "text": "je peux vous emprunter ___ ?",
+      "byRegister": {
+        "familiar": {
+          "text": "je peux t'emprunter ___ ?"
+        }
+      },
+      "literal": "I can from-you borrow ___?"
+    }
+  },
+  "slotValues": {
+    "thing": [
+      {
+        "en": "pen",
+        "text": "un stylo"
+      },
+      {
+        "en": "pencil",
+        "text": "un crayon"
+      },
+      {
+        "en": "notebook",
+        "text": "un cahier"
+      },
+      {
+        "en": "sharpener",
+        "text": "un taille-crayon"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "whose-is": {
+        "text": "C'est à qui ?"
+      },
+      "its-mine": {
+        "text": "C'est à moi."
+      }
+    }
+  },
+  "notes": [
+    "Whose is it uses être à: c'est à moi, c'est à vous, c'est à toi.",
+    "À + le becomes au: c'est au professeur.",
+    "Je vous le rends: le stands for the thing you borrowed. The drill items are all masculine (un stylo), so le fits each one.",
+    "Tout à l'heure means in a little while, later today."
+  ]
+}

@@ -1,0 +1,134 @@
+{
+  "schema": 2,
+  "scenario": "near",
+  "lang": "es",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "Disculpe, ¿hay {place} por aquí cerca?",
+      "accept": [
+        "Disculpe, ¿hay {place} cerca?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Disculpa, ¿hay {place} por aquí cerca?",
+          "accept": [
+            "Disculpa, ¿hay {place} cerca?"
+          ]
+        }
+      }
+    },
+    "l2": {
+      "text": "Sí, por allá.",
+      "accept": [
+        "Sí, allá.",
+        "Sí, allá mismo."
+      ]
+    },
+    "l3": {
+      "text": "¿Al lado del banco?"
+    },
+    "l4": {
+      "text": "No, al frente del banco.",
+      "accept": [
+        "No, enfrente del banco.",
+        "No, frente al banco."
+      ]
+    },
+    "l5": {
+      "text": "¡Muchas gracias!",
+      "accept": [
+        "¡Gracias!"
+      ]
+    },
+    "l6": {
+      "text": "Con mucho gusto.",
+      "accept": [
+        "Con gusto.",
+        "De nada."
+      ]
+    }
+  },
+  "chunks": {
+    "is-there-near": {
+      "text": "¿hay ___ por aquí cerca?",
+      "literal": "there-is ___ around here near?"
+    },
+    "over-there": {
+      "text": "por allá",
+      "literal": "around there"
+    },
+    "next-to": {
+      "text": "al lado del ___",
+      "literal": "at-the side of-the ___"
+    },
+    "opposite": {
+      "text": "al frente del ___",
+      "literal": "at-the front of-the ___"
+    },
+    "thank-you": {
+      "text": "muchas gracias",
+      "literal": "many thanks"
+    },
+    "youre-welcome": {
+      "text": "con mucho gusto",
+      "literal": "with much pleasure"
+    },
+    "on-the-corner": {
+      "text": "en la esquina",
+      "extra": true,
+      "literal": "in the corner"
+    }
+  },
+  "slotValues": {
+    "place": [
+      {
+        "en": "pharmacy",
+        "text": "una droguería"
+      },
+      {
+        "en": "cash machine",
+        "text": "un cajero"
+      },
+      {
+        "en": "supermarket",
+        "text": "un supermercado"
+      },
+      {
+        "en": "toilet",
+        "text": "un baño"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "behind": {
+        "text": "detrás del ___",
+        "accept": [
+          "atrás del ___",
+          "detrás de la ___"
+        ]
+      },
+      "in-front-of": {
+        "text": "delante del ___",
+        "accept": [
+          "delante de la ___",
+          "frente al ___"
+        ]
+      }
+    }
+  },
+  "notes": [
+    "De + el becomes del: al lado del banco. With a feminine word it stays de la: al lado de la tienda.",
+    "In Colombia, al frente de usually means \"opposite, across the street\". Enfrente de means the same.",
+    "A droguería is a pharmacy in Colombia. A cajero is a cash machine."
+  ]
+}

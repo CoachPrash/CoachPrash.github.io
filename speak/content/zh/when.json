@@ -1,0 +1,187 @@
+{
+  "schema": 2,
+  "scenario": "when",
+  "lang": "zh",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "你的生日是什么时候？",
+      "rom": "Nǐ de shēngrì shì shénme shíhou?",
+      "byRegister": {
+        "formal": {
+          "text": "您的生日是什么时候？",
+          "rom": "Nín de shēngrì shì shénme shíhou?"
+        }
+      }
+    },
+    "l2": {
+      "text": "在{month}。你的呢？",
+      "rom": "Zài {month}. Nǐ de ne?",
+      "accept": [
+        {
+          "text": "是{month}。你的呢？",
+          "rom": "Shì {month}. Nǐ de ne?"
+        }
+      ],
+      "byRegister": {
+        "formal": {
+          "text": "在{month}。您的呢？",
+          "rom": "Zài {month}. Nín de ne?",
+          "accept": [
+            {
+              "text": "是{month}。您的呢？",
+              "rom": "Shì {month}. Nín de ne?"
+            }
+          ]
+        }
+      }
+    },
+    "l3": {
+      "text": "我的在五月。",
+      "rom": "Wǒ de zài wǔyuè.",
+      "accept": [
+        {
+          "text": "我的是五月。",
+          "rom": "Wǒ de shì wǔyuè."
+        }
+      ]
+    },
+    "l4": {
+      "text": "我们下次课是什么时候？",
+      "rom": "Wǒmen xià cì kè shì shénme shíhou?"
+    },
+    "l5": {
+      "text": "星期天，十点。",
+      "rom": "Xīngqītiān, shí diǎn.",
+      "accept": [
+        {
+          "text": "星期日，十点。",
+          "rom": "Xīngqīrì, shí diǎn."
+        }
+      ]
+    },
+    "l6": {
+      "text": "好的。星期天见！",
+      "rom": "Hǎo de. Xīngqītiān jiàn!"
+    }
+  },
+  "chunks": {
+    "when-birthday": {
+      "text": "你的生日是什么时候？",
+      "rom": "nǐ de shēngrì shì shénme shíhou?",
+      "byRegister": {
+        "formal": {
+          "text": "您的生日是什么时候？",
+          "rom": "nín de shēngrì shì shénme shíhou?"
+        }
+      },
+      "literal": "your birthday is what time?",
+      "chain": [
+        "时候？",
+        "什么时候？",
+        "是什么时候？",
+        "生日是什么时候？"
+      ]
+    },
+    "its-in": {
+      "text": "在___",
+      "rom": "zài ___",
+      "literal": "at ___"
+    },
+    "and-yours": {
+      "text": "你的呢？",
+      "rom": "nǐ de ne?",
+      "byRegister": {
+        "formal": {
+          "text": "您的呢？",
+          "rom": "nín de ne?"
+        }
+      },
+      "literal": "yours (and)?"
+    },
+    "mine-is-in": {
+      "text": "我的在___",
+      "rom": "wǒ de zài ___",
+      "literal": "mine at ___"
+    },
+    "next-class": {
+      "text": "我们下次课是什么时候？",
+      "rom": "wǒmen xià cì kè shì shénme shíhou?",
+      "literal": "our next time class is what time?",
+      "chain": [
+        "什么时候？",
+        "是什么时候？",
+        "下次课是什么时候？"
+      ]
+    },
+    "see-you-on": {
+      "text": "___见",
+      "rom": "___ jiàn",
+      "literal": "___ see"
+    },
+    "every-week": {
+      "text": "每个星期",
+      "rom": "měi ge xīngqī",
+      "literal": "every (measure) week",
+      "extra": true,
+      "chain": [
+        "星期"
+      ]
+    }
+  },
+  "slotValues": {
+    "month": [
+      {
+        "en": "March",
+        "text": "三月",
+        "rom": "sānyuè"
+      },
+      {
+        "en": "October",
+        "text": "十月",
+        "rom": "shíyuè"
+      },
+      {
+        "en": "July",
+        "text": "七月",
+        "rom": "qīyuè"
+      },
+      {
+        "en": "December",
+        "text": "十二月",
+        "rom": "shí'èryuè"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "happy-birthday": {
+        "text": "生日快乐！",
+        "rom": "Shēngrì kuàilè!"
+      },
+      "whats-the-date": {
+        "text": "今天几号？",
+        "rom": "Jīntiān jǐ hào?",
+        "accept": [
+          {
+            "text": "今天几月几号？",
+            "rom": "Jīntiān jǐ yuè jǐ hào?"
+          }
+        ]
+      }
+    }
+  },
+  "notes": [
+    "Months are numbers + 月 (yuè): 一月 is January, 五月 is May, 十二月 is December.",
+    "The date is a number + 号 (hào): 五月三号 is the 3rd of May.",
+    "你的呢？ (and yours?) is 你呢？ with 的 for \"yours\"."
+  ]
+}

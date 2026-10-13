@@ -1,0 +1,185 @@
+{
+  "schema": 2,
+  "scenario": "in-class",
+  "lang": "zh",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "老师，我可以进来吗？",
+      "rom": "Lǎoshī, wǒ kěyǐ jìnlai ma?",
+      "accept": [
+        {
+          "text": "报告！我可以进来吗？",
+          "rom": "Bàogào! Wǒ kěyǐ jìnlai ma?"
+        }
+      ],
+      "registerNeutral": true
+    },
+    "l2": {
+      "text": "可以，请进。请坐。",
+      "rom": "Kěyǐ, qǐng jìn. Qǐng zuò.",
+      "accept": [
+        {
+          "text": "进来吧，坐下。",
+          "rom": "Jìnlai ba, zuò xià."
+        }
+      ],
+      "registerNeutral": true
+    },
+    "l3": {
+      "text": "对不起，我迟到了。第几页？",
+      "rom": "Duìbuqǐ, wǒ chídào le. Dì jǐ yè?",
+      "accept": [
+        {
+          "text": "对不起，我迟到了。哪一页？",
+          "rom": "Duìbuqǐ, wǒ chídào le. Nǎ yí yè?"
+        }
+      ]
+    },
+    "l4": {
+      "text": "第{page}页。",
+      "rom": "Dì {page} yè."
+    },
+    "l5": {
+      "text": "我做完了。这样对吗？",
+      "rom": "Wǒ zuò wán le. Zhèyàng duì ma?",
+      "accept": [
+        {
+          "text": "我做完了。对不对？",
+          "rom": "Wǒ zuò wán le. Duì bu duì?"
+        }
+      ]
+    },
+    "l6": {
+      "text": "对，非常好！",
+      "rom": "Duì, fēicháng hǎo!",
+      "accept": [
+        {
+          "text": "对，很好！",
+          "rom": "Duì, hěn hǎo!"
+        }
+      ]
+    }
+  },
+  "chunks": {
+    "may-i-come-in": {
+      "text": "我可以进来吗？",
+      "rom": "wǒ kěyǐ jìnlai ma?",
+      "registerNeutral": true,
+      "literal": "I may come-in?",
+      "chain": [
+        "进来吗？",
+        "可以进来吗？"
+      ]
+    },
+    "come-in": {
+      "text": "请进",
+      "rom": "qǐng jìn",
+      "registerNeutral": true,
+      "literal": "please enter"
+    },
+    "sorry-late": {
+      "text": "对不起，我迟到了",
+      "rom": "duìbuqǐ, wǒ chídào le",
+      "literal": "sorry, I late-arrive (now)",
+      "chain": [
+        "迟到了",
+        "我迟到了"
+      ]
+    },
+    "which-page": {
+      "text": "第几页？",
+      "rom": "dì jǐ yè?",
+      "literal": "number how-many page?"
+    },
+    "page": {
+      "text": "第___页",
+      "rom": "dì ___ yè",
+      "literal": "number ___ page"
+    },
+    "ive-finished": {
+      "text": "我做完了",
+      "rom": "wǒ zuò wán le",
+      "literal": "I do finish (done)",
+      "chain": [
+        "做完了"
+      ]
+    },
+    "is-this-right": {
+      "text": "这样对吗？",
+      "rom": "zhèyàng duì ma?",
+      "literal": "this-way right?",
+      "chain": [
+        "对吗？"
+      ]
+    },
+    "may-i-go": {
+      "text": "我可以去厕所吗？",
+      "rom": "wǒ kěyǐ qù cèsuǒ ma?",
+      "registerNeutral": true,
+      "literal": "I may go toilet?",
+      "extra": true,
+      "chain": [
+        "厕所吗？",
+        "去厕所吗？",
+        "可以去厕所吗？"
+      ]
+    }
+  },
+  "slotValues": {
+    "page": [
+      {
+        "en": "15",
+        "text": "十五",
+        "rom": "shíwǔ"
+      },
+      {
+        "en": "20",
+        "text": "二十",
+        "rom": "èrshí"
+      },
+      {
+        "en": "8",
+        "text": "八",
+        "rom": "bā"
+      },
+      {
+        "en": "32",
+        "text": "三十二",
+        "rom": "sānshí'èr"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "i-dont-know": {
+        "text": "我不知道。",
+        "rom": "Wǒ bù zhīdào."
+      },
+      "one-more-time": {
+        "text": "请再说一遍。",
+        "rom": "Qǐng zài shuō yí biàn.",
+        "accept": [
+          {
+            "text": "再说一遍，好吗？",
+            "rom": "Zài shuō yí biàn, hǎo ma?"
+          }
+        ],
+        "registerNeutral": true
+      }
+    }
+  },
+  "notes": [
+    "Students call the teacher 老师 (lǎoshī), with no name needed.",
+    "In many Chinese schools a late student says 报告！ (bàogào, \"reporting!\") at the door before going in.",
+    "第 (dì) + a number makes an order: 第十五页 is page 15."
+  ]
+}

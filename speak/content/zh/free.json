@@ -1,0 +1,161 @@
+{
+  "schema": 2,
+  "scenario": "free",
+  "lang": "zh",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "你明天有空吗？",
+      "rom": "Nǐ míngtiān yǒu kòng ma?",
+      "byRegister": {
+        "formal": {
+          "text": "您明天有空吗？",
+          "rom": "Nín míngtiān yǒu kòng ma?"
+        }
+      }
+    },
+    "l2": {
+      "text": "上午我很忙。下午我有空。",
+      "rom": "Shàngwǔ wǒ hěn máng. Xiàwǔ wǒ yǒu kòng."
+    },
+    "l3": {
+      "text": "我们{time}去喝咖啡，好吗？",
+      "rom": "Wǒmen {time} qù hē kāfēi, hǎo ma?",
+      "accept": [
+        {
+          "text": "我们{time}去喝咖啡吧？",
+          "rom": "Wǒmen {time} qù hē kāfēi ba?"
+        }
+      ]
+    },
+    "l4": {
+      "text": "好啊，好主意。在哪儿？",
+      "rom": "Hǎo a, hǎo zhǔyi. Zài nǎr?",
+      "accept": [
+        {
+          "text": "好啊，好主意。在哪里？",
+          "rom": "Hǎo a, hǎo zhǔyi. Zài nǎlǐ?"
+        }
+      ]
+    },
+    "l5": {
+      "text": "在车站旁边的咖啡馆。",
+      "rom": "Zài chēzhàn pángbiān de kāfēiguǎn."
+    },
+    "l6": {
+      "text": "好，明天见！",
+      "rom": "Hǎo, míngtiān jiàn!"
+    }
+  },
+  "chunks": {
+    "are-you-free": {
+      "text": "你明天有空吗？",
+      "rom": "nǐ míngtiān yǒu kòng ma?",
+      "byRegister": {
+        "formal": {
+          "text": "您明天有空吗？",
+          "rom": "nín míngtiān yǒu kòng ma?"
+        }
+      },
+      "literal": "you tomorrow have free-time?",
+      "chain": [
+        "有空吗？",
+        "明天有空吗？"
+      ]
+    },
+    "im-busy": {
+      "text": "我很忙",
+      "rom": "wǒ hěn máng",
+      "literal": "I very busy"
+    },
+    "im-free": {
+      "text": "我有空",
+      "rom": "wǒ yǒu kòng",
+      "literal": "I have free-time"
+    },
+    "shall-we": {
+      "text": "我们___去喝咖啡，好吗？",
+      "rom": "wǒmen ___ qù hē kāfēi, hǎo ma?",
+      "literal": "we ___ go drink coffee, OK?",
+      "chain": [
+        "好吗？",
+        "喝咖啡，好吗？",
+        "去喝咖啡，好吗？"
+      ]
+    },
+    "good-idea": {
+      "text": "好主意",
+      "rom": "hǎo zhǔyi",
+      "literal": "good idea"
+    },
+    "see-you-tomorrow": {
+      "text": "明天见",
+      "rom": "míngtiān jiàn",
+      "literal": "tomorrow see"
+    },
+    "next-week": {
+      "text": "下个星期",
+      "rom": "xià ge xīngqī",
+      "literal": "next (measure) week",
+      "extra": true,
+      "chain": [
+        "星期"
+      ]
+    }
+  },
+  "slotValues": {
+    "time": [
+      {
+        "en": "three o'clock",
+        "text": "三点",
+        "rom": "sān diǎn"
+      },
+      {
+        "en": "two o'clock",
+        "text": "两点",
+        "rom": "liǎng diǎn"
+      },
+      {
+        "en": "half past four",
+        "text": "四点半",
+        "rom": "sì diǎn bàn"
+      },
+      {
+        "en": "five o'clock",
+        "text": "五点",
+        "rom": "wǔ diǎn"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "how-about": {
+        "text": "___怎么样？",
+        "rom": "___ zěnmeyàng?"
+      },
+      "sorry-i-cant": {
+        "text": "不好意思，我不行。",
+        "rom": "Bù hǎoyìsi, wǒ bù xíng.",
+        "accept": [
+          {
+            "text": "对不起，我去不了。",
+            "rom": "Duìbuqǐ, wǒ qù bu liǎo."
+          }
+        ]
+      }
+    }
+  },
+  "notes": [
+    "有空 (yǒu kòng, have free time) is how you say free. 我有空 means I'm free.",
+    "上午 (shàngwǔ) is the morning, 下午 (xiàwǔ) the afternoon. They come first: 下午我有空.",
+    "…，好吗？ (OK?) turns a plan into a friendly question."
+  ]
+}

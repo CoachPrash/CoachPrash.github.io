@@ -1,0 +1,133 @@
+{
+  "schema": 2,
+  "scenario": "time",
+  "lang": "fr",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "Excusez-moi, quelle heure est-il ?",
+      "accept": [
+        "Excusez-moi, vous avez l'heure ?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Excuse-moi, il est quelle heure ?",
+          "accept": [
+            "Excuse-moi, tu as l'heure ?"
+          ]
+        }
+      }
+    },
+    "l2": {
+      "text": "Il est {hour} heures."
+    },
+    "l3": {
+      "text": "Merci ! Et on est quel jour aujourd'hui ?",
+      "accept": [
+        "Merci ! Et quel jour sommes-nous aujourd'hui ?"
+      ]
+    },
+    "l4": {
+      "text": "Aujourd'hui, c'est vendredi.",
+      "accept": [
+        "On est vendredi."
+      ]
+    },
+    "l5": {
+      "text": "Oh non ! Je suis en retard."
+    },
+    "l6": {
+      "text": "Dépêchez-vous ! Au revoir !",
+      "byRegister": {
+        "familiar": {
+          "text": "Dépêche-toi ! Salut !",
+          "accept": [
+            "Dépêche-toi ! Au revoir !"
+          ]
+        }
+      }
+    }
+  },
+  "chunks": {
+    "what-time": {
+      "text": "quelle heure est-il ?",
+      "literal": "which hour is it?"
+    },
+    "its-oclock": {
+      "text": "il est ___ heures",
+      "literal": "it is ___ hours"
+    },
+    "what-day": {
+      "text": "on est quel jour aujourd'hui ?",
+      "literal": "one is which day today?"
+    },
+    "today-is": {
+      "text": "aujourd'hui, c'est ___",
+      "literal": "today, it's ___"
+    },
+    "im-late": {
+      "text": "je suis en retard",
+      "literal": "I am in delay"
+    },
+    "hurry-up": {
+      "text": "dépêchez-vous !",
+      "byRegister": {
+        "familiar": {
+          "text": "dépêche-toi !"
+        }
+      },
+      "literal": "hurry yourself!"
+    },
+    "half-past": {
+      "extra": true,
+      "text": "___ heures et demie",
+      "literal": "___ hours and half"
+    }
+  },
+  "slotValues": {
+    "hour": [
+      {
+        "en": "eight",
+        "text": "huit"
+      },
+      {
+        "en": "nine",
+        "text": "neuf"
+      },
+      {
+        "en": "two",
+        "text": "deux"
+      },
+      {
+        "en": "six",
+        "text": "six"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "its-nearly": {
+        "text": "Il est presque ___ heures."
+      },
+      "its-early": {
+        "text": "Il est tôt.",
+        "accept": [
+          "C'est tôt."
+        ]
+      }
+    }
+  },
+  "notes": [
+    "Heures is plural from two on: il est deux heures, but il est une heure.",
+    "Days take no capital letter: lundi, vendredi, dimanche.",
+    "Vous avez l'heure ? is a polite way to ask a stranger the time."
+  ]
+}

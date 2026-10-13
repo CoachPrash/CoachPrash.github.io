@@ -1,0 +1,96 @@
+{
+  "schema": 2,
+  "id": "near",
+  "title": "Is there one near here?",
+  "goal": "Ask if a place is nearby and understand where it is.",
+  "roles": {
+    "A": "Looks for a place",
+    "B": "Knows the area"
+  },
+  "slots": {
+    "place": {
+      "kind": "set",
+      "cue": "a place"
+    }
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "role": "A",
+      "en": "Excuse me, is there a {place} near here?",
+      "addressesYou": true
+    },
+    {
+      "id": "l2",
+      "role": "B",
+      "en": "Yes, over there."
+    },
+    {
+      "id": "l3",
+      "role": "A",
+      "en": "Next to the bank?"
+    },
+    {
+      "id": "l4",
+      "role": "B",
+      "en": "No, opposite the bank."
+    },
+    {
+      "id": "l5",
+      "role": "A",
+      "en": "Thank you!"
+    },
+    {
+      "id": "l6",
+      "role": "B",
+      "en": "You're welcome."
+    }
+  ],
+  "chunks": [
+    {
+      "id": "is-there-near",
+      "en": "is there a ___ near here?"
+    },
+    {
+      "id": "over-there",
+      "en": "over there"
+    },
+    {
+      "id": "next-to",
+      "en": "next to the ___"
+    },
+    {
+      "id": "opposite",
+      "en": "opposite the ___"
+    },
+    {
+      "id": "thank-you",
+      "en": "thank you"
+    },
+    {
+      "id": "youre-welcome",
+      "en": "you're welcome"
+    },
+    {
+      "id": "on-the-corner",
+      "en": "on the corner"
+    }
+  ],
+  "drill": {
+    "slot": "place",
+    "instruction": "Swap the place each time."
+  },
+  "free": {
+    "prompt": "Draw a street with five shops. Ask where each one is, and answer with next to and opposite.",
+    "targets": [
+      {
+        "id": "behind",
+        "en": "behind the ___"
+      },
+      {
+        "id": "in-front-of",
+        "en": "in front of the ___"
+      }
+    ]
+  }
+}

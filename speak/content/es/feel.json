@@ -1,0 +1,186 @@
+{
+  "schema": 2,
+  "scenario": "feel",
+  "lang": "es",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "¿Está bien?",
+      "accept": [
+        "¿Todo bien?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "¿Estás bien?",
+          "accept": [
+            "¿Todo bien?"
+          ]
+        }
+      }
+    },
+    "l2": {
+      "text": "Tengo {feeling}.",
+      "accept": [
+        "Tengo mucha {feeling}.",
+        "Tengo mucho {feeling}."
+      ]
+    },
+    "l3": {
+      "text": "¡Yo también! Vamos a comer algo.",
+      "accept": [
+        "¡Yo también! Comamos algo."
+      ]
+    },
+    "l4": {
+      "text": "Buena idea. ¿Está cansado?",
+      "variants": [
+        {
+          "listener": "m",
+          "text": "Buena idea. ¿Está cansado?"
+        },
+        {
+          "listener": "f",
+          "text": "Buena idea. ¿Está cansada?"
+        }
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Buena idea. ¿Estás cansado?",
+          "variants": [
+            {
+              "listener": "m",
+              "text": "Buena idea. ¿Estás cansado?"
+            },
+            {
+              "listener": "f",
+              "text": "Buena idea. ¿Estás cansada?"
+            }
+          ]
+        }
+      }
+    },
+    "l5": {
+      "text": "Sí, estoy un poco cansado.",
+      "variants": [
+        {
+          "speaker": "m",
+          "text": "Sí, estoy un poco cansado."
+        },
+        {
+          "speaker": "f",
+          "text": "Sí, estoy un poco cansada."
+        }
+      ],
+      "accept": [
+        "Sí, estoy un poquito cansado.",
+        "Sí, estoy un poquito cansada."
+      ]
+    },
+    "l6": {
+      "text": "Entonces descansemos un ratico.",
+      "accept": [
+        "Entonces descansemos un rato.",
+        "Entonces vamos a descansar un ratico."
+      ]
+    }
+  },
+  "chunks": {
+    "are-you-ok": {
+      "text": "¿está bien?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿estás bien?"
+        }
+      },
+      "literal": "you-are well?"
+    },
+    "im-feeling": {
+      "text": "tengo ___",
+      "literal": "I-have ___ (hunger, thirst, cold, heat)"
+    },
+    "me-too": {
+      "text": "yo también",
+      "literal": "I also"
+    },
+    "lets-eat": {
+      "text": "vamos a comer algo",
+      "literal": "we-go to eat something"
+    },
+    "good-idea": {
+      "text": "buena idea",
+      "literal": "good idea"
+    },
+    "a-bit-tired": {
+      "text": "estoy un poco cansado / cansada",
+      "choice": "mf",
+      "literal": "I-am a little tired (m / f)"
+    },
+    "lets-rest": {
+      "text": "descansemos un ratico",
+      "literal": "let's-rest a little-while"
+    },
+    "im-sleepy": {
+      "text": "tengo sueño",
+      "extra": true,
+      "literal": "I-have sleep"
+    }
+  },
+  "slotValues": {
+    "feeling": [
+      {
+        "en": "hungry",
+        "text": "hambre"
+      },
+      {
+        "en": "thirsty",
+        "text": "sed"
+      },
+      {
+        "en": "cold",
+        "text": "frío"
+      },
+      {
+        "en": "hot",
+        "text": "calor"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "are-you": {
+        "text": "¿Tiene ___?",
+        "accept": [
+          "¿Está ___?"
+        ],
+        "byRegister": {
+          "familiar": {
+            "text": "¿Tienes ___?",
+            "accept": [
+              "¿Está ___?"
+            ]
+          }
+        }
+      },
+      "not-at-all": {
+        "text": "No, para nada.",
+        "accept": [
+          "No, nada.",
+          "Para nada."
+        ]
+      }
+    }
+  },
+  "notes": [
+    "Hunger, thirst, cold and heat use tener (to have): tengo hambre, tengo sed, tengo frío, tengo calor. Never estoy hambre.",
+    "Tired uses estar, and it agrees: a man says estoy cansado, a woman says estoy cansada.",
+    "Ratico is the Colombian diminutive of rato (a while): un ratico, \"a little while\"."
+  ]
+}

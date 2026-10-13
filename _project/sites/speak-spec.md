@@ -1,12 +1,21 @@
 # Speak — specification
 
 **Status:** M1, M2 and M2.5 done. M2.5 passed Prash's test and ran in his Sunday class on 11 October 2026. M3 drafted (12 October 2026): French and Mandarin stages 1–4, waiting for native-speaker review. M4 drafted (12 October 2026): blueprints for stages 5–9, Hindi, French and Mandarin stages 5–9, and the Review screen. Waiting for review: Prash for Hindi, native speakers for French and Mandarin. M3.5 (images) is deferred until after M4. Spanish (Colombian) stages 1–9 drafted (13 October 2026), M-ES in §8.
-**Version:** 0.11.1, 13 October 2026
+**Version:** 0.12, 14 October 2026
 **Brief:** `_project/sites/speak.md`
 
 This file is the build contract. When the spec and the code disagree, the spec wins, or the spec is changed first.
 
 ### Changes
+
+**0.12** (M5.1: ladder regrouped, plan in `speak-ladder-plan.md`)
+
+- Stages are topic groups with several scenarios each: 5 for A1, 6 for A2 (§3.1). Ids do not change. The food stall moves to A1.
+- Honest level labels: "A1 topics", "A2 topics", and "Pre-A1 → A1" for stage 1, from a new optional `label` field. A line under the ladder says what a level label means (§4.1).
+- Review: one answer per card. Chunks with the same English cue in one language are one card, and every form on it is a right answer (§4.7).
+- The underline for a chunk ending in a gap runs to the end of the phrase, or one more word (three more characters) when the phrase runs on (§3.9).
+- With genders set, the one form shown keeps its gender colour (§3.10).
+- M5.2: 13 new A1 scenarios in all four languages (stages 1–5 now hold 4, 4, 3, 4 and 5 scenarios). Ladder rows are compact on wide screens.
 
 **0.11.1**
 
@@ -212,21 +221,22 @@ Every file carries `"schema": 2`. A change that breaks old files increments it. 
   "schema": 2,
   "languages": ["hi", "es", "fr", "zh"],
   "stages": [
-    { "stage": 1, "level": "A1", "title": "Greetings & self-introduction", "scenarios": ["greetings"] },
-    { "stage": 2, "level": "A1", "title": "When you don't understand", "scenarios": ["repair"] },
-    { "stage": 3, "level": "A1", "title": "Personal info", "scenarios": ["where-from"] },
-    { "stage": 4, "level": "A1", "title": "Numbers & family", "scenarios": ["family"] },
-    { "stage": 5, "level": "A1", "title": "Politeness & requests", "scenarios": ["requests"] },
-    { "stage": 6, "level": "A1", "title": "Likes & dislikes", "scenarios": ["likes"] },
-    { "stage": 7, "level": "A2", "title": "Daily routine", "scenarios": ["routine"] },
-    { "stage": 8, "level": "A2", "title": "Shopping & ordering", "scenarios": ["shopping"] },
-    { "stage": 9, "level": "A2", "title": "Directions", "scenarios": ["directions"] },
-    { "stage": 10, "level": "A2", "title": "Small talk & opinions", "scenarios": ["opinions"] }
+    { "stage": 1, "level": "A1", "label": "Pre-A1 → A1", "title": "First contact", "scenarios": ["greetings", "repair", "where-from"] },
+    { "stage": 2, "level": "A1", "title": "People around me", "scenarios": ["family", "likes"] },
+    { "stage": 3, "level": "A1", "title": "Time", "scenarios": [] },
+    { "stage": 4, "level": "A1", "title": "Getting things", "scenarios": ["requests", "shopping"] },
+    { "stage": 5, "level": "A1", "title": "My world", "scenarios": [] },
+    { "stage": 6, "level": "A2", "title": "My days", "scenarios": ["routine"] },
+    { "stage": 7, "level": "A2", "title": "Around town", "scenarios": ["directions"] },
+    { "stage": 8, "level": "A2", "title": "Plans and invitations", "scenarios": [] },
+    { "stage": 9, "level": "A2", "title": "What happened", "scenarios": ["opinions"] },
+    { "stage": 10, "level": "A2", "title": "People and wellbeing", "scenarios": [] },
+    { "stage": 11, "level": "A2", "title": "Opinions and choices", "scenarios": [] }
   ]
 }
 ```
 
-`languages` lists the language folders in display order. A stage holds a list of scenarios, so a second scenario can be added later without renumbering. An empty list shows as "Coming later". A language-only scenario (§3.5) is listed in a stage like any other.
+`languages` lists the language folders in display order. A stage's optional `label` replaces the level text under its number; without it the ladder shows "A1 topics" or "A2 topics". The full plan, with the scenarios still to come in each stage, is in `_project/sites/speak-ladder-plan.md`. A stage holds a list of scenarios, so a second scenario can be added later without renumbering. An empty list shows as "Coming later". A language-only scenario (§3.5) is listed in a stage like any other.
 
 ### 3.2 Blueprint: `scenarios/<id>.json`
 
@@ -653,7 +663,7 @@ The site does not use "vocabulary". Grammar terms appear only in the Notice step
 | `choice` | `"mf"` | Optional. The ` / ` choice in the text is a man's form, then a woman's: उठता / उठती, resté / restée. The site colours the man's form blue and the woman's light red, with a small (m) and (f) after each, in the text and in the romanization. The letters stay, so colour is never the only cue. A choice that is not about gender, such as बाएँ / दाएँ, has no `choice` |
 | `chain` | array of strings | Optional. The build-up pieces for the Echo step, shortest first. Each piece must be an ending of the chunk. Without `chain`, the app builds the pieces from the words. Mandarin needs `chain`, because its text has no spaces |
 
-**Rule: chunks come from the dialogue.** Every chunk that is not `extra` occurs in at least one line of the dialogue, in at least one allowed register. "Occurs" means: after punctuation is removed and case is folded, the chunk's words appear in a row in the line. `___` in the chunk matches 1–3 words, where a slot in the line counts as one word. A ` / ` choice matches either word. The app uses the same test to underline the chunk where it occurs.
+**Rule: chunks come from the dialogue.** Every chunk that is not `extra` occurs in at least one line of the dialogue, in at least one allowed register. "Occurs" means: after punctuation is removed and case is folded, the chunk's words appear in a row in the line. `___` in the chunk matches 1–3 words, where a slot in the line counts as one word. A ` / ` choice matches either word. The app uses the same test to underline the chunk where it occurs. When several lines fit, it picks the tightest fit. A gap never runs across the end of a sentence. A chunk ending in a gap (我有___) is underlined to the end of its phrase, or one more word (three more characters) when the phrase runs on.
 
 **Recycling.** A later scenario may reuse a chunk from an earlier one. The checker lists chunks that recur and where. This is information, not an error.
 
@@ -670,7 +680,7 @@ In Hindi, verbs agree with the speaker and with the listener: मैं कर�
 
 - `speaker`: the gender of the person saying the line. `listener`: the gender of the person spoken to. Values `"f"` and `"m"`.
 - `sameSound: true` on a line says its gender forms sound the same (enchanté / enchantée). Recognition then cannot tell them apart, so the wrong-gender check (§5.2 step 6) runs only on typed answers for that line.
-- The app writes the label: "said by a woman", "to a man", "a woman to a man". The label is blue for a man's form and light red for a woman's, by the speaker's gender, else the listener's. When both forms are shown, the words that differ are coloured the same way, in the text and the romanization: उठते (blue) / उठती (light red). A free `label` stays for variants that are not about gender.
+- The app writes the label: "said by a woman", "to a man", "a woman to a man". The label is blue for a man's form and light red for a woman's, by the speaker's gender, else the listener's. When both forms are shown, the words that differ are coloured the same way, in the text and the romanization: उठते (blue) / उठती (light red). With genders set, the one form shown keeps its colour. A free `label` stays for variants that are not about gender.
 - **Who is who.**
   - Class role play: the speaker is the person in the line's role, and the listener is the other person in the pair. Their genders come from the roster.
   - Solo: the learner's gender comes from the setting (§4.5). The partner's comes from the profile's `partnerGender`.
@@ -720,6 +730,7 @@ Routes are hash-based, so they work on GitHub Pages with no server rules:
 - Each available scenario offers three buttons: **Class**, **Solo** and **Script**.
 - **Home** also has a button "Before class: check your device" (§4.8). The site bar links to it on every page.
 - **Review pack button**, beside the Review button on the ladder: "Review pack (for reviewers)", which opens `#hi/script` (§4.4).
+- **Level labels:** each stage shows "A1 topics" or "A2 topics" (stage 1: "Pre-A1 → A1"), never a bare level. A line under the ladder says the scenarios practise topics from the CEFR lists and that a level takes far more practice. The Hindi ladder adds that no official Hindi A1/A2 list exists.
 - **Review button**, at the top of the ladder: "Review chunks", which opens `#hi/review`. It shows once the language has content in at least one stage.
 
 ### 4.2 Class mode (shared screen)
@@ -829,7 +840,8 @@ Review mixes chunks from earlier stages, so learners meet them again out of thei
 - **Deck:** every chunk of every scenario in those stages, `extra` chunks included, shuffled. Free-practice targets and slot words are not cards: cards carry chunks only. A run takes 10 cards. **Another 10** deals the next 10 from the same shuffle, and the deck reshuffles when it runs out.
 - **Register:** the register switch (§4.6) applies to every card. For a scenario that does not allow the selected register, its cards use the profile's `defaultRegister`, and the card shows that register's label.
 - **Gender:** a chunk with a ` / ` choice shows both words, as in the Chunks step.
-- **Front:** the chunk's English (`en`), its kind tag, and its source in small text: "Stage 3 · Numbers & family". A frame shows its gap: "I have ___".
+- **One answer per card:** chunks with the same English cue in one language are one card. When their texts differ (Spanish "me too": igualmente, a mí también), every form is a right answer: Say it takes the best match, and the back shows them all.
+- **Front:** the chunk's English (`en`), its kind tag, and its source in small text: "Stage 3 · Numbers & family", or every source when the card joins several. A frame shows its gap: "I have ___".
 - **Back:** the target text, romanization when on, Play, and the dialogue line it came from with the chunk underlined (§3.9). Play speaks a frame with the gap filled from the line it came from.
 - **Two ways to use it**, a toggle at the top:
   - **Flip:** the learner says the chunk aloud, then flips the card (Space, Enter or a tap) and checks. **Got it** moves on. **Again** puts the card back at the end of this run. This works on a shared screen in class.
@@ -1013,6 +1025,7 @@ Each milestone is shippable on its own, and the card stays parked throughout.
 | **M3.5** | Images, after M4. Item icons and speaker avatars, and a picture-cue toggle for the drill. Prash picks the source for scenes first: AI-generated, Open Peeps (CC0), stock photos, or none | The frame drill runs on picture cues |
 | **M-ES** | Spanish (Colombian): profile, stages 1–9, voices, tests. Drafted in one pass from the French course (13 October 2026) | Checker and `_build/test_speech.html` pass. Stages 1–9 verified by a native speaker |
 | **M4.5** | Review pack and reviewer's guide (§4.4), Check your device (§4.8), new stage 2 `repair` in all four languages (13 October 2026) | Checker and `_build/test_speech.html` pass. A reviewer can print one PDF per language |
+| **M5** | Ladder redesign (`speak-ladder-plan.md`). M5.1: regrouped ladder, labels, one answer per card. M5.2: 13 new A1 scenarios in all four languages. M5.3: 13 new A2 scenarios | Checker and tests pass after each part |
 | **List** | Open to search engines | French, Spanish and Mandarin stages 1–4 verified by native speakers. `noindex` removed from `speak/index.html` and the root `index.html` |
 
 ---

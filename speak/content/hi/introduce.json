@@ -1,0 +1,192 @@
+{
+  "schema": 2,
+  "scenario": "introduce",
+  "lang": "hi",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "registerNotes": {
+    "intimate": "तू is for very close friends and family. Practise this one with आप and तुम."
+  },
+  "lines": {
+    "l1": {
+      "text": "नमस्ते! ये मेरे दोस्त {friend} हैं।",
+      "rom": "namaste! ye mere dost {friend} hain.",
+      "variants": [
+        {
+          "label": "about a male friend",
+          "text": "नमस्ते! ये मेरे दोस्त {friend} हैं।",
+          "rom": "namaste! ye mere dost {friend} hain."
+        },
+        {
+          "label": "about a female friend",
+          "text": "नमस्ते! ये मेरी दोस्त {friend} हैं।",
+          "rom": "namaste! ye meree dost {friend} hain."
+        }
+      ]
+    },
+    "l2": {
+      "text": "नमस्ते! आपसे मिलकर ख़ुशी हुई।",
+      "rom": "namaste! aapse milkar Khushee huee.",
+      "byRegister": {
+        "familiar": {
+          "text": "नमस्ते! तुमसे मिलकर ख़ुशी हुई।",
+          "rom": "namaste! tumse milkar Khushee huee."
+        }
+      }
+    },
+    "l3": {
+      "text": "{friend} {city} से हैं।",
+      "rom": "{friend} {city} se hain."
+    },
+    "l4": {
+      "text": "अच्छा, सच में? {friend} क्या करते हैं?",
+      "rom": "achchhaa, sach men? {friend} kyaa karte hain?",
+      "variants": [
+        {
+          "label": "about a man",
+          "text": "अच्छा, सच में? {friend} क्या करते हैं?",
+          "rom": "achchhaa, sach men? {friend} kyaa karte hain?"
+        },
+        {
+          "label": "about a woman",
+          "text": "अच्छा, सच में? {friend} क्या करती हैं?",
+          "rom": "achchhaa, sach men? {friend} kyaa kartee hain?"
+        }
+      ]
+    },
+    "l5": {
+      "text": "{friend} {job} हैं।",
+      "rom": "{friend} {job} hain."
+    },
+    "l6": {
+      "text": "बहुत बढ़िया! आपका स्वागत है!",
+      "rom": "bahut baRhiyaa! aapkaa svaagat hai!",
+      "byRegister": {
+        "familiar": {
+          "text": "बहुत बढ़िया! तुम्हारा स्वागत है!",
+          "rom": "bahut baRhiyaa! tumhaaraa svaagat hai!"
+        }
+      }
+    }
+  },
+  "chunks": {
+    "this-is-my-friend": {
+      "text": "ये मेरे / मेरी दोस्त ___ हैं",
+      "rom": "ye mere / meree dost ___ hain",
+      "choice": "mf",
+      "literal": "this my friend ___ is (respect)"
+    },
+    "nice-to-meet": {
+      "text": "आपसे मिलकर ख़ुशी हुई",
+      "rom": "aapse milkar Khushee huee",
+      "literal": "with-you having-met happiness happened",
+      "byRegister": {
+        "familiar": {
+          "text": "तुमसे मिलकर ख़ुशी हुई",
+          "rom": "tumse milkar Khushee huee"
+        }
+      }
+    },
+    "is-from": {
+      "text": "___ ___ से हैं",
+      "rom": "___ ___ se hain",
+      "literal": "___ ___ from is (respect)"
+    },
+    "oh-really": {
+      "text": "सच में?",
+      "rom": "sach men?",
+      "literal": "truth in?"
+    },
+    "what-does-do": {
+      "text": "___ क्या करते / करती हैं?",
+      "rom": "___ kyaa karte / kartee hain?",
+      "choice": "mf",
+      "literal": "___ what do is (respect)?"
+    },
+    "welcome": {
+      "text": "आपका स्वागत है",
+      "rom": "aapkaa svaagat hai",
+      "literal": "your welcome is",
+      "byRegister": {
+        "familiar": {
+          "text": "तुम्हारा स्वागत है",
+          "rom": "tumhaaraa svaagat hai"
+        }
+      }
+    },
+    "this-is-my": {
+      "text": "ये मेरे / मेरी ___ हैं",
+      "rom": "ye mere / meree ___ hain",
+      "choice": "mf",
+      "extra": true,
+      "literal": "this my ___ is (respect)"
+    }
+  },
+  "slotValues": {
+    "job": [
+      {
+        "en": "a doctor",
+        "text": "डॉक्टर",
+        "rom": "DokTar"
+      },
+      {
+        "en": "a teacher",
+        "text": "टीचर",
+        "rom": "Teechar"
+      },
+      {
+        "en": "an engineer",
+        "text": "इंजीनियर",
+        "rom": "injeeniyar"
+      },
+      {
+        "en": "a lawyer",
+        "text": "वकील",
+        "rom": "vakeel"
+      }
+    ]
+  },
+  "partnerValues": {
+    "friend": {
+      "en": "Ravi",
+      "text": "रवि",
+      "rom": "ravi"
+    },
+    "city": {
+      "en": "Jaipur",
+      "text": "जयपुर",
+      "rom": "jaipur"
+    }
+  },
+  "free": {
+    "targets": {
+      "their-name-is": {
+        "text": "इनका नाम ___ है",
+        "rom": "inkaa naam ___ hai"
+      },
+      "nice-to-meet-too": {
+        "text": "मुझे भी आपसे मिलकर ख़ुशी हुई",
+        "rom": "mujhe bhee aapse milkar Khushee huee",
+        "byRegister": {
+          "familiar": {
+            "text": "मुझे भी तुमसे मिलकर ख़ुशी हुई",
+            "rom": "mujhe bhee tumse milkar Khushee huee"
+          }
+        }
+      }
+    }
+  },
+  "notes": [
+    "When you introduce someone, Hindi uses the respectful plural: ये मेरे दोस्त रवि हैं (\"this my friend Ravi are\"), रवि जयपुर से हैं. The same हैं works for a man or a woman.",
+    "मेरे / मेरी follows the friend: मेरे दोस्त for a man, मेरी दोस्त for a woman. करते / करती works the same way.",
+    "इनका नाम ___ है (\"their name is\") is the polite way to say his or her name. It does not change for a man or a woman.",
+    "आपका स्वागत है means \"you are welcome here\". It is not the reply to thank you."
+  ]
+}

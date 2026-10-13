@@ -1,0 +1,98 @@
+{
+  "schema": 2,
+  "id": "time",
+  "title": "What time is it?",
+  "goal": "Ask and tell the time and the day.",
+  "roles": {
+    "A": "Asks the time",
+    "B": "Answers"
+  },
+  "slots": {
+    "hour": {
+      "kind": "set",
+      "cue": "an hour"
+    }
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "role": "A",
+      "en": "Excuse me, what time is it?",
+      "addressesYou": true
+    },
+    {
+      "id": "l2",
+      "role": "B",
+      "en": "It's {hour} o'clock."
+    },
+    {
+      "id": "l3",
+      "role": "A",
+      "en": "Thanks! And what day is it today?"
+    },
+    {
+      "id": "l4",
+      "role": "B",
+      "en": "Today is Friday."
+    },
+    {
+      "id": "l5",
+      "role": "A",
+      "en": "Oh no! I'm late."
+    },
+    {
+      "id": "l6",
+      "role": "B",
+      "en": "Hurry up! Bye!",
+      "addressesYou": true
+    }
+  ],
+  "chunks": [
+    {
+      "id": "what-time",
+      "en": "what time is it?"
+    },
+    {
+      "id": "its-oclock",
+      "en": "it's ___ o'clock"
+    },
+    {
+      "id": "what-day",
+      "en": "what day is it today?"
+    },
+    {
+      "id": "today-is",
+      "en": "today is ___ (a day)"
+    },
+    {
+      "id": "im-late",
+      "en": "I'm late"
+    },
+    {
+      "id": "hurry-up",
+      "en": "hurry up!",
+      "addressesYou": true
+    },
+    {
+      "id": "half-past",
+      "en": "half past ___"
+    }
+  ],
+  "drill": {
+    "slot": "hour",
+    "instruction": "Swap the hour each time."
+  },
+  "free": {
+    "prompt": "Draw a clock on paper. Show a time; the others say it.",
+    "targets": [
+      {
+        "id": "its-nearly",
+        "en": "it's nearly ___"
+      },
+      {
+        "id": "its-early",
+        "en": "it's early"
+      }
+    ]
+  }
+}

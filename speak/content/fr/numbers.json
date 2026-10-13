@@ -1,0 +1,176 @@
+{
+  "schema": 2,
+  "scenario": "numbers",
+  "lang": "fr",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "Quel âge avez-vous ?",
+      "accept": [
+        "Vous avez quel âge ?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Tu as quel âge ?",
+          "accept": [
+            "Quel âge as-tu ?"
+          ]
+        }
+      }
+    },
+    "l2": {
+      "text": "J'ai {age} ans. Et vous ?",
+      "byRegister": {
+        "familiar": {
+          "text": "J'ai {age} ans. Et toi ?"
+        }
+      }
+    },
+    "l3": {
+      "text": "J'ai trente ans. Quel est votre numéro de téléphone ?",
+      "accept": [
+        "J'ai 30 ans. Quel est votre numéro de téléphone ?",
+        "J'ai trente ans. C'est quoi votre numéro ?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "J'ai trente ans. C'est quoi ton numéro de téléphone ?",
+          "accept": [
+            "J'ai 30 ans. C'est quoi ton numéro de téléphone ?",
+            "J'ai trente ans. Quel est ton numéro de téléphone ?"
+          ]
+        }
+      }
+    },
+    "l4": {
+      "text": "C'est le {phone}."
+    },
+    "l5": {
+      "text": "Pardon ? Vous pouvez répéter, s'il vous plaît ?",
+      "byRegister": {
+        "familiar": {
+          "text": "Pardon ? Tu peux répéter, s'il te plaît ?"
+        }
+      }
+    },
+    "l6": {
+      "text": "Bien sûr. {phone}.",
+      "accept": [
+        "Bien sûr. C'est le {phone}."
+      ]
+    },
+    "l7": {
+      "text": "Merci ! À bientôt.",
+      "accept": [
+        "Merci ! À plus tard."
+      ]
+    }
+  },
+  "chunks": {
+    "how-old": {
+      "text": "quel âge avez-vous ?",
+      "byRegister": {
+        "familiar": {
+          "text": "tu as quel âge ?"
+        }
+      },
+      "literal": "what age have you?"
+    },
+    "i-am-age": {
+      "text": "j'ai ___ ans",
+      "literal": "I have ___ years"
+    },
+    "whats-your-number": {
+      "text": "quel est votre numéro de téléphone ?",
+      "byRegister": {
+        "familiar": {
+          "text": "c'est quoi ton numéro de téléphone ?"
+        }
+      },
+      "literal": "which is your number of telephone?"
+    },
+    "its": {
+      "text": "c'est le ___",
+      "literal": "it's the ___"
+    },
+    "can-you-repeat": {
+      "text": "vous pouvez répéter ?",
+      "byRegister": {
+        "familiar": {
+          "text": "tu peux répéter ?"
+        }
+      },
+      "literal": "you can repeat?"
+    },
+    "of-course": {
+      "text": "bien sûr",
+      "literal": "well sure"
+    },
+    "see-you": {
+      "text": "à bientôt",
+      "literal": "until soon"
+    },
+    "my-number-is": {
+      "extra": true,
+      "text": "mon numéro, c'est le ___",
+      "literal": "my number, it's the ___"
+    }
+  },
+  "slotValues": {
+    "phone": [
+      {
+        "en": "12 15 30",
+        "text": "douze, quinze, trente"
+      },
+      {
+        "en": "14 20 16",
+        "text": "quatorze, vingt, seize"
+      },
+      {
+        "en": "11 40 13",
+        "text": "onze, quarante, treize"
+      },
+      {
+        "en": "60 10 50",
+        "text": "soixante, dix, cinquante"
+      }
+    ]
+  },
+  "partnerValues": {
+    "age": {
+      "en": "twenty-five",
+      "text": "vingt-cinq"
+    }
+  },
+  "free": {
+    "targets": {
+      "is-that-right": {
+        "text": "C'est bien ça ?",
+        "accept": [
+          "C'est ça ?"
+        ]
+      },
+      "yes-thats-right": {
+        "text": "Oui, c'est ça.",
+        "accept": [
+          "Oui, c'est bien ça.",
+          "Oui, exactement."
+        ]
+      }
+    }
+  },
+  "notes": [
+    "Age uses avoir and needs ans: J'ai vingt ans. Never je suis vingt.",
+    "French phone numbers are said in pairs: 06 12 34 56 78 is zéro six, douze, trente-quatre, cinquante-six, soixante-dix-huit.",
+    "The drill practises three pairs at a time.",
+    "C'est le ... introduces a phone number: C'est le zéro six, douze..."
+  ]
+}

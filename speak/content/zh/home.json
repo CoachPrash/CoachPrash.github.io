@@ -1,0 +1,189 @@
+{
+  "schema": 2,
+  "scenario": "home",
+  "lang": "zh",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "你住在哪儿？",
+      "rom": "Nǐ zhù zài nǎr?",
+      "accept": [
+        {
+          "text": "你住哪儿？",
+          "rom": "Nǐ zhù nǎr?"
+        }
+      ],
+      "byRegister": {
+        "formal": {
+          "text": "您住在哪儿？",
+          "rom": "Nín zhù zài nǎr?",
+          "accept": [
+            {
+              "text": "您住哪儿？",
+              "rom": "Nín zhù nǎr?"
+            }
+          ]
+        }
+      }
+    },
+    "l2": {
+      "text": "我住在{area}。你呢？",
+      "rom": "Wǒ zhù zài {area}. Nǐ ne?",
+      "byRegister": {
+        "formal": {
+          "text": "我住在{area}。您呢？",
+          "rom": "Wǒ zhù zài {area}. Nín ne?"
+        }
+      }
+    },
+    "l3": {
+      "text": "我和家人住在一套公寓里。",
+      "rom": "Wǒ hé jiārén zhù zài yí tào gōngyù lǐ.",
+      "accept": [
+        {
+          "text": "我跟家人住在一套公寓里。",
+          "rom": "Wǒ gēn jiārén zhù zài yí tào gōngyù lǐ."
+        },
+        {
+          "text": "我和家人住在公寓里。",
+          "rom": "Wǒ hé jiārén zhù zài gōngyù lǐ."
+        }
+      ]
+    },
+    "l4": {
+      "text": "公寓大吗？",
+      "rom": "Gōngyù dà ma?",
+      "accept": [
+        {
+          "text": "大不大？",
+          "rom": "Dà bu dà?"
+        }
+      ]
+    },
+    "l5": {
+      "text": "不大，很小，但是很舒服。",
+      "rom": "Bú dà, hěn xiǎo, dànshì hěn shūfu."
+    },
+    "l6": {
+      "text": "跟我家一样！",
+      "rom": "Gēn wǒ jiā yíyàng!"
+    }
+  },
+  "chunks": {
+    "where-live": {
+      "text": "你住在哪儿？",
+      "rom": "nǐ zhù zài nǎr?",
+      "byRegister": {
+        "formal": {
+          "text": "您住在哪儿？",
+          "rom": "nín zhù zài nǎr?"
+        }
+      },
+      "literal": "you live at where?",
+      "chain": [
+        "哪儿？",
+        "住在哪儿？"
+      ]
+    },
+    "i-live": {
+      "text": "我住在___",
+      "rom": "wǒ zhù zài ___",
+      "literal": "I live at ___"
+    },
+    "and-you": {
+      "text": "你呢？",
+      "rom": "nǐ ne?",
+      "byRegister": {
+        "formal": {
+          "text": "您呢？",
+          "rom": "nín ne?"
+        }
+      },
+      "literal": "you (and)?"
+    },
+    "with-my-family": {
+      "text": "和家人",
+      "rom": "hé jiārén",
+      "literal": "with family-people"
+    },
+    "is-it-big": {
+      "text": "大吗？",
+      "rom": "dà ma?",
+      "literal": "big?"
+    },
+    "small-but-nice": {
+      "text": "很小，但是很舒服",
+      "rom": "hěn xiǎo, dànshì hěn shūfu",
+      "literal": "very small, but very comfortable",
+      "chain": [
+        "很舒服",
+        "但是很舒服"
+      ]
+    },
+    "i-live-alone": {
+      "text": "我一个人住",
+      "rom": "wǒ yí ge rén zhù",
+      "literal": "I one (measure) person live",
+      "extra": true,
+      "chain": [
+        "人住",
+        "一个人住"
+      ]
+    }
+  },
+  "slotValues": {
+    "area": [
+      {
+        "en": "in the city centre",
+        "text": "市中心",
+        "rom": "shì zhōngxīn"
+      },
+      {
+        "en": "near the school",
+        "text": "学校附近",
+        "rom": "xuéxiào fùjìn"
+      },
+      {
+        "en": "in the suburbs",
+        "text": "郊区",
+        "rom": "jiāoqū"
+      },
+      {
+        "en": "in the old town",
+        "text": "老城区",
+        "rom": "lǎochéngqū"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "there-are-rooms": {
+        "text": "我家有___个房间。",
+        "rom": "Wǒ jiā yǒu ___ ge fángjiān."
+      },
+      "i-like-my-home": {
+        "text": "我很喜欢我的家。",
+        "rom": "Wǒ hěn xǐhuan wǒ de jiā.",
+        "accept": [
+          {
+            "text": "我喜欢我家。",
+            "rom": "Wǒ xǐhuan wǒ jiā."
+          }
+        ]
+      }
+    }
+  },
+  "notes": [
+    "住在 + a place says where you live: 我住在市中心.",
+    "家人 (jiārén) is family members. 家 (jiā) is home, or family as a whole.",
+    "跟…一样 (gēn… yíyàng) means \"the same as…\": 跟我家一样, like my home."
+  ]
+}

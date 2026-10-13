@@ -1,0 +1,108 @@
+{
+  "schema": 2,
+  "id": "introduce",
+  "title": "This is my friend",
+  "goal": "Introduce a friend: name, city and job.",
+  "roles": {
+    "A": "Introduces a friend",
+    "B": "Meets the friend"
+  },
+  "slots": {
+    "friend": {
+      "kind": "personal",
+      "cue": "a friend's name"
+    },
+    "city": {
+      "kind": "personal",
+      "cue": "your friend's city"
+    },
+    "job": {
+      "kind": "set",
+      "cue": "a job"
+    }
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "role": "A",
+      "en": "Hello! This is my friend {friend}."
+    },
+    {
+      "id": "l2",
+      "role": "B",
+      "en": "Hello! Nice to meet you.",
+      "addressesYou": true
+    },
+    {
+      "id": "l3",
+      "role": "A",
+      "en": "{friend} is from {city}."
+    },
+    {
+      "id": "l4",
+      "role": "B",
+      "en": "Oh, really? What does {friend} do?"
+    },
+    {
+      "id": "l5",
+      "role": "A",
+      "en": "{friend} is a {job}."
+    },
+    {
+      "id": "l6",
+      "role": "B",
+      "en": "Great! Welcome!",
+      "addressesYou": true
+    }
+  ],
+  "chunks": [
+    {
+      "id": "this-is-my-friend",
+      "en": "this is my friend ___"
+    },
+    {
+      "id": "nice-to-meet",
+      "en": "nice to meet you",
+      "addressesYou": true
+    },
+    {
+      "id": "is-from",
+      "en": "___ is from ___"
+    },
+    {
+      "id": "oh-really",
+      "en": "oh, really?"
+    },
+    {
+      "id": "what-does-do",
+      "en": "what does ___ do?"
+    },
+    {
+      "id": "welcome",
+      "en": "welcome!",
+      "addressesYou": true
+    },
+    {
+      "id": "this-is-my",
+      "en": "this is my ___ (brother, colleague…)"
+    }
+  ],
+  "drill": {
+    "slot": "job",
+    "instruction": "Swap the friend's job each time."
+  },
+  "free": {
+    "prompt": "Introduce the person next to you to the group: their name, city and job.",
+    "targets": [
+      {
+        "id": "their-name-is",
+        "en": "his / her name is ___"
+      },
+      {
+        "id": "nice-to-meet-too",
+        "en": "nice to meet you too",
+        "addressesYou": true
+      }
+    ]
+  }
+}

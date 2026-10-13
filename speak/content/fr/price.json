@@ -1,0 +1,130 @@
+{
+  "schema": 2,
+  "scenario": "price",
+  "lang": "fr",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal"
+  ],
+  "registerNotes": {
+    "familiar": "Sellers and customers at a market say vous to each other."
+  },
+  "lines": {
+    "l1": {
+      "text": "Bonjour ! C'est combien, les {item} ?",
+      "accept": [
+        "Bonjour ! Combien coûtent les {item} ?"
+      ]
+    },
+    "l2": {
+      "text": "Trois euros le kilo.",
+      "accept": [
+        "3 euros le kilo.",
+        "3 € le kilo."
+      ]
+    },
+    "l3": {
+      "text": "C'est cher ! Vous pouvez faire un peu moins cher ?",
+      "accept": [
+        "C'est cher ! Un peu moins cher ?"
+      ]
+    },
+    "l4": {
+      "text": "Bon, deux euros cinquante pour vous.",
+      "accept": [
+        "Bon, 2,50 € pour vous.",
+        "Bon, 2 euros 50 pour vous."
+      ]
+    },
+    "l5": {
+      "text": "D'accord, j'en prends un kilo.",
+      "accept": [
+        "D'accord, je prends un kilo."
+      ]
+    },
+    "l6": {
+      "text": "Voilà ! Bonne journée !",
+      "accept": [
+        "Tenez ! Bonne journée !"
+      ]
+    }
+  },
+  "chunks": {
+    "how-much-are": {
+      "text": "c'est combien, les ___ ?",
+      "literal": "it's how-much, the ___?"
+    },
+    "a-kilo": {
+      "text": "___ le kilo",
+      "literal": "___ the kilo"
+    },
+    "thats-expensive": {
+      "text": "c'est cher !",
+      "literal": "it's dear!"
+    },
+    "a-bit-cheaper": {
+      "text": "un peu moins cher ?",
+      "literal": "a little less dear?"
+    },
+    "ill-take": {
+      "text": "j'en prends ___",
+      "literal": "I of-them take ___"
+    },
+    "here-you-are": {
+      "text": "voilà",
+      "literal": "see there"
+    },
+    "too-much": {
+      "extra": true,
+      "text": "c'est trop cher",
+      "literal": "it's too dear"
+    }
+  },
+  "slotValues": {
+    "item": [
+      {
+        "en": "tomatoes",
+        "text": "tomates"
+      },
+      {
+        "en": "apples",
+        "text": "pommes"
+      },
+      {
+        "en": "strawberries",
+        "text": "fraises"
+      },
+      {
+        "en": "apricots",
+        "text": "abricots"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "last-price": {
+        "text": "C'est votre dernier prix ?",
+        "accept": [
+          "C'est quoi votre dernier prix ?"
+        ]
+      },
+      "ok-deal": {
+        "text": "Marché conclu !",
+        "accept": [
+          "D'accord, ça marche !",
+          "Ça marche !"
+        ]
+      }
+    }
+  },
+  "notes": [
+    "Per kilo is le kilo: trois euros le kilo.",
+    "Prices: deux euros cinquante (2,50 €). French writes a comma, not a point.",
+    "J'en prends un kilo: en stands for \"of them\" and cannot be left out in careful speech.",
+    "Bargaining is rare at a French food market. It is normal at a brocante (flea market)."
+  ]
+}

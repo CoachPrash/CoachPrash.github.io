@@ -114,6 +114,7 @@
     var out = {};
     Object.keys(res).forEach(function (k) { out[k] = res[k]; });
     out.variants = keep;
+    out.allVariants = vs;   /* so the shown form can still be coloured against the others */
     var d = drop[0];
     var message = d.speaker && speaker && d.speaker !== speaker ?
       "That was the form " + WHO[d.speaker] + " uses." : "That was the form for speaking to " + WHO[d.listener] + ".";

@@ -40,8 +40,25 @@
             stage: jobs[i].st.stage, stageTitle: bp.title || jobs[i].st.title });
         });
       });
-      return cards;
+      return oneAnswer(cards, lad);
     });
+  }
+
+  /* One answer per card (spec §4.7): chunks with the same English cue become
+   * one card. The same text in two scenarios is one card; different texts
+   * (igualmente, a mí también for "me too") are all right answers. */
+  function oneAnswer(cards, lad) {
+    var by = {}, out = [];
+    cards.forEach(function (c) {
+      var k = String(c.en).toLowerCase().replace(/\s+/g, " ").trim();
+      var first = by[k];
+      if (!first) { by[k] = c; c.others = []; c.stages = [c.stage + " · " + c.stageTitle]; out.push(c); return; }
+      var tag = c.stage + " · " + c.stageTitle;
+      if (first.stages.indexOf(tag) === -1) first.stages.push(tag);
+      var same = [first].concat(first.others).some(function (o) { return o.item.text === c.item.text; });
+      if (!same) first.others.push(c);
+    });
+    return out;
   }
 
   function start(run, code, upto) {
@@ -187,7 +204,7 @@
           [["flip", "Flip"], ["say", "Say it"]].map(function (m) {
             return '<button type="button" data-mode="' + m[0] + '" aria-pressed="' + (st.mode === m[0]) + '">' + m[1] + "</button>";
           }).join("") + "</div>";
-        return '<div class="review-controls">' + modes + picker + '<span class="small">' + cards.length + " chunks</span></div>";
+        return '<div class="review-controls">' + modes + picker + '<span class="small">' + cards.length + " cards</span></div>";
       }
 
       function front(card) {
@@ -195,15 +212,28 @@
         return '<div class="rv-front"><span class="kind">' + esc(U.kindLabel(card.item)) + "</span>" +
           (card.item.extra ? '<span class="also">Also useful</span>' : "") +
           '<div class="cue">' + esc(card.en) + "</div>" +
-          '<div class="rv-source">Stage ' + card.stage + " · " + esc(card.stageTitle) +
+          '<div class="rv-source">Stage ' + card.stages.map(esc).join("; Stage ") +
           (fell ? ' · <span lang="' + esc(code) + '">' + esc(labels[r]) + "</span> form (this scenario has no " +
             '<span lang="' + esc(code) + '">' + esc(labels[st.reg]) + "</span>)" : "") + "</div></div>";
       }
 
       function backHtml(card) {
-        var rr = res(card);
-        return '<div class="rv-back"><div class="big">' + U.target(rr, prof, {}) + "</div>" +
-          U.chunkContext(rr, card.bp, card.real, prof, regFor(card)) + "</div>";
+        return [card].concat(card.others).map(function (alt, i) {
+          var rr = res(alt);
+          return '<div class="rv-back">' + (i ? '<div class="ctx-label">Also right</div>' : "") +
+            '<div class="big">' + U.target(rr, prof, {}) + "</div>" +
+            U.chunkContext(rr, alt.bp, alt.real, prof, regFor(alt)) + "</div>";
+        }).join("");
+      }
+
+      /* Say it: the best match over every right answer on the card. */
+      function matchCard(card, said) {
+        var RANK = { notquite: 0, nearly: 1, good: 2 }, best = null;
+        [card].concat(card.others).forEach(function (alt) {
+          var m = S.matchLine(said, byReg(alt), regFor(alt), prof, labels);
+          if (!best || RANK[m.verdict] > RANK[best.verdict] || (m.verdict === best.verdict && m.score > best.score)) best = m;
+        });
+        return best;
       }
 
       function cardBody() {
@@ -228,7 +258,7 @@
           }
         } else if (!st.attempt) {
           $(".answer-slot", box).appendChild(answerControls(function (alts) {
-            var m = S.matchLine(alts, byReg(card), regFor(card), prof, labels);
+            var m = matchCard(card, alts);
             m.said = alts[0];
             st.attempt = m;
             render();

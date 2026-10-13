@@ -1,0 +1,144 @@
+{
+  "schema": 2,
+  "scenario": "weekend",
+  "lang": "es",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "¿Qué hace los fines de semana?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿Qué haces los fines de semana?"
+        }
+      }
+    },
+    "l2": {
+      "text": "Normalmente {activity}. ¿Y usted?",
+      "accept": [
+        "Por lo general {activity}. ¿Y usted?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Normalmente {activity}. ¿Y tú?",
+          "accept": [
+            "Por lo general {activity}. ¿Y tú?"
+          ]
+        }
+      }
+    },
+    "l3": {
+      "text": "Yo voy a la plaza de mercado con amigos.",
+      "accept": [
+        "Yo voy al mercado con amigos.",
+        "Voy a la plaza con amigos."
+      ]
+    },
+    "l4": {
+      "text": "¡Qué chévere!",
+      "accept": [
+        "¡Qué bueno!",
+        "¡Suena divertido!"
+      ]
+    },
+    "l5": {
+      "text": "¿Quiere venir el sábado?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿Quieres venir el sábado?"
+        }
+      }
+    },
+    "l6": {
+      "text": "¡Sí, con mucho gusto!",
+      "accept": [
+        "¡Sí, con gusto!",
+        "¡Claro que sí!"
+      ]
+    }
+  },
+  "chunks": {
+    "what-weekend": {
+      "text": "¿qué hace los fines de semana?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿qué haces los fines de semana?"
+        }
+      },
+      "literal": "what you-do the ends of week?"
+    },
+    "i-usually": {
+      "text": "normalmente ___",
+      "literal": "normally ___"
+    },
+    "with-friends": {
+      "text": "con amigos",
+      "literal": "with friends"
+    },
+    "sounds-fun": {
+      "text": "¡qué chévere!",
+      "literal": "how cool!"
+    },
+    "want-to-come": {
+      "text": "¿quiere venir?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿quieres venir?"
+        }
+      },
+      "literal": "you-want to-come?"
+    },
+    "gladly": {
+      "text": "sí, con mucho gusto",
+      "literal": "yes, with much pleasure"
+    },
+    "every-sunday": {
+      "text": "todos los domingos",
+      "extra": true,
+      "literal": "all the Sundays"
+    }
+  },
+  "slotValues": {
+    "activity": [
+      {
+        "en": "play football",
+        "text": "juego fútbol"
+      },
+      {
+        "en": "go to the cinema",
+        "text": "voy a cine"
+      },
+      {
+        "en": "go dancing",
+        "text": "salgo a bailar"
+      },
+      {
+        "en": "go cycling",
+        "text": "monto en bici"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "sometimes": {
+        "text": "A veces ___."
+      },
+      "never": {
+        "text": "Nunca ___."
+      }
+    }
+  },
+  "notes": [
+    "Los fines de semana (\"the weekends\") means \"at the weekend\", as a habit.",
+    "The plaza de mercado is the covered food market found in every Colombian town.",
+    "Colombians say ir a cine, with no article: voy a cine.",
+    "Con mucho gusto answers gracias, and it is also a warm \"yes, gladly\"."
+  ]
+}

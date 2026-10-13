@@ -1,0 +1,159 @@
+{
+  "schema": 2,
+  "scenario": "in-class",
+  "lang": "es",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "Disculpe, ¿puedo entrar?",
+      "accept": [
+        "Disculpe, ¿puedo pasar?",
+        "Con permiso, ¿puedo entrar?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Disculpa, ¿puedo entrar?",
+          "accept": [
+            "Disculpa, ¿puedo pasar?",
+            "Con permiso, ¿puedo entrar?"
+          ]
+        }
+      }
+    },
+    "l2": {
+      "text": "Sí, siga. Siéntese.",
+      "accept": [
+        "Sí, pase. Siéntese.",
+        "Sí, siga y siéntese."
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Sí, sigue. Siéntate.",
+          "accept": [
+            "Sí, pasa. Siéntate.",
+            "Sí, sigue y siéntate."
+          ]
+        }
+      }
+    },
+    "l3": {
+      "text": "Perdón por llegar tarde. ¿Qué página?",
+      "accept": [
+        "Qué pena llegar tarde. ¿Qué página?",
+        "Perdón por llegar tarde. ¿En qué página?"
+      ]
+    },
+    "l4": {
+      "text": "Página {page}.",
+      "accept": [
+        "En la página {page}."
+      ]
+    },
+    "l5": {
+      "text": "Ya terminé. ¿Está bien así?",
+      "accept": [
+        "Ya acabé. ¿Está bien así?",
+        "Ya terminé. ¿Así está bien?"
+      ]
+    },
+    "l6": {
+      "text": "¡Sí, muy bien!",
+      "accept": [
+        "¡Sí, excelente!",
+        "¡Muy bien!"
+      ]
+    }
+  },
+  "chunks": {
+    "may-i-come-in": {
+      "text": "¿puedo entrar?",
+      "registerNeutral": true,
+      "literal": "I-can enter?"
+    },
+    "come-in": {
+      "text": "siga",
+      "byRegister": {
+        "familiar": {
+          "text": "sigue"
+        }
+      },
+      "literal": "continue"
+    },
+    "sorry-late": {
+      "text": "perdón por llegar tarde",
+      "literal": "pardon for arriving late"
+    },
+    "which-page": {
+      "text": "¿qué página?",
+      "literal": "what page?"
+    },
+    "page": {
+      "text": "página ___",
+      "literal": "page ___"
+    },
+    "ive-finished": {
+      "text": "ya terminé",
+      "literal": "already I-finished"
+    },
+    "is-this-right": {
+      "text": "¿está bien así?",
+      "literal": "is well like-this?"
+    },
+    "may-i-go": {
+      "text": "¿puedo ir al baño?",
+      "registerNeutral": true,
+      "extra": true,
+      "literal": "I-can go to-the bathroom?"
+    }
+  },
+  "slotValues": {
+    "page": [
+      {
+        "en": "12",
+        "text": "doce"
+      },
+      {
+        "en": "20",
+        "text": "veinte"
+      },
+      {
+        "en": "35",
+        "text": "treinta y cinco"
+      },
+      {
+        "en": "48",
+        "text": "cuarenta y ocho"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "i-dont-know": {
+        "text": "No sé.",
+        "accept": [
+          "No sé, profe."
+        ]
+      },
+      "one-more-time": {
+        "text": "Otra vez, por favor.",
+        "accept": [
+          "Una vez más, por favor."
+        ],
+        "registerNeutral": true
+      }
+    }
+  },
+  "notes": [
+    "¡Siga! (\"carry on\") is how Colombians say \"come in\". Pase also works.",
+    "Students usually say usted to the teacher and call them profe.",
+    "Ya terminé: ya (\"already\") is the natural way to say you have finished."
+  ]
+}

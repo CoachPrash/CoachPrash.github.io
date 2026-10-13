@@ -150,11 +150,12 @@
     var vals = opts.vals || {}, ex = opts.examples || {};
     var showRom = settings.rom && prof.romanization;
     var forms = res.variants && res.variants.length ? res.variants : [{ text: res.text, rom: res.rom }];
+    var all = res.allVariants || forms;   /* with genders set, one form shows: compare it with the full list */
     var html = forms.map(function (f) {
       return '<div class="form">' +
         (C.variantLabel(f) ? '<span class="vlabel' + genderClass(f) + '">' + esc(C.variantLabel(f)) + "</span>" : "") +
-        '<div class="tl" lang="' + esc(prof.code) + '">' + markChoice(genderWords(f, forms, "text", function (t) { return fillHtml(t, vals.text, ex.text); }), res.choice) + "</div>" +
-        (showRom && f.rom ? '<div class="rom">' + markChoice(genderWords(f, forms, "rom", function (t) { return fillHtml(t, vals.rom, ex.rom); }), res.choice) + "</div>" : "") +
+        '<div class="tl" lang="' + esc(prof.code) + '">' + markChoice(genderWords(f, all, "text", function (t) { return fillHtml(t, vals.text, ex.text); }), res.choice) + "</div>" +
+        (showRom && f.rom ? '<div class="rom">' + markChoice(genderWords(f, all, "rom", function (t) { return fillHtml(t, vals.rom, ex.rom); }), res.choice) + "</div>" : "") +
         "</div>";
     }).join("");
     if (opts.en && settings.en) html += '<div class="en">' + esc(C.fill(opts.en, vals.en)) + "</div>";
@@ -295,7 +296,7 @@
       var lr = C.resolve(real.lines[l.id], reg, prof.defaultRegister);
       var forms = lr.variants && lr.variants.length ? lr.variants : [lr];
       forms.forEach(function (f) {
-        var span = S.locate(chunkRes.text, f.text, prof);
+        var span = locateInSentence(chunkRes.text, f.text, prof, mode);
         if (span && trailing) span = toClauseEnd(span, S.units(f.text, mode), mode);
         if (span && (!best || span.end - span.start < best.span.end - best.span.start)) best = { i: i, line: l, form: f, span: span };
       });
@@ -303,19 +304,42 @@
     return best;
   }
 
+  /* S.locate, but a match may not run across the end of a sentence: a gap that
+   * swallows "है, एक किलो" or "नहीं! मुझे" is wrong. Then look again after that point. */
+  function locateInSentence(chunkText, lineText, prof, mode) {
+    var units = S.units(lineText, mode), from = 0;
+    var END = /[.!?।。！？,，]$/;
+    for (var tries = 0; tries < 6; tries++) {
+      var rest = units.slice(from).map(function (u) { return u.text + u.space; }).join("");
+      var span = S.locate(chunkText, rest, prof);
+      if (!span) return null;
+      var cut = -1;
+      for (var k = span.start; k < span.end; k++) {
+        var t = units[from + k].text, last = t.charAt(t.length - 1);
+        if (END.test(t) && chunkText.indexOf(last) === -1) cut = k;   /* punctuation the chunk itself has is fine */
+      }
+      if (cut === -1) return { start: span.start + from, end: span.end + from };
+      from += cut + 1;
+    }
+    return null;
+  }
+
   /* A chunk that ends in a gap (我有___) matches the fewest words it can, which
    * can cut a word in half (我有两 for 我有两个哥哥). Stretch the gap to the end of
    * the clause when that is at most 2 more words (3 characters in chars mode). */
   function toClauseEnd(span, units, mode) {
-    var PUNCT = /[?？!！.。,，;；:：]$/, end = span.end, max = mode === "chars" ? 3 : 2;
+    var PUNCT = /[?？!！.。,，;；:：]$/, ONLY = /^[?？!！.。,，;；:：«»]+$/, end = span.end, max = mode === "chars" ? 3 : 2;
     if (PUNCT.test(units[end].text)) return span;
     for (var k = 0; k < max && end + 1 < units.length; k++) {
       var u = units[end + 1].text;
-      if (mode === "chars" && PUNCT.test(u)) return { start: span.start, end: end };
+      if (PUNCT.test(u) && (mode === "chars" || ONLY.test(u))) return { start: span.start, end: end };
       end++;
       if (mode === "words" && PUNCT.test(u)) return { start: span.start, end: end };
     }
-    return end + 1 >= units.length ? { start: span.start, end: end } : span;
+    if (end + 1 >= units.length || ONLY.test(units[end + 1].text) || (mode === "chars" && PUNCT.test(units[end + 1].text))) return { start: span.start, end: end };
+    /* The clause runs on (J'ai deux frères et une sœur): take the next word, or
+     * the next 3 characters (我有两个哥哥), rather than stop mid-phrase. */
+    return { start: span.start, end: Math.min(units.length - 1, span.end + (mode === "chars" ? max : 1)) };
   }
 
   /* The dialogue line where a resolved chunk occurs, with the chunk marked.
@@ -533,18 +557,20 @@
               '<a class="btn" href="' + base + 'solo">Solo</a>' +
               '<a class="btn" href="' + base + 'script">Script</a></div></div>';
           }).join("") : '<div class="scen off"><div class="smeta">Coming later</div></div>';
-          return '<li class="stage"><div class="snum"><span>' + st.stage + '</span><small>' + esc(st.level) + "</small></div>" +
+          return '<li class="stage"><div class="snum"><span>' + st.stage + '</span><small>' + esc(st.label || st.level + " topics") + "</small></div>" +
             '<div class="sbody"><h2>' + esc(st.title) + "</h2>" + items + "</div></li>";
         }).join("");
         $app.innerHTML =
           '<section class="wrap">' +
           crumbs([{ label: "Home", href: "#" }, { label: prof.name }]) +
           '<h1>' + esc(prof.name) + ' <span class="native" lang="' + esc(code) + '">' + esc(prof.native) + "</span></h1>" +
-          '<p class="lede">One scenario per stage. Each scenario goes: hear it, chunks, echo, use them, notice. ' +
+          '<p class="lede">Stages group scenarios by topic. Each scenario goes: hear it, chunks, echo, use them, notice. ' +
           '<a href="#' + esc(code) + '/profile">How ' + esc(prof.name) + " works in this app</a>.</p>" +
           (ids.some(function (id) { return by[id][1]; }) ? '<p class="actions"><a class="btn primary" href="#' + esc(code) + '/review">Review chunks</a>' +
             '<a class="btn" href="#' + esc(code) + '/script">Review pack (for reviewers)</a></p>' : "") +
-          '<ol class="ladder">' + stages + "</ol></section>";
+          '<ol class="ladder">' + stages + "</ol>" +
+          '<p class="hint">"A1 topics" means the scenarios practise speaking on topics from the CEFR A1 lists. Reaching a level takes far more practice than these scenarios alone.' +
+          (code === "hi" ? " There is no official A1 or A2 list for Hindi; the stages follow the shared lists." : "") + "</p></section>";
       });
     });
   }
