@@ -1,0 +1,99 @@
+{
+  "schema": 2,
+  "id": "invite",
+  "title": "Would you like to come?",
+  "goal": "Invite someone, accept an invitation, and say no politely.",
+  "roles": {
+    "A": "Invites",
+    "B": "Is invited"
+  },
+  "slots": {
+    "event": {
+      "kind": "set",
+      "cue": "an event"
+    }
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "role": "A",
+      "en": "Would you like to come to {event} on Saturday?",
+      "addressesYou": true
+    },
+    {
+      "id": "l2",
+      "role": "B",
+      "en": "I'd love to! What time?"
+    },
+    {
+      "id": "l3",
+      "role": "A",
+      "en": "At seven, at my place."
+    },
+    {
+      "id": "l4",
+      "role": "B",
+      "en": "Can I bring something?"
+    },
+    {
+      "id": "l5",
+      "role": "A",
+      "en": "No need. Just come!",
+      "addressesYou": true
+    }
+  ],
+  "chunks": [
+    {
+      "id": "would-you-like",
+      "en": "would you like to come to ___?",
+      "addressesYou": true
+    },
+    {
+      "id": "id-love-to",
+      "en": "I'd love to"
+    },
+    {
+      "id": "what-time",
+      "en": "what time?"
+    },
+    {
+      "id": "at-my-place",
+      "en": "at my place"
+    },
+    {
+      "id": "can-i-bring",
+      "en": "can I bring something?"
+    },
+    {
+      "id": "no-need",
+      "en": "no need"
+    },
+    {
+      "id": "just-come",
+      "en": "just come!",
+      "addressesYou": true
+    },
+    {
+      "id": "thanks-inviting",
+      "en": "thanks for inviting me",
+      "addressesYou": true
+    }
+  ],
+  "drill": {
+    "slot": "event",
+    "instruction": "Swap the event each time."
+  },
+  "free": {
+    "prompt": "Invite three people to different things. Each accepts or says no politely.",
+    "targets": [
+      {
+        "id": "sorry-cant",
+        "en": "sorry, I can't. I have ___"
+      },
+      {
+        "id": "another-time",
+        "en": "maybe another time"
+      }
+    ]
+  }
+}

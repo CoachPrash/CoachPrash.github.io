@@ -1,0 +1,101 @@
+{
+  "schema": 2,
+  "id": "problem",
+  "title": "It doesn't work",
+  "goal": "Report a problem and get it fixed politely.",
+  "roles": {
+    "A": "A guest",
+    "B": "The receptionist"
+  },
+  "slots": {
+    "thing": {
+      "kind": "set",
+      "cue": "a thing that's broken"
+    }
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "role": "A",
+      "en": "Excuse me, there's a problem with my room.",
+      "addressesYou": true
+    },
+    {
+      "id": "l2",
+      "role": "B",
+      "en": "What's wrong?"
+    },
+    {
+      "id": "l3",
+      "role": "A",
+      "en": "The {thing} doesn't work."
+    },
+    {
+      "id": "l4",
+      "role": "B",
+      "en": "I'm sorry. I'll send someone right away."
+    },
+    {
+      "id": "l5",
+      "role": "A",
+      "en": "Can I change rooms?"
+    },
+    {
+      "id": "l6",
+      "role": "B",
+      "en": "Of course. Here's a new key. Sorry about that."
+    }
+  ],
+  "chunks": [
+    {
+      "id": "theres-problem",
+      "en": "there's a problem with ___"
+    },
+    {
+      "id": "whats-wrong",
+      "en": "what's wrong?"
+    },
+    {
+      "id": "doesnt-work",
+      "en": "the ___ doesn't work"
+    },
+    {
+      "id": "im-sorry",
+      "en": "I'm sorry"
+    },
+    {
+      "id": "right-away",
+      "en": "I'll send someone right away"
+    },
+    {
+      "id": "change-rooms",
+      "en": "can I change rooms?"
+    },
+    {
+      "id": "sorry-about-that",
+      "en": "sorry about that"
+    },
+    {
+      "id": "too-noisy",
+      "en": "it's too noisy"
+    }
+  ],
+  "drill": {
+    "slot": "thing",
+    "instruction": "Swap the broken thing each time."
+  },
+  "free": {
+    "prompt": "Play a hotel desk. Each guest reports a different problem; the receptionist solves it.",
+    "targets": [
+      {
+        "id": "its-broken",
+        "en": "it's broken"
+      },
+      {
+        "id": "can-you-fix",
+        "en": "can you fix it?",
+        "addressesYou": true
+      }
+    ]
+  }
+}

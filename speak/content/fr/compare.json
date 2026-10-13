@@ -1,0 +1,112 @@
+{
+  "schema": 2,
+  "scenario": "compare",
+  "lang": "fr",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "Quel {thing} est le meilleur, celui-ci ou celui-là ?",
+      "accept": [
+        "Quel {thing} est mieux, celui-ci ou celui-là ?"
+      ]
+    },
+    "l2": {
+      "text": "Celui-ci est moins cher, mais celui-là est plus rapide."
+    },
+    "l3": {
+      "text": "Je préfère le moins cher."
+    },
+    "l4": {
+      "text": "Pourquoi ?"
+    },
+    "l5": {
+      "text": "Parce que je n'ai pas besoin d'un modèle rapide.",
+      "accept": [
+        "Parce que j'ai pas besoin d'un modèle rapide."
+      ]
+    },
+    "l6": {
+      "text": "C'est logique !",
+      "accept": [
+        "Ça se tient !"
+      ]
+    }
+  },
+  "chunks": {
+    "which-better": {
+      "text": "quel ___ est le meilleur",
+      "literal": "which ___ is the best"
+    },
+    "this-cheaper": {
+      "text": "celui-ci est moins cher",
+      "literal": "this-one-here is less dear"
+    },
+    "that-faster": {
+      "text": "celui-là est plus rapide",
+      "literal": "that-one-there is more fast"
+    },
+    "prefer-cheaper": {
+      "text": "je préfère le moins cher",
+      "literal": "I prefer the less dear"
+    },
+    "because": {
+      "text": "parce que ___",
+      "literal": "because ___"
+    },
+    "makes-sense": {
+      "text": "c'est logique !",
+      "literal": "it's logical!"
+    },
+    "same": {
+      "extra": true,
+      "text": "c'est pareil",
+      "literal": "it's the-same"
+    }
+  },
+  "slotValues": {
+    "thing": [
+      {
+        "en": "phone",
+        "text": "téléphone"
+      },
+      {
+        "en": "computer",
+        "text": "ordinateur"
+      },
+      {
+        "en": "bike",
+        "text": "vélo"
+      },
+      {
+        "en": "vacuum cleaner",
+        "text": "aspirateur"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "bigger-than": {
+        "text": "___ est plus grand que ___."
+      },
+      "like-both": {
+        "text": "J'aime les deux.",
+        "accept": [
+          "Les deux me plaisent."
+        ]
+      }
+    }
+  },
+  "notes": [
+    "Celui-ci = this one, celui-là = that one, for a masculine word. For a feminine word: celle-ci, celle-là.",
+    "Plus ... que = more ... than, moins ... que = less ... than.",
+    "The drill items are all masculine, so quel and celui fit each one."
+  ]
+}

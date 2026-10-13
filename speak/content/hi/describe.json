@@ -1,0 +1,118 @@
+{
+  "schema": 2,
+  "scenario": "describe",
+  "lang": "hi",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "registerNotes": {
+    "intimate": "तू is for very close friends and family. Practise this one with आप and तुम."
+  },
+  "lines": {
+    "l1": {
+      "text": "वो कौन है?",
+      "rom": "vo kaun hai?"
+    },
+    "l2": {
+      "text": "वो मेरी बहन है।",
+      "rom": "vo meree bahan hai."
+    },
+    "l3": {
+      "text": "वो कैसी है?",
+      "rom": "vo kaisee hai?"
+    },
+    "l4": {
+      "text": "वो बहुत प्यारी और मज़ाकिया है।",
+      "rom": "vo bahut pyaaree aur mazaakiyaa hai."
+    },
+    "l5": {
+      "text": "और वो दिखती कैसी है?",
+      "rom": "aur vo dikhtee kaisee hai?"
+    },
+    "l6": {
+      "text": "वो {look}।",
+      "rom": "vo {look}."
+    }
+  },
+  "chunks": {
+    "who-is-that": {
+      "text": "वो कौन है?",
+      "rom": "vo kaun hai?",
+      "literal": "that who is?"
+    },
+    "thats-my": {
+      "text": "वो मेरी ___ है",
+      "rom": "vo meree ___ hai",
+      "literal": "that my(f) ___ is"
+    },
+    "whats-she-like": {
+      "text": "वो कैसी है?",
+      "rom": "vo kaisee hai?",
+      "literal": "she how(f) is?"
+    },
+    "kind-funny": {
+      "text": "बहुत प्यारी और मज़ाकिया",
+      "rom": "bahut pyaaree aur mazaakiyaa",
+      "literal": "very sweet(f) and funny"
+    },
+    "look-like": {
+      "text": "वो दिखती कैसी है?",
+      "rom": "vo dikhtee kaisee hai?",
+      "literal": "she looks how(f) is?"
+    },
+    "he-glasses": {
+      "text": "वो चश्मा पहनता है",
+      "rom": "vo chashmaa pahantaa hai",
+      "extra": true,
+      "literal": "he glasses wears is"
+    }
+  },
+  "slotValues": {
+    "look": [
+      {
+        "en": "is tall",
+        "text": "लंबी है",
+        "rom": "lambee hai"
+      },
+      {
+        "en": "wears glasses",
+        "text": "चश्मा पहनती है",
+        "rom": "chashmaa pahantee hai"
+      },
+      {
+        "en": "is a bit short",
+        "text": "थोड़ी छोटी है",
+        "rom": "thoRee chhoTee hai"
+      },
+      {
+        "en": "is very pretty",
+        "text": "बहुत सुंदर है",
+        "rom": "bahut sundar hai"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "he-is": {
+        "text": "वो ___ है",
+        "rom": "vo ___ hai"
+      },
+      "she-has": {
+        "text": "उसके ___ हैं",
+        "rom": "uske ___ hain"
+      }
+    }
+  },
+  "notes": [
+    "वो means he, she and that. The adjectives and verbs show who: वो कैसी है? (she), वो कैसा है? (he).",
+    "Adjectives ending in -आ change for a woman: प्यारा → प्यारी, लंबा → लंबी, छोटा → छोटी. मज़ाकिया and सुंदर do not change.",
+    "दिखना means \"to look, to appear\": वो दिखती कैसी है? For a man: वो दिखता कैसा है?",
+    "Hair is plural: उसके लंबे बाल हैं (she has long hair)."
+  ]
+}

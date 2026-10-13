@@ -1,0 +1,199 @@
+{
+  "schema": 2,
+  "scenario": "restaurant",
+  "lang": "hi",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "registerNotes": {
+    "intimate": "तू is for very close friends and family. Practise this one with आप and तुम."
+  },
+  "lines": {
+    "l1": {
+      "text": "क्या ऑर्डर करें?",
+      "rom": "kyaa orDar karen?"
+    },
+    "l2": {
+      "text": "आप तीखा खाते हैं?",
+      "rom": "aap teekhaa khaate hain?",
+      "variants": [
+        {
+          "listener": "m",
+          "text": "आप तीखा खाते हैं?",
+          "rom": "aap teekhaa khaate hain?"
+        },
+        {
+          "listener": "f",
+          "text": "आप तीखा खाती हैं?",
+          "rom": "aap teekhaa khaatee hain?"
+        }
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "तुम तीखा खाते हो?",
+          "rom": "tum teekhaa khaate ho?",
+          "variants": [
+            {
+              "listener": "m",
+              "text": "तुम तीखा खाते हो?",
+              "rom": "tum teekhaa khaate ho?"
+            },
+            {
+              "listener": "f",
+              "text": "तुम तीखा खाती हो?",
+              "rom": "tum teekhaa khaatee ho?"
+            }
+          ]
+        }
+      }
+    },
+    "l3": {
+      "text": "हाँ, पर ज़्यादा तीखा नहीं।",
+      "rom": "haan, par zyaadaa teekhaa naheen."
+    },
+    "l4": {
+      "text": "तो चलो, {dish} शेयर करते हैं।",
+      "rom": "to chalo, {dish} sheyar karte hain.",
+      "accept": [
+        {
+          "text": "तो चलो, {dish} बाँट लेते हैं।",
+          "rom": "to chalo, {dish} baanT lete hain."
+        }
+      ]
+    },
+    "l5": {
+      "text": "अच्छा आइडिया। भैया, बिल लाइए!",
+      "rom": "achchhaa aaiDiyaa. bhaiyaa, bil laaie!",
+      "byRegister": {
+        "familiar": {
+          "text": "अच्छा आइडिया। भैया, बिल लाओ!",
+          "rom": "achchhaa aaiDiyaa. bhaiyaa, bil laao!"
+        }
+      }
+    },
+    "l6": {
+      "text": "आधा-आधा कर लें?",
+      "rom": "aadhaa-aadhaa kar len?"
+    },
+    "l7": {
+      "text": "नहीं, आज मेरी तरफ़ से!",
+      "rom": "naheen, aaj meree taraf se!"
+    }
+  },
+  "chunks": {
+    "what-order": {
+      "text": "क्या ऑर्डर करें?",
+      "rom": "kyaa orDar karen?",
+      "literal": "what order (shall-we)-do?"
+    },
+    "spicy": {
+      "text": "आप तीखा खाते / खाती हैं?",
+      "rom": "aap teekhaa khaate / khaatee hain?",
+      "choice": "mf",
+      "literal": "you spicy eat are?",
+      "byRegister": {
+        "familiar": {
+          "text": "तुम तीखा खाते / खाती हो?",
+          "rom": "tum teekhaa khaate / khaatee ho?"
+        }
+      }
+    },
+    "not-too-spicy": {
+      "text": "ज़्यादा तीखा नहीं",
+      "rom": "zyaadaa teekhaa naheen",
+      "literal": "too spicy not"
+    },
+    "lets-share": {
+      "text": "___ शेयर करते हैं",
+      "rom": "___ sheyar karte hain",
+      "literal": "___ share (we) do"
+    },
+    "the-bill": {
+      "text": "बिल लाइए",
+      "rom": "bil laaie",
+      "literal": "bill bring (please)",
+      "byRegister": {
+        "familiar": {
+          "text": "बिल लाओ",
+          "rom": "bil laao"
+        }
+      }
+    },
+    "split": {
+      "text": "आधा-आधा कर लें?",
+      "rom": "aadhaa-aadhaa kar len?",
+      "literal": "half-half (shall-we) do?"
+    },
+    "on-me": {
+      "text": "आज मेरी तरफ़ से",
+      "rom": "aaj meree taraf se",
+      "literal": "today my side from"
+    },
+    "im-full": {
+      "text": "मेरा पेट भर गया",
+      "rom": "meraa peT bhar gayaa",
+      "extra": true,
+      "literal": "my stomach filled went"
+    }
+  },
+  "slotValues": {
+    "dish": [
+      {
+        "en": "paneer tikka",
+        "text": "पनीर टिक्का",
+        "rom": "paneer Tikkaa"
+      },
+      {
+        "en": "masala dosa",
+        "text": "मसाला डोसा",
+        "rom": "masaalaa Dosaa"
+      },
+      {
+        "en": "chole bhature",
+        "text": "छोले भटूरे",
+        "rom": "chhole bhaToore"
+      },
+      {
+        "en": "dal makhani",
+        "text": "दाल मखनी",
+        "rom": "daal makhnee"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "vegetarian": {
+        "text": "मैं शाकाहारी हूँ",
+        "rom": "main shaakaahaaree hoon",
+        "accept": [
+          {
+            "text": "मैं वेजिटेरियन हूँ",
+            "rom": "main vejiTeriyan hoon"
+          }
+        ]
+      },
+      "delicious": {
+        "text": "बहुत स्वादिष्ट था",
+        "rom": "bahut svaadiSHT thaa",
+        "accept": [
+          {
+            "text": "बहुत टेस्टी था",
+            "rom": "bahut Testee thaa"
+          }
+        ]
+      }
+    }
+  },
+  "notes": [
+    "तीखा means hot and spicy (chilli). मसालेदार means full of spices, not always hot.",
+    "In a restaurant, people often call the waiter भैया. Dishes are usually shared from the middle of the table.",
+    "मेरी तरफ़ से (\"from my side\") means \"my treat\". Friends often argue happily over who pays.",
+    "Many Indians are vegetarian, and menus mark dishes veg and non-veg."
+  ]
+}

@@ -1,0 +1,162 @@
+{
+  "schema": 2,
+  "scenario": "offer",
+  "lang": "es",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "¿Le puedo ayudar?",
+      "accept": [
+        "¿Le ayudo?",
+        "¿Le colaboro?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "¿Te puedo ayudar?",
+          "accept": [
+            "¿Te ayudo?",
+            "¿Te colaboro?"
+          ]
+        }
+      }
+    },
+    "l2": {
+      "text": "Sí, por favor. Estas bolsas pesan mucho.",
+      "accept": [
+        "Sí, por favor. Estas bolsas están muy pesadas."
+      ]
+    },
+    "l3": {
+      "text": "¿Le llevo {thing}?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿Te llevo {thing}?"
+        }
+      }
+    },
+    "l4": {
+      "text": "¡Qué amable!",
+      "accept": [
+        "Muy amable."
+      ],
+      "registerNeutral": true
+    },
+    "l5": {
+      "text": "No hay problema. ¿Para dónde va?",
+      "byRegister": {
+        "familiar": {
+          "text": "No hay problema. ¿Para dónde vas?"
+        }
+      }
+    },
+    "l6": {
+      "text": "Solo hasta el carro. ¡Muchísimas gracias!",
+      "accept": [
+        "Solo hasta el carro. ¡Muchas gracias!"
+      ]
+    }
+  },
+  "chunks": {
+    "can-i-help": {
+      "text": "¿le puedo ayudar?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿te puedo ayudar?"
+        }
+      },
+      "literal": "you I-can help?"
+    },
+    "yes-please": {
+      "text": "sí, por favor",
+      "literal": "yes, for favour"
+    },
+    "shall-i-carry": {
+      "text": "¿le llevo ___?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿te llevo ___?"
+        }
+      },
+      "literal": "for-you I-carry ___?"
+    },
+    "kind-of-you": {
+      "text": "¡qué amable!",
+      "registerNeutral": true,
+      "literal": "how kind!"
+    },
+    "no-problem": {
+      "text": "no hay problema",
+      "literal": "not there-is problem"
+    },
+    "where-going": {
+      "text": "¿para dónde va?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿para dónde vas?"
+        }
+      },
+      "literal": "to where you-go?"
+    },
+    "thanks-so-much": {
+      "text": "muchísimas gracias",
+      "literal": "very-many thanks"
+    },
+    "im-fine": {
+      "text": "no, gracias, estoy bien",
+      "extra": true,
+      "literal": "no, thanks, I-am well"
+    }
+  },
+  "slotValues": {
+    "thing": [
+      {
+        "en": "this bag",
+        "text": "esta bolsa"
+      },
+      {
+        "en": "the box",
+        "text": "la caja"
+      },
+      {
+        "en": "the bags",
+        "text": "las bolsas"
+      },
+      {
+        "en": "the suitcase",
+        "text": "la maleta"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "need-help": {
+        "text": "¿Necesita ayuda?",
+        "byRegister": {
+          "familiar": {
+            "text": "¿Necesitas ayuda?"
+          }
+        }
+      },
+      "i-can-do-it": {
+        "text": "Yo puedo, gracias.",
+        "accept": [
+          "Tranquilo, yo puedo.",
+          "Tranquila, yo puedo."
+        ]
+      }
+    }
+  },
+  "notes": [
+    "¿Le colaboro? (\"may I collaborate?\") is a very Colombian way to offer help.",
+    "A car is a carro in Colombia. Coche is understood but sounds Spanish.",
+    "Tranquilo (to a man) / tranquila (to a woman) means \"don't worry, no problem\"."
+  ]
+}

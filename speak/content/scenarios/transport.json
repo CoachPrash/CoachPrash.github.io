@@ -1,0 +1,97 @@
+{
+  "schema": 2,
+  "id": "transport",
+  "title": "Getting there",
+  "goal": "Find the right bus, ask how long it takes, and buy a ticket.",
+  "roles": {
+    "A": "A traveller",
+    "B": "A local"
+  },
+  "slots": {
+    "place": {
+      "kind": "set",
+      "cue": "a place"
+    }
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "role": "A",
+      "en": "Excuse me, which bus goes to {place}?",
+      "addressesYou": true
+    },
+    {
+      "id": "l2",
+      "role": "B",
+      "en": "Number twelve. The stop is over there."
+    },
+    {
+      "id": "l3",
+      "role": "A",
+      "en": "How long does it take?"
+    },
+    {
+      "id": "l4",
+      "role": "B",
+      "en": "About twenty minutes."
+    },
+    {
+      "id": "l5",
+      "role": "A",
+      "en": "And where can I buy a ticket?"
+    },
+    {
+      "id": "l6",
+      "role": "B",
+      "en": "On the bus. You pay the driver."
+    }
+  ],
+  "chunks": [
+    {
+      "id": "which-bus",
+      "en": "which bus goes to ___?"
+    },
+    {
+      "id": "number",
+      "en": "number ___"
+    },
+    {
+      "id": "the-stop",
+      "en": "the stop is over there"
+    },
+    {
+      "id": "how-long-take",
+      "en": "how long does it take?"
+    },
+    {
+      "id": "about-minutes",
+      "en": "about ___ minutes"
+    },
+    {
+      "id": "buy-ticket",
+      "en": "where can I buy a ticket?"
+    },
+    {
+      "id": "return-ticket",
+      "en": "a return ticket"
+    }
+  ],
+  "drill": {
+    "slot": "place",
+    "instruction": "Swap the place each time."
+  },
+  "free": {
+    "prompt": "One person drives a taxi or an auto. The others say where they want to go, ask the price, and ask to stop.",
+    "targets": [
+      {
+        "id": "stop-here",
+        "en": "stop here, please",
+        "addressesYou": true
+      },
+      {
+        "id": "how-much-to",
+        "en": "how much is it to ___?"
+      }
+    ]
+  }
+}

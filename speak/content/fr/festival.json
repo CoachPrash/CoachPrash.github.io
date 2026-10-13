@@ -1,0 +1,148 @@
+{
+  "schema": 2,
+  "scenario": "festival",
+  "lang": "fr",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "{festival}"
+    },
+    "l2": {
+      "text": "Merci, à vous aussi !",
+      "accept": [
+        "Vous aussi !"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Merci, à toi aussi !",
+          "accept": [
+            "Toi aussi !"
+          ]
+        }
+      }
+    },
+    "l3": {
+      "text": "Qu'est-ce que vous faites pour les fêtes ?",
+      "accept": [
+        "Vous faites quoi pour les fêtes ?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Qu'est-ce que tu fais pour les fêtes ?",
+          "accept": [
+            "Tu fais quoi pour les fêtes ?"
+          ]
+        }
+      }
+    },
+    "l4": {
+      "text": "On va voir la famille et on mange la bûche de Noël.",
+      "accept": [
+        "On rend visite à la famille et on mange la bûche de Noël."
+      ]
+    },
+    "l5": {
+      "text": "Ça a l'air génial !",
+      "accept": [
+        "Ça a l'air sympa !"
+      ]
+    },
+    "l6": {
+      "text": "Venez fêter ça avec nous !",
+      "byRegister": {
+        "familiar": {
+          "text": "Viens fêter ça avec nous !"
+        }
+      }
+    }
+  },
+  "chunks": {
+    "same-to-you": {
+      "text": "à vous aussi !",
+      "byRegister": {
+        "familiar": {
+          "text": "à toi aussi !"
+        }
+      },
+      "literal": "to you also!"
+    },
+    "what-do-for": {
+      "text": "qu'est-ce que vous faites pour les fêtes ?",
+      "byRegister": {
+        "familiar": {
+          "text": "qu'est-ce que tu fais pour les fêtes ?"
+        }
+      },
+      "literal": "what is it that you do for the holidays?"
+    },
+    "visit-family": {
+      "text": "on va voir la famille",
+      "literal": "one goes see the family"
+    },
+    "special-food": {
+      "text": "on mange la bûche de Noël",
+      "literal": "one eats the log of Christmas"
+    },
+    "sounds-lovely": {
+      "text": "ça a l'air génial !",
+      "literal": "that has the air great!"
+    },
+    "come-celebrate": {
+      "text": "venez fêter ça avec nous !",
+      "byRegister": {
+        "familiar": {
+          "text": "viens fêter ça avec nous !"
+        }
+      },
+      "literal": "come celebrate that with us!"
+    },
+    "best-wishes": {
+      "extra": true,
+      "text": "meilleurs vœux",
+      "literal": "best wishes"
+    }
+  },
+  "slotValues": {
+    "festival": [
+      {
+        "en": "Merry Christmas",
+        "text": "Joyeux Noël !"
+      },
+      {
+        "en": "Happy New Year",
+        "text": "Bonne année !"
+      },
+      {
+        "en": "Happy birthday",
+        "text": "Joyeux anniversaire !"
+      },
+      {
+        "en": "Happy holidays",
+        "text": "Bonnes fêtes !"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "favourite-festival": {
+        "text": "Ma fête préférée, c'est ___."
+      },
+      "we-wear": {
+        "text": "On porte ___."
+      }
+    }
+  },
+  "notes": [
+    "Les fêtes means the end-of-year holidays: Christmas and New Year.",
+    "La bûche de Noël is a log-shaped Christmas cake.",
+    "In January, French people wish each other Bonne année and Meilleurs vœux for the whole month."
+  ]
+}

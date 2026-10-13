@@ -1,0 +1,208 @@
+{
+  "schema": 2,
+  "scenario": "work",
+  "lang": "zh",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "你在哪儿工作？",
+      "rom": "Nǐ zài nǎr gōngzuò?",
+      "byRegister": {
+        "formal": {
+          "text": "您在哪儿工作？",
+          "rom": "Nín zài nǎr gōngzuò?"
+        }
+      }
+    },
+    "l2": {
+      "text": "我在{place}工作。你呢？",
+      "rom": "Wǒ zài {place} gōngzuò. Nǐ ne?",
+      "byRegister": {
+        "formal": {
+          "text": "我在{place}工作。您呢？",
+          "rom": "Wǒ zài {place} gōngzuò. Nín ne?"
+        }
+      }
+    },
+    "l3": {
+      "text": "我是学生。我在大学学习。",
+      "rom": "Wǒ shì xuésheng. Wǒ zài dàxué xuéxí.",
+      "accept": [
+        {
+          "text": "我是学生，在大学读书。",
+          "rom": "Wǒ shì xuésheng, zài dàxué dú shū."
+        }
+      ]
+    },
+    "l4": {
+      "text": "你喜欢吗？",
+      "rom": "Nǐ xǐhuan ma?",
+      "byRegister": {
+        "formal": {
+          "text": "您喜欢吗？",
+          "rom": "Nín xǐhuan ma?"
+        }
+      }
+    },
+    "l5": {
+      "text": "喜欢，很有意思，但是很累。",
+      "rom": "Xǐhuan, hěn yǒu yìsi, dànshì hěn lèi."
+    },
+    "l6": {
+      "text": "你在那儿多久了？",
+      "rom": "Nǐ zài nàr duō jiǔ le?",
+      "byRegister": {
+        "formal": {
+          "text": "您在那儿多久了？",
+          "rom": "Nín zài nàr duō jiǔ le?"
+        }
+      }
+    },
+    "l7": {
+      "text": "两年了。",
+      "rom": "Liǎng nián le.",
+      "accept": [
+        {
+          "text": "两年。",
+          "rom": "Liǎng nián."
+        }
+      ]
+    }
+  },
+  "chunks": {
+    "where-work": {
+      "text": "你在哪儿工作？",
+      "rom": "nǐ zài nǎr gōngzuò?",
+      "byRegister": {
+        "formal": {
+          "text": "您在哪儿工作？",
+          "rom": "nín zài nǎr gōngzuò?"
+        }
+      },
+      "literal": "you at where work?",
+      "chain": [
+        "工作？",
+        "哪儿工作？",
+        "在哪儿工作？"
+      ]
+    },
+    "i-work-at": {
+      "text": "我在___工作",
+      "rom": "wǒ zài ___ gōngzuò",
+      "literal": "I at ___ work",
+      "chain": [
+        "工作"
+      ]
+    },
+    "i-study-at": {
+      "text": "我在___学习",
+      "rom": "wǒ zài ___ xuéxí",
+      "literal": "I at ___ study",
+      "chain": [
+        "学习"
+      ]
+    },
+    "do-you-like-it": {
+      "text": "你喜欢吗？",
+      "rom": "nǐ xǐhuan ma?",
+      "byRegister": {
+        "formal": {
+          "text": "您喜欢吗？",
+          "rom": "nín xǐhuan ma?"
+        }
+      },
+      "literal": "you like?",
+      "chain": [
+        "喜欢吗？"
+      ]
+    },
+    "interesting-tiring": {
+      "text": "很有意思，但是很累",
+      "rom": "hěn yǒu yìsi, dànshì hěn lèi",
+      "literal": "very interesting, but very tired",
+      "chain": [
+        "很累",
+        "但是很累"
+      ]
+    },
+    "how-long": {
+      "text": "你在那儿多久了？",
+      "rom": "nǐ zài nàr duō jiǔ le?",
+      "byRegister": {
+        "formal": {
+          "text": "您在那儿多久了？",
+          "rom": "nín zài nàr duō jiǔ le?"
+        }
+      },
+      "literal": "you at there how long (now)?",
+      "chain": [
+        "多久了？",
+        "那儿多久了？"
+      ]
+    },
+    "two-years": {
+      "text": "两年",
+      "rom": "liǎng nián",
+      "literal": "two years"
+    },
+    "from-home": {
+      "text": "我在家工作",
+      "rom": "wǒ zài jiā gōngzuò",
+      "literal": "I at home work",
+      "extra": true,
+      "chain": [
+        "工作",
+        "家工作"
+      ]
+    }
+  },
+  "slotValues": {
+    "place": [
+      {
+        "en": "a bank",
+        "text": "银行",
+        "rom": "yínháng"
+      },
+      {
+        "en": "a hospital",
+        "text": "医院",
+        "rom": "yīyuàn"
+      },
+      {
+        "en": "a school",
+        "text": "学校",
+        "rom": "xuéxiào"
+      },
+      {
+        "en": "a company",
+        "text": "一家公司",
+        "rom": "yì jiā gōngsī"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "i-start-at": {
+        "text": "我___点上班。",
+        "rom": "Wǒ ___ diǎn shàngbān."
+      },
+      "i-finish-at": {
+        "text": "我___点下班。",
+        "rom": "Wǒ ___ diǎn xiàbān."
+      }
+    }
+  },
+  "notes": [
+    "The place comes before the verb: 我在银行工作, \"I at the bank work\".",
+    "…多久了？ asks how long so far. 了 at the end of 两年了 means \"up to now\".",
+    "上班 (shàngbān) is to start work, 下班 (xiàbān) to finish."
+  ]
+}

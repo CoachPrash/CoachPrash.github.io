@@ -1,0 +1,163 @@
+{
+  "schema": 2,
+  "scenario": "phone",
+  "lang": "fr",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "Allô ?"
+    },
+    "l2": {
+      "text": "Bonjour, c'est {name}. Votre sœur est là ?",
+      "byRegister": {
+        "familiar": {
+          "text": "Salut, c'est {name}. Ta sœur est là ?",
+          "accept": [
+            "Bonjour, c'est {name}. Ta sœur est là ?"
+          ]
+        }
+      }
+    },
+    "l3": {
+      "text": "Désolé, elle n'est pas là pour le moment.",
+      "variants": [
+        {
+          "speaker": "m",
+          "text": "Désolé, elle n'est pas là pour le moment."
+        },
+        {
+          "speaker": "f",
+          "text": "Désolée, elle n'est pas là pour le moment."
+        }
+      ],
+      "accept": [
+        "Désolé, elle n'est pas là en ce moment.",
+        "Désolée, elle n'est pas là en ce moment."
+      ],
+      "sameSound": true
+    },
+    "l4": {
+      "text": "Je peux laisser un message ?",
+      "accept": [
+        "Est-ce que je peux laisser un message ?"
+      ]
+    },
+    "l5": {
+      "text": "Bien sûr. Je vous écoute.",
+      "byRegister": {
+        "familiar": {
+          "text": "Bien sûr. Je t'écoute."
+        }
+      }
+    },
+    "l6": {
+      "text": "Dites-lui de me rappeler, s'il vous plaît.",
+      "accept": [
+        "Vous pouvez lui dire de me rappeler, s'il vous plaît ?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Dis-lui de me rappeler, s'il te plaît.",
+          "accept": [
+            "Tu peux lui dire de me rappeler, s'il te plaît ?"
+          ]
+        }
+      }
+    },
+    "l7": {
+      "text": "D'accord. Au revoir !",
+      "byRegister": {
+        "familiar": {
+          "text": "D'accord. Salut !",
+          "accept": [
+            "D'accord. Au revoir !"
+          ]
+        }
+      }
+    }
+  },
+  "chunks": {
+    "hello-phone": {
+      "text": "allô ?",
+      "literal": "hello?"
+    },
+    "its-me": {
+      "text": "c'est ___",
+      "literal": "it's ___"
+    },
+    "is-there": {
+      "text": "___ est là ?",
+      "registerNeutral": true,
+      "literal": "___ is there?"
+    },
+    "not-here": {
+      "text": "elle n'est pas là pour le moment",
+      "literal": "she (ne) is not there for the moment"
+    },
+    "leave-message": {
+      "text": "je peux laisser un message ?",
+      "literal": "I can leave a message?"
+    },
+    "go-ahead": {
+      "text": "je vous écoute",
+      "byRegister": {
+        "familiar": {
+          "text": "je t'écoute"
+        }
+      },
+      "literal": "I you listen"
+    },
+    "call-back": {
+      "text": "dites-lui de me rappeler",
+      "byRegister": {
+        "familiar": {
+          "text": "dis-lui de me rappeler"
+        }
+      },
+      "literal": "tell-her to me call-back"
+    },
+    "call-later": {
+      "extra": true,
+      "text": "je rappellerai plus tard",
+      "literal": "I will-call-back more late"
+    }
+  },
+  "partnerValues": {
+    "name": {
+      "en": "Claire",
+      "text": "Claire"
+    }
+  },
+  "free": {
+    "targets": {
+      "wrong-number": {
+        "text": "Pardon, je me suis trompé / trompée de numéro.",
+        "choice": "mf",
+        "accept": [
+          "Pardon, mauvais numéro."
+        ]
+      },
+      "speak-louder": {
+        "text": "Vous pouvez parler plus fort ?",
+        "byRegister": {
+          "familiar": {
+            "text": "Tu peux parler plus fort ?"
+          }
+        }
+      }
+    }
+  },
+  "notes": [
+    "Allô is only for the phone. Face to face, say bonjour.",
+    "Je vous écoute (I'm listening) is the polite way to say go ahead.",
+    "Lui means to her or to him: Dites-lui = tell her."
+  ]
+}

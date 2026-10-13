@@ -1,0 +1,111 @@
+{
+  "schema": 2,
+  "id": "phone",
+  "title": "On the phone",
+  "goal": "Make a short phone call and leave a message.",
+  "roles": {
+    "A": "Calls",
+    "B": "Answers"
+  },
+  "slots": {
+    "name": {
+      "kind": "personal",
+      "cue": "your name"
+    }
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "role": "B",
+      "en": "Hello?"
+    },
+    {
+      "id": "l2",
+      "role": "A",
+      "en": "Hello, it's {name}. Is your sister there?",
+      "addressesYou": true
+    },
+    {
+      "id": "l3",
+      "role": "B",
+      "en": "Sorry, she's not here right now."
+    },
+    {
+      "id": "l4",
+      "role": "A",
+      "en": "Can I leave a message?"
+    },
+    {
+      "id": "l5",
+      "role": "B",
+      "en": "Of course. Go ahead.",
+      "addressesYou": true
+    },
+    {
+      "id": "l6",
+      "role": "A",
+      "en": "Please tell her to call me back.",
+      "addressesYou": true
+    },
+    {
+      "id": "l7",
+      "role": "B",
+      "en": "OK. Bye!"
+    }
+  ],
+  "chunks": [
+    {
+      "id": "hello-phone",
+      "en": "hello? (on the phone)"
+    },
+    {
+      "id": "its-me",
+      "en": "it's ___ (your name)"
+    },
+    {
+      "id": "is-there",
+      "en": "is ___ there?",
+      "addressesYou": true
+    },
+    {
+      "id": "not-here",
+      "en": "she's not here right now"
+    },
+    {
+      "id": "leave-message",
+      "en": "can I leave a message?"
+    },
+    {
+      "id": "go-ahead",
+      "en": "go ahead",
+      "addressesYou": true
+    },
+    {
+      "id": "call-back",
+      "en": "tell her to call me back",
+      "addressesYou": true
+    },
+    {
+      "id": "call-later",
+      "en": "I'll call back later"
+    }
+  ],
+  "drill": {
+    "slot": "name",
+    "instruction": "Go round the group. Swap only the caller's name."
+  },
+  "free": {
+    "prompt": "Sit back to back and make phone calls: one asks for someone, the other takes a message.",
+    "targets": [
+      {
+        "id": "wrong-number",
+        "en": "sorry, wrong number"
+      },
+      {
+        "id": "speak-louder",
+        "en": "can you speak louder?",
+        "addressesYou": true
+      }
+    ]
+  }
+}

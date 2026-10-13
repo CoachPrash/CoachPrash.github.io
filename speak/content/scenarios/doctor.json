@@ -1,0 +1,104 @@
+{
+  "schema": 2,
+  "id": "doctor",
+  "title": "At the doctor's",
+  "goal": "Say what is wrong, and understand simple advice.",
+  "roles": {
+    "A": "The doctor",
+    "B": "The patient"
+  },
+  "slots": {
+    "symptom": {
+      "kind": "set",
+      "cue": "a symptom"
+    }
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "role": "A",
+      "en": "What's the matter?",
+      "addressesYou": true
+    },
+    {
+      "id": "l2",
+      "role": "B",
+      "en": "I have {symptom}."
+    },
+    {
+      "id": "l3",
+      "role": "A",
+      "en": "Since when?"
+    },
+    {
+      "id": "l4",
+      "role": "B",
+      "en": "Since yesterday."
+    },
+    {
+      "id": "l5",
+      "role": "A",
+      "en": "Take this medicine twice a day, and rest.",
+      "addressesYou": true
+    },
+    {
+      "id": "l6",
+      "role": "B",
+      "en": "Thank you, doctor."
+    }
+  ],
+  "chunks": [
+    {
+      "id": "whats-matter",
+      "en": "what's the matter?",
+      "addressesYou": true
+    },
+    {
+      "id": "i-have-symptom",
+      "en": "I have ___ (a symptom)"
+    },
+    {
+      "id": "since-when",
+      "en": "since when?"
+    },
+    {
+      "id": "since-yesterday",
+      "en": "since yesterday"
+    },
+    {
+      "id": "take-medicine",
+      "en": "take this medicine",
+      "addressesYou": true
+    },
+    {
+      "id": "twice-a-day",
+      "en": "twice a day"
+    },
+    {
+      "id": "thank-you-doctor",
+      "en": "thank you, doctor"
+    },
+    {
+      "id": "feel-better",
+      "en": "I feel better"
+    }
+  ],
+  "drill": {
+    "slot": "symptom",
+    "instruction": "Swap the symptom each time."
+  },
+  "free": {
+    "prompt": "Play doctor and patient. The patient has two problems; the doctor gives advice.",
+    "targets": [
+      {
+        "id": "it-hurts",
+        "en": "it hurts here"
+      },
+      {
+        "id": "get-well",
+        "en": "get well soon",
+        "addressesYou": true
+      }
+    ]
+  }
+}

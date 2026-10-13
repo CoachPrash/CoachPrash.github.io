@@ -1,0 +1,202 @@
+{
+  "schema": 2,
+  "scenario": "offer",
+  "lang": "hi",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "registerNotes": {
+    "intimate": "तू is for very close friends and family. Practise this one with आप and तुम."
+  },
+  "lines": {
+    "l1": {
+      "text": "मैं आपकी मदद करूँ?",
+      "rom": "main aapkee madad karoon?",
+      "byRegister": {
+        "familiar": {
+          "text": "मैं तुम्हारी मदद करूँ?",
+          "rom": "main tumhaaree madad karoon?"
+        }
+      }
+    },
+    "l2": {
+      "text": "जी हाँ, प्लीज़। ये बैग बहुत भारी हैं।",
+      "rom": "jee haan, pleez. ye baig bahut bhaaree hain."
+    },
+    "l3": {
+      "text": "मैं {thing} उठा लूँ?",
+      "rom": "main {thing} uThaa loon?"
+    },
+    "l4": {
+      "text": "आपकी बड़ी मेहरबानी।",
+      "rom": "aapkee baRee meharbaanee.",
+      "byRegister": {
+        "familiar": {
+          "text": "तुम्हारी बड़ी मेहरबानी।",
+          "rom": "tumhaaree baRee meharbaanee."
+        }
+      }
+    },
+    "l5": {
+      "text": "कोई बात नहीं। आप कहाँ जा रहे हैं?",
+      "rom": "koee baat naheen. aap kahaan jaa rahe hain?",
+      "variants": [
+        {
+          "listener": "m",
+          "text": "कोई बात नहीं। आप कहाँ जा रहे हैं?",
+          "rom": "koee baat naheen. aap kahaan jaa rahe hain?"
+        },
+        {
+          "listener": "f",
+          "text": "कोई बात नहीं। आप कहाँ जा रही हैं?",
+          "rom": "koee baat naheen. aap kahaan jaa rahee hain?"
+        }
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "कोई बात नहीं। तुम कहाँ जा रहे हो?",
+          "rom": "koee baat naheen. tum kahaan jaa rahe ho?",
+          "variants": [
+            {
+              "listener": "m",
+              "text": "कोई बात नहीं। तुम कहाँ जा रहे हो?",
+              "rom": "koee baat naheen. tum kahaan jaa rahe ho?"
+            },
+            {
+              "listener": "f",
+              "text": "कोई बात नहीं। तुम कहाँ जा रही हो?",
+              "rom": "koee baat naheen. tum kahaan jaa rahee ho?"
+            }
+          ]
+        }
+      }
+    },
+    "l6": {
+      "text": "बस गाड़ी तक। बहुत-बहुत शुक्रिया!",
+      "rom": "bas gaaRee tak. bahut-bahut shukriyaa!",
+      "accept": [
+        {
+          "text": "बस गाड़ी तक। बहुत-बहुत धन्यवाद!",
+          "rom": "bas gaaRee tak. bahut-bahut dhanyavaad!"
+        }
+      ]
+    }
+  },
+  "chunks": {
+    "can-i-help": {
+      "text": "मैं आपकी मदद करूँ?",
+      "rom": "main aapkee madad karoon?",
+      "literal": "I your help do?",
+      "byRegister": {
+        "familiar": {
+          "text": "मैं तुम्हारी मदद करूँ?",
+          "rom": "main tumhaaree madad karoon?"
+        }
+      }
+    },
+    "yes-please": {
+      "text": "जी हाँ, प्लीज़",
+      "rom": "jee haan, pleez",
+      "literal": "yes (respectful), please"
+    },
+    "shall-i-carry": {
+      "text": "मैं ___ उठा लूँ?",
+      "rom": "main ___ uThaa loon?",
+      "literal": "I ___ lift take?"
+    },
+    "kind-of-you": {
+      "text": "आपकी बड़ी मेहरबानी",
+      "rom": "aapkee baRee meharbaanee",
+      "literal": "your great kindness",
+      "byRegister": {
+        "familiar": {
+          "text": "तुम्हारी बड़ी मेहरबानी",
+          "rom": "tumhaaree baRee meharbaanee"
+        }
+      }
+    },
+    "no-problem": {
+      "text": "कोई बात नहीं",
+      "rom": "koee baat naheen",
+      "literal": "any matter not"
+    },
+    "where-going": {
+      "text": "आप कहाँ जा रहे / रही हैं?",
+      "rom": "aap kahaan jaa rahe / rahee hain?",
+      "choice": "mf",
+      "literal": "you where go -ing are?",
+      "byRegister": {
+        "familiar": {
+          "text": "तुम कहाँ जा रहे / रही हो?",
+          "rom": "tum kahaan jaa rahe / rahee ho?"
+        }
+      }
+    },
+    "thanks-so-much": {
+      "text": "बहुत-बहुत शुक्रिया",
+      "rom": "bahut-bahut shukriyaa",
+      "literal": "much-much thanks"
+    },
+    "im-fine": {
+      "text": "नहीं, शुक्रिया, मैं ठीक हूँ",
+      "rom": "naheen, shukriyaa, main Theek hoon",
+      "extra": true,
+      "literal": "no, thanks, I fine am"
+    }
+  },
+  "slotValues": {
+    "thing": [
+      {
+        "en": "this bag",
+        "text": "ये बैग",
+        "rom": "ye baig"
+      },
+      {
+        "en": "this box",
+        "text": "ये डिब्बा",
+        "rom": "ye Dibbaa"
+      },
+      {
+        "en": "this suitcase",
+        "text": "ये सूटकेस",
+        "rom": "ye sooTkes"
+      },
+      {
+        "en": "this cloth bag",
+        "text": "ये थैला",
+        "rom": "ye thailaa"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "need-help": {
+        "text": "क्या आपको मदद चाहिए?",
+        "rom": "kyaa aapko madad chaahie?",
+        "byRegister": {
+          "familiar": {
+            "text": "क्या तुम्हें मदद चाहिए?",
+            "rom": "kyaa tumhen madad chaahie?"
+          }
+        }
+      },
+      "i-can-do-it": {
+        "text": "मैं कर लूँगा / लूँगी, शुक्रिया",
+        "rom": "main kar loongaa / loongee, shukriyaa",
+        "choice": "mf"
+      }
+    }
+  },
+  "notes": [
+    "The -ऊँ form offers to do something: मैं मदद करूँ? (shall I help?), मैं उठा लूँ? (shall I pick it up?). It is the same for a man and a woman.",
+    "आपकी बड़ी मेहरबानी (\"your great kindness\") is a warm thank-you for a favour.",
+    "जा रहे / जा रही agrees with the person you ask.",
+    "गाड़ी means car, or any vehicle. उठाना is to lift or pick up."
+  ]
+}

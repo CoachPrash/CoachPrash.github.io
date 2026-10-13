@@ -1,0 +1,168 @@
+{
+  "schema": 2,
+  "scenario": "phone",
+  "lang": "es",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "¿Aló?",
+      "accept": [
+        "¿Sí?",
+        "¿Hola?"
+      ]
+    },
+    "l2": {
+      "text": "Hola, habla {name}. ¿Está su hermana?",
+      "accept": [
+        "Hola, soy {name}. ¿Está su hermana?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Hola, habla {name}. ¿Está tu hermana?",
+          "accept": [
+            "Hola, soy {name}. ¿Está tu hermana?"
+          ]
+        }
+      }
+    },
+    "l3": {
+      "text": "Qué pena, no está en este momento.",
+      "accept": [
+        "Lo siento, no está en este momento.",
+        "Qué pena, ahorita no está."
+      ]
+    },
+    "l4": {
+      "text": "¿Le puedo dejar un mensaje?",
+      "accept": [
+        "¿Le puedo dejar razón?",
+        "¿Puedo dejar un mensaje?"
+      ]
+    },
+    "l5": {
+      "text": "Claro. Dígame.",
+      "accept": [
+        "Claro. Siga."
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Claro. Dime.",
+          "accept": [
+            "Claro. Sigue."
+          ]
+        }
+      }
+    },
+    "l6": {
+      "text": "Por favor, dígale que me llame.",
+      "accept": [
+        "Dígale que me devuelva la llamada, por favor."
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Por favor, dile que me llame.",
+          "accept": [
+            "Dile que me devuelva la llamada, por favor."
+          ]
+        }
+      }
+    },
+    "l7": {
+      "text": "Listo. ¡Chao!",
+      "accept": [
+        "Bueno. ¡Chao!",
+        "Listo, con gusto. ¡Chao!"
+      ]
+    }
+  },
+  "chunks": {
+    "hello-phone": {
+      "text": "¿aló?",
+      "literal": "hello?"
+    },
+    "its-me": {
+      "text": "habla ___",
+      "literal": "speaks ___"
+    },
+    "is-there": {
+      "text": "¿está ___?",
+      "registerNeutral": true,
+      "literal": "is ___?"
+    },
+    "not-here": {
+      "text": "no está en este momento",
+      "literal": "not is in this moment"
+    },
+    "leave-message": {
+      "text": "¿le puedo dejar un mensaje?",
+      "literal": "to-her I-can leave a message?"
+    },
+    "go-ahead": {
+      "text": "dígame",
+      "byRegister": {
+        "familiar": {
+          "text": "dime"
+        }
+      },
+      "literal": "tell-me"
+    },
+    "call-back": {
+      "text": "dígale que me llame",
+      "byRegister": {
+        "familiar": {
+          "text": "dile que me llame"
+        }
+      },
+      "literal": "tell-her that me she-call"
+    },
+    "call-later": {
+      "text": "llamo más tarde",
+      "extra": true,
+      "literal": "I-call more late"
+    }
+  },
+  "partnerValues": {
+    "name": {
+      "en": "Daniela",
+      "text": "Daniela"
+    }
+  },
+  "free": {
+    "targets": {
+      "wrong-number": {
+        "text": "Perdón, número equivocado.",
+        "accept": [
+          "Qué pena, número equivocado.",
+          "Perdón, me equivoqué de número."
+        ]
+      },
+      "speak-louder": {
+        "text": "¿Puede hablar más duro?",
+        "accept": [
+          "¿Puede hablar más alto?"
+        ],
+        "byRegister": {
+          "familiar": {
+            "text": "¿Puedes hablar más duro?",
+            "accept": [
+              "¿Puedes hablar más alto?"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "notes": [
+    "Colombians answer the phone with ¿Aló?.",
+    "Habla {name} (\"{name} speaks\") is how you say who is calling. Soy {name} also works.",
+    "Dejar razón (\"leave word\") is a Colombian way to leave a message. Más duro (\"harder\") means louder."
+  ]
+}

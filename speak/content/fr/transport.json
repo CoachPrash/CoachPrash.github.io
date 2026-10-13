@@ -1,0 +1,127 @@
+{
+  "schema": 2,
+  "scenario": "transport",
+  "lang": "fr",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "Excusez-moi, quel bus va à {place} ?",
+      "byRegister": {
+        "familiar": {
+          "text": "Excuse-moi, quel bus va à {place} ?"
+        }
+      }
+    },
+    "l2": {
+      "text": "Le numéro douze. L'arrêt est là-bas.",
+      "accept": [
+        "Le numéro 12. L'arrêt est là-bas.",
+        "Le 12. L'arrêt est là-bas."
+      ]
+    },
+    "l3": {
+      "text": "Ça prend combien de temps ?",
+      "accept": [
+        "Il faut combien de temps ?"
+      ]
+    },
+    "l4": {
+      "text": "Environ vingt minutes.",
+      "accept": [
+        "Environ 20 minutes."
+      ]
+    },
+    "l5": {
+      "text": "Et où est-ce que je peux acheter un ticket ?",
+      "accept": [
+        "Et où je peux acheter un ticket ?",
+        "Et où puis-je acheter un ticket ?"
+      ]
+    },
+    "l6": {
+      "text": "Dans le bus. On paie le chauffeur.",
+      "accept": [
+        "Dans le bus. On paie au chauffeur."
+      ]
+    }
+  },
+  "chunks": {
+    "which-bus": {
+      "text": "quel bus va à ___ ?",
+      "literal": "which bus goes to ___?"
+    },
+    "number": {
+      "text": "le numéro ___",
+      "literal": "the number ___"
+    },
+    "the-stop": {
+      "text": "l'arrêt est là-bas",
+      "literal": "the stop is there-down"
+    },
+    "how-long-take": {
+      "text": "ça prend combien de temps ?",
+      "literal": "that takes how-much of time?"
+    },
+    "about-minutes": {
+      "text": "environ ___ minutes",
+      "literal": "about ___ minutes"
+    },
+    "buy-ticket": {
+      "text": "où est-ce que je peux acheter un ticket ?",
+      "literal": "where is it that I can buy a ticket?"
+    },
+    "return-ticket": {
+      "extra": true,
+      "text": "un aller-retour",
+      "literal": "a go-return"
+    }
+  },
+  "slotValues": {
+    "place": [
+      {
+        "en": "the station",
+        "text": "la gare"
+      },
+      {
+        "en": "the airport",
+        "text": "l'aéroport"
+      },
+      {
+        "en": "the beach",
+        "text": "la plage"
+      },
+      {
+        "en": "the hospital",
+        "text": "l'hôpital"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "stop-here": {
+        "text": "Arrêtez-vous ici, s'il vous plaît.",
+        "byRegister": {
+          "familiar": {
+            "text": "Arrête-toi ici, s'il te plaît."
+          }
+        }
+      },
+      "how-much-to": {
+        "text": "C'est combien pour aller à ___ ?"
+      }
+    }
+  },
+  "notes": [
+    "À + le becomes au: quel bus va au centre-ville ?",
+    "On paie means you pay, in general. It is neither vous nor tu.",
+    "In many French towns, a ticket bought from the driver costs more than one bought in advance."
+  ]
+}

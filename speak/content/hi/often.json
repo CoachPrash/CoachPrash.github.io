@@ -1,0 +1,225 @@
+{
+  "schema": 2,
+  "scenario": "often",
+  "lang": "hi",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "registerNotes": {
+    "intimate": "तू is for very close friends and family. Practise this one with आप and तुम."
+  },
+  "lines": {
+    "l1": {
+      "text": "आप कितनी बार {activity} जाते हैं?",
+      "rom": "aap kitnee baar {activity} jaate hain?",
+      "variants": [
+        {
+          "listener": "m",
+          "text": "आप कितनी बार {activity} जाते हैं?",
+          "rom": "aap kitnee baar {activity} jaate hain?"
+        },
+        {
+          "listener": "f",
+          "text": "आप कितनी बार {activity} जाती हैं?",
+          "rom": "aap kitnee baar {activity} jaatee hain?"
+        }
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "तुम कितनी बार {activity} जाते हो?",
+          "rom": "tum kitnee baar {activity} jaate ho?",
+          "variants": [
+            {
+              "listener": "m",
+              "text": "तुम कितनी बार {activity} जाते हो?",
+              "rom": "tum kitnee baar {activity} jaate ho?"
+            },
+            {
+              "listener": "f",
+              "text": "तुम कितनी बार {activity} जाती हो?",
+              "rom": "tum kitnee baar {activity} jaatee ho?"
+            }
+          ]
+        }
+      }
+    },
+    "l2": {
+      "text": "हर रोज़। और आप?",
+      "rom": "har roz. aur aap?",
+      "accept": [
+        {
+          "text": "रोज़। और आप?",
+          "rom": "roz. aur aap?"
+        }
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "हर रोज़। और तुम?",
+          "rom": "har roz. aur tum?",
+          "accept": [
+            {
+              "text": "रोज़। और तुम?",
+              "rom": "roz. aur tum?"
+            }
+          ]
+        }
+      }
+    },
+    "l3": {
+      "text": "हफ़्ते में एक बार, रविवार को।",
+      "rom": "hafte men ek baar, ravivaar ko."
+    },
+    "l4": {
+      "text": "क्या आप जिम जाते हैं?",
+      "rom": "kyaa aap jim jaate hain?",
+      "variants": [
+        {
+          "listener": "m",
+          "text": "क्या आप जिम जाते हैं?",
+          "rom": "kyaa aap jim jaate hain?"
+        },
+        {
+          "listener": "f",
+          "text": "क्या आप जिम जाती हैं?",
+          "rom": "kyaa aap jim jaatee hain?"
+        }
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "क्या तुम जिम जाते हो?",
+          "rom": "kyaa tum jim jaate ho?",
+          "variants": [
+            {
+              "listener": "m",
+              "text": "क्या तुम जिम जाते हो?",
+              "rom": "kyaa tum jim jaate ho?"
+            },
+            {
+              "listener": "f",
+              "text": "क्या तुम जिम जाती हो?",
+              "rom": "kyaa tum jim jaatee ho?"
+            }
+          ]
+        }
+      }
+    },
+    "l5": {
+      "text": "बहुत कम। मेरे पास टाइम नहीं है।",
+      "rom": "bahut kam. mere paas Taaim naheen hai.",
+      "accept": [
+        {
+          "text": "बहुत कम। मेरे पास समय नहीं है।",
+          "rom": "bahut kam. mere paas samay naheen hai."
+        }
+      ]
+    },
+    "l6": {
+      "text": "मेरे पास भी नहीं!",
+      "rom": "mere paas bhee naheen!"
+    }
+  },
+  "chunks": {
+    "how-often": {
+      "text": "आप कितनी बार ___ जाते / जाती हैं?",
+      "rom": "aap kitnee baar ___ jaate / jaatee hain?",
+      "choice": "mf",
+      "literal": "you how-many times ___ go are?",
+      "byRegister": {
+        "familiar": {
+          "text": "तुम कितनी बार ___ जाते / जाती हो?",
+          "rom": "tum kitnee baar ___ jaate / jaatee ho?"
+        }
+      }
+    },
+    "every-day": {
+      "text": "हर रोज़",
+      "rom": "har roz",
+      "literal": "every day"
+    },
+    "once-a-week": {
+      "text": "हफ़्ते में एक बार",
+      "rom": "hafte men ek baar",
+      "literal": "week in one time"
+    },
+    "go-to-gym": {
+      "text": "क्या आप जिम जाते / जाती हैं?",
+      "rom": "kyaa aap jim jaate / jaatee hain?",
+      "choice": "mf",
+      "literal": "(question) you gym go are?",
+      "byRegister": {
+        "familiar": {
+          "text": "क्या तुम जिम जाते / जाती हो?",
+          "rom": "kyaa tum jim jaate / jaatee ho?"
+        }
+      }
+    },
+    "hardly-ever": {
+      "text": "बहुत कम",
+      "rom": "bahut kam",
+      "literal": "very little"
+    },
+    "no-time": {
+      "text": "मेरे पास टाइम नहीं है",
+      "rom": "mere paas Taaim naheen hai",
+      "literal": "my near time not is"
+    },
+    "me-neither": {
+      "text": "मेरे पास भी नहीं",
+      "rom": "mere paas bhee naheen",
+      "literal": "my near also not"
+    },
+    "twice-a-month": {
+      "text": "महीने में दो बार",
+      "rom": "maheene men do baar",
+      "extra": true,
+      "literal": "month in two times"
+    }
+  },
+  "slotValues": {
+    "activity": [
+      {
+        "en": "go to the park",
+        "text": "पार्क",
+        "rom": "paark"
+      },
+      {
+        "en": "go to the temple",
+        "text": "मंदिर",
+        "rom": "mandir"
+      },
+      {
+        "en": "go to the market",
+        "text": "बाज़ार",
+        "rom": "baazaar"
+      },
+      {
+        "en": "go to the library",
+        "text": "लाइब्रेरी",
+        "rom": "laaibreree"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "never": {
+        "text": "मैं कभी ___ नहीं ___",
+        "rom": "main kabhee ___ naheen ___"
+      },
+      "sometimes": {
+        "text": "कभी-कभी",
+        "rom": "kabhee-kabhee"
+      }
+    }
+  },
+  "notes": [
+    "\"How often\" is a time span with में and a number of times: हफ़्ते में एक बार (once a week), महीने में दो बार (twice a month), दिन में तीन बार (three times a day).",
+    "हर रोज़, रोज़ and रोज़ाना all mean every day.",
+    "Hindi has no verb \"to have\" for time either: मेरे पास टाइम नहीं है (\"near me there is no time\"). टाइम is everyday speech; समय is the Hindi word."
+  ]
+}

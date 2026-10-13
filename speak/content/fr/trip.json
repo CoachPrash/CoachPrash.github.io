@@ -1,0 +1,151 @@
+{
+  "schema": 2,
+  "scenario": "trip",
+  "lang": "fr",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "C'était comment, votre voyage ?",
+      "accept": [
+        "Votre voyage s'est bien passé ?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "C'était comment, ton voyage ?",
+          "accept": [
+            "Ton voyage s'est bien passé ?"
+          ]
+        }
+      }
+    },
+    "l2": {
+      "text": "Génial ! Je suis allé à {place}.",
+      "variants": [
+        {
+          "speaker": "m",
+          "text": "Génial ! Je suis allé à {place}."
+        },
+        {
+          "speaker": "f",
+          "text": "Génial ! Je suis allée à {place}."
+        }
+      ],
+      "sameSound": true
+    },
+    "l3": {
+      "text": "Qu'est-ce que vous avez fait là-bas ?",
+      "accept": [
+        "Vous avez fait quoi là-bas ?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Qu'est-ce que tu as fait là-bas ?",
+          "accept": [
+            "Tu as fait quoi là-bas ?"
+          ]
+        }
+      }
+    },
+    "l4": {
+      "text": "J'ai visité la vieille ville et j'ai beaucoup mangé !"
+    },
+    "l5": {
+      "text": "Et le temps ?",
+      "accept": [
+        "Et la météo ?"
+      ]
+    },
+    "l6": {
+      "text": "Il faisait chaud, mais c'était agréable.",
+      "accept": [
+        "Chaud, mais agréable."
+      ]
+    }
+  },
+  "chunks": {
+    "how-was-trip": {
+      "text": "c'était comment, votre voyage ?",
+      "byRegister": {
+        "familiar": {
+          "text": "c'était comment, ton voyage ?"
+        }
+      },
+      "literal": "it-was how, your trip?"
+    },
+    "i-went-to": {
+      "text": "je suis allé / allée à ___",
+      "choice": "mf",
+      "literal": "I am gone to ___"
+    },
+    "what-did-there": {
+      "text": "qu'est-ce que vous avez fait là-bas ?",
+      "byRegister": {
+        "familiar": {
+          "text": "qu'est-ce que tu as fait là-bas ?"
+        }
+      },
+      "literal": "what is it that you have done there-down?"
+    },
+    "i-saw": {
+      "text": "j'ai visité ___",
+      "literal": "I have visited ___"
+    },
+    "ate-a-lot": {
+      "text": "j'ai beaucoup mangé",
+      "literal": "I have a-lot eaten"
+    },
+    "and-weather": {
+      "text": "et le temps ?",
+      "literal": "and the weather?"
+    },
+    "photos": {
+      "extra": true,
+      "text": "j'ai pris beaucoup de photos",
+      "literal": "I have taken a-lot of photos"
+    }
+  },
+  "slotValues": {
+    "place": [
+      {
+        "en": "Lyon",
+        "text": "Lyon"
+      },
+      {
+        "en": "Rome",
+        "text": "Rome"
+      },
+      {
+        "en": "Lisbon",
+        "text": "Lisbonne"
+      },
+      {
+        "en": "Barcelona",
+        "text": "Barcelone"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "go-back": {
+        "text": "J'aimerais y retourner."
+      },
+      "stayed-days": {
+        "text": "Je suis resté / restée ___ jours.",
+        "choice": "mf"
+      }
+    }
+  },
+  "notes": [
+    "Aller takes être in the past, and agrees: je suis allé (a man), je suis allée (a woman). They sound the same.",
+    "Use à before a city: à Rome, à Lisbonne.",
+    "Il faisait chaud describes the weather in the past."
+  ]
+}

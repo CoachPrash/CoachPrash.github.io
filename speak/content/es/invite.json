@@ -1,0 +1,151 @@
+{
+  "schema": 2,
+  "scenario": "invite",
+  "lang": "es",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "¿Quiere venir a {event} el sábado?",
+      "accept": [
+        "¿Le gustaría venir a {event} el sábado?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "¿Quieres venir a {event} el sábado?",
+          "accept": [
+            "¿Te gustaría venir a {event} el sábado?"
+          ]
+        }
+      }
+    },
+    "l2": {
+      "text": "¡Me encantaría! ¿A qué hora?",
+      "accept": [
+        "¡Claro! ¿A qué hora?",
+        "¡Con mucho gusto! ¿A qué hora?"
+      ]
+    },
+    "l3": {
+      "text": "A las siete, en mi casa.",
+      "accept": [
+        "A las 7, en mi casa."
+      ]
+    },
+    "l4": {
+      "text": "¿Puedo llevar algo?",
+      "accept": [
+        "¿Llevo algo?"
+      ]
+    },
+    "l5": {
+      "text": "No hace falta. ¡Solo venga!",
+      "accept": [
+        "No es necesario. ¡Solo venga!"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "No hace falta. ¡Solo ven!",
+          "accept": [
+            "No es necesario. ¡Solo ven!"
+          ]
+        }
+      }
+    }
+  },
+  "chunks": {
+    "would-you-like": {
+      "text": "¿quiere venir a ___?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿quieres venir a ___?"
+        }
+      },
+      "literal": "you-want to-come to ___?"
+    },
+    "id-love-to": {
+      "text": "me encantaría",
+      "literal": "me it-would-delight"
+    },
+    "what-time": {
+      "text": "¿a qué hora?",
+      "literal": "at what hour?"
+    },
+    "at-my-place": {
+      "text": "en mi casa",
+      "literal": "in my house"
+    },
+    "can-i-bring": {
+      "text": "¿puedo llevar algo?",
+      "literal": "I-can bring something?"
+    },
+    "no-need": {
+      "text": "no hace falta",
+      "literal": "not it-makes lack"
+    },
+    "just-come": {
+      "text": "¡solo venga!",
+      "byRegister": {
+        "familiar": {
+          "text": "¡solo ven!"
+        }
+      },
+      "literal": "only come!"
+    },
+    "thanks-inviting": {
+      "text": "gracias por invitarme",
+      "registerNeutral": true,
+      "extra": true,
+      "literal": "thanks for inviting-me"
+    }
+  },
+  "slotValues": {
+    "event": [
+      {
+        "en": "my birthday party",
+        "text": "mi cumpleaños"
+      },
+      {
+        "en": "a barbecue",
+        "text": "un asado"
+      },
+      {
+        "en": "a party",
+        "text": "una fiesta"
+      },
+      {
+        "en": "a dinner",
+        "text": "una cena"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "sorry-cant": {
+        "text": "Qué pena, no puedo. Tengo ___.",
+        "accept": [
+          "Lo siento, no puedo. Tengo ___."
+        ]
+      },
+      "another-time": {
+        "text": "De pronto otro día.",
+        "accept": [
+          "Tal vez otro día.",
+          "Será otro día."
+        ]
+      }
+    }
+  },
+  "notes": [
+    "Qué pena (\"what a shame\") is the polite Colombian way to say sorry when you say no.",
+    "De pronto means \"maybe\" in Colombia: de pronto otro día.",
+    "Venga (usted) and ven (tú) mean \"come\". ¡Solo venga! is warm, not bossy."
+  ]
+}

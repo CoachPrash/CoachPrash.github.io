@@ -1,0 +1,155 @@
+{
+  "schema": 2,
+  "scenario": "recommend",
+  "lang": "es",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "¿Me recomienda un buen restaurante?",
+      "accept": [
+        "¿Me puede recomendar un buen restaurante?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "¿Me recomiendas un buen restaurante?",
+          "accept": [
+            "¿Me puedes recomendar un buen restaurante?"
+          ]
+        }
+      }
+    },
+    "l2": {
+      "text": "¡Sí! Hay un buen sitio cerca de la plaza de mercado.",
+      "accept": [
+        "¡Claro! Hay un buen sitio cerca de la plaza de mercado."
+      ]
+    },
+    "l3": {
+      "text": "¿Y por qué es famoso?",
+      "accept": [
+        "¿Y es famoso por qué?"
+      ]
+    },
+    "l4": {
+      "text": "Es famoso por su {dish}.",
+      "accept": [
+        "Es famoso por el {dish}."
+      ]
+    },
+    "l5": {
+      "text": "¿Es caro?"
+    },
+    "l6": {
+      "text": "No, es bastante barato. ¡Tiene que probarlo!",
+      "accept": [
+        "No, es barato. ¡Tiene que probarlo!"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "No, es bastante barato. ¡Tienes que probarlo!",
+          "accept": [
+            "No, es barato. ¡Tienes que probarlo!"
+          ]
+        }
+      }
+    }
+  },
+  "chunks": {
+    "can-you-recommend": {
+      "text": "¿me recomienda un buen ___?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿me recomiendas un buen ___?"
+        }
+      },
+      "literal": "me you-recommend a good ___?"
+    },
+    "good-place": {
+      "text": "hay un buen sitio cerca de ___",
+      "literal": "there-is a good place near of ___"
+    },
+    "famous-for": {
+      "text": "¿por qué es famoso?",
+      "literal": "for what is famous?"
+    },
+    "its-famous": {
+      "text": "es famoso por su ___",
+      "literal": "it-is famous for its ___"
+    },
+    "is-it-expensive": {
+      "text": "¿es caro?",
+      "literal": "is expensive?"
+    },
+    "quite-cheap": {
+      "text": "es bastante barato",
+      "literal": "it-is quite cheap"
+    },
+    "must-try": {
+      "text": "tiene que probarlo",
+      "byRegister": {
+        "familiar": {
+          "text": "tienes que probarlo"
+        }
+      },
+      "literal": "you-have that to-try-it"
+    },
+    "always-full": {
+      "text": "siempre está lleno",
+      "extra": true,
+      "literal": "always it-is full"
+    }
+  },
+  "slotValues": {
+    "dish": [
+      {
+        "en": "ajiaco (chicken soup)",
+        "text": "ajiaco"
+      },
+      {
+        "en": "bandeja paisa",
+        "text": "bandeja paisa"
+      },
+      {
+        "en": "sancocho (stew)",
+        "text": "sancocho"
+      },
+      {
+        "en": "fried fish",
+        "text": "pescado frito"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "you-should-visit": {
+        "text": "Tiene que conocer ___.",
+        "byRegister": {
+          "familiar": {
+            "text": "Tienes que conocer ___."
+          }
+        }
+      },
+      "dont-miss": {
+        "text": "No se pierda ___.",
+        "byRegister": {
+          "familiar": {
+            "text": "No te pierdas ___."
+          }
+        }
+      }
+    }
+  },
+  "notes": [
+    "Ajiaco is Bogotá's chicken and potato soup. Bandeja paisa is the huge plate from Antioquia.",
+    "Sitio (\"place\") is the everyday word for a restaurant or bar: un buen sitio.",
+    "Tiene que probarlo (\"you have to try it\") is a friendly, strong recommendation."
+  ]
+}

@@ -1,0 +1,147 @@
+{
+  "schema": 2,
+  "scenario": "often",
+  "lang": "fr",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "Ça vous arrive souvent de {activity} ?",
+      "accept": [
+        "Vous avez souvent l'occasion de {activity} ?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Ça t'arrive souvent de {activity} ?"
+        }
+      }
+    },
+    "l2": {
+      "text": "Tous les jours. Et vous ?",
+      "byRegister": {
+        "familiar": {
+          "text": "Tous les jours. Et toi ?"
+        }
+      }
+    },
+    "l3": {
+      "text": "Une fois par semaine, le dimanche."
+    },
+    "l4": {
+      "text": "Vous allez à la salle de sport ?",
+      "accept": [
+        "Vous allez à la salle ?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Tu vas à la salle de sport ?",
+          "accept": [
+            "Tu vas à la salle ?"
+          ]
+        }
+      }
+    },
+    "l5": {
+      "text": "Presque jamais. Je n'ai pas le temps.",
+      "accept": [
+        "Presque jamais. J'ai pas le temps."
+      ]
+    },
+    "l6": {
+      "text": "Moi non plus !"
+    }
+  },
+  "chunks": {
+    "how-often": {
+      "text": "ça vous arrive souvent de ___ ?",
+      "byRegister": {
+        "familiar": {
+          "text": "ça t'arrive souvent de ___ ?"
+        }
+      },
+      "literal": "it to-you happens often to ___?"
+    },
+    "every-day": {
+      "text": "tous les jours",
+      "literal": "all the days"
+    },
+    "once-a-week": {
+      "text": "une fois par semaine",
+      "literal": "one time per week"
+    },
+    "go-to-gym": {
+      "text": "vous allez à la salle de sport ?",
+      "byRegister": {
+        "familiar": {
+          "text": "tu vas à la salle de sport ?"
+        }
+      },
+      "literal": "you go to the room of sport?"
+    },
+    "hardly-ever": {
+      "text": "presque jamais",
+      "literal": "almost never"
+    },
+    "no-time": {
+      "text": "je n'ai pas le temps",
+      "literal": "I (ne) have not the time"
+    },
+    "me-neither": {
+      "text": "moi non plus",
+      "literal": "me not more"
+    },
+    "twice-a-month": {
+      "extra": true,
+      "text": "deux fois par mois",
+      "literal": "two times per month"
+    }
+  },
+  "slotValues": {
+    "activity": [
+      {
+        "en": "do sport",
+        "text": "faire du sport"
+      },
+      {
+        "en": "cook",
+        "text": "cuisiner"
+      },
+      {
+        "en": "go to the cinema",
+        "text": "aller au cinéma"
+      },
+      {
+        "en": "swim",
+        "text": "nager"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "never": {
+        "text": "Je ne ___ jamais.",
+        "accept": [
+          "Je ___ jamais."
+        ]
+      },
+      "sometimes": {
+        "text": "parfois",
+        "accept": [
+          "de temps en temps"
+        ]
+      }
+    }
+  },
+  "notes": [
+    "Ça vous arrive souvent de ... ? is the everyday way to ask how often. The verb after de stays in the infinitive: de nager.",
+    "Le dimanche means every Sunday. Dimanche alone means this Sunday.",
+    "Moi non plus agrees with a negative: Je n'ai pas le temps. Moi non plus. After a positive, say moi aussi."
+  ]
+}

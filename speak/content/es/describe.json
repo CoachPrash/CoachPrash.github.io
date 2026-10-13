@@ -1,0 +1,115 @@
+{
+  "schema": 2,
+  "scenario": "describe",
+  "lang": "es",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "¿Quién es ella?",
+      "accept": [
+        "¿Y ella quién es?"
+      ]
+    },
+    "l2": {
+      "text": "Es mi hermana.",
+      "accept": [
+        "Ella es mi hermana."
+      ]
+    },
+    "l3": {
+      "text": "¿Y cómo es?",
+      "accept": [
+        "¿Y cómo es ella?"
+      ]
+    },
+    "l4": {
+      "text": "Es muy amable y divertida.",
+      "accept": [
+        "Es muy querida y divertida.",
+        "Es muy amable y chistosa."
+      ]
+    },
+    "l5": {
+      "text": "¿Y físicamente cómo es?",
+      "accept": [
+        "¿Y cómo es físicamente?"
+      ]
+    },
+    "l6": {
+      "text": "Ella {look}.",
+      "accept": [
+        "Pues, {look}."
+      ]
+    }
+  },
+  "chunks": {
+    "who-is-that": {
+      "text": "¿quién es ella?",
+      "literal": "who is she?"
+    },
+    "thats-my": {
+      "text": "es mi ___",
+      "literal": "she-is my ___"
+    },
+    "whats-she-like": {
+      "text": "¿cómo es?",
+      "literal": "how is?"
+    },
+    "kind-funny": {
+      "text": "muy amable y divertida",
+      "literal": "very kind and funny"
+    },
+    "look-like": {
+      "text": "¿físicamente cómo es?",
+      "literal": "physically how is?"
+    },
+    "he-glasses": {
+      "text": "usa gafas",
+      "extra": true,
+      "literal": "he-uses glasses"
+    }
+  },
+  "slotValues": {
+    "look": [
+      {
+        "en": "is short",
+        "text": "es bajita"
+      },
+      {
+        "en": "wears glasses",
+        "text": "usa gafas"
+      },
+      {
+        "en": "has green eyes",
+        "text": "tiene ojos verdes"
+      },
+      {
+        "en": "has curly hair",
+        "text": "es crespa"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "he-is": {
+        "text": "Él es ___."
+      },
+      "she-has": {
+        "text": "Ella tiene ___."
+      }
+    }
+  },
+  "notes": [
+    "Adjectives agree with the person: mi hermana es divertida, mi hermano es divertido. Amable stays the same.",
+    "In Colombia querido / querida (\"dear\") also means a nice, kind person: es muy querida.",
+    "Crespo / crespa means curly-haired. Bajita (\"a bit short\") is the softer, usual way to say short."
+  ]
+}

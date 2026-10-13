@@ -1,0 +1,145 @@
+{
+  "schema": 2,
+  "scenario": "restaurant",
+  "lang": "es",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "¿Qué pedimos?"
+    },
+    "l2": {
+      "text": "¿Le gusta el picante?",
+      "accept": [
+        "¿Usted come picante?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "¿Te gusta el picante?",
+          "accept": [
+            "¿Tú comes picante?"
+          ]
+        }
+      }
+    },
+    "l3": {
+      "text": "Sí, pero no muy picante.",
+      "accept": [
+        "Sí, pero no tan picante."
+      ]
+    },
+    "l4": {
+      "text": "Entonces pidamos {dish} para compartir.",
+      "accept": [
+        "Entonces compartamos {dish}."
+      ]
+    },
+    "l5": {
+      "text": "Buena idea. Disculpe, ¿me regala la cuenta, por favor?",
+      "accept": [
+        "Buena idea. ¡Disculpe! La cuenta, por favor."
+      ],
+      "note": "This line is said to the waiter, so it stays usted in both registers.",
+      "registerNeutral": true
+    },
+    "l6": {
+      "text": "¿Pagamos a medias?",
+      "accept": [
+        "¿Dividimos la cuenta?"
+      ]
+    },
+    "l7": {
+      "text": "¡No, hoy invito yo!",
+      "accept": [
+        "¡No, hoy pago yo!"
+      ]
+    }
+  },
+  "chunks": {
+    "what-order": {
+      "text": "¿qué pedimos?",
+      "literal": "what we-order?"
+    },
+    "spicy": {
+      "text": "¿le gusta el picante?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿te gusta el picante?"
+        }
+      },
+      "literal": "to-you it-pleases the spicy?"
+    },
+    "not-too-spicy": {
+      "text": "no muy picante",
+      "literal": "not very spicy"
+    },
+    "lets-share": {
+      "text": "pidamos ___ para compartir",
+      "literal": "let's-order ___ for to-share"
+    },
+    "the-bill": {
+      "text": "la cuenta, por favor",
+      "literal": "the bill, for favour"
+    },
+    "split": {
+      "text": "¿pagamos a medias?",
+      "literal": "we-pay at halves?"
+    },
+    "on-me": {
+      "text": "invito yo",
+      "literal": "invite I"
+    },
+    "im-full": {
+      "text": "estoy lleno / llena",
+      "choice": "mf",
+      "extra": true,
+      "literal": "I-am full (m / f)"
+    }
+  },
+  "slotValues": {
+    "dish": [
+      {
+        "en": "a picada (mixed grill)",
+        "text": "una picada"
+      },
+      {
+        "en": "some empanadas",
+        "text": "unas empanadas"
+      },
+      {
+        "en": "a bandeja paisa",
+        "text": "una bandeja paisa"
+      },
+      {
+        "en": "an ajiaco (chicken soup)",
+        "text": "un ajiaco"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "vegetarian": {
+        "text": "Soy vegetariano / vegetariana."
+      },
+      "delicious": {
+        "text": "Estaba delicioso.",
+        "accept": [
+          "Estuvo delicioso.",
+          "Estaba muy rico."
+        ]
+      }
+    }
+  },
+  "notes": [
+    "Colombian food is rarely hot. Ají, a fresh chilli sauce, comes on the side.",
+    "A picada is a big platter of grilled meats, sausage and potatoes, shared from the middle of the table.",
+    "Invito yo (\"I invite\") means \"it's on me\". A man says estoy lleno, a woman estoy llena."
+  ]
+}

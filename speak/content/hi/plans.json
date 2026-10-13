@@ -1,0 +1,198 @@
+{
+  "schema": 2,
+  "scenario": "plans",
+  "lang": "hi",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "registerNotes": {
+    "intimate": "तू is for very close friends and family. Practise this one with आप and तुम."
+  },
+  "lines": {
+    "l1": {
+      "text": "आप इन गर्मियों में क्या करने वाले हैं?",
+      "rom": "aap in garmiyon men kyaa karne vaale hain?",
+      "variants": [
+        {
+          "listener": "m",
+          "text": "आप इन गर्मियों में क्या करने वाले हैं?",
+          "rom": "aap in garmiyon men kyaa karne vaale hain?"
+        },
+        {
+          "listener": "f",
+          "text": "आप इन गर्मियों में क्या करने वाली हैं?",
+          "rom": "aap in garmiyon men kyaa karne vaalee hain?"
+        }
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "तुम इन गर्मियों में क्या करने वाले हो?",
+          "rom": "tum in garmiyon men kyaa karne vaale ho?",
+          "variants": [
+            {
+              "listener": "m",
+              "text": "तुम इन गर्मियों में क्या करने वाले हो?",
+              "rom": "tum in garmiyon men kyaa karne vaale ho?"
+            },
+            {
+              "listener": "f",
+              "text": "तुम इन गर्मियों में क्या करने वाली हो?",
+              "rom": "tum in garmiyon men kyaa karne vaalee ho?"
+            }
+          ]
+        }
+      }
+    },
+    "l2": {
+      "text": "मैं {place} जाने वाला हूँ।",
+      "rom": "main {place} jaane vaalaa hoon.",
+      "variants": [
+        {
+          "speaker": "m",
+          "text": "मैं {place} जाने वाला हूँ।",
+          "rom": "main {place} jaane vaalaa hoon."
+        },
+        {
+          "speaker": "f",
+          "text": "मैं {place} जाने वाली हूँ।",
+          "rom": "main {place} jaane vaalee hoon."
+        }
+      ]
+    },
+    "l3": {
+      "text": "बढ़िया! किसके साथ?",
+      "rom": "baRhiyaa! kiske saath?"
+    },
+    "l4": {
+      "text": "अपने भाई के साथ। और आप?",
+      "rom": "apne bhaaee ke saath. aur aap?",
+      "byRegister": {
+        "familiar": {
+          "text": "अपने भाई के साथ। और तुम?",
+          "rom": "apne bhaaee ke saath. aur tum?"
+        }
+      }
+    },
+    "l5": {
+      "text": "मैं घूमना चाहता हूँ, पर मुझे काम करना है।",
+      "rom": "main ghoomnaa chaahtaa hoon, par mujhe kaam karnaa hai.",
+      "variants": [
+        {
+          "speaker": "m",
+          "text": "मैं घूमना चाहता हूँ, पर मुझे काम करना है।",
+          "rom": "main ghoomnaa chaahtaa hoon, par mujhe kaam karnaa hai."
+        },
+        {
+          "speaker": "f",
+          "text": "मैं घूमना चाहती हूँ, पर मुझे काम करना है।",
+          "rom": "main ghoomnaa chaahtee hoon, par mujhe kaam karnaa hai."
+        }
+      ]
+    },
+    "l6": {
+      "text": "ओह, बुरा हुआ! शायद अगले साल।",
+      "rom": "oh, buraa huaa! shaayad agle saal."
+    }
+  },
+  "chunks": {
+    "going-to-do": {
+      "text": "आप इन गर्मियों में क्या करने वाले / वाली हैं?",
+      "rom": "aap in garmiyon men kyaa karne vaale / vaalee hain?",
+      "choice": "mf",
+      "literal": "you these summers in what to-do about-to are?",
+      "byRegister": {
+        "familiar": {
+          "text": "तुम इन गर्मियों में क्या करने वाले / वाली हो?",
+          "rom": "tum in garmiyon men kyaa karne vaale / vaalee ho?"
+        }
+      }
+    },
+    "im-going-to": {
+      "text": "मैं ___ जाने वाला / वाली हूँ",
+      "rom": "main ___ jaane vaalaa / vaalee hoon",
+      "choice": "mf",
+      "literal": "I ___ to-go about-to am"
+    },
+    "who-with": {
+      "text": "किसके साथ?",
+      "rom": "kiske saath?",
+      "literal": "whom with?"
+    },
+    "id-like-to": {
+      "text": "मैं ___ चाहता / चाहती हूँ",
+      "rom": "main ___ chaahtaa / chaahtee hoon",
+      "choice": "mf",
+      "literal": "I ___ want am"
+    },
+    "have-to-work": {
+      "text": "मुझे काम करना है",
+      "rom": "mujhe kaam karnaa hai",
+      "literal": "to-me work to-do is"
+    },
+    "too-bad": {
+      "text": "बुरा हुआ",
+      "rom": "buraa huaa",
+      "literal": "bad happened"
+    },
+    "next-year": {
+      "text": "शायद अगले साल",
+      "rom": "shaayad agle saal",
+      "literal": "maybe next year"
+    },
+    "sounds-great": {
+      "text": "ये तो बहुत बढ़िया है",
+      "rom": "ye to bahut baRhiyaa hai",
+      "extra": true,
+      "literal": "this (stress) very great is"
+    }
+  },
+  "slotValues": {
+    "place": [
+      {
+        "en": "Goa",
+        "text": "गोवा",
+        "rom": "govaa"
+      },
+      {
+        "en": "Shimla",
+        "text": "शिमला",
+        "rom": "shimlaa"
+      },
+      {
+        "en": "Kerala",
+        "text": "केरल",
+        "rom": "keral"
+      },
+      {
+        "en": "my village",
+        "text": "अपने गाँव",
+        "rom": "apne gaanv"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "this-year": {
+        "text": "इस साल मैं ___ चाहता / चाहती हूँ",
+        "rom": "is saal main ___ chaahtaa / chaahtee hoon",
+        "choice": "mf"
+      },
+      "next-month": {
+        "text": "अगले महीने मैं ___ वाला / वाली हूँ",
+        "rom": "agle maheene main ___ vaalaa / vaalee hoon",
+        "choice": "mf"
+      }
+    }
+  },
+  "notes": [
+    "The -ने वाला form says what you are going to do: मैं गोवा जाने वाला हूँ (a man), जाने वाली हूँ (a woman).",
+    "मुझे ... ना है says what you have to do: मुझे काम करना है, I have to work. It is the same for a man and a woman.",
+    "घूमना means to travel or wander for fun. In the summer holidays, many families head for the hills: शिमला, मनाली, मसूरी."
+  ]
+}

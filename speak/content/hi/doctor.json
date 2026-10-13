@@ -1,0 +1,163 @@
+{
+  "schema": 2,
+  "scenario": "doctor",
+  "lang": "hi",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "registerNotes": {
+    "intimate": "तू is for very close friends and family. Practise this one with आप and तुम."
+  },
+  "lines": {
+    "l1": {
+      "text": "बताइए, क्या तकलीफ़ है?",
+      "rom": "bataaie, kyaa takleef hai?",
+      "byRegister": {
+        "familiar": {
+          "text": "बताओ, क्या तकलीफ़ है?",
+          "rom": "bataao, kyaa takleef hai?"
+        }
+      }
+    },
+    "l2": {
+      "text": "मुझे {symptom} है।",
+      "rom": "mujhe {symptom} hai."
+    },
+    "l3": {
+      "text": "कब से?",
+      "rom": "kab se?"
+    },
+    "l4": {
+      "text": "कल से।",
+      "rom": "kal se."
+    },
+    "l5": {
+      "text": "दिन में दो बार ये दवाई लीजिए, और आराम कीजिए।",
+      "rom": "din men do baar ye davaaee leejie, aur aaraam keejie.",
+      "byRegister": {
+        "familiar": {
+          "text": "दिन में दो बार ये दवाई लो, और आराम करो।",
+          "rom": "din men do baar ye davaaee lo, aur aaraam karo."
+        }
+      }
+    },
+    "l6": {
+      "text": "धन्यवाद, डॉक्टर।",
+      "rom": "dhanyavaad, DokTar.",
+      "accept": [
+        {
+          "text": "धन्यवाद, डॉक्टर साहब।",
+          "rom": "dhanyavaad, DokTar saahab."
+        },
+        {
+          "text": "शुक्रिया, डॉक्टर।",
+          "rom": "shukriyaa, DokTar."
+        }
+      ]
+    }
+  },
+  "chunks": {
+    "whats-matter": {
+      "text": "क्या तकलीफ़ है?",
+      "rom": "kyaa takleef hai?",
+      "registerNeutral": true,
+      "literal": "what trouble is?"
+    },
+    "i-have-symptom": {
+      "text": "मुझे ___ है",
+      "rom": "mujhe ___ hai",
+      "literal": "to-me ___ is"
+    },
+    "since-when": {
+      "text": "कब से?",
+      "rom": "kab se?",
+      "literal": "when since?"
+    },
+    "since-yesterday": {
+      "text": "कल से",
+      "rom": "kal se",
+      "literal": "yesterday since"
+    },
+    "take-medicine": {
+      "text": "ये दवाई लीजिए",
+      "rom": "ye davaaee leejie",
+      "literal": "this medicine take (please)",
+      "byRegister": {
+        "familiar": {
+          "text": "ये दवाई लो",
+          "rom": "ye davaaee lo"
+        }
+      }
+    },
+    "twice-a-day": {
+      "text": "दिन में दो बार",
+      "rom": "din men do baar",
+      "literal": "day in two times"
+    },
+    "thank-you-doctor": {
+      "text": "धन्यवाद, डॉक्टर",
+      "rom": "dhanyavaad, DokTar",
+      "literal": "thanks, doctor"
+    },
+    "feel-better": {
+      "text": "अब मुझे बेहतर लग रहा है",
+      "rom": "ab mujhe behtar lag rahaa hai",
+      "extra": true,
+      "literal": "now to-me better seeming is"
+    }
+  },
+  "slotValues": {
+    "symptom": [
+      {
+        "en": "a headache",
+        "text": "सिरदर्द",
+        "rom": "sirdard"
+      },
+      {
+        "en": "a cough",
+        "text": "खाँसी",
+        "rom": "khaansee"
+      },
+      {
+        "en": "a fever",
+        "text": "बुख़ार",
+        "rom": "buKhaar"
+      },
+      {
+        "en": "a stomach ache",
+        "text": "पेट दर्द",
+        "rom": "peT dard"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "it-hurts": {
+        "text": "यहाँ दर्द होता है",
+        "rom": "yahaan dard hotaa hai"
+      },
+      "get-well": {
+        "text": "जल्दी ठीक हो जाइए",
+        "rom": "jaldee Theek ho jaaie",
+        "byRegister": {
+          "familiar": {
+            "text": "जल्दी ठीक हो जाओ",
+            "rom": "jaldee Theek ho jaao"
+          }
+        }
+      }
+    }
+  },
+  "notes": [
+    "Symptoms use मुझे ... है (\"to me ... is\"): मुझे बुख़ार है, मुझे खाँसी है. They are the same for a man and a woman.",
+    "क्या तकलीफ़ है? (\"what trouble is there?\") is how a doctor asks what is wrong.",
+    "दिन में दो बार is twice a day. खाने के बाद means after meals.",
+    "Patients often say डॉक्टर साहब to a male doctor as a mark of respect."
+  ]
+}

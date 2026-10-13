@@ -1,0 +1,155 @@
+{
+  "schema": 2,
+  "scenario": "transport",
+  "lang": "es",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "Disculpe, ¿qué bus va {place}?",
+      "accept": [
+        "Disculpe, ¿cuál bus va {place}?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Disculpa, ¿qué bus va {place}?",
+          "accept": [
+            "Disculpa, ¿cuál bus va {place}?"
+          ]
+        }
+      }
+    },
+    "l2": {
+      "text": "El número doce. El paradero queda allá.",
+      "accept": [
+        "El doce. El paradero queda allá.",
+        "El 12. El paradero queda allá.",
+        "El número 12. El paradero está allá."
+      ]
+    },
+    "l3": {
+      "text": "¿Cuánto se demora?",
+      "accept": [
+        "¿Cuánto tarda?"
+      ]
+    },
+    "l4": {
+      "text": "Más o menos veinte minutos.",
+      "accept": [
+        "Más o menos 20 minutos.",
+        "Como veinte minutos.",
+        "Como 20 minutos."
+      ]
+    },
+    "l5": {
+      "text": "¿Y dónde compro el pasaje?",
+      "accept": [
+        "¿Y dónde puedo comprar el pasaje?",
+        "¿Y dónde compro el tiquete?"
+      ]
+    },
+    "l6": {
+      "text": "En el bus. Le paga al conductor.",
+      "accept": [
+        "En el bus. Se le paga al conductor."
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "En el bus. Le pagas al conductor.",
+          "accept": [
+            "En el bus. Se le paga al conductor."
+          ]
+        }
+      }
+    }
+  },
+  "chunks": {
+    "which-bus": {
+      "text": "¿qué bus va ___?",
+      "literal": "what bus goes ___?"
+    },
+    "number": {
+      "text": "el número ___",
+      "literal": "the number ___"
+    },
+    "the-stop": {
+      "text": "el paradero queda allá",
+      "literal": "the stop is-located there"
+    },
+    "how-long-take": {
+      "text": "¿cuánto se demora?",
+      "literal": "how-much itself delays?"
+    },
+    "about-minutes": {
+      "text": "más o menos ___ minutos",
+      "literal": "more or less ___ minutes"
+    },
+    "buy-ticket": {
+      "text": "¿dónde compro el pasaje?",
+      "literal": "where I-buy the fare?"
+    },
+    "return-ticket": {
+      "text": "un pasaje de ida y vuelta",
+      "extra": true,
+      "literal": "a fare of going and return"
+    }
+  },
+  "slotValues": {
+    "place": [
+      {
+        "en": "the centre",
+        "text": "al centro"
+      },
+      {
+        "en": "the airport",
+        "text": "al aeropuerto"
+      },
+      {
+        "en": "the bus station",
+        "text": "a la terminal"
+      },
+      {
+        "en": "the university",
+        "text": "a la universidad"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "stop-here": {
+        "text": "Me deja aquí, por favor.",
+        "accept": [
+          "Me deja en la esquina, por favor.",
+          "Pare aquí, por favor."
+        ],
+        "byRegister": {
+          "familiar": {
+            "text": "Me dejas aquí, por favor.",
+            "accept": [
+              "Me dejas en la esquina, por favor.",
+              "Para aquí, por favor."
+            ]
+          }
+        }
+      },
+      "how-much-to": {
+        "text": "¿Cuánto vale el pasaje a ___?",
+        "accept": [
+          "¿Cuánto cuesta a ___?"
+        ]
+      }
+    }
+  },
+  "notes": [
+    "A bus stop is a paradero in Colombia. On a city bus you usually pay the driver, or tap a card.",
+    "¿Cuánto se demora? (\"how much does it delay?\") is the Colombian way to ask how long something takes.",
+    "To get off, Colombians call out: ¡Me deja en la esquina, por favor!"
+  ]
+}

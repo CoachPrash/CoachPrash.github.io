@@ -1,0 +1,189 @@
+{
+  "schema": 2,
+  "scenario": "recommend",
+  "lang": "hi",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "registerNotes": {
+    "intimate": "तू is for very close friends and family. Practise this one with आप and तुम."
+  },
+  "lines": {
+    "l1": {
+      "text": "क्या आप कोई अच्छा रेस्टोरेंट बता सकते हैं?",
+      "rom": "kyaa aap koee achchhaa resToranT bataa sakte hain?",
+      "variants": [
+        {
+          "listener": "m",
+          "text": "क्या आप कोई अच्छा रेस्टोरेंट बता सकते हैं?",
+          "rom": "kyaa aap koee achchhaa resToranT bataa sakte hain?"
+        },
+        {
+          "listener": "f",
+          "text": "क्या आप कोई अच्छा रेस्टोरेंट बता सकती हैं?",
+          "rom": "kyaa aap koee achchhaa resToranT bataa saktee hain?"
+        }
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "क्या तुम कोई अच्छा रेस्टोरेंट बता सकते हो?",
+          "rom": "kyaa tum koee achchhaa resToranT bataa sakte ho?",
+          "variants": [
+            {
+              "listener": "m",
+              "text": "क्या तुम कोई अच्छा रेस्टोरेंट बता सकते हो?",
+              "rom": "kyaa tum koee achchhaa resToranT bataa sakte ho?"
+            },
+            {
+              "listener": "f",
+              "text": "क्या तुम कोई अच्छा रेस्टोरेंट बता सकती हो?",
+              "rom": "kyaa tum koee achchhaa resToranT bataa saktee ho?"
+            }
+          ]
+        }
+      }
+    },
+    "l2": {
+      "text": "हाँ! बाज़ार के पास एक अच्छी जगह है।",
+      "rom": "haan! baazaar ke paas ek achchhee jagah hai."
+    },
+    "l3": {
+      "text": "वो किस चीज़ के लिए मशहूर है?",
+      "rom": "vo kis cheez ke lie mashhoor hai?"
+    },
+    "l4": {
+      "text": "वो {dish} के लिए मशहूर है।",
+      "rom": "vo {dish} ke lie mashhoor hai."
+    },
+    "l5": {
+      "text": "क्या वो महँगा है?",
+      "rom": "kyaa vo mahangaa hai?"
+    },
+    "l6": {
+      "text": "नहीं, काफ़ी सस्ता है। ज़रूर खाकर देखिए!",
+      "rom": "naheen, kaafee sastaa hai. zaroor khaakar dekhie!",
+      "byRegister": {
+        "familiar": {
+          "text": "नहीं, काफ़ी सस्ता है। ज़रूर खाकर देखो!",
+          "rom": "naheen, kaafee sastaa hai. zaroor khaakar dekho!"
+        }
+      }
+    }
+  },
+  "chunks": {
+    "can-you-recommend": {
+      "text": "क्या आप कोई अच्छा ___ बता सकते / सकती हैं?",
+      "rom": "kyaa aap koee achchhaa ___ bataa sakte / saktee hain?",
+      "choice": "mf",
+      "literal": "(question) you any good ___ tell can are?",
+      "byRegister": {
+        "familiar": {
+          "text": "क्या तुम कोई अच्छा ___ बता सकते / सकती हो?",
+          "rom": "kyaa tum koee achchhaa ___ bataa sakte / saktee ho?"
+        }
+      }
+    },
+    "good-place": {
+      "text": "___ के पास एक अच्छी जगह है",
+      "rom": "___ ke paas ek achchhee jagah hai",
+      "literal": "___ of near a good place is"
+    },
+    "famous-for": {
+      "text": "किस चीज़ के लिए मशहूर है?",
+      "rom": "kis cheez ke lie mashhoor hai?",
+      "literal": "which thing for famous is?"
+    },
+    "its-famous": {
+      "text": "___ के लिए मशहूर है",
+      "rom": "___ ke lie mashhoor hai",
+      "literal": "___ for famous is"
+    },
+    "is-it-expensive": {
+      "text": "क्या वो महँगा है?",
+      "rom": "kyaa vo mahangaa hai?",
+      "literal": "(question) it expensive is?"
+    },
+    "quite-cheap": {
+      "text": "काफ़ी सस्ता है",
+      "rom": "kaafee sastaa hai",
+      "literal": "quite cheap is"
+    },
+    "must-try": {
+      "text": "ज़रूर खाकर देखिए",
+      "rom": "zaroor khaakar dekhie",
+      "literal": "surely having-eaten see (please)",
+      "byRegister": {
+        "familiar": {
+          "text": "ज़रूर खाकर देखो",
+          "rom": "zaroor khaakar dekho"
+        }
+      }
+    },
+    "always-full": {
+      "text": "वहाँ हमेशा भीड़ रहती है",
+      "rom": "vahaan hameshaa bheeR rahtee hai",
+      "extra": true,
+      "literal": "there always crowd stays"
+    }
+  },
+  "slotValues": {
+    "dish": [
+      {
+        "en": "chole bhature",
+        "text": "छोले भटूरे",
+        "rom": "chhole bhaToore"
+      },
+      {
+        "en": "biryani",
+        "text": "बिरयानी",
+        "rom": "biryaanee"
+      },
+      {
+        "en": "kebabs",
+        "text": "कबाब",
+        "rom": "kabaab"
+      },
+      {
+        "en": "masala dosa",
+        "text": "मसाला डोसा",
+        "rom": "masaalaa Dosaa"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "you-should-visit": {
+        "text": "आपको ___ ज़रूर जाना चाहिए",
+        "rom": "aapko ___ zaroor jaanaa chaahie",
+        "byRegister": {
+          "familiar": {
+            "text": "तुम्हें ___ ज़रूर जाना चाहिए",
+            "rom": "tumhen ___ zaroor jaanaa chaahie"
+          }
+        }
+      },
+      "dont-miss": {
+        "text": "___ देखना मत भूलिए",
+        "rom": "___ dekhnaa mat bhoolie",
+        "byRegister": {
+          "familiar": {
+            "text": "___ देखना मत भूलना",
+            "rom": "___ dekhnaa mat bhoolnaa"
+          }
+        }
+      }
+    }
+  },
+  "notes": [
+    "बताना (to tell) is how Hindi asks for a recommendation: कोई अच्छा रेस्टोरेंट बता सकते हैं? (\"can you tell me a good restaurant?\").",
+    "खाकर देखिए (\"eat and see\") means \"try it\". The same pattern works for other verbs: पहनकर देखिए (try it on).",
+    "काफ़ी means \"quite\" or \"enough\": काफ़ी सस्ता, quite cheap.",
+    "Many famous places to eat are small stalls in old markets, like the paratha lanes of Old Delhi."
+  ]
+}

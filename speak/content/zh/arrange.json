@@ -1,0 +1,163 @@
+{
+  "schema": 2,
+  "scenario": "arrange",
+  "lang": "zh",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "这个周末我们做什么？",
+      "rom": "Zhège zhōumò wǒmen zuò shénme?"
+    },
+    "l2": {
+      "text": "{activity}怎么样？",
+      "rom": "{activity} zěnmeyàng?"
+    },
+    "l3": {
+      "text": "好主意。我们在哪儿见面？",
+      "rom": "Hǎo zhǔyi. Wǒmen zài nǎr jiànmiàn?"
+    },
+    "l4": {
+      "text": "我们在车站见吧。",
+      "rom": "Wǒmen zài chēzhàn jiàn ba."
+    },
+    "l5": {
+      "text": "十一点可以吗？",
+      "rom": "Shíyī diǎn kěyǐ ma?",
+      "accept": [
+        {
+          "text": "11点可以吗？",
+          "rom": "11 diǎn kěyǐ ma?"
+        }
+      ]
+    },
+    "l6": {
+      "text": "太好了。到时候见！",
+      "rom": "Tài hǎo le. Dào shíhou jiàn!"
+    }
+  },
+  "chunks": {
+    "what-shall-we-do": {
+      "text": "这个周末我们做什么？",
+      "rom": "zhège zhōumò wǒmen zuò shénme?",
+      "literal": "this weekend we do what?",
+      "chain": [
+        "做什么？",
+        "我们做什么？",
+        "周末我们做什么？"
+      ]
+    },
+    "how-about": {
+      "text": "___怎么样？",
+      "rom": "___ zěnmeyàng?",
+      "literal": "___ how?",
+      "chain": [
+        "怎么样？"
+      ]
+    },
+    "good-idea": {
+      "text": "好主意",
+      "rom": "hǎo zhǔyi",
+      "literal": "good idea"
+    },
+    "where-meet": {
+      "text": "我们在哪儿见面？",
+      "rom": "wǒmen zài nǎr jiànmiàn?",
+      "literal": "we at where meet?",
+      "chain": [
+        "见面？",
+        "哪儿见面？",
+        "在哪儿见面？"
+      ]
+    },
+    "lets-meet": {
+      "text": "我们在___见吧",
+      "rom": "wǒmen zài ___ jiàn ba",
+      "literal": "we at ___ meet (suggest)",
+      "chain": [
+        "见吧",
+        "在___见吧"
+      ]
+    },
+    "is-ok": {
+      "text": "___可以吗？",
+      "rom": "___ kěyǐ ma?",
+      "literal": "___ OK?",
+      "chain": [
+        "可以吗？"
+      ]
+    },
+    "see-you-there": {
+      "text": "到时候见",
+      "rom": "dào shíhou jiàn",
+      "literal": "at that-time see",
+      "chain": [
+        "时候见"
+      ]
+    },
+    "ill-text": {
+      "text": "我给你发微信",
+      "rom": "wǒ gěi nǐ fā Wēixìn",
+      "byRegister": {
+        "formal": {
+          "text": "我给您发微信",
+          "rom": "wǒ gěi nín fā Wēixìn"
+        }
+      },
+      "literal": "I to you send WeChat",
+      "extra": true,
+      "chain": [
+        "发微信",
+        "给你发微信"
+      ]
+    }
+  },
+  "slotValues": {
+    "activity": [
+      {
+        "en": "going hiking",
+        "text": "去爬山",
+        "rom": "qù páshān"
+      },
+      {
+        "en": "going to the cinema",
+        "text": "去看电影",
+        "rom": "qù kàn diànyǐng"
+      },
+      {
+        "en": "going to the park",
+        "text": "去公园",
+        "rom": "qù gōngyuán"
+      },
+      {
+        "en": "going shopping",
+        "text": "去逛街",
+        "rom": "qù guàngjiē"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "cant-saturday": {
+        "text": "星期六我不行。",
+        "rom": "Xīngqīliù wǒ bù xíng."
+      },
+      "what-about": {
+        "text": "那___呢？",
+        "rom": "Nà ___ ne?"
+      }
+    }
+  },
+  "notes": [
+    "…怎么样？ (zěnmeyàng) makes a suggestion: 去爬山怎么样？ How about hiking?",
+    "到时候见 (\"see you at that time\") closes a plan.",
+    "Most people in China text on 微信 (Wēixìn, WeChat): 我给你发微信."
+  ]
+}

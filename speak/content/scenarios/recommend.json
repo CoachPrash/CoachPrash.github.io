@@ -1,0 +1,105 @@
+{
+  "schema": 2,
+  "id": "recommend",
+  "title": "You must try it",
+  "goal": "Ask for and give a recommendation.",
+  "roles": {
+    "A": "A visitor",
+    "B": "A local"
+  },
+  "slots": {
+    "dish": {
+      "kind": "set",
+      "cue": "a dish"
+    }
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "role": "A",
+      "en": "Can you recommend a good restaurant?",
+      "addressesYou": true
+    },
+    {
+      "id": "l2",
+      "role": "B",
+      "en": "Yes! There's a good place near the market."
+    },
+    {
+      "id": "l3",
+      "role": "A",
+      "en": "What's it famous for?"
+    },
+    {
+      "id": "l4",
+      "role": "B",
+      "en": "It's famous for its {dish}."
+    },
+    {
+      "id": "l5",
+      "role": "A",
+      "en": "Is it expensive?"
+    },
+    {
+      "id": "l6",
+      "role": "B",
+      "en": "No, it's quite cheap. You must try it!",
+      "addressesYou": true
+    }
+  ],
+  "chunks": [
+    {
+      "id": "can-you-recommend",
+      "en": "can you recommend a good ___?",
+      "addressesYou": true
+    },
+    {
+      "id": "good-place",
+      "en": "there's a good place near ___"
+    },
+    {
+      "id": "famous-for",
+      "en": "what's it famous for?"
+    },
+    {
+      "id": "its-famous",
+      "en": "it's famous for its ___"
+    },
+    {
+      "id": "is-it-expensive",
+      "en": "is it expensive?"
+    },
+    {
+      "id": "quite-cheap",
+      "en": "it's quite cheap"
+    },
+    {
+      "id": "must-try",
+      "en": "you must try it!",
+      "addressesYou": true
+    },
+    {
+      "id": "always-full",
+      "en": "it's always full"
+    }
+  ],
+  "drill": {
+    "slot": "dish",
+    "instruction": "Swap the dish each time."
+  },
+  "free": {
+    "prompt": "Recommend a place in your town to the group: where it is, what it is famous for, and why they must go.",
+    "targets": [
+      {
+        "id": "you-should-visit",
+        "en": "you should visit ___",
+        "addressesYou": true
+      },
+      {
+        "id": "dont-miss",
+        "en": "don't miss ___",
+        "addressesYou": true
+      }
+    ]
+  }
+}

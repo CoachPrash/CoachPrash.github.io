@@ -1,6 +1,6 @@
 # Speak: M5 ladder plan
 
-**Status:** agreed 14 October 2026. Prash asked for a quick pace: Claude takes the recommended options and builds. Prash and native reviewers check content in parallel.
+**Status:** agreed and built 14 October 2026 (M5.1–M5.3). Prash asked for a quick pace: Claude takes the recommended options and builds. Prash and native reviewers check content in parallel.
 **Source:** `speak-progression.md` (research, 12 October 2026). The spec (`speak-spec.md`) stays the contract. This file is the plan behind it.
 
 ## 1. Decisions
@@ -10,7 +10,7 @@
 | 1 | **Stages become topic groups**, each holding several scenarios: 5 for A1 and 6 for A2, 11 in all | The research's groups. `ladder.json` already allows several scenarios per stage |
 | 2 | **Honest labels.** The ladder shows "practises A1 topics", never "A1". Stage 1 reads "Pre-A1 → A1". One line on each ladder says what a level means | Speak trains one strand, scripted speaking |
 | 3 | **Keep all ten existing scenarios and their ids.** They move into the new groups. Stage 8 (food stall) moves from A2 to A1 | Ids are permanent. French A1 and HSK band 1 put food first |
-| 4 | **Build A1 first:** 13 new scenarios in all four languages, as drafts. A2's 13 new scenarios follow | A1 is where the gap hurts most |
+| 4 | **Build A1 first:** 13 new scenarios in all four languages, as drafts. A2's 20 new scenarios follow | A1 is where the gap hurts most |
 | 5 | **No separate review scenarios for now.** The Review flashcards already recombine earlier chunks | Saves 4 scenarios × 4 languages. Revisit after A1 is in class use |
 | 6 | **Recycling is designed in.** Each new dialogue reuses at least two chunks from earlier scenarios. Repair and politeness chunks appear in most scenarios | Rule of three returns (research §5.2) |
 | 7 | **One answer per card.** In Review, chunks with the same English cue in one language become one card that accepts any of their forms | A cue like "me too" has two right answers in Spanish (igualmente, a mí también) |
@@ -49,7 +49,7 @@ The A2 scenarios not yet built show as "Coming later".
 |---|---|---|
 | **M5.1** | Spec 0.12, `ladder.json` regrouped, labels, one-answer-per-card in Review, the short underlines fixed, colour on the single gender form | Code and docs |
 | **M5.2** | A1: 13 new blueprints, then 13 realizations in each of Hindi, Spanish, French and Mandarin (52 files) | Content |
-| **M5.3** | A2: 13 new scenarios, the same way | Content |
+| **M5.3** | A2: 20 new scenarios, the same way | Content |
 
 Each part ends with the checker, the matching tests and a browser run, then a commit.
 

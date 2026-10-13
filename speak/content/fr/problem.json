@@ -1,0 +1,138 @@
+{
+  "schema": 2,
+  "scenario": "problem",
+  "lang": "fr",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal"
+  ],
+  "registerNotes": {
+    "familiar": "Hotel staff and guests say vous to each other."
+  },
+  "lines": {
+    "l1": {
+      "text": "Excusez-moi, il y a un problème avec ma chambre.",
+      "accept": [
+        "Excusez-moi, il y a un problème dans ma chambre."
+      ]
+    },
+    "l2": {
+      "text": "Qu'est-ce qui ne va pas ?"
+    },
+    "l3": {
+      "text": "{thing} ne marche pas.",
+      "accept": [
+        "{thing} ne fonctionne pas.",
+        "{thing} marche pas."
+      ]
+    },
+    "l4": {
+      "text": "Je suis désolé. J'envoie quelqu'un tout de suite.",
+      "variants": [
+        {
+          "speaker": "m",
+          "text": "Je suis désolé. J'envoie quelqu'un tout de suite."
+        },
+        {
+          "speaker": "f",
+          "text": "Je suis désolée. J'envoie quelqu'un tout de suite."
+        }
+      ],
+      "sameSound": true
+    },
+    "l5": {
+      "text": "Je peux changer de chambre ?",
+      "accept": [
+        "Est-ce que je peux changer de chambre ?"
+      ]
+    },
+    "l6": {
+      "text": "Bien sûr. Voici une nouvelle clé. Toutes nos excuses.",
+      "accept": [
+        "Bien sûr. Voici une nouvelle clé. Excusez-nous."
+      ]
+    }
+  },
+  "chunks": {
+    "theres-problem": {
+      "text": "il y a un problème avec ___",
+      "literal": "there is a problem with ___"
+    },
+    "whats-wrong": {
+      "text": "qu'est-ce qui ne va pas ?",
+      "literal": "what is it that (ne) goes not?"
+    },
+    "doesnt-work": {
+      "text": "___ ne marche pas",
+      "literal": "___ (ne) walks not"
+    },
+    "im-sorry": {
+      "text": "je suis désolé / désolée",
+      "choice": "mf",
+      "literal": "I am sorry"
+    },
+    "right-away": {
+      "text": "j'envoie quelqu'un tout de suite",
+      "literal": "I send someone all of follow"
+    },
+    "change-rooms": {
+      "text": "je peux changer de chambre ?",
+      "literal": "I can change of room?"
+    },
+    "sorry-about-that": {
+      "text": "toutes nos excuses",
+      "literal": "all our apologies"
+    },
+    "too-noisy": {
+      "extra": true,
+      "text": "c'est trop bruyant",
+      "literal": "it's too noisy"
+    }
+  },
+  "slotValues": {
+    "thing": [
+      {
+        "en": "shower",
+        "text": "la douche"
+      },
+      {
+        "en": "heating",
+        "text": "le chauffage"
+      },
+      {
+        "en": "TV",
+        "text": "la télé"
+      },
+      {
+        "en": "air conditioning",
+        "text": "la climatisation"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "its-broken": {
+        "text": "C'est cassé.",
+        "accept": [
+          "Il est cassé.",
+          "Elle est cassée."
+        ]
+      },
+      "can-you-fix": {
+        "text": "Vous pouvez le réparer ?",
+        "accept": [
+          "Vous pouvez réparer ça ?"
+        ]
+      }
+    }
+  },
+  "notes": [
+    "Ça ne marche pas (it doesn't work) is everyday French. Ça ne fonctionne pas is more formal.",
+    "Désolé and désolée sound the same. The spelling follows the speaker's gender.",
+    "Changer de chambre: no article after changer de."
+  ]
+}

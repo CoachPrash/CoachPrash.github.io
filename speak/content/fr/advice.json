@@ -1,0 +1,151 @@
+{
+  "schema": 2,
+  "scenario": "advice",
+  "lang": "fr",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "Je suis toujours fatigué. Qu'est-ce que je dois faire ?",
+      "variants": [
+        {
+          "speaker": "m",
+          "text": "Je suis toujours fatigué. Qu'est-ce que je dois faire ?"
+        },
+        {
+          "speaker": "f",
+          "text": "Je suis toujours fatiguée. Qu'est-ce que je dois faire ?"
+        }
+      ],
+      "accept": [
+        "Je suis toujours fatigué. Qu'est-ce que je peux faire ?",
+        "Je suis toujours fatiguée. Qu'est-ce que je peux faire ?"
+      ],
+      "sameSound": true
+    },
+    "l2": {
+      "text": "Vous devriez {advice}.",
+      "byRegister": {
+        "familiar": {
+          "text": "Tu devrais {advice}."
+        }
+      }
+    },
+    "l3": {
+      "text": "Je sais, mais je travaille tard.",
+      "accept": [
+        "Je sais, mais je finis tard."
+      ]
+    },
+    "l4": {
+      "text": "Pourquoi ne pas faire une promenade tous les matins ?",
+      "accept": [
+        "Pourquoi ne pas marcher un peu tous les matins ?"
+      ],
+      "registerNeutral": true
+    },
+    "l5": {
+      "text": "C'est une bonne idée. Je vais essayer.",
+      "accept": [
+        "Bonne idée. Je vais essayer."
+      ]
+    },
+    "l6": {
+      "text": "Bon courage !",
+      "accept": [
+        "Bonne chance !"
+      ],
+      "registerNeutral": true
+    }
+  },
+  "chunks": {
+    "what-should-i-do": {
+      "text": "qu'est-ce que je dois faire ?",
+      "literal": "what is it that I must do?"
+    },
+    "you-should": {
+      "text": "vous devriez ___",
+      "byRegister": {
+        "familiar": {
+          "text": "tu devrais ___"
+        }
+      },
+      "literal": "you should ___"
+    },
+    "i-know-but": {
+      "text": "je sais, mais ___",
+      "literal": "I know, but ___"
+    },
+    "why-dont-you": {
+      "text": "pourquoi ne pas ___ ?",
+      "registerNeutral": true,
+      "literal": "why not ___?"
+    },
+    "ill-try": {
+      "text": "je vais essayer",
+      "literal": "I go try"
+    },
+    "good-luck": {
+      "text": "bon courage !",
+      "registerNeutral": true,
+      "literal": "good courage!"
+    },
+    "dont-worry": {
+      "extra": true,
+      "text": "ne vous inquiétez pas",
+      "byRegister": {
+        "familiar": {
+          "text": "ne t'inquiète pas"
+        }
+      },
+      "literal": "(ne) yourself worry not"
+    }
+  },
+  "slotValues": {
+    "advice": [
+      {
+        "en": "sleep more",
+        "text": "dormir plus"
+      },
+      {
+        "en": "do sport",
+        "text": "faire du sport"
+      },
+      {
+        "en": "eat better",
+        "text": "manger mieux"
+      },
+      {
+        "en": "drink more water",
+        "text": "boire plus d'eau"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "my-problem": {
+        "text": "Mon problème, c'est ___."
+      },
+      "you-shouldnt": {
+        "text": "Vous ne devriez pas ___.",
+        "byRegister": {
+          "familiar": {
+            "text": "Tu ne devrais pas ___."
+          }
+        }
+      }
+    }
+  },
+  "notes": [
+    "Vous devriez / tu devrais (you should) is followed by an infinitive: vous devriez dormir plus.",
+    "Pourquoi ne pas ... ? gives advice without vous or tu.",
+    "Bon courage ! wishes strength for something hard. Bonne chance ! wishes luck."
+  ]
+}

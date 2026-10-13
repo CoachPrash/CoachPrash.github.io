@@ -1,0 +1,169 @@
+{
+  "schema": 2,
+  "scenario": "transport",
+  "lang": "zh",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "不好意思，去{place}坐几路车？",
+      "rom": "Bù hǎoyìsi, qù {place} zuò jǐ lù chē?",
+      "accept": [
+        {
+          "text": "请问，去{place}坐几路车？",
+          "rom": "Qǐngwèn, qù {place} zuò jǐ lù chē?"
+        }
+      ],
+      "registerNeutral": true
+    },
+    "l2": {
+      "text": "十二路。车站在那儿。",
+      "rom": "Shí'èr lù. Chēzhàn zài nàr.",
+      "accept": [
+        {
+          "text": "12路。车站在那儿。",
+          "rom": "12 lù. Chēzhàn zài nàr."
+        }
+      ]
+    },
+    "l3": {
+      "text": "要多长时间？",
+      "rom": "Yào duō cháng shíjiān?",
+      "accept": [
+        {
+          "text": "要多久？",
+          "rom": "Yào duō jiǔ?"
+        }
+      ]
+    },
+    "l4": {
+      "text": "大概二十分钟。",
+      "rom": "Dàgài èrshí fēnzhōng.",
+      "accept": [
+        {
+          "text": "大概20分钟。",
+          "rom": "Dàgài 20 fēnzhōng."
+        }
+      ]
+    },
+    "l5": {
+      "text": "那在哪儿买票？",
+      "rom": "Nà zài nǎr mǎi piào?"
+    },
+    "l6": {
+      "text": "在车上买，给司机就行。",
+      "rom": "Zài chē shang mǎi, gěi sījī jiù xíng."
+    }
+  },
+  "chunks": {
+    "which-bus": {
+      "text": "去___坐几路车？",
+      "rom": "qù ___ zuò jǐ lù chē?",
+      "literal": "go ___ ride which-number route bus?",
+      "chain": [
+        "几路车？",
+        "坐几路车？"
+      ]
+    },
+    "number": {
+      "text": "___路",
+      "rom": "___ lù",
+      "literal": "___ route"
+    },
+    "the-stop": {
+      "text": "车站在那儿",
+      "rom": "chēzhàn zài nàr",
+      "literal": "stop is-at there",
+      "chain": [
+        "在那儿"
+      ]
+    },
+    "how-long-take": {
+      "text": "要多长时间？",
+      "rom": "yào duō cháng shíjiān?",
+      "literal": "need how long time?",
+      "chain": [
+        "时间？",
+        "多长时间？"
+      ]
+    },
+    "about-minutes": {
+      "text": "大概___分钟",
+      "rom": "dàgài ___ fēnzhōng",
+      "literal": "about ___ minutes",
+      "chain": [
+        "分钟"
+      ]
+    },
+    "buy-ticket": {
+      "text": "在哪儿买票？",
+      "rom": "zài nǎr mǎi piào?",
+      "literal": "at where buy ticket?",
+      "chain": [
+        "买票？",
+        "哪儿买票？"
+      ]
+    },
+    "return-ticket": {
+      "text": "往返票",
+      "rom": "wǎngfǎn piào",
+      "literal": "go-return ticket",
+      "extra": true
+    }
+  },
+  "slotValues": {
+    "place": [
+      {
+        "en": "the station",
+        "text": "火车站",
+        "rom": "huǒchēzhàn"
+      },
+      {
+        "en": "the airport",
+        "text": "机场",
+        "rom": "jīchǎng"
+      },
+      {
+        "en": "the museum",
+        "text": "博物馆",
+        "rom": "bówùguǎn"
+      },
+      {
+        "en": "the university",
+        "text": "大学",
+        "rom": "dàxué"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "stop-here": {
+        "text": "师傅，请在这儿停车。",
+        "rom": "Shīfu, qǐng zài zhèr tíngchē.",
+        "accept": [
+          {
+            "text": "师傅，在这儿停吧。",
+            "rom": "Shīfu, zài zhèr tíng ba."
+          }
+        ],
+        "registerNeutral": true
+      },
+      "how-much-to": {
+        "text": "到___多少钱？",
+        "rom": "Dào ___ duōshao qián?"
+      }
+    }
+  },
+  "notes": [
+    "Bus routes are 路 (lù): 十二路 is the number 12 bus. 几路车？ asks which number.",
+    "师傅 (shīfu, master) is the polite way to speak to a driver.",
+    "In big cities most people pay by phone or with a transport card. Cash goes in the box by the driver."
+  ]
+}

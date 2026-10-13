@@ -1,0 +1,107 @@
+{
+  "schema": 2,
+  "id": "restaurant",
+  "title": "Dinner with a friend",
+  "goal": "Order together, talk about food, and pay.",
+  "roles": {
+    "A": "One friend",
+    "B": "The other friend"
+  },
+  "slots": {
+    "dish": {
+      "kind": "set",
+      "cue": "a dish"
+    }
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "role": "A",
+      "en": "What shall we order?"
+    },
+    {
+      "id": "l2",
+      "role": "B",
+      "en": "Do you eat spicy food?",
+      "addressesYou": true
+    },
+    {
+      "id": "l3",
+      "role": "A",
+      "en": "Yes, but not too spicy."
+    },
+    {
+      "id": "l4",
+      "role": "B",
+      "en": "Then let's share {dish}."
+    },
+    {
+      "id": "l5",
+      "role": "A",
+      "en": "Good idea. Excuse me, the bill, please!",
+      "addressesYou": true
+    },
+    {
+      "id": "l6",
+      "role": "B",
+      "en": "Shall we split it?"
+    },
+    {
+      "id": "l7",
+      "role": "A",
+      "en": "No, it's on me today!"
+    }
+  ],
+  "chunks": [
+    {
+      "id": "what-order",
+      "en": "what shall we order?"
+    },
+    {
+      "id": "spicy",
+      "en": "do you eat spicy food?",
+      "addressesYou": true
+    },
+    {
+      "id": "not-too-spicy",
+      "en": "not too spicy"
+    },
+    {
+      "id": "lets-share",
+      "en": "let's share ___"
+    },
+    {
+      "id": "the-bill",
+      "en": "the bill, please"
+    },
+    {
+      "id": "split",
+      "en": "shall we split it?"
+    },
+    {
+      "id": "on-me",
+      "en": "it's on me"
+    },
+    {
+      "id": "im-full",
+      "en": "I'm full"
+    }
+  ],
+  "drill": {
+    "slot": "dish",
+    "instruction": "Swap the dish each time."
+  },
+  "free": {
+    "prompt": "Plan a dinner for the group: who eats what, what to share, and who pays.",
+    "targets": [
+      {
+        "id": "vegetarian",
+        "en": "I'm vegetarian"
+      },
+      {
+        "id": "delicious",
+        "en": "it was delicious"
+      }
+    ]
+  }
+}

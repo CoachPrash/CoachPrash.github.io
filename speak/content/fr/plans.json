@@ -1,0 +1,131 @@
+{
+  "schema": 2,
+  "scenario": "plans",
+  "lang": "fr",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "Qu'est-ce que vous allez faire cet été ?",
+      "accept": [
+        "Vous allez faire quoi cet été ?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Qu'est-ce que tu vas faire cet été ?",
+          "accept": [
+            "Tu vas faire quoi cet été ?"
+          ]
+        }
+      }
+    },
+    "l2": {
+      "text": "Je vais aller {place}."
+    },
+    "l3": {
+      "text": "Super ! Avec qui ?"
+    },
+    "l4": {
+      "text": "Avec mon frère. Et vous ?",
+      "byRegister": {
+        "familiar": {
+          "text": "Avec mon frère. Et toi ?"
+        }
+      }
+    },
+    "l5": {
+      "text": "J'aimerais voyager, mais je dois travailler.",
+      "accept": [
+        "Je voudrais voyager, mais je dois travailler."
+      ]
+    },
+    "l6": {
+      "text": "Dommage ! L'année prochaine, peut-être.",
+      "accept": [
+        "Dommage ! Peut-être l'année prochaine."
+      ]
+    }
+  },
+  "chunks": {
+    "going-to-do": {
+      "text": "qu'est-ce que vous allez faire cet été ?",
+      "byRegister": {
+        "familiar": {
+          "text": "qu'est-ce que tu vas faire cet été ?"
+        }
+      },
+      "literal": "what is it that you go do this summer?"
+    },
+    "im-going-to": {
+      "text": "je vais ___",
+      "literal": "I go ___"
+    },
+    "who-with": {
+      "text": "avec qui ?",
+      "literal": "with who?"
+    },
+    "id-like-to": {
+      "text": "j'aimerais ___",
+      "literal": "I would-like ___"
+    },
+    "have-to-work": {
+      "text": "je dois travailler",
+      "literal": "I must work"
+    },
+    "too-bad": {
+      "text": "dommage !",
+      "literal": "pity!"
+    },
+    "next-year": {
+      "text": "l'année prochaine, peut-être",
+      "literal": "the year next, maybe"
+    },
+    "sounds-great": {
+      "extra": true,
+      "text": "ça a l'air génial",
+      "literal": "that has the air great"
+    }
+  },
+  "slotValues": {
+    "place": [
+      {
+        "en": "Brittany",
+        "text": "en Bretagne"
+      },
+      {
+        "en": "my grandparents",
+        "text": "chez mes grands-parents"
+      },
+      {
+        "en": "Italy",
+        "text": "en Italie"
+      },
+      {
+        "en": "my cousins",
+        "text": "chez mes cousins"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "this-year": {
+        "text": "Cette année, je veux ___."
+      },
+      "next-month": {
+        "text": "Le mois prochain, je vais ___."
+      }
+    }
+  },
+  "notes": [
+    "Aller + infinitive talks about plans: je vais voyager, je vais aller en Bretagne.",
+    "Chez means at someone's home: chez mes grands-parents.",
+    "Many French people take their holidays in July or August."
+  ]
+}

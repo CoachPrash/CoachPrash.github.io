@@ -1,0 +1,145 @@
+{
+  "schema": 2,
+  "scenario": "life",
+  "lang": "es",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "¿Dónde creció?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿Dónde creciste?"
+        }
+      }
+    },
+    "l2": {
+      "text": "Nací en {city}, pero crecí en Bogotá.",
+      "accept": [
+        "Yo nací en {city}, pero crecí en Bogotá."
+      ]
+    },
+    "l3": {
+      "text": "¿Y cuándo se mudó para acá?",
+      "accept": [
+        "¿Y cuándo se vino para acá?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "¿Y cuándo te mudaste para acá?",
+          "accept": [
+            "¿Y cuándo te viniste para acá?"
+          ]
+        }
+      }
+    },
+    "l4": {
+      "text": "Hace cinco años. ¿Y usted?",
+      "byRegister": {
+        "familiar": {
+          "text": "Hace cinco años. ¿Y tú?"
+        }
+      }
+    },
+    "l5": {
+      "text": "Yo siempre he vivido aquí.",
+      "accept": [
+        "Siempre he vivido aquí.",
+        "Yo siempre he vivido acá."
+      ]
+    },
+    "l6": {
+      "text": "¡Qué suerte!",
+      "accept": [
+        "¡Qué buena suerte!"
+      ],
+      "registerNeutral": true
+    }
+  },
+  "chunks": {
+    "where-grow-up": {
+      "text": "¿dónde creció?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿dónde creciste?"
+        }
+      },
+      "literal": "where you-grew-up?"
+    },
+    "i-was-born": {
+      "text": "nací en ___",
+      "literal": "I-was-born in ___"
+    },
+    "i-grew-up": {
+      "text": "crecí en ___",
+      "literal": "I-grew-up in ___"
+    },
+    "when-move": {
+      "text": "¿cuándo se mudó para acá?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿cuándo te mudaste para acá?"
+        }
+      },
+      "literal": "when yourself you-moved to here?"
+    },
+    "years-ago": {
+      "text": "hace ___ años",
+      "literal": "it-makes ___ years"
+    },
+    "always-lived": {
+      "text": "siempre he vivido aquí",
+      "literal": "always I-have lived here"
+    },
+    "before-lived": {
+      "text": "antes vivía en ___",
+      "extra": true,
+      "literal": "before I-lived in ___"
+    }
+  },
+  "slotValues": {
+    "city": [
+      {
+        "en": "Pasto",
+        "text": "Pasto"
+      },
+      {
+        "en": "Cali",
+        "text": "Cali"
+      },
+      {
+        "en": "Barranquilla",
+        "text": "Barranquilla"
+      },
+      {
+        "en": "Cúcuta",
+        "text": "Cúcuta"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "family-from": {
+        "text": "Mi familia es de ___."
+      },
+      "moved-for": {
+        "text": "Me mudé por ___.",
+        "accept": [
+          "Me vine por ___."
+        ]
+      }
+    }
+  },
+  "notes": [
+    "Hace + a time means \"ago\": hace cinco años, \"five years ago\".",
+    "Nací (\"I was born\") is the same for men and women.",
+    "Para acá (\"towards here\") is the everyday Colombian way to say \"here\" after a verb of movement."
+  ]
+}

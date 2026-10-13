@@ -1,0 +1,102 @@
+{
+  "schema": 2,
+  "id": "plans",
+  "title": "This summer",
+  "goal": "Talk about your plans and wishes.",
+  "roles": {
+    "A": "Asks first",
+    "B": "Answers, then asks back"
+  },
+  "slots": {
+    "place": {
+      "kind": "set",
+      "cue": "a place or people to visit"
+    }
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "role": "A",
+      "en": "What are you going to do this summer?",
+      "addressesYou": true
+    },
+    {
+      "id": "l2",
+      "role": "B",
+      "en": "I'm going to visit {place}."
+    },
+    {
+      "id": "l3",
+      "role": "A",
+      "en": "Great! Who with?"
+    },
+    {
+      "id": "l4",
+      "role": "B",
+      "en": "With my brother. And you?",
+      "addressesYou": true
+    },
+    {
+      "id": "l5",
+      "role": "A",
+      "en": "I'd like to travel, but I have to work."
+    },
+    {
+      "id": "l6",
+      "role": "B",
+      "en": "Too bad! Maybe next year."
+    }
+  ],
+  "chunks": [
+    {
+      "id": "going-to-do",
+      "en": "what are you going to do this summer?",
+      "addressesYou": true
+    },
+    {
+      "id": "im-going-to",
+      "en": "I'm going to ___"
+    },
+    {
+      "id": "who-with",
+      "en": "who with?"
+    },
+    {
+      "id": "id-like-to",
+      "en": "I'd like to ___"
+    },
+    {
+      "id": "have-to-work",
+      "en": "I have to work"
+    },
+    {
+      "id": "too-bad",
+      "en": "too bad!"
+    },
+    {
+      "id": "next-year",
+      "en": "maybe next year"
+    },
+    {
+      "id": "sounds-great",
+      "en": "that sounds great"
+    }
+  ],
+  "drill": {
+    "slot": "place",
+    "instruction": "Swap the place each time."
+  },
+  "free": {
+    "prompt": "Each person says one plan for next month and one wish for next year.",
+    "targets": [
+      {
+        "id": "this-year",
+        "en": "this year I want to ___"
+      },
+      {
+        "id": "next-month",
+        "en": "next month I'm going to ___"
+      }
+    ]
+  }
+}

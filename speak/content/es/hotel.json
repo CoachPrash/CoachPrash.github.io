@@ -1,0 +1,125 @@
+{
+  "schema": 2,
+  "scenario": "hotel",
+  "lang": "es",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal"
+  ],
+  "registerNotes": {
+    "familiar": "At a hotel desk, the guest and the receptionist say usted to each other."
+  },
+  "lines": {
+    "l1": {
+      "text": "Buenas noches. ¿Tiene una habitación?",
+      "accept": [
+        "Buenas noches. ¿Tienen habitaciones?",
+        "Buenas noches. ¿Tiene una habitación disponible?"
+      ]
+    },
+    "l2": {
+      "text": "¿Para cuántas noches?"
+    },
+    "l3": {
+      "text": "Para {nights} noches."
+    },
+    "l4": {
+      "text": "Sí. Son doscientos mil pesos la noche.",
+      "accept": [
+        "Sí. Son 200000 pesos la noche.",
+        "Sí. Son 200.000 pesos la noche.",
+        "Sí. Doscientos mil pesos la noche."
+      ]
+    },
+    "l5": {
+      "text": "¿El desayuno está incluido?",
+      "accept": [
+        "¿Incluye el desayuno?",
+        "¿Está incluido el desayuno?"
+      ]
+    },
+    "l6": {
+      "text": "Sí, de siete a diez. Aquí tiene su llave.",
+      "accept": [
+        "Sí, de 7 a 10. Aquí tiene su llave."
+      ]
+    }
+  },
+  "chunks": {
+    "have-a-room": {
+      "text": "¿tiene una habitación?",
+      "literal": "you-have a room?"
+    },
+    "how-many-nights": {
+      "text": "¿para cuántas noches?",
+      "literal": "for how-many nights?"
+    },
+    "for-nights": {
+      "text": "para ___ noches",
+      "literal": "for ___ nights"
+    },
+    "per-night": {
+      "text": "___ la noche",
+      "literal": "___ the night"
+    },
+    "breakfast-included": {
+      "text": "¿el desayuno está incluido?",
+      "literal": "the breakfast is included?"
+    },
+    "your-key": {
+      "text": "aquí tiene su llave",
+      "literal": "here you-have your key"
+    },
+    "wifi": {
+      "text": "¿hay wifi?",
+      "extra": true,
+      "literal": "there-is wifi?"
+    }
+  },
+  "slotValues": {
+    "nights": [
+      {
+        "en": "two",
+        "text": "dos"
+      },
+      {
+        "en": "three",
+        "text": "tres"
+      },
+      {
+        "en": "four",
+        "text": "cuatro"
+      },
+      {
+        "en": "five",
+        "text": "cinco"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "checkout": {
+        "text": "¿A qué hora es la salida?",
+        "accept": [
+          "¿A qué hora hay que entregar la habitación?",
+          "¿A qué hora es el checkout?"
+        ]
+      },
+      "room-number": {
+        "text": "Mi habitación es la ___.",
+        "accept": [
+          "Mi cuarto es el ___."
+        ]
+      }
+    }
+  },
+  "notes": [
+    "Prices are in thousands of pesos: doscientos mil pesos la noche.",
+    "Colombians often say entregar la habitación (\"hand back the room\") for checking out.",
+    "Habitación and cuarto both mean a room. Su llave is \"your key\" with usted."
+  ]
+}

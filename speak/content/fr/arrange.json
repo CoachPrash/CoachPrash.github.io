@@ -1,0 +1,132 @@
+{
+  "schema": 2,
+  "scenario": "arrange",
+  "lang": "fr",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "Qu'est-ce qu'on fait ce week-end ?",
+      "accept": [
+        "On fait quoi ce week-end ?"
+      ]
+    },
+    "l2": {
+      "text": "Et si on {activity} ?"
+    },
+    "l3": {
+      "text": "Bonne idée. On se retrouve où ?",
+      "accept": [
+        "Bonne idée. Où est-ce qu'on se retrouve ?"
+      ]
+    },
+    "l4": {
+      "text": "On se retrouve à la gare.",
+      "accept": [
+        "Retrouvons-nous à la gare."
+      ]
+    },
+    "l5": {
+      "text": "Onze heures, ça va ?",
+      "accept": [
+        "11 heures, ça va ?",
+        "À onze heures, ça va ?"
+      ]
+    },
+    "l6": {
+      "text": "Parfait. On se voit là-bas !",
+      "accept": [
+        "Parfait. À tout à l'heure !"
+      ]
+    }
+  },
+  "chunks": {
+    "what-shall-we-do": {
+      "text": "qu'est-ce qu'on fait ce week-end ?",
+      "literal": "what is it that one does this weekend?"
+    },
+    "how-about": {
+      "text": "et si on ___ ?",
+      "literal": "and if one ___?"
+    },
+    "good-idea": {
+      "text": "bonne idée",
+      "literal": "good idea"
+    },
+    "where-meet": {
+      "text": "on se retrouve où ?",
+      "literal": "one oneself finds-again where?"
+    },
+    "lets-meet": {
+      "text": "on se retrouve à ___",
+      "literal": "one oneself finds-again at ___"
+    },
+    "is-ok": {
+      "text": "___, ça va ?",
+      "literal": "___, that goes?"
+    },
+    "see-you-there": {
+      "text": "on se voit là-bas",
+      "literal": "one oneself sees there-down"
+    },
+    "ill-text": {
+      "extra": true,
+      "text": "je vous envoie un message",
+      "byRegister": {
+        "familiar": {
+          "text": "je t'envoie un message"
+        }
+      },
+      "literal": "I to-you send a message"
+    }
+  },
+  "slotValues": {
+    "activity": [
+      {
+        "en": "going to the cinema",
+        "text": "allait au cinéma"
+      },
+      {
+        "en": "going cycling",
+        "text": "faisait du vélo"
+      },
+      {
+        "en": "playing tennis",
+        "text": "jouait au tennis"
+      },
+      {
+        "en": "going to a museum",
+        "text": "allait au musée"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "cant-saturday": {
+        "text": "Samedi, je ne peux pas.",
+        "accept": [
+          "Je ne peux pas samedi.",
+          "Samedi, je peux pas."
+        ]
+      },
+      "what-about": {
+        "text": "Et ___, c'est possible ?",
+        "accept": [
+          "Et ___, ça va ?"
+        ]
+      }
+    }
+  },
+  "notes": [
+    "Et si on ... ? = how about ... ? The verb takes the -ait form: Et si on allait au cinéma ?",
+    "On se retrouve = we meet up. On means we in everyday speech.",
+    "Ce week-end = this weekend."
+  ]
+}

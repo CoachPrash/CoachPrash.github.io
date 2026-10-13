@@ -1,0 +1,138 @@
+{
+  "schema": 2,
+  "scenario": "hotel",
+  "lang": "hi",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "registerNotes": {
+    "intimate": "तू is for very close friends and family. Practise this one with आप and तुम."
+  },
+  "lines": {
+    "l1": {
+      "text": "नमस्ते। क्या कोई कमरा ख़ाली है?",
+      "rom": "namaste. kyaa koee kamraa Khaalee hai?",
+      "registerNeutral": true,
+      "note": "क्या कोई कमरा ख़ाली है? (\"is any room free?\") does not say \"you\", so it is the same in every register.",
+      "accept": [
+        {
+          "text": "नमस्ते। क्या आपके पास कोई कमरा है?",
+          "rom": "namaste. kyaa aapke paas koee kamraa hai?"
+        }
+      ]
+    },
+    "l2": {
+      "text": "कितनी रातों के लिए?",
+      "rom": "kitnee raaton ke lie?"
+    },
+    "l3": {
+      "text": "{nights} रातों के लिए।",
+      "rom": "{nights} raaton ke lie."
+    },
+    "l4": {
+      "text": "जी हाँ। एक रात के दो हज़ार रुपये हैं।",
+      "rom": "jee haan. ek raat ke do hazaar rupaye hain.",
+      "accept": [
+        {
+          "text": "जी हाँ। एक रात के 2000 रुपये हैं।",
+          "rom": "jee haan. ek raat ke 2000 rupaye hain."
+        }
+      ]
+    },
+    "l5": {
+      "text": "क्या नाश्ता शामिल है?",
+      "rom": "kyaa naashtaa shaamil hai?"
+    },
+    "l6": {
+      "text": "जी हाँ, सात से दस बजे तक। ये रही आपकी चाबी।",
+      "rom": "jee haan, saat se das baje tak. ye rahee aapkee chaabee."
+    }
+  },
+  "chunks": {
+    "have-a-room": {
+      "text": "क्या कोई कमरा ख़ाली है?",
+      "rom": "kyaa koee kamraa Khaalee hai?",
+      "registerNeutral": true,
+      "literal": "(question) any room empty is?"
+    },
+    "how-many-nights": {
+      "text": "कितनी रातों के लिए?",
+      "rom": "kitnee raaton ke lie?",
+      "literal": "how-many nights for?"
+    },
+    "for-nights": {
+      "text": "___ रातों के लिए",
+      "rom": "___ raaton ke lie",
+      "literal": "___ nights for"
+    },
+    "per-night": {
+      "text": "एक रात के ___",
+      "rom": "ek raat ke ___",
+      "literal": "one night of ___"
+    },
+    "breakfast-included": {
+      "text": "क्या नाश्ता शामिल है?",
+      "rom": "kyaa naashtaa shaamil hai?",
+      "literal": "(question) breakfast included is?"
+    },
+    "your-key": {
+      "text": "ये रही आपकी चाबी",
+      "rom": "ye rahee aapkee chaabee",
+      "literal": "here is your key"
+    },
+    "wifi": {
+      "text": "क्या यहाँ वाई-फ़ाई है?",
+      "rom": "kyaa yahaan vaaee-faaee hai?",
+      "extra": true,
+      "literal": "(question) here wifi is?"
+    }
+  },
+  "slotValues": {
+    "nights": [
+      {
+        "en": "two",
+        "text": "दो",
+        "rom": "do"
+      },
+      {
+        "en": "three",
+        "text": "तीन",
+        "rom": "teen"
+      },
+      {
+        "en": "four",
+        "text": "चार",
+        "rom": "chaar"
+      },
+      {
+        "en": "five",
+        "text": "पाँच",
+        "rom": "paanch"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "checkout": {
+        "text": "चेक-आउट कितने बजे है?",
+        "rom": "chek-aauT kitne baje hai?"
+      },
+      "room-number": {
+        "text": "मेरा कमरा नंबर ___ है",
+        "rom": "meraa kamraa nambar ___ hai"
+      }
+    }
+  },
+  "notes": [
+    "ख़ाली means empty or free: कमरा ख़ाली है, a room is free.",
+    "से ... तक is \"from ... to\": सात से दस बजे तक, from seven to ten.",
+    "ये रहा / ये रही (\"here is\") agrees with the thing: ये रही चाबी (चाबी is feminine), ये रहा कमरा.",
+    "Prices in thousands use हज़ार: दो हज़ार (2,000), ढाई हज़ार (2,500)."
+  ]
+}

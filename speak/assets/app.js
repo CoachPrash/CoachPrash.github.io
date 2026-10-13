@@ -298,7 +298,13 @@
       forms.forEach(function (f) {
         var span = locateInSentence(chunkRes.text, f.text, prof, mode);
         if (span && trailing) span = toClauseEnd(span, S.units(f.text, mode), mode);
-        if (span && (!best || span.end - span.start < best.span.end - best.span.start)) best = { i: i, line: l, form: f, span: span };
+        if (!span) return;
+        /* Fewest words first; on a tie, a fit whose gap covers a {slot} (the
+         * drill line) beats one that fills the gap with fixed words. */
+        var units = S.units(f.text, mode), slot = false;
+        for (var k = span.start; k <= span.end; k++) if (/\{\w+\}/.test(units[k].text)) slot = true;
+        var cost = (span.end - span.start) * 2 + (slot ? 0 : 1);
+        if (!best || cost < best.cost) best = { i: i, line: l, form: f, span: span, cost: cost };
       });
     });
     return best;

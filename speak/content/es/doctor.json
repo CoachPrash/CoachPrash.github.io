@@ -1,0 +1,131 @@
+{
+  "schema": 2,
+  "scenario": "doctor",
+  "lang": "es",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal"
+  ],
+  "registerNotes": {
+    "familiar": "A doctor and a patient say usted to each other in Colombia."
+  },
+  "lines": {
+    "l1": {
+      "text": "¿Qué le pasa?",
+      "accept": [
+        "¿Qué tiene?",
+        "¿Cómo se siente?"
+      ]
+    },
+    "l2": {
+      "text": "Tengo {symptom}."
+    },
+    "l3": {
+      "text": "¿Desde cuándo?"
+    },
+    "l4": {
+      "text": "Desde ayer."
+    },
+    "l5": {
+      "text": "Tómese este medicamento dos veces al día, y descanse.",
+      "accept": [
+        "Tome este medicamento dos veces al día y descanse.",
+        "Tómese esta pastilla dos veces al día y descanse."
+      ]
+    },
+    "l6": {
+      "text": "Gracias, doctor.",
+      "variants": [
+        {
+          "listener": "m",
+          "text": "Gracias, doctor."
+        },
+        {
+          "listener": "f",
+          "text": "Gracias, doctora."
+        }
+      ]
+    }
+  },
+  "chunks": {
+    "whats-matter": {
+      "text": "¿qué le pasa?",
+      "literal": "what to-you happens?"
+    },
+    "i-have-symptom": {
+      "text": "tengo ___",
+      "literal": "I-have ___"
+    },
+    "since-when": {
+      "text": "¿desde cuándo?",
+      "literal": "since when?"
+    },
+    "since-yesterday": {
+      "text": "desde ayer",
+      "literal": "since yesterday"
+    },
+    "take-medicine": {
+      "text": "tómese este medicamento",
+      "literal": "take-yourself this medicine"
+    },
+    "twice-a-day": {
+      "text": "dos veces al día",
+      "literal": "two times to-the day"
+    },
+    "thank-you-doctor": {
+      "text": "gracias, doctor / doctora",
+      "choice": "mf",
+      "literal": "thanks, doctor (m / f)"
+    },
+    "feel-better": {
+      "text": "me siento mejor",
+      "extra": true,
+      "literal": "myself I-feel better"
+    }
+  },
+  "slotValues": {
+    "symptom": [
+      {
+        "en": "a headache",
+        "text": "dolor de cabeza"
+      },
+      {
+        "en": "a cough",
+        "text": "tos"
+      },
+      {
+        "en": "a fever",
+        "text": "fiebre"
+      },
+      {
+        "en": "a stomach ache",
+        "text": "dolor de estómago"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "it-hurts": {
+        "text": "Me duele aquí.",
+        "accept": [
+          "Me duele acá."
+        ]
+      },
+      "get-well": {
+        "text": "Que se mejore.",
+        "accept": [
+          "Que se mejore pronto."
+        ]
+      }
+    }
+  },
+  "notes": [
+    "Symptoms use tener: tengo fiebre, tengo tos, tengo dolor de cabeza.",
+    "Me siento maluco (\"I feel bad-ish\") is the Colombian way to say you feel unwell.",
+    "Doctor for a man, doctora for a woman. Colombians also call many professionals doctor as a title."
+  ]
+}

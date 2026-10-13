@@ -1,0 +1,133 @@
+{
+  "schema": 2,
+  "scenario": "compare",
+  "lang": "zh",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "哪个{thing}更好，这个还是那个？",
+      "rom": "Nǎge {thing} gèng hǎo, zhège háishi nàge?"
+    },
+    "l2": {
+      "text": "这个更便宜，但是那个更快。",
+      "rom": "Zhège gèng piányi, dànshì nàge gèng kuài."
+    },
+    "l3": {
+      "text": "我更喜欢便宜的。",
+      "rom": "Wǒ gèng xǐhuan piányi de."
+    },
+    "l4": {
+      "text": "为什么？",
+      "rom": "Wèishénme?"
+    },
+    "l5": {
+      "text": "因为我不需要那么快的。",
+      "rom": "Yīnwèi wǒ bù xūyào nàme kuài de."
+    },
+    "l6": {
+      "text": "有道理！",
+      "rom": "Yǒu dàolǐ!"
+    }
+  },
+  "chunks": {
+    "which-better": {
+      "text": "哪个___更好？",
+      "rom": "nǎge ___ gèng hǎo?",
+      "literal": "which ___ more good?",
+      "chain": [
+        "更好？"
+      ]
+    },
+    "this-cheaper": {
+      "text": "这个更便宜",
+      "rom": "zhège gèng piányi",
+      "literal": "this more cheap",
+      "chain": [
+        "便宜",
+        "更便宜"
+      ]
+    },
+    "that-faster": {
+      "text": "那个更快",
+      "rom": "nàge gèng kuài",
+      "literal": "that more fast",
+      "chain": [
+        "更快"
+      ]
+    },
+    "prefer-cheaper": {
+      "text": "我更喜欢便宜的",
+      "rom": "wǒ gèng xǐhuan piányi de",
+      "literal": "I more like cheap (one)",
+      "chain": [
+        "便宜的",
+        "喜欢便宜的"
+      ]
+    },
+    "because": {
+      "text": "因为___",
+      "rom": "yīnwèi ___",
+      "literal": "because ___"
+    },
+    "makes-sense": {
+      "text": "有道理",
+      "rom": "yǒu dàolǐ",
+      "literal": "have reason"
+    },
+    "same": {
+      "text": "都一样",
+      "rom": "dōu yíyàng",
+      "literal": "both same",
+      "extra": true
+    }
+  },
+  "slotValues": {
+    "thing": [
+      {
+        "en": "phone",
+        "text": "手机",
+        "rom": "shǒujī"
+      },
+      {
+        "en": "computer",
+        "text": "电脑",
+        "rom": "diànnǎo"
+      },
+      {
+        "en": "bike",
+        "text": "自行车",
+        "rom": "zìxíngchē"
+      },
+      {
+        "en": "printer",
+        "text": "打印机",
+        "rom": "dǎyìnjī"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "bigger-than": {
+        "text": "___比___大。",
+        "rom": "___ bǐ ___ dà."
+      },
+      "like-both": {
+        "text": "两个我都喜欢。",
+        "rom": "Liǎng ge wǒ dōu xǐhuan."
+      }
+    }
+  },
+  "notes": [
+    "更 (gèng, more) makes a comparison: 这个更便宜.",
+    "A 比 B + adjective: 北京比上海大 (Beijing is bigger than Shanghai). Never add 很 after 比.",
+    "还是 (háishi, or) is for questions: 这个还是那个？"
+  ]
+}

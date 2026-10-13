@@ -1,0 +1,173 @@
+{
+  "schema": 2,
+  "scenario": "festival",
+  "lang": "zh",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "{festival}",
+      "rom": "{festival}"
+    },
+    "l2": {
+      "text": "你也一样！",
+      "rom": "Nǐ yě yíyàng!",
+      "accept": [
+        {
+          "text": "同乐同乐！",
+          "rom": "Tónglè tónglè!"
+        }
+      ],
+      "byRegister": {
+        "formal": {
+          "text": "您也一样！",
+          "rom": "Nín yě yíyàng!"
+        }
+      }
+    },
+    "l3": {
+      "text": "你过节做什么？",
+      "rom": "Nǐ guò jié zuò shénme?",
+      "byRegister": {
+        "formal": {
+          "text": "您过节做什么？",
+          "rom": "Nín guò jié zuò shénme?"
+        }
+      }
+    },
+    "l4": {
+      "text": "我们去看家人，吃饺子。",
+      "rom": "Wǒmen qù kàn jiārén, chī jiǎozi."
+    },
+    "l5": {
+      "text": "听起来真好！",
+      "rom": "Tīng qǐlai zhēn hǎo!"
+    },
+    "l6": {
+      "text": "来跟我们一起过节吧！",
+      "rom": "Lái gēn wǒmen yìqǐ guò jié ba!",
+      "registerNeutral": true
+    }
+  },
+  "chunks": {
+    "same-to-you": {
+      "text": "你也一样",
+      "rom": "nǐ yě yíyàng",
+      "byRegister": {
+        "formal": {
+          "text": "您也一样",
+          "rom": "nín yě yíyàng"
+        }
+      },
+      "literal": "you also same",
+      "chain": [
+        "一样",
+        "也一样"
+      ]
+    },
+    "what-do-for": {
+      "text": "你过节做什么？",
+      "rom": "nǐ guò jié zuò shénme?",
+      "byRegister": {
+        "formal": {
+          "text": "您过节做什么？",
+          "rom": "nín guò jié zuò shénme?"
+        }
+      },
+      "literal": "you pass festival do what?",
+      "chain": [
+        "做什么？",
+        "过节做什么？"
+      ]
+    },
+    "visit-family": {
+      "text": "去看家人",
+      "rom": "qù kàn jiārén",
+      "literal": "go see family",
+      "chain": [
+        "看家人"
+      ]
+    },
+    "special-food": {
+      "text": "吃饺子",
+      "rom": "chī jiǎozi",
+      "literal": "eat dumplings"
+    },
+    "sounds-lovely": {
+      "text": "听起来真好",
+      "rom": "tīng qǐlai zhēn hǎo",
+      "literal": "listen-rise really good",
+      "chain": [
+        "真好"
+      ]
+    },
+    "come-celebrate": {
+      "text": "跟我们一起过节吧",
+      "rom": "gēn wǒmen yìqǐ guò jié ba",
+      "registerNeutral": true,
+      "literal": "with us together pass festival (suggest)",
+      "chain": [
+        "过节吧",
+        "一起过节吧",
+        "我们一起过节吧"
+      ]
+    },
+    "best-wishes": {
+      "text": "万事如意",
+      "rom": "wànshì rúyì",
+      "literal": "ten-thousand things as-you-wish",
+      "extra": true,
+      "chain": [
+        "如意"
+      ]
+    }
+  },
+  "slotValues": {
+    "festival": [
+      {
+        "en": "Happy Spring Festival",
+        "text": "春节快乐！",
+        "rom": "Chūnjié kuàilè!"
+      },
+      {
+        "en": "Happy New Year",
+        "text": "新年快乐！",
+        "rom": "Xīnnián kuàilè!"
+      },
+      {
+        "en": "Happy Mid-Autumn Festival",
+        "text": "中秋快乐！",
+        "rom": "Zhōngqiū kuàilè!"
+      },
+      {
+        "en": "Happy birthday",
+        "text": "生日快乐！",
+        "rom": "Shēngrì kuàilè!"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "favourite-festival": {
+        "text": "我最喜欢的节日是___。",
+        "rom": "Wǒ zuì xǐhuan de jiérì shì ___."
+      },
+      "we-wear": {
+        "text": "我们穿___。",
+        "rom": "Wǒmen chuān ___."
+      }
+    }
+  },
+  "notes": [
+    "Any festival wish is the festival + 快乐 (kuàilè, happy): 春节快乐, 生日快乐.",
+    "At Spring Festival northern families make 饺子 (jiǎozi) together. At Mid-Autumn, people eat 月饼 (yuèbing, mooncakes).",
+    "过节 (guò jié) is \"to celebrate a festival\", literally \"pass the festival\"."
+  ]
+}

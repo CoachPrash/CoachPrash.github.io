@@ -1,0 +1,229 @@
+{
+  "schema": 2,
+  "scenario": "advice",
+  "lang": "hi",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "registerNotes": {
+    "intimate": "तू is for very close friends and family. Practise this one with आप and तुम."
+  },
+  "lines": {
+    "l1": {
+      "text": "मैं हमेशा थका रहता हूँ। मुझे क्या करना चाहिए?",
+      "rom": "main hameshaa thakaa rahtaa hoon. mujhe kyaa karnaa chaahie?",
+      "variants": [
+        {
+          "speaker": "m",
+          "text": "मैं हमेशा थका रहता हूँ। मुझे क्या करना चाहिए?",
+          "rom": "main hameshaa thakaa rahtaa hoon. mujhe kyaa karnaa chaahie?"
+        },
+        {
+          "speaker": "f",
+          "text": "मैं हमेशा थकी रहती हूँ। मुझे क्या करना चाहिए?",
+          "rom": "main hameshaa thakee rahtee hoon. mujhe kyaa karnaa chaahie?"
+        }
+      ]
+    },
+    "l2": {
+      "text": "आपको {advice} चाहिए।",
+      "rom": "aapko {advice} chaahie.",
+      "byRegister": {
+        "familiar": {
+          "text": "तुम्हें {advice} चाहिए।",
+          "rom": "tumhen {advice} chaahie."
+        }
+      }
+    },
+    "l3": {
+      "text": "पता है, पर मैं देर तक काम करता हूँ।",
+      "rom": "pataa hai, par main der tak kaam kartaa hoon.",
+      "variants": [
+        {
+          "speaker": "m",
+          "text": "पता है, पर मैं देर तक काम करता हूँ।",
+          "rom": "pataa hai, par main der tak kaam kartaa hoon."
+        },
+        {
+          "speaker": "f",
+          "text": "पता है, पर मैं देर तक काम करती हूँ।",
+          "rom": "pataa hai, par main der tak kaam kartee hoon."
+        }
+      ]
+    },
+    "l4": {
+      "text": "आप हर सुबह टहलने क्यों नहीं जाते?",
+      "rom": "aap har subah Tahalne kyon naheen jaate?",
+      "variants": [
+        {
+          "listener": "m",
+          "text": "आप हर सुबह टहलने क्यों नहीं जाते?",
+          "rom": "aap har subah Tahalne kyon naheen jaate?"
+        },
+        {
+          "listener": "f",
+          "text": "आप हर सुबह टहलने क्यों नहीं जातीं?",
+          "rom": "aap har subah Tahalne kyon naheen jaateen?"
+        }
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "तुम हर सुबह टहलने क्यों नहीं जाते?",
+          "rom": "tum har subah Tahalne kyon naheen jaate?",
+          "variants": [
+            {
+              "listener": "m",
+              "text": "तुम हर सुबह टहलने क्यों नहीं जाते?",
+              "rom": "tum har subah Tahalne kyon naheen jaate?"
+            },
+            {
+              "listener": "f",
+              "text": "तुम हर सुबह टहलने क्यों नहीं जातीं?",
+              "rom": "tum har subah Tahalne kyon naheen jaateen?"
+            }
+          ]
+        }
+      }
+    },
+    "l5": {
+      "text": "अच्छा आइडिया है। मैं कोशिश करूँगा।",
+      "rom": "achchhaa aaiDiyaa hai. main koshish karoongaa.",
+      "variants": [
+        {
+          "speaker": "m",
+          "text": "अच्छा आइडिया है। मैं कोशिश करूँगा।",
+          "rom": "achchhaa aaiDiyaa hai. main koshish karoongaa."
+        },
+        {
+          "speaker": "f",
+          "text": "अच्छा आइडिया है। मैं कोशिश करूँगी।",
+          "rom": "achchhaa aaiDiyaa hai. main koshish karoongee."
+        }
+      ]
+    },
+    "l6": {
+      "text": "ऑल द बेस्ट!",
+      "rom": "ol da besT!",
+      "registerNeutral": true,
+      "accept": [
+        {
+          "text": "शुभकामनाएँ!",
+          "rom": "shubhkaamnaaen!"
+        }
+      ]
+    }
+  },
+  "chunks": {
+    "what-should-i-do": {
+      "text": "मुझे क्या करना चाहिए?",
+      "rom": "mujhe kyaa karnaa chaahie?",
+      "literal": "to-me what to-do is-needed?"
+    },
+    "you-should": {
+      "text": "आपको ___ चाहिए",
+      "rom": "aapko ___ chaahie",
+      "literal": "to-you ___ is-needed",
+      "byRegister": {
+        "familiar": {
+          "text": "तुम्हें ___ चाहिए",
+          "rom": "tumhen ___ chaahie"
+        }
+      }
+    },
+    "i-know-but": {
+      "text": "पता है, पर ___",
+      "rom": "pataa hai, par ___",
+      "literal": "known is, but ___"
+    },
+    "why-dont-you": {
+      "text": "आप ___ क्यों नहीं जाते / जातीं?",
+      "rom": "aap ___ kyon naheen jaate / jaateen?",
+      "choice": "mf",
+      "literal": "you ___ why not go?",
+      "byRegister": {
+        "familiar": {
+          "text": "तुम ___ क्यों नहीं जाते / जातीं?",
+          "rom": "tum ___ kyon naheen jaate / jaateen?"
+        }
+      }
+    },
+    "ill-try": {
+      "text": "मैं कोशिश करूँगा / करूँगी",
+      "rom": "main koshish karoongaa / karoongee",
+      "choice": "mf",
+      "literal": "I attempt will-do"
+    },
+    "good-luck": {
+      "text": "ऑल द बेस्ट",
+      "rom": "ol da besT",
+      "registerNeutral": true,
+      "literal": "all the best"
+    },
+    "dont-worry": {
+      "text": "चिंता मत कीजिए",
+      "rom": "chintaa mat keejie",
+      "extra": true,
+      "literal": "worry don't do (please)",
+      "byRegister": {
+        "familiar": {
+          "text": "चिंता मत करो",
+          "rom": "chintaa mat karo"
+        }
+      }
+    }
+  },
+  "slotValues": {
+    "advice": [
+      {
+        "en": "go to bed early",
+        "text": "जल्दी सोना",
+        "rom": "jaldee sonaa"
+      },
+      {
+        "en": "drink more water",
+        "text": "ज़्यादा पानी पीना",
+        "rom": "zyaadaa paanee peenaa"
+      },
+      {
+        "en": "rest",
+        "text": "आराम करना",
+        "rom": "aaraam karnaa"
+      },
+      {
+        "en": "do yoga",
+        "text": "योग करना",
+        "rom": "yog karnaa"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "my-problem": {
+        "text": "मेरी परेशानी ये है कि ___",
+        "rom": "meree pareshaanee ye hai ki ___"
+      },
+      "you-shouldnt": {
+        "text": "आपको ___ नहीं चाहिए",
+        "rom": "aapko ___ naheen chaahie",
+        "byRegister": {
+          "familiar": {
+            "text": "तुम्हें ___ नहीं चाहिए",
+            "rom": "tumhen ___ naheen chaahie"
+          }
+        }
+      }
+    }
+  },
+  "notes": [
+    "Advice uses चाहिए after a verb: आपको जल्दी सोना चाहिए (\"to you sleeping early is needed\"), you should sleep early. मुझे क्या करना चाहिए? asks for advice.",
+    "क्यों नहीं ...? (\"why not ...?\") makes a friendly suggestion: आप टहलने क्यों नहीं जाते?",
+    "थका रहता / थकी रहती हूँ (\"I stay tired\") agrees with the speaker.",
+    "ऑल द बेस्ट! is the everyday \"good luck\". शुभकामनाएँ is the Hindi word."
+  ]
+}

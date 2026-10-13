@@ -1,0 +1,132 @@
+{
+  "schema": 2,
+  "scenario": "arrange",
+  "lang": "es",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "¿Qué hacemos este fin de semana?"
+    },
+    "l2": {
+      "text": "¿Y si vamos {activity}?",
+      "accept": [
+        "¿Qué tal si vamos {activity}?"
+      ]
+    },
+    "l3": {
+      "text": "Buena idea. ¿Dónde nos vemos?",
+      "accept": [
+        "Buena idea. ¿Dónde nos encontramos?"
+      ]
+    },
+    "l4": {
+      "text": "Nos vemos en la estación.",
+      "accept": [
+        "Nos encontramos en la estación."
+      ]
+    },
+    "l5": {
+      "text": "¿A las once está bien?",
+      "accept": [
+        "¿A las 11 está bien?",
+        "¿Le parece a las once?",
+        "¿Te parece a las once?"
+      ]
+    },
+    "l6": {
+      "text": "Perfecto. ¡Nos vemos allá!",
+      "accept": [
+        "Listo. ¡Nos vemos allá!"
+      ]
+    }
+  },
+  "chunks": {
+    "what-shall-we-do": {
+      "text": "¿qué hacemos este fin de semana?",
+      "literal": "what we-do this end of week?"
+    },
+    "how-about": {
+      "text": "¿y si vamos ___?",
+      "literal": "and if we-go ___?"
+    },
+    "good-idea": {
+      "text": "buena idea",
+      "literal": "good idea"
+    },
+    "where-meet": {
+      "text": "¿dónde nos vemos?",
+      "literal": "where ourselves we-see?"
+    },
+    "lets-meet": {
+      "text": "nos vemos en ___",
+      "literal": "ourselves we-see in ___"
+    },
+    "is-ok": {
+      "text": "¿a las ___ está bien?",
+      "literal": "at the ___ is well?"
+    },
+    "see-you-there": {
+      "text": "nos vemos allá",
+      "literal": "ourselves we-see there"
+    },
+    "ill-text": {
+      "text": "le escribo",
+      "byRegister": {
+        "familiar": {
+          "text": "te escribo"
+        }
+      },
+      "extra": true,
+      "literal": "to-you I-write"
+    }
+  },
+  "slotValues": {
+    "activity": [
+      {
+        "en": "going to the cinema",
+        "text": "a cine"
+      },
+      {
+        "en": "going for a walk",
+        "text": "a caminar"
+      },
+      {
+        "en": "going to the park",
+        "text": "al parque"
+      },
+      {
+        "en": "going dancing",
+        "text": "a bailar"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "cant-saturday": {
+        "text": "El sábado no puedo.",
+        "accept": [
+          "No puedo el sábado."
+        ]
+      },
+      "what-about": {
+        "text": "¿Qué tal ___?",
+        "accept": [
+          "¿Y ___?"
+        ]
+      }
+    }
+  },
+  "notes": [
+    "Present tense works for plans: ¿Qué hacemos? (\"what do we do?\") means \"what shall we do?\".",
+    "Nos vemos (\"we see each other\") means \"let's meet\" and also \"see you\".",
+    "Le escribo / te escribo (\"I'll write to you\") usually means a WhatsApp message."
+  ]
+}

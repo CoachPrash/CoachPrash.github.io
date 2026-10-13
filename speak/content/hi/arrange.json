@@ -1,0 +1,142 @@
+{
+  "schema": 2,
+  "scenario": "arrange",
+  "lang": "hi",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "registerNotes": {
+    "intimate": "तू is for very close friends and family. Practise this one with आप and तुम."
+  },
+  "lines": {
+    "l1": {
+      "text": "इस वीकेंड क्या करें?",
+      "rom": "is veekenD kyaa karen?"
+    },
+    "l2": {
+      "text": "{activity} कैसा रहेगा?",
+      "rom": "{activity} kaisaa rahegaa?"
+    },
+    "l3": {
+      "text": "अच्छा आइडिया। कहाँ मिलें?",
+      "rom": "achchhaa aaiDiyaa. kahaan milen?"
+    },
+    "l4": {
+      "text": "स्टेशन पर मिलते हैं।",
+      "rom": "sTeshan par milte hain."
+    },
+    "l5": {
+      "text": "ग्यारह बजे ठीक है?",
+      "rom": "gyaarah baje Theek hai?",
+      "accept": [
+        {
+          "text": "11 बजे ठीक है?",
+          "rom": "11 baje Theek hai?"
+        }
+      ]
+    },
+    "l6": {
+      "text": "बिल्कुल। वहीं मिलते हैं!",
+      "rom": "bilkul. vaheen milte hain!"
+    }
+  },
+  "chunks": {
+    "what-shall-we-do": {
+      "text": "इस वीकेंड क्या करें?",
+      "rom": "is veekenD kyaa karen?",
+      "literal": "this weekend what (shall-we)-do?"
+    },
+    "how-about": {
+      "text": "___ कैसा रहेगा?",
+      "rom": "___ kaisaa rahegaa?",
+      "literal": "___ how will-be?"
+    },
+    "good-idea": {
+      "text": "अच्छा आइडिया",
+      "rom": "achchhaa aaiDiyaa",
+      "literal": "good idea"
+    },
+    "where-meet": {
+      "text": "कहाँ मिलें?",
+      "rom": "kahaan milen?",
+      "literal": "where (shall-we)-meet?"
+    },
+    "lets-meet": {
+      "text": "___ पर मिलते हैं",
+      "rom": "___ par milte hain",
+      "literal": "___ at (we) meet"
+    },
+    "is-ok": {
+      "text": "___ ठीक है?",
+      "rom": "___ Theek hai?",
+      "literal": "___ fine is?"
+    },
+    "see-you-there": {
+      "text": "वहीं मिलते हैं",
+      "rom": "vaheen milte hain",
+      "literal": "right-there (we) meet"
+    },
+    "ill-text": {
+      "text": "मैं आपको मैसेज करूँगा / करूँगी",
+      "rom": "main aapko maisej karoongaa / karoongee",
+      "choice": "mf",
+      "extra": true,
+      "literal": "I to-you message will-do",
+      "byRegister": {
+        "familiar": {
+          "text": "मैं तुम्हें मैसेज करूँगा / करूँगी",
+          "rom": "main tumhen maisej karoongaa / karoongee"
+        }
+      }
+    }
+  },
+  "slotValues": {
+    "activity": [
+      {
+        "en": "seeing a film",
+        "text": "फ़िल्म देखना",
+        "rom": "film dekhnaa"
+      },
+      {
+        "en": "playing cricket",
+        "text": "क्रिकेट खेलना",
+        "rom": "krikeT khelnaa"
+      },
+      {
+        "en": "going to the market",
+        "text": "बाज़ार जाना",
+        "rom": "baazaar jaanaa"
+      },
+      {
+        "en": "going to India Gate",
+        "text": "इंडिया गेट जाना",
+        "rom": "inDiyaa geT jaanaa"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "cant-saturday": {
+        "text": "मैं शनिवार को नहीं आ सकता / सकती",
+        "rom": "main shanivaar ko naheen aa saktaa / saktee",
+        "choice": "mf"
+      },
+      "what-about": {
+        "text": "___ के बारे में क्या ख़याल है?",
+        "rom": "___ ke baare men kyaa Khayaal hai?"
+      }
+    }
+  },
+  "notes": [
+    "करें? and मिलें? (\"shall we do? shall we meet?\") make suggestions. They are the same for everyone.",
+    "___ कैसा रहेगा? (\"how will ___ be?\") suggests a plan: फ़िल्म देखना कैसा रहेगा?",
+    "वहीं is \"right there\" (वहाँ + ही). मिलते हैं (\"we meet\") is the everyday \"see you\".",
+    "Plans are usually confirmed on WhatsApp: मैं मैसेज करूँगा / करूँगी."
+  ]
+}

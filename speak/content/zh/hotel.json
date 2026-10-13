@@ -1,0 +1,181 @@
+{
+  "schema": 2,
+  "scenario": "hotel",
+  "lang": "zh",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "晚上好。有房间吗？",
+      "rom": "Wǎnshang hǎo. Yǒu fángjiān ma?",
+      "accept": [
+        {
+          "text": "晚上好。你们有房间吗？",
+          "rom": "Wǎnshang hǎo. Nǐmen yǒu fángjiān ma?"
+        }
+      ],
+      "registerNeutral": true
+    },
+    "l2": {
+      "text": "住几个晚上？",
+      "rom": "Zhù jǐ ge wǎnshang?",
+      "accept": [
+        {
+          "text": "住几晚？",
+          "rom": "Zhù jǐ wǎn?"
+        }
+      ]
+    },
+    "l3": {
+      "text": "住{nights}个晚上。",
+      "rom": "Zhù {nights} ge wǎnshang.",
+      "accept": [
+        {
+          "text": "{nights}个晚上。",
+          "rom": "{nights} ge wǎnshang."
+        }
+      ]
+    },
+    "l4": {
+      "text": "好的。三百块一晚。",
+      "rom": "Hǎo de. Sānbǎi kuài yì wǎn.",
+      "accept": [
+        {
+          "text": "好的。300块一晚。",
+          "rom": "Hǎo de. 300 kuài yì wǎn."
+        }
+      ]
+    },
+    "l5": {
+      "text": "含早餐吗？",
+      "rom": "Hán zǎocān ma?",
+      "accept": [
+        {
+          "text": "包早餐吗？",
+          "rom": "Bāo zǎocān ma?"
+        }
+      ]
+    },
+    "l6": {
+      "text": "含，七点到十点。这是你的房卡。",
+      "rom": "Hán, qī diǎn dào shí diǎn. Zhè shì nǐ de fángkǎ.",
+      "byRegister": {
+        "formal": {
+          "text": "含，七点到十点。这是您的房卡。",
+          "rom": "Hán, qī diǎn dào shí diǎn. Zhè shì nín de fángkǎ."
+        }
+      }
+    }
+  },
+  "chunks": {
+    "have-a-room": {
+      "text": "有房间吗？",
+      "rom": "yǒu fángjiān ma?",
+      "registerNeutral": true,
+      "literal": "have room?",
+      "chain": [
+        "房间吗？"
+      ]
+    },
+    "how-many-nights": {
+      "text": "住几个晚上？",
+      "rom": "zhù jǐ ge wǎnshang?",
+      "literal": "stay how-many (measure) nights?",
+      "chain": [
+        "晚上？",
+        "几个晚上？"
+      ]
+    },
+    "for-nights": {
+      "text": "住___个晚上",
+      "rom": "zhù ___ ge wǎnshang",
+      "literal": "stay ___ (measure) nights",
+      "chain": [
+        "晚上",
+        "个晚上"
+      ]
+    },
+    "per-night": {
+      "text": "___一晚",
+      "rom": "___ yì wǎn",
+      "literal": "___ one night"
+    },
+    "breakfast-included": {
+      "text": "含早餐吗？",
+      "rom": "hán zǎocān ma?",
+      "literal": "include breakfast?",
+      "chain": [
+        "早餐吗？"
+      ]
+    },
+    "your-key": {
+      "text": "这是你的房卡",
+      "rom": "zhè shì nǐ de fángkǎ",
+      "byRegister": {
+        "formal": {
+          "text": "这是您的房卡",
+          "rom": "zhè shì nín de fángkǎ"
+        }
+      },
+      "literal": "this is your room-card",
+      "chain": [
+        "房卡",
+        "你的房卡"
+      ]
+    },
+    "wifi": {
+      "text": "有WiFi吗？",
+      "rom": "yǒu WiFi ma?",
+      "literal": "have wifi?",
+      "extra": true
+    }
+  },
+  "slotValues": {
+    "nights": [
+      {
+        "en": "two",
+        "text": "两",
+        "rom": "liǎng"
+      },
+      {
+        "en": "three",
+        "text": "三",
+        "rom": "sān"
+      },
+      {
+        "en": "four",
+        "text": "四",
+        "rom": "sì"
+      },
+      {
+        "en": "five",
+        "text": "五",
+        "rom": "wǔ"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "checkout": {
+        "text": "几点退房？",
+        "rom": "Jǐ diǎn tuìfáng?"
+      },
+      "room-number": {
+        "text": "我的房间号是___。",
+        "rom": "Wǒ de fángjiān hào shì ___."
+      }
+    }
+  },
+  "notes": [
+    "Hotels give a key card: 房卡 (fángkǎ). 钥匙 (yàoshi) is a metal key.",
+    "含早餐 (hán zǎocān) means breakfast is included.",
+    "Receptionists say 您 to guests. Use 您 when you play the receptionist."
+  ]
+}

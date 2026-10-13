@@ -1,0 +1,164 @@
+{
+  "schema": 2,
+  "scenario": "plans",
+  "lang": "zh",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "今年夏天你打算做什么？",
+      "rom": "Jīnnián xiàtiān nǐ dǎsuàn zuò shénme?",
+      "byRegister": {
+        "formal": {
+          "text": "今年夏天您打算做什么？",
+          "rom": "Jīnnián xiàtiān nín dǎsuàn zuò shénme?"
+        }
+      }
+    },
+    "l2": {
+      "text": "我打算去{place}。",
+      "rom": "Wǒ dǎsuàn qù {place}."
+    },
+    "l3": {
+      "text": "太好了！跟谁一起去？",
+      "rom": "Tài hǎo le! Gēn shéi yìqǐ qù?"
+    },
+    "l4": {
+      "text": "跟我哥哥。你呢？",
+      "rom": "Gēn wǒ gēge. Nǐ ne?",
+      "byRegister": {
+        "formal": {
+          "text": "跟我哥哥。您呢？",
+          "rom": "Gēn wǒ gēge. Nín ne?"
+        }
+      }
+    },
+    "l5": {
+      "text": "我想去旅行，但是我得工作。",
+      "rom": "Wǒ xiǎng qù lǚxíng, dànshì wǒ děi gōngzuò."
+    },
+    "l6": {
+      "text": "太可惜了！也许明年吧。",
+      "rom": "Tài kěxī le! Yěxǔ míngnián ba."
+    }
+  },
+  "chunks": {
+    "going-to-do": {
+      "text": "今年夏天你打算做什么？",
+      "rom": "jīnnián xiàtiān nǐ dǎsuàn zuò shénme?",
+      "byRegister": {
+        "formal": {
+          "text": "今年夏天您打算做什么？",
+          "rom": "jīnnián xiàtiān nín dǎsuàn zuò shénme?"
+        }
+      },
+      "literal": "this-year summer you plan do what?",
+      "chain": [
+        "做什么？",
+        "打算做什么？",
+        "你打算做什么？"
+      ]
+    },
+    "im-going-to": {
+      "text": "我打算___",
+      "rom": "wǒ dǎsuàn ___",
+      "literal": "I plan ___"
+    },
+    "who-with": {
+      "text": "跟谁一起去？",
+      "rom": "gēn shéi yìqǐ qù?",
+      "literal": "with who together go?",
+      "chain": [
+        "一起去？",
+        "谁一起去？"
+      ]
+    },
+    "id-like-to": {
+      "text": "我想___",
+      "rom": "wǒ xiǎng ___",
+      "literal": "I want ___"
+    },
+    "have-to-work": {
+      "text": "我得工作",
+      "rom": "wǒ děi gōngzuò",
+      "literal": "I must work",
+      "chain": [
+        "工作",
+        "得工作"
+      ]
+    },
+    "too-bad": {
+      "text": "太可惜了",
+      "rom": "tài kěxī le",
+      "literal": "too pitiful",
+      "chain": [
+        "可惜了"
+      ]
+    },
+    "next-year": {
+      "text": "也许明年吧",
+      "rom": "yěxǔ míngnián ba",
+      "literal": "maybe next-year (then)",
+      "chain": [
+        "明年吧"
+      ]
+    },
+    "sounds-great": {
+      "text": "听起来很棒",
+      "rom": "tīng qǐlai hěn bàng",
+      "literal": "listen-rise very great",
+      "extra": true,
+      "chain": [
+        "很棒"
+      ]
+    }
+  },
+  "slotValues": {
+    "place": [
+      {
+        "en": "Beijing",
+        "text": "北京",
+        "rom": "Běijīng"
+      },
+      {
+        "en": "my grandma",
+        "text": "看奶奶",
+        "rom": "kàn nǎinai"
+      },
+      {
+        "en": "Yunnan",
+        "text": "云南",
+        "rom": "Yúnnán"
+      },
+      {
+        "en": "the seaside",
+        "text": "海边",
+        "rom": "hǎibiān"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "this-year": {
+        "text": "今年我想___。",
+        "rom": "Jīnnián wǒ xiǎng ___."
+      },
+      "next-month": {
+        "text": "下个月我打算___。",
+        "rom": "Xià ge yuè wǒ dǎsuàn ___."
+      }
+    }
+  },
+  "notes": [
+    "打算 (dǎsuàn) is a plan; 想 (xiǎng) is a wish: 我想去旅行 means I'd like to travel.",
+    "得 (děi) means have to: 我得工作.",
+    "太可惜了 (tài kěxī le) is \"what a shame\"."
+  ]
+}

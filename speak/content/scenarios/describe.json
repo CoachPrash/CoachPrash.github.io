@@ -1,0 +1,91 @@
+{
+  "schema": 2,
+  "id": "describe",
+  "title": "What's she like?",
+  "goal": "Describe what someone looks like and what they are like.",
+  "roles": {
+    "A": "Asks first",
+    "B": "Answers, then asks back"
+  },
+  "slots": {
+    "look": {
+      "kind": "set",
+      "cue": "a description"
+    }
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "role": "A",
+      "en": "Who is that?"
+    },
+    {
+      "id": "l2",
+      "role": "B",
+      "en": "That's my sister."
+    },
+    {
+      "id": "l3",
+      "role": "A",
+      "en": "What's she like?"
+    },
+    {
+      "id": "l4",
+      "role": "B",
+      "en": "She's very kind and funny."
+    },
+    {
+      "id": "l5",
+      "role": "A",
+      "en": "And what does she look like?"
+    },
+    {
+      "id": "l6",
+      "role": "B",
+      "en": "She {look}."
+    }
+  ],
+  "chunks": [
+    {
+      "id": "who-is-that",
+      "en": "who is that?"
+    },
+    {
+      "id": "thats-my",
+      "en": "that's my ___"
+    },
+    {
+      "id": "whats-she-like",
+      "en": "what's she like?"
+    },
+    {
+      "id": "kind-funny",
+      "en": "very kind and funny"
+    },
+    {
+      "id": "look-like",
+      "en": "what does she look like?"
+    },
+    {
+      "id": "he-glasses",
+      "en": "he wears glasses"
+    }
+  ],
+  "drill": {
+    "slot": "look",
+    "instruction": "Swap the description each time."
+  },
+  "free": {
+    "prompt": "Describe a friend or relative: looks and character. The others guess who it is.",
+    "targets": [
+      {
+        "id": "he-is",
+        "en": "he is ___"
+      },
+      {
+        "id": "she-has",
+        "en": "she has ___"
+      }
+    ]
+  }
+}

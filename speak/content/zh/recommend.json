@@ -1,0 +1,181 @@
+{
+  "schema": 2,
+  "scenario": "recommend",
+  "lang": "zh",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "你能推荐一个好饭馆吗？",
+      "rom": "Nǐ néng tuījiàn yí ge hǎo fànguǎn ma?",
+      "byRegister": {
+        "formal": {
+          "text": "您能推荐一个好饭馆吗？",
+          "rom": "Nín néng tuījiàn yí ge hǎo fànguǎn ma?"
+        }
+      }
+    },
+    "l2": {
+      "text": "可以！市场附近有一家很好的。",
+      "rom": "Kěyǐ! Shìchǎng fùjìn yǒu yì jiā hěn hǎo de."
+    },
+    "l3": {
+      "text": "那儿什么最有名？",
+      "rom": "Nàr shénme zuì yǒumíng?"
+    },
+    "l4": {
+      "text": "那儿的{dish}最有名。",
+      "rom": "Nàr de {dish} zuì yǒumíng."
+    },
+    "l5": {
+      "text": "贵吗？",
+      "rom": "Guì ma?"
+    },
+    "l6": {
+      "text": "不贵，挺便宜的。你一定要尝尝！",
+      "rom": "Bú guì, tǐng piányi de. Nǐ yídìng yào chángchang!",
+      "byRegister": {
+        "formal": {
+          "text": "不贵，挺便宜的。您一定要尝尝！",
+          "rom": "Bú guì, tǐng piányi de. Nín yídìng yào chángchang!"
+        }
+      }
+    }
+  },
+  "chunks": {
+    "can-you-recommend": {
+      "text": "你能推荐一个好___吗？",
+      "rom": "nǐ néng tuījiàn yí ge hǎo ___ ma?",
+      "byRegister": {
+        "formal": {
+          "text": "您能推荐一个好___吗？",
+          "rom": "nín néng tuījiàn yí ge hǎo ___ ma?"
+        }
+      },
+      "literal": "you can recommend a good ___?",
+      "chain": [
+        "好___吗？",
+        "推荐一个好___吗？"
+      ]
+    },
+    "good-place": {
+      "text": "___附近有一家很好的",
+      "rom": "___ fùjìn yǒu yì jiā hěn hǎo de",
+      "literal": "___ nearby have one (measure) very good (one)",
+      "chain": [
+        "很好的",
+        "一家很好的"
+      ]
+    },
+    "famous-for": {
+      "text": "什么最有名？",
+      "rom": "shénme zuì yǒumíng?",
+      "literal": "what most famous?",
+      "chain": [
+        "有名？",
+        "最有名？"
+      ]
+    },
+    "its-famous": {
+      "text": "那儿的___最有名",
+      "rom": "nàr de ___ zuì yǒumíng",
+      "literal": "there's ___ most famous",
+      "chain": [
+        "最有名"
+      ]
+    },
+    "is-it-expensive": {
+      "text": "贵吗？",
+      "rom": "guì ma?",
+      "literal": "expensive?"
+    },
+    "quite-cheap": {
+      "text": "挺便宜的",
+      "rom": "tǐng piányi de",
+      "literal": "quite cheap",
+      "chain": [
+        "便宜的"
+      ]
+    },
+    "must-try": {
+      "text": "你一定要尝尝",
+      "rom": "nǐ yídìng yào chángchang",
+      "byRegister": {
+        "formal": {
+          "text": "您一定要尝尝",
+          "rom": "nín yídìng yào chángchang"
+        }
+      },
+      "literal": "you surely must taste-taste",
+      "chain": [
+        "尝尝",
+        "一定要尝尝"
+      ]
+    },
+    "always-full": {
+      "text": "人总是很多",
+      "rom": "rén zǒngshì hěn duō",
+      "literal": "people always very many",
+      "extra": true,
+      "chain": [
+        "很多",
+        "总是很多"
+      ]
+    }
+  },
+  "slotValues": {
+    "dish": [
+      {
+        "en": "xiaolongbao",
+        "text": "小笼包",
+        "rom": "xiǎolóngbāo"
+      },
+      {
+        "en": "roast duck",
+        "text": "烤鸭",
+        "rom": "kǎoyā"
+      },
+      {
+        "en": "beef noodles",
+        "text": "牛肉面",
+        "rom": "niúròumiàn"
+      },
+      {
+        "en": "mapo tofu",
+        "text": "麻婆豆腐",
+        "rom": "mápó dòufu"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "you-should-visit": {
+        "text": "你应该去___。",
+        "rom": "Nǐ yīnggāi qù ___.",
+        "byRegister": {
+          "formal": {
+            "text": "您应该去___。",
+            "rom": "Nín yīnggāi qù ___."
+          }
+        }
+      },
+      "dont-miss": {
+        "text": "别错过___。",
+        "rom": "Bié cuòguò ___.",
+        "registerNeutral": true
+      }
+    }
+  },
+  "notes": [
+    "家 (jiā) is the measure word for restaurants and shops: 一家饭馆.",
+    "尝尝 (chángchang) is \"have a taste\". 一定要 makes it strong: you must.",
+    "挺…的 (tǐng… de) means quite: 挺便宜的."
+  ]
+}

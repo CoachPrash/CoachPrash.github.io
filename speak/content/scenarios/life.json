@@ -1,0 +1,101 @@
+{
+  "schema": 2,
+  "id": "life",
+  "title": "Where did you grow up?",
+  "goal": "Give a short life story: where you were born, grew up and live now.",
+  "roles": {
+    "A": "Asks first",
+    "B": "Answers, then asks back"
+  },
+  "slots": {
+    "city": {
+      "kind": "set",
+      "cue": "a city"
+    }
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "role": "A",
+      "en": "Where did you grow up?",
+      "addressesYou": true
+    },
+    {
+      "id": "l2",
+      "role": "B",
+      "en": "I was born in {city}, but I grew up in the capital."
+    },
+    {
+      "id": "l3",
+      "role": "A",
+      "en": "When did you move here?",
+      "addressesYou": true
+    },
+    {
+      "id": "l4",
+      "role": "B",
+      "en": "Five years ago. And you?",
+      "addressesYou": true
+    },
+    {
+      "id": "l5",
+      "role": "A",
+      "en": "I have always lived here."
+    },
+    {
+      "id": "l6",
+      "role": "B",
+      "en": "Lucky you!",
+      "addressesYou": true
+    }
+  ],
+  "chunks": [
+    {
+      "id": "where-grow-up",
+      "en": "where did you grow up?",
+      "addressesYou": true
+    },
+    {
+      "id": "i-was-born",
+      "en": "I was born in ___"
+    },
+    {
+      "id": "i-grew-up",
+      "en": "I grew up in ___"
+    },
+    {
+      "id": "when-move",
+      "en": "when did you move here?",
+      "addressesYou": true
+    },
+    {
+      "id": "years-ago",
+      "en": "___ years ago"
+    },
+    {
+      "id": "always-lived",
+      "en": "I have always lived here"
+    },
+    {
+      "id": "before-lived",
+      "en": "before, I lived in ___"
+    }
+  ],
+  "drill": {
+    "slot": "city",
+    "instruction": "Swap the city each time."
+  },
+  "free": {
+    "prompt": "Tell your life story in four sentences: born, grew up, moved, live now.",
+    "targets": [
+      {
+        "id": "family-from",
+        "en": "my family is from ___"
+      },
+      {
+        "id": "moved-for",
+        "en": "I moved for ___ (work, study)"
+      }
+    ]
+  }
+}

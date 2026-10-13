@@ -1,0 +1,166 @@
+{
+  "schema": 2,
+  "scenario": "clothes",
+  "lang": "zh",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "你好，需要帮忙吗？",
+      "rom": "Nǐ hǎo, xūyào bāngmáng ma?",
+      "byRegister": {
+        "formal": {
+          "text": "您好，需要帮忙吗？",
+          "rom": "Nín hǎo, xūyào bāngmáng ma?"
+        }
+      }
+    },
+    "l2": {
+      "text": "要。这{item}有大一号的吗？",
+      "rom": "Yào. Zhè {item} yǒu dà yí hào de ma?",
+      "registerNeutral": true
+    },
+    "l3": {
+      "text": "有。要什么号？",
+      "rom": "Yǒu. Yào shénme hào?",
+      "accept": [
+        {
+          "text": "有。你穿多大号？",
+          "rom": "Yǒu. Nǐ chuān duō dà hào?"
+        }
+      ]
+    },
+    "l4": {
+      "text": "中号。我可以试试吗？",
+      "rom": "Zhōng hào. Wǒ kěyǐ shìshi ma?",
+      "accept": [
+        {
+          "text": "中号。可以试一下吗？",
+          "rom": "Zhōng hào. Kěyǐ shì yíxià ma?"
+        }
+      ]
+    },
+    "l5": {
+      "text": "当然。试衣间在那边。",
+      "rom": "Dāngrán. Shìyījiān zài nàbiān."
+    },
+    "l6": {
+      "text": "正合适。我要了。",
+      "rom": "Zhèng héshì. Wǒ yào le.",
+      "accept": [
+        {
+          "text": "正合适。我买了。",
+          "rom": "Zhèng héshì. Wǒ mǎi le."
+        }
+      ]
+    }
+  },
+  "chunks": {
+    "can-i-help": {
+      "text": "需要帮忙吗？",
+      "rom": "xūyào bāngmáng ma?",
+      "registerNeutral": true,
+      "literal": "need help?",
+      "chain": [
+        "帮忙吗？"
+      ]
+    },
+    "bigger-size": {
+      "text": "这___有大一号的吗？",
+      "rom": "zhè ___ yǒu dà yí hào de ma?",
+      "registerNeutral": true,
+      "literal": "this ___ have big one size (one)?",
+      "chain": [
+        "大一号的吗？",
+        "有大一号的吗？"
+      ]
+    },
+    "what-size": {
+      "text": "什么号？",
+      "rom": "shénme hào?",
+      "literal": "what size?"
+    },
+    "can-i-try": {
+      "text": "我可以试试吗？",
+      "rom": "wǒ kěyǐ shìshi ma?",
+      "literal": "I may try-try?",
+      "chain": [
+        "试试吗？",
+        "可以试试吗？"
+      ]
+    },
+    "changing-room": {
+      "text": "试衣间在那边",
+      "rom": "shìyījiān zài nàbiān",
+      "literal": "try-clothes-room is-at that-side",
+      "chain": [
+        "在那边"
+      ]
+    },
+    "its-perfect": {
+      "text": "正合适",
+      "rom": "zhèng héshì",
+      "literal": "just fitting"
+    },
+    "ill-take-it": {
+      "text": "我要了",
+      "rom": "wǒ yào le",
+      "literal": "I want (it, done)"
+    },
+    "too-small": {
+      "text": "太小了",
+      "rom": "tài xiǎo le",
+      "literal": "too small",
+      "extra": true
+    }
+  },
+  "slotValues": {
+    "item": [
+      {
+        "en": "shirt",
+        "text": "件衬衫",
+        "rom": "jiàn chènshān"
+      },
+      {
+        "en": "pair of trousers",
+        "text": "条裤子",
+        "rom": "tiáo kùzi"
+      },
+      {
+        "en": "jacket",
+        "text": "件外套",
+        "rom": "jiàn wàitào"
+      },
+      {
+        "en": "skirt",
+        "text": "条裙子",
+        "rom": "tiáo qúnzi"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "too-big": {
+        "text": "太大了。",
+        "rom": "Tài dà le."
+      },
+      "other-colour": {
+        "text": "有___的吗？",
+        "rom": "Yǒu ___ de ma?",
+        "registerNeutral": true
+      }
+    }
+  },
+  "notes": [
+    "The measure word comes with the item: 一件衬衫 (a shirt), 一条裤子 (trousers). 件 is for tops, 条 for long things.",
+    "Sizes are 小号, 中号, 大号 (small, medium, large). 大一号 is one size bigger.",
+    "Doubling a verb softens it: 试试 (shìshi) is \"have a try\"."
+  ]
+}

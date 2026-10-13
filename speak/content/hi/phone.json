@@ -1,0 +1,191 @@
+{
+  "schema": 2,
+  "scenario": "phone",
+  "lang": "hi",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "registerNotes": {
+    "intimate": "तू is for very close friends and family. Practise this one with आप and तुम."
+  },
+  "lines": {
+    "l1": {
+      "text": "हैलो?",
+      "rom": "hailo?"
+    },
+    "l2": {
+      "text": "हैलो, मैं {name} बोल रहा हूँ। क्या आपकी बहन घर पर हैं?",
+      "rom": "hailo, main {name} bol rahaa hoon. kyaa aapkee bahan ghar par hain?",
+      "variants": [
+        {
+          "speaker": "m",
+          "text": "हैलो, मैं {name} बोल रहा हूँ। क्या आपकी बहन घर पर हैं?",
+          "rom": "hailo, main {name} bol rahaa hoon. kyaa aapkee bahan ghar par hain?"
+        },
+        {
+          "speaker": "f",
+          "text": "हैलो, मैं {name} बोल रही हूँ। क्या आपकी बहन घर पर हैं?",
+          "rom": "hailo, main {name} bol rahee hoon. kyaa aapkee bahan ghar par hain?"
+        }
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "हैलो, मैं {name} बोल रहा हूँ। क्या तुम्हारी बहन घर पर हैं?",
+          "rom": "hailo, main {name} bol rahaa hoon. kyaa tumhaaree bahan ghar par hain?",
+          "variants": [
+            {
+              "speaker": "m",
+              "text": "हैलो, मैं {name} बोल रहा हूँ। क्या तुम्हारी बहन घर पर हैं?",
+              "rom": "hailo, main {name} bol rahaa hoon. kyaa tumhaaree bahan ghar par hain?"
+            },
+            {
+              "speaker": "f",
+              "text": "हैलो, मैं {name} बोल रही हूँ। क्या तुम्हारी बहन घर पर हैं?",
+              "rom": "hailo, main {name} bol rahee hoon. kyaa tumhaaree bahan ghar par hain?"
+            }
+          ]
+        }
+      }
+    },
+    "l3": {
+      "text": "सॉरी, वो अभी घर पर नहीं है।",
+      "rom": "soree, vo abhee ghar par naheen hai."
+    },
+    "l4": {
+      "text": "क्या मैं एक मैसेज छोड़ सकता हूँ?",
+      "rom": "kyaa main ek maisej chhoR saktaa hoon?",
+      "variants": [
+        {
+          "speaker": "m",
+          "text": "क्या मैं एक मैसेज छोड़ सकता हूँ?",
+          "rom": "kyaa main ek maisej chhoR saktaa hoon?"
+        },
+        {
+          "speaker": "f",
+          "text": "क्या मैं एक मैसेज छोड़ सकती हूँ?",
+          "rom": "kyaa main ek maisej chhoR saktee hoon?"
+        }
+      ]
+    },
+    "l5": {
+      "text": "हाँ, ज़रूर। बोलिए।",
+      "rom": "haan, zaroor. bolie.",
+      "byRegister": {
+        "familiar": {
+          "text": "हाँ, ज़रूर। बोलो।",
+          "rom": "haan, zaroor. bolo."
+        }
+      }
+    },
+    "l6": {
+      "text": "उनसे कहिए कि मुझे वापस फ़ोन कर लें।",
+      "rom": "unse kahie ki mujhe vaapas fon kar len.",
+      "byRegister": {
+        "familiar": {
+          "text": "उनसे कहना कि मुझे वापस फ़ोन कर लें।",
+          "rom": "unse kahnaa ki mujhe vaapas fon kar len."
+        }
+      }
+    },
+    "l7": {
+      "text": "ठीक है। बाय!",
+      "rom": "Theek hai. baay!"
+    }
+  },
+  "chunks": {
+    "hello-phone": {
+      "text": "हैलो?",
+      "rom": "hailo?",
+      "literal": "hello?"
+    },
+    "its-me": {
+      "text": "मैं ___ बोल रहा / रही हूँ",
+      "rom": "main ___ bol rahaa / rahee hoon",
+      "choice": "mf",
+      "literal": "I ___ speaking am"
+    },
+    "is-there": {
+      "text": "क्या ___ घर पर हैं?",
+      "rom": "kyaa ___ ghar par hain?",
+      "registerNeutral": true,
+      "literal": "(question) ___ home at are (respect)?"
+    },
+    "not-here": {
+      "text": "वो अभी घर पर नहीं है",
+      "rom": "vo abhee ghar par naheen hai",
+      "literal": "she now home at not is"
+    },
+    "leave-message": {
+      "text": "क्या मैं एक मैसेज छोड़ सकता / सकती हूँ?",
+      "rom": "kyaa main ek maisej chhoR saktaa / saktee hoon?",
+      "choice": "mf",
+      "literal": "(question) I a message leave can am?"
+    },
+    "go-ahead": {
+      "text": "बोलिए",
+      "rom": "bolie",
+      "literal": "speak (please)",
+      "byRegister": {
+        "familiar": {
+          "text": "बोलो",
+          "rom": "bolo"
+        }
+      }
+    },
+    "call-back": {
+      "text": "उनसे कहिए कि मुझे वापस फ़ोन कर लें",
+      "rom": "unse kahie ki mujhe vaapas fon kar len",
+      "literal": "to-her say (please) that me back phone do",
+      "byRegister": {
+        "familiar": {
+          "text": "उनसे कहना कि मुझे वापस फ़ोन कर लें",
+          "rom": "unse kahnaa ki mujhe vaapas fon kar len"
+        }
+      }
+    },
+    "call-later": {
+      "text": "मैं बाद में फ़ोन करूँगा / करूँगी",
+      "rom": "main baad men fon karoongaa / karoongee",
+      "choice": "mf",
+      "extra": true,
+      "literal": "I later in phone will-do"
+    }
+  },
+  "partnerValues": {
+    "name": {
+      "en": "Asha",
+      "text": "आशा",
+      "rom": "aashaa"
+    }
+  },
+  "free": {
+    "targets": {
+      "wrong-number": {
+        "text": "सॉरी, ग़लत नंबर है",
+        "rom": "soree, Galat nambar hai"
+      },
+      "speak-louder": {
+        "text": "थोड़ा ज़ोर से बोलिए",
+        "rom": "thoRaa zor se bolie",
+        "byRegister": {
+          "familiar": {
+            "text": "थोड़ा ज़ोर से बोलो",
+            "rom": "thoRaa zor se bolo"
+          }
+        }
+      }
+    }
+  },
+  "notes": [
+    "On the phone, Hindi says \"I am speaking\": मैं आशा बोल रही हूँ, मैं रवि बोल रहा हूँ.",
+    "The caller speaks of the sister with respect (हैं, उनसे). Her own family says वो घर पर नहीं है.",
+    "कि joins two parts like \"that\": उनसे कहिए कि मुझे फ़ोन कर लें (tell her that she should call me).",
+    "The \"is there\" chunk has no word for you: the gap holds आपकी बहन or तुम्हारी बहन."
+  ]
+}

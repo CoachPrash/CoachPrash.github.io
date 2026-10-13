@@ -1,0 +1,166 @@
+{
+  "schema": 2,
+  "scenario": "trip",
+  "lang": "zh",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "你这次旅行怎么样？",
+      "rom": "Nǐ zhè cì lǚxíng zěnmeyàng?",
+      "byRegister": {
+        "formal": {
+          "text": "您这次旅行怎么样？",
+          "rom": "Nín zhè cì lǚxíng zěnmeyàng?"
+        }
+      }
+    },
+    "l2": {
+      "text": "太棒了！我去了{place}。",
+      "rom": "Tài bàng le! Wǒ qù le {place}."
+    },
+    "l3": {
+      "text": "你在那儿做了什么？",
+      "rom": "Nǐ zài nàr zuò le shénme?",
+      "byRegister": {
+        "formal": {
+          "text": "您在那儿做了什么？",
+          "rom": "Nín zài nàr zuò le shénme?"
+        }
+      }
+    },
+    "l4": {
+      "text": "我看了老城，还吃了很多好吃的！",
+      "rom": "Wǒ kàn le lǎochéng, hái chī le hěn duō hǎochī de!"
+    },
+    "l5": {
+      "text": "天气呢？",
+      "rom": "Tiānqì ne?",
+      "accept": [
+        {
+          "text": "天气怎么样？",
+          "rom": "Tiānqì zěnmeyàng?"
+        }
+      ]
+    },
+    "l6": {
+      "text": "很热，但是挺好的。",
+      "rom": "Hěn rè, dànshì tǐng hǎo de."
+    }
+  },
+  "chunks": {
+    "how-was-trip": {
+      "text": "你这次旅行怎么样？",
+      "rom": "nǐ zhè cì lǚxíng zěnmeyàng?",
+      "byRegister": {
+        "formal": {
+          "text": "您这次旅行怎么样？",
+          "rom": "nín zhè cì lǚxíng zěnmeyàng?"
+        }
+      },
+      "literal": "you this time trip how?",
+      "chain": [
+        "怎么样？",
+        "旅行怎么样？"
+      ]
+    },
+    "i-went-to": {
+      "text": "我去了___",
+      "rom": "wǒ qù le ___",
+      "literal": "I went (done) ___"
+    },
+    "what-did-there": {
+      "text": "你在那儿做了什么？",
+      "rom": "nǐ zài nàr zuò le shénme?",
+      "byRegister": {
+        "formal": {
+          "text": "您在那儿做了什么？",
+          "rom": "nín zài nàr zuò le shénme?"
+        }
+      },
+      "literal": "you at there did what?",
+      "chain": [
+        "什么？",
+        "做了什么？",
+        "那儿做了什么？"
+      ]
+    },
+    "i-saw": {
+      "text": "我看了___",
+      "rom": "wǒ kàn le ___",
+      "literal": "I saw (done) ___"
+    },
+    "ate-a-lot": {
+      "text": "吃了很多好吃的",
+      "rom": "chī le hěn duō hǎochī de",
+      "literal": "ate many tasty things",
+      "chain": [
+        "好吃的",
+        "很多好吃的"
+      ]
+    },
+    "and-weather": {
+      "text": "天气呢？",
+      "rom": "tiānqì ne?",
+      "literal": "weather (and)?"
+    },
+    "photos": {
+      "text": "我拍了很多照片",
+      "rom": "wǒ pāi le hěn duō zhàopiàn",
+      "literal": "I took many photos",
+      "extra": true,
+      "chain": [
+        "照片",
+        "很多照片"
+      ]
+    }
+  },
+  "slotValues": {
+    "place": [
+      {
+        "en": "Xi'an",
+        "text": "西安",
+        "rom": "Xī'ān"
+      },
+      {
+        "en": "Chengdu",
+        "text": "成都",
+        "rom": "Chéngdū"
+      },
+      {
+        "en": "Guilin",
+        "text": "桂林",
+        "rom": "Guìlín"
+      },
+      {
+        "en": "Shanghai",
+        "text": "上海",
+        "rom": "Shànghǎi"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "go-back": {
+        "text": "我还想再去。",
+        "rom": "Wǒ hái xiǎng zài qù."
+      },
+      "stayed-days": {
+        "text": "我在那儿住了___天。",
+        "rom": "Wǒ zài nàr zhù le ___ tiān."
+      }
+    }
+  },
+  "notes": [
+    "了 (le) after a verb marks a finished action: 我去了西安, 我看了老城.",
+    "还 (hái) adds \"and also\": 我看了老城，还吃了很多好吃的.",
+    "好吃的 (hǎochī de) means \"tasty things\". Eating is the heart of a trip story in China."
+  ]
+}

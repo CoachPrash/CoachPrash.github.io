@@ -1,0 +1,95 @@
+{
+  "schema": 2,
+  "id": "compare",
+  "title": "Which is better?",
+  "goal": "Compare two things and choose one.",
+  "roles": {
+    "A": "Asks first",
+    "B": "Answers, then asks back"
+  },
+  "slots": {
+    "thing": {
+      "kind": "set",
+      "cue": "a thing to buy"
+    }
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "role": "A",
+      "en": "Which {thing} is better, this one or that one?"
+    },
+    {
+      "id": "l2",
+      "role": "B",
+      "en": "This one is cheaper, but that one is faster."
+    },
+    {
+      "id": "l3",
+      "role": "A",
+      "en": "I prefer the cheaper one."
+    },
+    {
+      "id": "l4",
+      "role": "B",
+      "en": "Why?"
+    },
+    {
+      "id": "l5",
+      "role": "A",
+      "en": "Because I don't need a fast one."
+    },
+    {
+      "id": "l6",
+      "role": "B",
+      "en": "Makes sense!"
+    }
+  ],
+  "chunks": [
+    {
+      "id": "which-better",
+      "en": "which ___ is better?"
+    },
+    {
+      "id": "this-cheaper",
+      "en": "this one is cheaper"
+    },
+    {
+      "id": "that-faster",
+      "en": "that one is faster"
+    },
+    {
+      "id": "prefer-cheaper",
+      "en": "I prefer the cheaper one"
+    },
+    {
+      "id": "because",
+      "en": "because ___"
+    },
+    {
+      "id": "makes-sense",
+      "en": "makes sense!"
+    },
+    {
+      "id": "same",
+      "en": "they're the same"
+    }
+  ],
+  "drill": {
+    "slot": "thing",
+    "instruction": "Swap the thing each time."
+  },
+  "free": {
+    "prompt": "Compare two cities, two foods or two phones you know. Say which you prefer and why.",
+    "targets": [
+      {
+        "id": "bigger-than",
+        "en": "___ is bigger than ___"
+      },
+      {
+        "id": "like-both",
+        "en": "I like both"
+      }
+    ]
+  }
+}

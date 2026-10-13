@@ -1,0 +1,99 @@
+{
+  "schema": 2,
+  "id": "trip",
+  "title": "How was your trip?",
+  "goal": "Tell a short story about a trip.",
+  "roles": {
+    "A": "Asks first",
+    "B": "Answers, then asks back"
+  },
+  "slots": {
+    "place": {
+      "kind": "set",
+      "cue": "a place"
+    }
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "role": "A",
+      "en": "How was your trip?",
+      "addressesYou": true
+    },
+    {
+      "id": "l2",
+      "role": "B",
+      "en": "Amazing! I went to {place}."
+    },
+    {
+      "id": "l3",
+      "role": "A",
+      "en": "What did you do there?",
+      "addressesYou": true
+    },
+    {
+      "id": "l4",
+      "role": "B",
+      "en": "I saw the old town and I ate a lot!"
+    },
+    {
+      "id": "l5",
+      "role": "A",
+      "en": "And the weather?"
+    },
+    {
+      "id": "l6",
+      "role": "B",
+      "en": "Hot, but nice."
+    }
+  ],
+  "chunks": [
+    {
+      "id": "how-was-trip",
+      "en": "how was your trip?",
+      "addressesYou": true
+    },
+    {
+      "id": "i-went-to",
+      "en": "I went to ___"
+    },
+    {
+      "id": "what-did-there",
+      "en": "what did you do there?",
+      "addressesYou": true
+    },
+    {
+      "id": "i-saw",
+      "en": "I saw ___"
+    },
+    {
+      "id": "ate-a-lot",
+      "en": "I ate a lot"
+    },
+    {
+      "id": "and-weather",
+      "en": "and the weather?"
+    },
+    {
+      "id": "photos",
+      "en": "I took lots of photos"
+    }
+  ],
+  "drill": {
+    "slot": "place",
+    "instruction": "Swap the place each time."
+  },
+  "free": {
+    "prompt": "Tell the group about a real trip: where, what you saw, what you ate.",
+    "targets": [
+      {
+        "id": "go-back",
+        "en": "I'd like to go back"
+      },
+      {
+        "id": "stayed-days",
+        "en": "I stayed for ___ days"
+      }
+    ]
+  }
+}

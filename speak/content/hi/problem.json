@@ -1,0 +1,179 @@
+{
+  "schema": 2,
+  "scenario": "problem",
+  "lang": "hi",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "registerNotes": {
+    "intimate": "तू is for very close friends and family. Practise this one with आप and तुम."
+  },
+  "lines": {
+    "l1": {
+      "text": "सुनिए, मेरे कमरे में एक दिक़्क़त है।",
+      "rom": "sunie, mere kamre men ek diqqat hai.",
+      "accept": [
+        {
+          "text": "सुनिए, मेरे कमरे में एक प्रॉब्लम है।",
+          "rom": "sunie, mere kamre men ek problam hai."
+        }
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "सुनो, मेरे कमरे में एक दिक़्क़त है।",
+          "rom": "suno, mere kamre men ek diqqat hai.",
+          "accept": [
+            {
+              "text": "सुनो, मेरे कमरे में एक प्रॉब्लम है।",
+              "rom": "suno, mere kamre men ek problam hai."
+            }
+          ]
+        }
+      }
+    },
+    "l2": {
+      "text": "क्या हुआ?",
+      "rom": "kyaa huaa?"
+    },
+    "l3": {
+      "text": "{thing} काम नहीं कर रहा है।",
+      "rom": "{thing} kaam naheen kar rahaa hai."
+    },
+    "l4": {
+      "text": "माफ़ कीजिए। मैं अभी किसी को भेजता हूँ।",
+      "rom": "maaf keejie. main abhee kisee ko bhejtaa hoon.",
+      "variants": [
+        {
+          "speaker": "m",
+          "text": "माफ़ कीजिए। मैं अभी किसी को भेजता हूँ।",
+          "rom": "maaf keejie. main abhee kisee ko bhejtaa hoon."
+        },
+        {
+          "speaker": "f",
+          "text": "माफ़ कीजिए। मैं अभी किसी को भेजती हूँ।",
+          "rom": "maaf keejie. main abhee kisee ko bhejtee hoon."
+        }
+      ]
+    },
+    "l5": {
+      "text": "क्या मैं कमरा बदल सकता हूँ?",
+      "rom": "kyaa main kamraa badal saktaa hoon?",
+      "variants": [
+        {
+          "speaker": "m",
+          "text": "क्या मैं कमरा बदल सकता हूँ?",
+          "rom": "kyaa main kamraa badal saktaa hoon?"
+        },
+        {
+          "speaker": "f",
+          "text": "क्या मैं कमरा बदल सकती हूँ?",
+          "rom": "kyaa main kamraa badal saktee hoon?"
+        }
+      ]
+    },
+    "l6": {
+      "text": "ज़रूर। ये रही नई चाबी। असुविधा के लिए माफ़ी चाहते हैं।",
+      "rom": "zaroor. ye rahee naee chaabee. asuvidhaa ke lie maafee chaahte hain."
+    }
+  },
+  "chunks": {
+    "theres-problem": {
+      "text": "___ में एक दिक़्क़त है",
+      "rom": "___ men ek diqqat hai",
+      "literal": "___ in a trouble is"
+    },
+    "whats-wrong": {
+      "text": "क्या हुआ?",
+      "rom": "kyaa huaa?",
+      "literal": "what happened?"
+    },
+    "doesnt-work": {
+      "text": "___ काम नहीं कर रहा है",
+      "rom": "___ kaam naheen kar rahaa hai",
+      "literal": "___ work not doing is"
+    },
+    "im-sorry": {
+      "text": "माफ़ कीजिए",
+      "rom": "maaf keejie",
+      "literal": "forgiveness do (please)"
+    },
+    "right-away": {
+      "text": "मैं अभी किसी को भेजता / भेजती हूँ",
+      "rom": "main abhee kisee ko bhejtaa / bhejtee hoon",
+      "choice": "mf",
+      "literal": "I now someone send am"
+    },
+    "change-rooms": {
+      "text": "क्या मैं कमरा बदल सकता / सकती हूँ?",
+      "rom": "kyaa main kamraa badal saktaa / saktee hoon?",
+      "choice": "mf",
+      "literal": "(question) I room change can am?"
+    },
+    "sorry-about-that": {
+      "text": "असुविधा के लिए माफ़ी चाहते हैं",
+      "rom": "asuvidhaa ke lie maafee chaahte hain",
+      "literal": "inconvenience for pardon (we) want"
+    },
+    "too-noisy": {
+      "text": "यहाँ बहुत शोर है",
+      "rom": "yahaan bahut shor hai",
+      "extra": true,
+      "literal": "here very-much noise is"
+    }
+  },
+  "slotValues": {
+    "thing": [
+      {
+        "en": "air conditioner",
+        "text": "एसी",
+        "rom": "esee"
+      },
+      {
+        "en": "fan",
+        "text": "पंखा",
+        "rom": "pankhaa"
+      },
+      {
+        "en": "TV",
+        "text": "टीवी",
+        "rom": "Teevee"
+      },
+      {
+        "en": "water heater",
+        "text": "गीज़र",
+        "rom": "geezar"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "its-broken": {
+        "text": "ये टूटा हुआ है",
+        "rom": "ye TooTaa huaa hai"
+      },
+      "can-you-fix": {
+        "choice": "mf",
+        "text": "क्या आप इसे ठीक कर सकते / सकती हैं?",
+        "rom": "kyaa aap ise Theek kar sakte / saktee hain?",
+        "byRegister": {
+          "familiar": {
+            "text": "क्या तुम इसे ठीक कर सकते / सकती हो?",
+            "rom": "kyaa tum ise Theek kar sakte / saktee ho?"
+          }
+        }
+      }
+    }
+  },
+  "notes": [
+    "काम नहीं कर रहा (\"is not doing work\") is how Hindi says something doesn't work. रहा follows the thing: एसी काम नहीं कर रहा, but लाइट काम नहीं कर रही.",
+    "दिक़्क़त (trouble) and प्रॉब्लम are both everyday words.",
+    "असुविधा के लिए माफ़ी चाहते हैं (\"for the inconvenience we ask pardon\") is the polite hotel formula.",
+    "मैं अभी किसी को भेजता / भेजती हूँ uses the present for a promise about right now."
+  ]
+}

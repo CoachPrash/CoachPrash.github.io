@@ -1,0 +1,135 @@
+{
+  "schema": 2,
+  "scenario": "plans",
+  "lang": "es",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "¿Qué va a hacer en vacaciones?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿Qué vas a hacer en vacaciones?"
+        }
+      }
+    },
+    "l2": {
+      "text": "Voy a visitar {place}.",
+      "accept": [
+        "Voy a ir a {place}."
+      ]
+    },
+    "l3": {
+      "text": "¡Qué chévere! ¿Con quién?",
+      "accept": [
+        "¡Qué bien! ¿Con quién?"
+      ]
+    },
+    "l4": {
+      "text": "Con mi hermano. ¿Y usted?",
+      "byRegister": {
+        "familiar": {
+          "text": "Con mi hermano. ¿Y tú?"
+        }
+      }
+    },
+    "l5": {
+      "text": "Me gustaría viajar, pero tengo que trabajar.",
+      "accept": [
+        "Quisiera viajar, pero tengo que trabajar."
+      ]
+    },
+    "l6": {
+      "text": "¡Qué pesar! De pronto el próximo año.",
+      "accept": [
+        "¡Qué lástima! De pronto el próximo año.",
+        "¡Qué pesar! De pronto el otro año.",
+        "¡Qué pesar! Tal vez el próximo año."
+      ]
+    }
+  },
+  "chunks": {
+    "going-to-do": {
+      "text": "¿qué va a hacer en vacaciones?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿qué vas a hacer en vacaciones?"
+        }
+      },
+      "literal": "what you-go to do in holidays?"
+    },
+    "im-going-to": {
+      "text": "voy a ___",
+      "literal": "I-go to ___"
+    },
+    "who-with": {
+      "text": "¿con quién?",
+      "literal": "with whom?"
+    },
+    "id-like-to": {
+      "text": "me gustaría ___",
+      "literal": "me it-would-please ___"
+    },
+    "have-to-work": {
+      "text": "tengo que trabajar",
+      "literal": "I-have that to-work"
+    },
+    "too-bad": {
+      "text": "¡qué pesar!",
+      "literal": "what sorrow!"
+    },
+    "next-year": {
+      "text": "de pronto el próximo año",
+      "literal": "maybe the next year"
+    },
+    "sounds-great": {
+      "text": "¡qué chévere!",
+      "literal": "how cool!"
+    }
+  },
+  "slotValues": {
+    "place": [
+      {
+        "en": "Cartagena",
+        "text": "Cartagena"
+      },
+      {
+        "en": "the Coffee Region",
+        "text": "el Eje Cafetero"
+      },
+      {
+        "en": "my grandparents",
+        "text": "a mis abuelos"
+      },
+      {
+        "en": "San Andrés",
+        "text": "San Andrés"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "this-year": {
+        "text": "Este año quiero ___."
+      },
+      "next-month": {
+        "text": "El próximo mes voy a ___.",
+        "accept": [
+          "El otro mes voy a ___."
+        ]
+      }
+    }
+  },
+  "notes": [
+    "Colombia has no summer, so plans are for las vacaciones: mid-year (June–July) and the end of the year.",
+    "Ir a + a verb gives the future: voy a visitar, \"I'm going to visit\".",
+    "¡Qué pesar! (\"what sorrow!\") is the Colombian \"too bad!\". El otro año often means next year."
+  ]
+}

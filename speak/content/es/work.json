@@ -1,0 +1,165 @@
+{
+  "schema": 2,
+  "scenario": "work",
+  "lang": "es",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "¿Dónde trabaja?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿Dónde trabajas?"
+        }
+      }
+    },
+    "l2": {
+      "text": "Trabajo en {place}. ¿Y usted?",
+      "byRegister": {
+        "familiar": {
+          "text": "Trabajo en {place}. ¿Y tú?"
+        }
+      }
+    },
+    "l3": {
+      "text": "Yo soy estudiante. Estudio en la universidad.",
+      "accept": [
+        "Soy estudiante. Estudio en la universidad."
+      ]
+    },
+    "l4": {
+      "text": "¿Y le gusta?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿Y te gusta?"
+        }
+      }
+    },
+    "l5": {
+      "text": "Sí, es interesante pero cansado.",
+      "accept": [
+        "Sí, es interesante pero agotador.",
+        "Sí, es interesante pero cansón."
+      ]
+    },
+    "l6": {
+      "text": "¿Y hace cuánto está allá?",
+      "accept": [
+        "¿Y cuánto tiempo lleva allá?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "¿Y hace cuánto estás allá?",
+          "accept": [
+            "¿Y cuánto tiempo llevas allá?"
+          ]
+        }
+      }
+    },
+    "l7": {
+      "text": "Dos años.",
+      "accept": [
+        "Hace dos años.",
+        "Llevo dos años."
+      ]
+    }
+  },
+  "chunks": {
+    "where-work": {
+      "text": "¿dónde trabaja?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿dónde trabajas?"
+        }
+      },
+      "literal": "where you-work?"
+    },
+    "i-work-at": {
+      "text": "trabajo en ___",
+      "literal": "I-work in ___"
+    },
+    "i-study-at": {
+      "text": "estudio en ___",
+      "literal": "I-study in ___"
+    },
+    "do-you-like-it": {
+      "text": "¿le gusta?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿te gusta?"
+        }
+      },
+      "literal": "to-you it-pleases?"
+    },
+    "interesting-tiring": {
+      "text": "es interesante pero cansado",
+      "literal": "it-is interesting but tired"
+    },
+    "how-long": {
+      "text": "¿hace cuánto está allá?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿hace cuánto estás allá?"
+        }
+      },
+      "literal": "it-makes how-much you-are there?"
+    },
+    "two-years": {
+      "text": "dos años",
+      "literal": "two years"
+    },
+    "from-home": {
+      "text": "trabajo desde la casa",
+      "extra": true,
+      "literal": "I-work from the house"
+    }
+  },
+  "slotValues": {
+    "place": [
+      {
+        "en": "a bank",
+        "text": "un banco"
+      },
+      {
+        "en": "a hospital",
+        "text": "un hospital"
+      },
+      {
+        "en": "an office",
+        "text": "una oficina"
+      },
+      {
+        "en": "a school",
+        "text": "un colegio"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "i-start-at": {
+        "text": "Empiezo a las ___.",
+        "accept": [
+          "Entro a las ___."
+        ]
+      },
+      "i-finish-at": {
+        "text": "Termino a las ___.",
+        "accept": [
+          "Salgo a las ___."
+        ]
+      }
+    }
+  },
+  "notes": [
+    "In Colombia a job or a day can be cansado (\"tired\"), meaning tiring: un trabajo muy cansado.",
+    "A colegio is a school, not a college. University is la universidad, often la U.",
+    "¿Hace cuánto…? asks how long ago or how long: ¿Hace cuánto está allá? — Dos años."
+  ]
+}

@@ -105,3 +105,4 @@ Speak loads JSON, so it does not run from `file://`. GitHub Pages lets browsers 
 - **12 October 2026:** M3 drafted (French and Mandarin stages 1–4). M4 built: stages 5–9 in all languages and the Review flashcards. Progression research written. People tabled.
 - **13 October 2026:** Spanish (Colombian) added, between Hindi and French. M4.5: review pack per language (`#hi/script`), Check your device (`#check`), new stage 2 `repair`, so there are 10 stages. Gender forms coloured blue and light red. Spec 0.11.1.
 - **Status:** all 40 realizations are `draft`. Next: Prash verifies Hindi from the review pack; native speakers review Spanish, French and Mandarin; M5 (ladder redesign) is planned from `speak-progression.md`.
+- **14 October 2026:** M5 built: ladder regrouped into 11 topic stages, 33 new scenarios (13 A1, 20 A2) in all four languages. 43 scenarios, 172 realizations, all `draft`. Plan: `_project/sites/speak-ladder-plan.md`.

@@ -1,0 +1,136 @@
+{
+  "schema": 2,
+  "scenario": "describe",
+  "lang": "zh",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "那是谁？",
+      "rom": "Nà shì shéi?"
+    },
+    "l2": {
+      "text": "那是我姐姐。",
+      "rom": "Nà shì wǒ jiějie."
+    },
+    "l3": {
+      "text": "她是什么样的人？",
+      "rom": "Tā shì shénme yàng de rén?",
+      "accept": [
+        {
+          "text": "她人怎么样？",
+          "rom": "Tā rén zěnmeyàng?"
+        }
+      ]
+    },
+    "l4": {
+      "text": "她很善良，也很幽默。",
+      "rom": "Tā hěn shànliáng, yě hěn yōumò."
+    },
+    "l5": {
+      "text": "她长什么样？",
+      "rom": "Tā zhǎng shénme yàng?"
+    },
+    "l6": {
+      "text": "她{look}。",
+      "rom": "Tā {look}."
+    }
+  },
+  "chunks": {
+    "who-is-that": {
+      "text": "那是谁？",
+      "rom": "nà shì shéi?",
+      "literal": "that is who?"
+    },
+    "thats-my": {
+      "text": "那是我___",
+      "rom": "nà shì wǒ ___",
+      "literal": "that is my ___"
+    },
+    "whats-she-like": {
+      "text": "她是什么样的人？",
+      "rom": "tā shì shénme yàng de rén?",
+      "literal": "she is what kind person?",
+      "chain": [
+        "的人？",
+        "什么样的人？"
+      ]
+    },
+    "kind-funny": {
+      "text": "很善良，也很幽默",
+      "rom": "hěn shànliáng, yě hěn yōumò",
+      "literal": "very kind, also very funny",
+      "chain": [
+        "很幽默",
+        "也很幽默"
+      ]
+    },
+    "look-like": {
+      "text": "她长什么样？",
+      "rom": "tā zhǎng shénme yàng?",
+      "literal": "she grows what look?",
+      "chain": [
+        "什么样？",
+        "长什么样？"
+      ]
+    },
+    "he-glasses": {
+      "text": "他戴眼镜",
+      "rom": "tā dài yǎnjìng",
+      "literal": "he wears glasses",
+      "extra": true,
+      "chain": [
+        "眼镜",
+        "戴眼镜"
+      ]
+    }
+  },
+  "slotValues": {
+    "look": [
+      {
+        "en": "is tall",
+        "text": "个子很高",
+        "rom": "gèzi hěn gāo"
+      },
+      {
+        "en": "has long hair",
+        "text": "头发很长",
+        "rom": "tóufa hěn cháng"
+      },
+      {
+        "en": "wears glasses",
+        "text": "戴眼镜",
+        "rom": "dài yǎnjìng"
+      },
+      {
+        "en": "has big eyes",
+        "text": "眼睛很大",
+        "rom": "yǎnjing hěn dà"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "he-is": {
+        "text": "他很___。",
+        "rom": "Tā hěn ___."
+      },
+      "she-has": {
+        "text": "她有___。",
+        "rom": "Tā yǒu ___."
+      }
+    }
+  },
+  "notes": [
+    "什么样的人？ asks about character. 长什么样？ (zhǎng shénme yàng) asks about looks.",
+    "Adjectives need 很 (hěn) in front, but it does not mean \"very\" much: 她很善良, she is kind.",
+    "Glasses are worn with 戴 (dài), not 穿: 戴眼镜."
+  ]
+}

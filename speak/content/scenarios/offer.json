@@ -1,0 +1,106 @@
+{
+  "schema": 2,
+  "id": "offer",
+  "title": "Can I help?",
+  "goal": "Offer help, and accept or refuse it politely.",
+  "roles": {
+    "A": "Offers help",
+    "B": "Needs help"
+  },
+  "slots": {
+    "thing": {
+      "kind": "set",
+      "cue": "a thing to carry"
+    }
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "role": "A",
+      "en": "Can I help you?",
+      "addressesYou": true
+    },
+    {
+      "id": "l2",
+      "role": "B",
+      "en": "Yes, please. These bags are heavy."
+    },
+    {
+      "id": "l3",
+      "role": "A",
+      "en": "Shall I carry {thing}?"
+    },
+    {
+      "id": "l4",
+      "role": "B",
+      "en": "That's very kind of you.",
+      "addressesYou": true
+    },
+    {
+      "id": "l5",
+      "role": "A",
+      "en": "No problem. Where are you going?",
+      "addressesYou": true
+    },
+    {
+      "id": "l6",
+      "role": "B",
+      "en": "Just to the car. Thank you so much!"
+    }
+  ],
+  "chunks": [
+    {
+      "id": "can-i-help",
+      "en": "can I help you?",
+      "addressesYou": true
+    },
+    {
+      "id": "yes-please",
+      "en": "yes, please"
+    },
+    {
+      "id": "shall-i-carry",
+      "en": "shall I carry ___?"
+    },
+    {
+      "id": "kind-of-you",
+      "en": "that's very kind of you",
+      "addressesYou": true
+    },
+    {
+      "id": "no-problem",
+      "en": "no problem"
+    },
+    {
+      "id": "where-going",
+      "en": "where are you going?",
+      "addressesYou": true
+    },
+    {
+      "id": "thanks-so-much",
+      "en": "thank you so much"
+    },
+    {
+      "id": "im-fine",
+      "en": "no thanks, I'm fine"
+    }
+  ],
+  "drill": {
+    "slot": "thing",
+    "instruction": "Swap the thing each time."
+  },
+  "free": {
+    "prompt": "Act out three small situations where someone needs help. Offer, and accept or refuse.",
+    "targets": [
+      {
+        "id": "need-help",
+        "en": "do you need help?",
+        "addressesYou": true
+      },
+      {
+        "id": "i-can-do-it",
+        "en": "I can do it, thanks"
+      }
+    ]
+  }
+}

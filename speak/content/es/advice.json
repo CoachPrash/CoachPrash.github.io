@@ -1,0 +1,160 @@
+{
+  "schema": 2,
+  "scenario": "advice",
+  "lang": "es",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "Siempre estoy cansado. ¿Qué debería hacer?",
+      "variants": [
+        {
+          "speaker": "m",
+          "text": "Siempre estoy cansado. ¿Qué debería hacer?"
+        },
+        {
+          "speaker": "f",
+          "text": "Siempre estoy cansada. ¿Qué debería hacer?"
+        }
+      ],
+      "accept": [
+        "Siempre estoy cansado. ¿Qué hago?",
+        "Siempre estoy cansada. ¿Qué hago?"
+      ]
+    },
+    "l2": {
+      "text": "Debería {advice}.",
+      "accept": [
+        "Tiene que {advice}."
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Deberías {advice}.",
+          "accept": [
+            "Tienes que {advice}."
+          ]
+        }
+      }
+    },
+    "l3": {
+      "text": "Ya sé, pero trabajo hasta tarde.",
+      "accept": [
+        "Ya lo sé, pero trabajo hasta tarde."
+      ]
+    },
+    "l4": {
+      "text": "¿Por qué no sale a caminar todas las mañanas?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿Por qué no sales a caminar todas las mañanas?"
+        }
+      }
+    },
+    "l5": {
+      "text": "Buena idea. Voy a intentarlo.",
+      "accept": [
+        "Buena idea. Lo voy a intentar."
+      ]
+    },
+    "l6": {
+      "text": "¡Mucha suerte!",
+      "accept": [
+        "¡Suerte!"
+      ],
+      "registerNeutral": true
+    }
+  },
+  "chunks": {
+    "what-should-i-do": {
+      "text": "¿qué debería hacer?",
+      "literal": "what I-should do?"
+    },
+    "you-should": {
+      "text": "debería ___",
+      "byRegister": {
+        "familiar": {
+          "text": "deberías ___"
+        }
+      },
+      "literal": "you-should ___"
+    },
+    "i-know-but": {
+      "text": "ya sé, pero ___",
+      "literal": "already I-know, but ___"
+    },
+    "why-dont-you": {
+      "text": "¿por qué no ___?",
+      "registerNeutral": true,
+      "literal": "for what not ___?"
+    },
+    "ill-try": {
+      "text": "voy a intentarlo",
+      "literal": "I-go to try-it"
+    },
+    "good-luck": {
+      "text": "¡mucha suerte!",
+      "registerNeutral": true,
+      "literal": "much luck!"
+    },
+    "dont-worry": {
+      "text": "no se preocupe",
+      "byRegister": {
+        "familiar": {
+          "text": "no te preocupes"
+        }
+      },
+      "extra": true,
+      "literal": "not yourself worry"
+    }
+  },
+  "slotValues": {
+    "advice": [
+      {
+        "en": "sleep more",
+        "text": "dormir más"
+      },
+      {
+        "en": "drink less coffee",
+        "text": "tomar menos tinto"
+      },
+      {
+        "en": "exercise",
+        "text": "hacer ejercicio"
+      },
+      {
+        "en": "eat better",
+        "text": "comer mejor"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "my-problem": {
+        "text": "Mi problema es que ___.",
+        "accept": [
+          "Mi problema es ___."
+        ]
+      },
+      "you-shouldnt": {
+        "text": "No debería ___.",
+        "byRegister": {
+          "familiar": {
+            "text": "No deberías ___."
+          }
+        }
+      }
+    }
+  },
+  "notes": [
+    "A man says estoy cansado, a woman estoy cansada.",
+    "Debería (usted) and deberías (tú) mean \"you should\". Tiene que / tienes que is stronger: \"you have to\".",
+    "¡Suerte! on its own is a common Colombian goodbye too."
+  ]
+}

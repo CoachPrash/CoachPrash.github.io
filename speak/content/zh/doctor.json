@@ -1,0 +1,183 @@
+{
+  "schema": 2,
+  "scenario": "doctor",
+  "lang": "zh",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "你哪儿不舒服？",
+      "rom": "Nǐ nǎr bù shūfu?",
+      "byRegister": {
+        "formal": {
+          "text": "您哪儿不舒服？",
+          "rom": "Nín nǎr bù shūfu?"
+        }
+      }
+    },
+    "l2": {
+      "text": "我{symptom}。",
+      "rom": "Wǒ {symptom}."
+    },
+    "l3": {
+      "text": "什么时候开始的？",
+      "rom": "Shénme shíhou kāishǐ de?"
+    },
+    "l4": {
+      "text": "从昨天开始的。",
+      "rom": "Cóng zuótiān kāishǐ de.",
+      "accept": [
+        {
+          "text": "昨天。",
+          "rom": "Zuótiān."
+        }
+      ]
+    },
+    "l5": {
+      "text": "吃这个药，一天两次，多休息。",
+      "rom": "Chī zhège yào, yì tiān liǎng cì, duō xiūxi.",
+      "registerNeutral": true
+    },
+    "l6": {
+      "text": "谢谢大夫。",
+      "rom": "Xièxie dàifu.",
+      "accept": [
+        {
+          "text": "谢谢医生。",
+          "rom": "Xièxie yīshēng."
+        }
+      ]
+    }
+  },
+  "chunks": {
+    "whats-matter": {
+      "text": "你哪儿不舒服？",
+      "rom": "nǐ nǎr bù shūfu?",
+      "byRegister": {
+        "formal": {
+          "text": "您哪儿不舒服？",
+          "rom": "nín nǎr bù shūfu?"
+        }
+      },
+      "literal": "you where not comfortable?",
+      "chain": [
+        "舒服？",
+        "不舒服？",
+        "哪儿不舒服？"
+      ]
+    },
+    "i-have-symptom": {
+      "text": "我___",
+      "rom": "wǒ ___",
+      "literal": "I ___"
+    },
+    "since-when": {
+      "text": "什么时候开始的？",
+      "rom": "shénme shíhou kāishǐ de?",
+      "literal": "what time started?",
+      "chain": [
+        "开始的？",
+        "时候开始的？"
+      ]
+    },
+    "since-yesterday": {
+      "text": "从昨天开始",
+      "rom": "cóng zuótiān kāishǐ",
+      "literal": "from yesterday start",
+      "chain": [
+        "开始",
+        "昨天开始"
+      ]
+    },
+    "take-medicine": {
+      "text": "吃这个药",
+      "rom": "chī zhège yào",
+      "registerNeutral": true,
+      "literal": "eat this medicine",
+      "chain": [
+        "这个药"
+      ]
+    },
+    "twice-a-day": {
+      "text": "一天两次",
+      "rom": "yì tiān liǎng cì",
+      "literal": "one day two times",
+      "chain": [
+        "两次"
+      ]
+    },
+    "thank-you-doctor": {
+      "text": "谢谢大夫",
+      "rom": "xièxie dàifu",
+      "literal": "thank doctor",
+      "chain": [
+        "大夫"
+      ]
+    },
+    "feel-better": {
+      "text": "我好多了",
+      "rom": "wǒ hǎo duō le",
+      "literal": "I good much (now)",
+      "extra": true,
+      "chain": [
+        "多了",
+        "好多了"
+      ]
+    }
+  },
+  "slotValues": {
+    "symptom": [
+      {
+        "en": "a headache",
+        "text": "头疼",
+        "rom": "tóu téng"
+      },
+      {
+        "en": "a cough",
+        "text": "咳嗽",
+        "rom": "késou"
+      },
+      {
+        "en": "a fever",
+        "text": "发烧",
+        "rom": "fāshāo"
+      },
+      {
+        "en": "a stomach ache",
+        "text": "肚子疼",
+        "rom": "dùzi téng"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "it-hurts": {
+        "text": "这儿疼。",
+        "rom": "Zhèr téng."
+      },
+      "get-well": {
+        "text": "早日康复！",
+        "rom": "Zǎorì kāngfù!",
+        "accept": [
+          {
+            "text": "祝你早日康复！",
+            "rom": "Zhù nǐ zǎorì kāngfù!"
+          }
+        ],
+        "registerNeutral": true
+      }
+    }
+  },
+  "notes": [
+    "Medicine is \"eaten\": 吃药 (chī yào).",
+    "Symptoms follow 我 directly, with no \"have\": 我头疼, 我发烧.",
+    "大夫 (dàifu) is the everyday word for a doctor, said to their face. 医生 (yīshēng) is the job title."
+  ]
+}

@@ -1,0 +1,196 @@
+{
+  "schema": 2,
+  "scenario": "festival",
+  "lang": "hi",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "registerNotes": {
+    "intimate": "तू is for very close friends and family. Practise this one with आप and तुम."
+  },
+  "lines": {
+    "l1": {
+      "text": "{festival}!",
+      "rom": "{festival}!"
+    },
+    "l2": {
+      "text": "आपको भी!",
+      "rom": "aapko bhee!",
+      "accept": [
+        {
+          "text": "आपको भी बहुत-बहुत शुभकामनाएँ!",
+          "rom": "aapko bhee bahut-bahut shubhkaamnaaen!"
+        }
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "तुम्हें भी!",
+          "rom": "tumhen bhee!",
+          "accept": [
+            {
+              "text": "तुम्हें भी बहुत-बहुत शुभकामनाएँ!",
+              "rom": "tumhen bhee bahut-bahut shubhkaamnaaen!"
+            }
+          ]
+        }
+      }
+    },
+    "l3": {
+      "text": "आप इस त्योहार पर क्या करते हैं?",
+      "rom": "aap is tyohaar par kyaa karte hain?",
+      "variants": [
+        {
+          "listener": "m",
+          "text": "आप इस त्योहार पर क्या करते हैं?",
+          "rom": "aap is tyohaar par kyaa karte hain?"
+        },
+        {
+          "listener": "f",
+          "text": "आप इस त्योहार पर क्या करती हैं?",
+          "rom": "aap is tyohaar par kyaa kartee hain?"
+        }
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "तुम इस त्योहार पर क्या करते हो?",
+          "rom": "tum is tyohaar par kyaa karte ho?",
+          "variants": [
+            {
+              "listener": "m",
+              "text": "तुम इस त्योहार पर क्या करते हो?",
+              "rom": "tum is tyohaar par kyaa karte ho?"
+            },
+            {
+              "listener": "f",
+              "text": "तुम इस त्योहार पर क्या करती हो?",
+              "rom": "tum is tyohaar par kyaa kartee ho?"
+            }
+          ]
+        }
+      }
+    },
+    "l4": {
+      "text": "हम परिवार से मिलने जाते हैं और मिठाई खाते हैं।",
+      "rom": "ham parivaar se milne jaate hain aur miThaaee khaate hain."
+    },
+    "l5": {
+      "text": "कितना अच्छा!",
+      "rom": "kitnaa achchhaa!"
+    },
+    "l6": {
+      "text": "हमारे साथ मनाने आइए!",
+      "rom": "hamaare saath manaane aaie!",
+      "byRegister": {
+        "familiar": {
+          "text": "हमारे साथ मनाने आओ!",
+          "rom": "hamaare saath manaane aao!"
+        }
+      }
+    }
+  },
+  "chunks": {
+    "same-to-you": {
+      "text": "आपको भी",
+      "rom": "aapko bhee",
+      "literal": "to-you also",
+      "byRegister": {
+        "familiar": {
+          "text": "तुम्हें भी",
+          "rom": "tumhen bhee"
+        }
+      }
+    },
+    "what-do-for": {
+      "text": "आप इस त्योहार पर क्या करते / करती हैं?",
+      "rom": "aap is tyohaar par kyaa karte / kartee hain?",
+      "choice": "mf",
+      "literal": "you this festival on what do are?",
+      "byRegister": {
+        "familiar": {
+          "text": "तुम इस त्योहार पर क्या करते / करती हो?",
+          "rom": "tum is tyohaar par kyaa karte / kartee ho?"
+        }
+      }
+    },
+    "visit-family": {
+      "text": "हम परिवार से मिलने जाते हैं",
+      "rom": "ham parivaar se milne jaate hain",
+      "literal": "we family with to-meet go are"
+    },
+    "special-food": {
+      "text": "मिठाई खाते हैं",
+      "rom": "miThaaee khaate hain",
+      "literal": "sweets eat are"
+    },
+    "sounds-lovely": {
+      "text": "कितना अच्छा",
+      "rom": "kitnaa achchhaa",
+      "literal": "how good"
+    },
+    "come-celebrate": {
+      "text": "हमारे साथ मनाने आइए",
+      "rom": "hamaare saath manaane aaie",
+      "literal": "us with to-celebrate come (please)",
+      "byRegister": {
+        "familiar": {
+          "text": "हमारे साथ मनाने आओ",
+          "rom": "hamaare saath manaane aao"
+        }
+      }
+    },
+    "best-wishes": {
+      "text": "शुभकामनाएँ",
+      "rom": "shubhkaamnaaen",
+      "extra": true,
+      "literal": "good-wishes"
+    }
+  },
+  "slotValues": {
+    "festival": [
+      {
+        "en": "Happy Diwali",
+        "text": "दिवाली की शुभकामनाएँ",
+        "rom": "divaalee kee shubhkaamnaaen"
+      },
+      {
+        "en": "Happy Holi",
+        "text": "होली मुबारक",
+        "rom": "holee mubaarak"
+      },
+      {
+        "en": "Eid Mubarak",
+        "text": "ईद मुबारक",
+        "rom": "eed mubaarak"
+      },
+      {
+        "en": "Happy New Year",
+        "text": "नया साल मुबारक",
+        "rom": "nayaa saal mubaarak"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "favourite-festival": {
+        "text": "मेरा पसंदीदा त्योहार ___ है",
+        "rom": "meraa pasandeedaa tyohaar ___ hai"
+      },
+      "we-wear": {
+        "text": "हम ___ पहनते हैं",
+        "rom": "ham ___ pahante hain"
+      }
+    }
+  },
+  "notes": [
+    "Two ways to wish: ___ की शुभकामनाएँ (\"good wishes for ___\") and ___ मुबारक (\"blessed ___\"). Both fit any festival; ईद मुबारक and दिवाली की शुभकामनाएँ are the most usual.",
+    "The reply is आपको भी (\"to you too\").",
+    "At Diwali families visit each other with boxes of मिठाई. At Holi people throw colours, and at Eid there is sweet सेवइयाँ.",
+    "हम ... जाते हैं, हम ... खाते हैं: with हम the verb takes the plural -ते हैं, even for a group of women in everyday speech."
+  ]
+}

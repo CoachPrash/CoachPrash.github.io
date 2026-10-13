@@ -1,0 +1,173 @@
+{
+  "schema": 2,
+  "scenario": "offer",
+  "lang": "fr",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "Je peux vous aider ?",
+      "byRegister": {
+        "familiar": {
+          "text": "Je peux t'aider ?"
+        }
+      }
+    },
+    "l2": {
+      "text": "Oui, s'il vous plaît. Ces sacs sont lourds.",
+      "byRegister": {
+        "familiar": {
+          "text": "Oui, s'il te plaît. Ces sacs sont lourds."
+        }
+      }
+    },
+    "l3": {
+      "text": "Je porte {thing} ?",
+      "accept": [
+        "Je vous porte {thing} ?",
+        "Je prends {thing} ?"
+      ]
+    },
+    "l4": {
+      "text": "C'est très gentil de votre part.",
+      "accept": [
+        "Vous êtes très gentil.",
+        "Vous êtes très gentille."
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "C'est très gentil de ta part.",
+          "accept": [
+            "Tu es très gentil.",
+            "Tu es très gentille."
+          ]
+        }
+      }
+    },
+    "l5": {
+      "text": "Pas de problème. Vous allez où ?",
+      "accept": [
+        "Pas de problème. Où allez-vous ?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Pas de problème. Tu vas où ?",
+          "accept": [
+            "Pas de problème. Où vas-tu ?"
+          ]
+        }
+      }
+    },
+    "l6": {
+      "text": "Juste jusqu'à la voiture. Merci beaucoup !",
+      "accept": [
+        "Jusqu'à la voiture. Merci beaucoup !"
+      ]
+    }
+  },
+  "chunks": {
+    "can-i-help": {
+      "text": "je peux vous aider ?",
+      "byRegister": {
+        "familiar": {
+          "text": "je peux t'aider ?"
+        }
+      },
+      "literal": "I can you help?"
+    },
+    "yes-please": {
+      "text": "oui, s'il vous plaît",
+      "byRegister": {
+        "familiar": {
+          "text": "oui, s'il te plaît"
+        }
+      },
+      "literal": "yes, if it pleases you"
+    },
+    "shall-i-carry": {
+      "text": "je porte ___ ?",
+      "literal": "I carry ___?"
+    },
+    "kind-of-you": {
+      "text": "c'est très gentil de votre part",
+      "byRegister": {
+        "familiar": {
+          "text": "c'est très gentil de ta part"
+        }
+      },
+      "literal": "it's very kind of your part"
+    },
+    "no-problem": {
+      "text": "pas de problème",
+      "literal": "not of problem"
+    },
+    "where-going": {
+      "text": "vous allez où ?",
+      "byRegister": {
+        "familiar": {
+          "text": "tu vas où ?"
+        }
+      },
+      "literal": "you go where?"
+    },
+    "thanks-so-much": {
+      "text": "merci beaucoup",
+      "literal": "thanks a-lot"
+    },
+    "im-fine": {
+      "extra": true,
+      "text": "non merci, ça va",
+      "literal": "no thanks, it goes"
+    }
+  },
+  "slotValues": {
+    "thing": [
+      {
+        "en": "this bag",
+        "text": "ce sac"
+      },
+      {
+        "en": "both bags",
+        "text": "les deux sacs"
+      },
+      {
+        "en": "the suitcase",
+        "text": "la valise"
+      },
+      {
+        "en": "this box",
+        "text": "ce carton"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "need-help": {
+        "text": "Vous avez besoin d'aide ?",
+        "byRegister": {
+          "familiar": {
+            "text": "Tu as besoin d'aide ?"
+          }
+        }
+      },
+      "i-can-do-it": {
+        "text": "Ça va, je peux le faire, merci.",
+        "accept": [
+          "Je peux le faire, merci."
+        ]
+      }
+    }
+  },
+  "notes": [
+    "C'est très gentil de votre part is the polite thank-you for help. With tu: de ta part.",
+    "Je porte ... ? as a question offers help: shall I carry ... ?",
+    "Non merci, ça va refuses help politely."
+  ]
+}

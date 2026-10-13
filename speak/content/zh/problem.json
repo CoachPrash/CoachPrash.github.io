@@ -1,0 +1,166 @@
+{
+  "schema": 2,
+  "scenario": "problem",
+  "lang": "zh",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "不好意思，我的房间有问题。",
+      "rom": "Bù hǎoyìsi, wǒ de fángjiān yǒu wèntí.",
+      "registerNeutral": true
+    },
+    "l2": {
+      "text": "怎么了？",
+      "rom": "Zěnme le?",
+      "accept": [
+        {
+          "text": "有什么问题？",
+          "rom": "Yǒu shénme wèntí?"
+        }
+      ]
+    },
+    "l3": {
+      "text": "{thing}不能用了。",
+      "rom": "{thing} bù néng yòng le.",
+      "accept": [
+        {
+          "text": "{thing}坏了。",
+          "rom": "{thing} huài le."
+        }
+      ]
+    },
+    "l4": {
+      "text": "对不起。我马上叫人去看看。",
+      "rom": "Duìbuqǐ. Wǒ mǎshàng jiào rén qù kànkan."
+    },
+    "l5": {
+      "text": "我可以换个房间吗？",
+      "rom": "Wǒ kěyǐ huàn ge fángjiān ma?"
+    },
+    "l6": {
+      "text": "当然。这是新的房卡。真不好意思。",
+      "rom": "Dāngrán. Zhè shì xīn de fángkǎ. Zhēn bù hǎoyìsi."
+    }
+  },
+  "chunks": {
+    "theres-problem": {
+      "text": "___有问题",
+      "rom": "___ yǒu wèntí",
+      "literal": "___ has problem",
+      "chain": [
+        "问题",
+        "有问题"
+      ]
+    },
+    "whats-wrong": {
+      "text": "怎么了？",
+      "rom": "zěnme le?",
+      "literal": "how (is it)?"
+    },
+    "doesnt-work": {
+      "text": "___不能用了",
+      "rom": "___ bù néng yòng le",
+      "literal": "___ can't use (now)",
+      "chain": [
+        "用了",
+        "不能用了"
+      ]
+    },
+    "im-sorry": {
+      "text": "对不起",
+      "rom": "duìbuqǐ",
+      "literal": "cannot face (you)"
+    },
+    "right-away": {
+      "text": "我马上叫人去看看",
+      "rom": "wǒ mǎshàng jiào rén qù kànkan",
+      "literal": "I at-once call someone go look",
+      "chain": [
+        "看看",
+        "去看看",
+        "叫人去看看",
+        "马上叫人去看看"
+      ]
+    },
+    "change-rooms": {
+      "text": "我可以换个房间吗？",
+      "rom": "wǒ kěyǐ huàn ge fángjiān ma?",
+      "literal": "I may change a room?",
+      "chain": [
+        "房间吗？",
+        "换个房间吗？",
+        "可以换个房间吗？"
+      ]
+    },
+    "sorry-about-that": {
+      "text": "真不好意思",
+      "rom": "zhēn bù hǎoyìsi",
+      "literal": "really embarrassed",
+      "chain": [
+        "好意思",
+        "不好意思"
+      ]
+    },
+    "too-noisy": {
+      "text": "太吵了",
+      "rom": "tài chǎo le",
+      "literal": "too noisy",
+      "extra": true
+    }
+  },
+  "slotValues": {
+    "thing": [
+      {
+        "en": "air conditioning",
+        "text": "空调",
+        "rom": "kōngtiáo"
+      },
+      {
+        "en": "TV",
+        "text": "电视",
+        "rom": "diànshì"
+      },
+      {
+        "en": "light",
+        "text": "灯",
+        "rom": "dēng"
+      },
+      {
+        "en": "shower",
+        "text": "淋浴",
+        "rom": "línyù"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "its-broken": {
+        "text": "坏了。",
+        "rom": "Huài le."
+      },
+      "can-you-fix": {
+        "text": "你能修一下吗？",
+        "rom": "Nǐ néng xiū yíxià ma?",
+        "byRegister": {
+          "formal": {
+            "text": "您能修一下吗？",
+            "rom": "Nín néng xiū yíxià ma?"
+          }
+        }
+      }
+    }
+  },
+  "notes": [
+    "不能用了 (\"can't be used any more\") and 坏了 (\"broken\") both report a fault.",
+    "马上 (mǎshàng, on horseback) means right away.",
+    "真不好意思 is a softer sorry than 对不起, the usual word at a service desk."
+  ]
+}

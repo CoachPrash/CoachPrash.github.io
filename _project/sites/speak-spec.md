@@ -15,6 +15,7 @@ This file is the build contract. When the spec and the code disagree, the spec w
 - Review: one answer per card. Chunks with the same English cue in one language are one card, and every form on it is a right answer (§4.7).
 - The underline for a chunk ending in a gap runs to the end of the phrase, or one more word (three more characters) when the phrase runs on (§3.9).
 - With genders set, the one form shown keeps its gender colour (§3.10).
+- M5.3: 20 new A2 scenarios in all four languages (stages 6–11). 43 scenarios in all.
 - M5.2: 13 new A1 scenarios in all four languages (stages 1–5 now hold 4, 4, 3, 4 and 5 scenarios). Ladder rows are compact on wide screens.
 
 **0.11.1**
@@ -663,7 +664,7 @@ The site does not use "vocabulary". Grammar terms appear only in the Notice step
 | `choice` | `"mf"` | Optional. The ` / ` choice in the text is a man's form, then a woman's: उठता / उठती, resté / restée. The site colours the man's form blue and the woman's light red, with a small (m) and (f) after each, in the text and in the romanization. The letters stay, so colour is never the only cue. A choice that is not about gender, such as बाएँ / दाएँ, has no `choice` |
 | `chain` | array of strings | Optional. The build-up pieces for the Echo step, shortest first. Each piece must be an ending of the chunk. Without `chain`, the app builds the pieces from the words. Mandarin needs `chain`, because its text has no spaces |
 
-**Rule: chunks come from the dialogue.** Every chunk that is not `extra` occurs in at least one line of the dialogue, in at least one allowed register. "Occurs" means: after punctuation is removed and case is folded, the chunk's words appear in a row in the line. `___` in the chunk matches 1–3 words, where a slot in the line counts as one word. A ` / ` choice matches either word. The app uses the same test to underline the chunk where it occurs. When several lines fit, it picks the tightest fit. A gap never runs across the end of a sentence. A chunk ending in a gap (我有___) is underlined to the end of its phrase, or one more word (three more characters) when the phrase runs on.
+**Rule: chunks come from the dialogue.** Every chunk that is not `extra` occurs in at least one line of the dialogue, in at least one allowed register. "Occurs" means: after punctuation is removed and case is folded, the chunk's words appear in a row in the line. `___` in the chunk matches 1–3 words, where a slot in the line counts as one word. A ` / ` choice matches either word. The app uses the same test to underline the chunk where it occurs. When several lines fit, it picks the tightest fit, and on a tie the line whose gap covers a {slot}. A gap never runs across the end of a sentence. A chunk ending in a gap (我有___) is underlined to the end of its phrase, or one more word (three more characters) when the phrase runs on.
 
 **Recycling.** A later scenario may reuse a chunk from an earlier one. The checker lists chunks that recur and where. This is information, not an error.
 

@@ -1,0 +1,174 @@
+{
+  "schema": 2,
+  "scenario": "life",
+  "lang": "fr",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "Où avez-vous grandi ?",
+      "accept": [
+        "Vous avez grandi où ?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Tu as grandi où ?",
+          "accept": [
+            "Où as-tu grandi ?"
+          ]
+        }
+      }
+    },
+    "l2": {
+      "text": "Je suis né à {city}, mais j'ai grandi à Paris.",
+      "variants": [
+        {
+          "speaker": "m",
+          "text": "Je suis né à {city}, mais j'ai grandi à Paris."
+        },
+        {
+          "speaker": "f",
+          "text": "Je suis née à {city}, mais j'ai grandi à Paris."
+        }
+      ],
+      "sameSound": true
+    },
+    "l3": {
+      "text": "Quand est-ce que vous êtes arrivé ici ?",
+      "variants": [
+        {
+          "listener": "m",
+          "text": "Quand est-ce que vous êtes arrivé ici ?"
+        },
+        {
+          "listener": "f",
+          "text": "Quand est-ce que vous êtes arrivée ici ?"
+        }
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Quand est-ce que tu es arrivé ici ?",
+          "variants": [
+            {
+              "listener": "m",
+              "text": "Quand est-ce que tu es arrivé ici ?"
+            },
+            {
+              "listener": "f",
+              "text": "Quand est-ce que tu es arrivée ici ?"
+            }
+          ]
+        }
+      },
+      "sameSound": true
+    },
+    "l4": {
+      "text": "Il y a cinq ans. Et vous ?",
+      "byRegister": {
+        "familiar": {
+          "text": "Il y a cinq ans. Et toi ?"
+        }
+      }
+    },
+    "l5": {
+      "text": "J'ai toujours habité ici.",
+      "accept": [
+        "J'ai toujours vécu ici."
+      ]
+    },
+    "l6": {
+      "text": "Vous avez de la chance !",
+      "byRegister": {
+        "familiar": {
+          "text": "Tu as de la chance !"
+        }
+      }
+    }
+  },
+  "chunks": {
+    "where-grow-up": {
+      "text": "où avez-vous grandi ?",
+      "byRegister": {
+        "familiar": {
+          "text": "tu as grandi où ?"
+        }
+      },
+      "literal": "where have you grown?"
+    },
+    "i-was-born": {
+      "text": "je suis né / née à ___",
+      "choice": "mf",
+      "literal": "I am born at ___"
+    },
+    "i-grew-up": {
+      "text": "j'ai grandi à ___",
+      "literal": "I have grown at ___"
+    },
+    "when-move": {
+      "text": "quand est-ce que vous êtes arrivé / arrivée ici ?",
+      "choice": "mf",
+      "byRegister": {
+        "familiar": {
+          "text": "quand est-ce que tu es arrivé / arrivée ici ?"
+        }
+      },
+      "literal": "when is it that you are arrived here?"
+    },
+    "years-ago": {
+      "text": "il y a ___ ans",
+      "literal": "it there has ___ years"
+    },
+    "always-lived": {
+      "text": "j'ai toujours habité ici",
+      "literal": "I have always lived here"
+    },
+    "before-lived": {
+      "extra": true,
+      "text": "avant, j'habitais à ___",
+      "literal": "before, I was-living at ___"
+    }
+  },
+  "slotValues": {
+    "city": [
+      {
+        "en": "Lille",
+        "text": "Lille"
+      },
+      {
+        "en": "Nantes",
+        "text": "Nantes"
+      },
+      {
+        "en": "Bordeaux",
+        "text": "Bordeaux"
+      },
+      {
+        "en": "Strasbourg",
+        "text": "Strasbourg"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "family-from": {
+        "text": "Ma famille vient de ___."
+      },
+      "moved-for": {
+        "text": "Je suis venu / venue ici pour ___.",
+        "choice": "mf"
+      }
+    }
+  },
+  "notes": [
+    "Né / née and arrivé / arrivée agree with the person. Each pair sounds the same.",
+    "Il y a + time = ago: il y a cinq ans.",
+    "Arriver here means to move here, to come and live here."
+  ]
+}

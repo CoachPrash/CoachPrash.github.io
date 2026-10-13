@@ -1,0 +1,147 @@
+{
+  "schema": 2,
+  "scenario": "often",
+  "lang": "es",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "¿Cada cuánto va {activity}?",
+      "accept": [
+        "¿Con qué frecuencia va {activity}?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "¿Cada cuánto vas {activity}?",
+          "accept": [
+            "¿Con qué frecuencia vas {activity}?"
+          ]
+        }
+      }
+    },
+    "l2": {
+      "text": "Todos los días. ¿Y usted?",
+      "byRegister": {
+        "familiar": {
+          "text": "Todos los días. ¿Y tú?"
+        }
+      }
+    },
+    "l3": {
+      "text": "Una vez a la semana, los domingos.",
+      "accept": [
+        "Una vez por semana, los domingos."
+      ]
+    },
+    "l4": {
+      "text": "¿Va al gimnasio?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿Vas al gimnasio?"
+        }
+      }
+    },
+    "l5": {
+      "text": "Casi nunca. No tengo tiempo.",
+      "accept": [
+        "Casi nunca. No me queda tiempo."
+      ]
+    },
+    "l6": {
+      "text": "¡Yo tampoco!",
+      "accept": [
+        "¡Ni yo!"
+      ]
+    }
+  },
+  "chunks": {
+    "how-often": {
+      "text": "¿cada cuánto va ___?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿cada cuánto vas ___?"
+        }
+      },
+      "literal": "each how-much you-go ___?"
+    },
+    "every-day": {
+      "text": "todos los días",
+      "literal": "all the days"
+    },
+    "once-a-week": {
+      "text": "una vez a la semana",
+      "literal": "one time to the week"
+    },
+    "go-to-gym": {
+      "text": "¿va al gimnasio?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿vas al gimnasio?"
+        }
+      },
+      "literal": "you-go to-the gym?"
+    },
+    "hardly-ever": {
+      "text": "casi nunca",
+      "literal": "almost never"
+    },
+    "no-time": {
+      "text": "no tengo tiempo",
+      "literal": "not I-have time"
+    },
+    "me-neither": {
+      "text": "yo tampoco",
+      "literal": "I neither"
+    },
+    "twice-a-month": {
+      "text": "dos veces al mes",
+      "extra": true,
+      "literal": "two times to-the month"
+    }
+  },
+  "slotValues": {
+    "activity": [
+      {
+        "en": "go to the park",
+        "text": "al parque"
+      },
+      {
+        "en": "go to the cinema",
+        "text": "a cine"
+      },
+      {
+        "en": "go to the market",
+        "text": "a la plaza"
+      },
+      {
+        "en": "go to the beach",
+        "text": "a la playa"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "never": {
+        "text": "Nunca ___."
+      },
+      "sometimes": {
+        "text": "A veces.",
+        "accept": [
+          "A veces sí."
+        ]
+      }
+    }
+  },
+  "notes": [
+    "¿Cada cuánto…? (\"each how much…?\") is the everyday way to ask how often.",
+    "Yo también agrees with a yes. Yo tampoco agrees with a no: No tengo tiempo. — ¡Yo tampoco!",
+    "Los domingos means \"on Sundays\", every week. El domingo is one Sunday."
+  ]
+}

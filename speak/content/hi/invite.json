@@ -1,0 +1,175 @@
+{
+  "schema": 2,
+  "scenario": "invite",
+  "lang": "hi",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "registerNotes": {
+    "intimate": "तू is for very close friends and family. Practise this one with आप and तुम."
+  },
+  "lines": {
+    "l1": {
+      "text": "क्या आप शनिवार को {event} पर आना चाहेंगे?",
+      "rom": "kyaa aap shanivaar ko {event} par aanaa chaahenge?",
+      "variants": [
+        {
+          "listener": "m",
+          "text": "क्या आप शनिवार को {event} पर आना चाहेंगे?",
+          "rom": "kyaa aap shanivaar ko {event} par aanaa chaahenge?"
+        },
+        {
+          "listener": "f",
+          "text": "क्या आप शनिवार को {event} पर आना चाहेंगी?",
+          "rom": "kyaa aap shanivaar ko {event} par aanaa chaahengee?"
+        }
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "क्या तुम शनिवार को {event} पर आना चाहोगे?",
+          "rom": "kyaa tum shanivaar ko {event} par aanaa chaahoge?",
+          "variants": [
+            {
+              "listener": "m",
+              "text": "क्या तुम शनिवार को {event} पर आना चाहोगे?",
+              "rom": "kyaa tum shanivaar ko {event} par aanaa chaahoge?"
+            },
+            {
+              "listener": "f",
+              "text": "क्या तुम शनिवार को {event} पर आना चाहोगी?",
+              "rom": "kyaa tum shanivaar ko {event} par aanaa chaahogee?"
+            }
+          ]
+        }
+      }
+    },
+    "l2": {
+      "text": "ज़रूर, बड़ी ख़ुशी से! कितने बजे?",
+      "rom": "zaroor, baRee Khushee se! kitne baje?"
+    },
+    "l3": {
+      "text": "सात बजे, मेरे घर पर।",
+      "rom": "saat baje, mere ghar par."
+    },
+    "l4": {
+      "text": "क्या मैं कुछ ले आऊँ?",
+      "rom": "kyaa main kuchh le aaoon?"
+    },
+    "l5": {
+      "text": "कोई ज़रूरत नहीं। बस आ जाइए!",
+      "rom": "koee zaroorat naheen. bas aa jaaie!",
+      "byRegister": {
+        "familiar": {
+          "text": "कोई ज़रूरत नहीं। बस आ जाओ!",
+          "rom": "koee zaroorat naheen. bas aa jaao!"
+        }
+      }
+    }
+  },
+  "chunks": {
+    "would-you-like": {
+      "text": "क्या आप ___ पर आना चाहेंगे / चाहेंगी?",
+      "rom": "kyaa aap ___ par aanaa chaahenge / chaahengee?",
+      "choice": "mf",
+      "literal": "(question) you ___ at to-come would-want?",
+      "byRegister": {
+        "familiar": {
+          "text": "क्या तुम ___ पर आना चाहोगे / चाहोगी?",
+          "rom": "kyaa tum ___ par aanaa chaahoge / chaahogee?"
+        }
+      }
+    },
+    "id-love-to": {
+      "text": "बड़ी ख़ुशी से",
+      "rom": "baRee Khushee se",
+      "literal": "great happiness with"
+    },
+    "what-time": {
+      "text": "कितने बजे?",
+      "rom": "kitne baje?",
+      "literal": "how-many o'clock?"
+    },
+    "at-my-place": {
+      "text": "मेरे घर पर",
+      "rom": "mere ghar par",
+      "literal": "my home at"
+    },
+    "can-i-bring": {
+      "text": "क्या मैं कुछ ले आऊँ?",
+      "rom": "kyaa main kuchh le aaoon?",
+      "literal": "(question) I something bring-come?"
+    },
+    "no-need": {
+      "text": "कोई ज़रूरत नहीं",
+      "rom": "koee zaroorat naheen",
+      "literal": "any need not"
+    },
+    "just-come": {
+      "text": "बस आ जाइए",
+      "rom": "bas aa jaaie",
+      "literal": "just come go (please)",
+      "byRegister": {
+        "familiar": {
+          "text": "बस आ जाओ",
+          "rom": "bas aa jaao"
+        }
+      }
+    },
+    "thanks-inviting": {
+      "text": "बुलाने के लिए शुक्रिया",
+      "rom": "bulaane ke lie shukriyaa",
+      "registerNeutral": true,
+      "extra": true,
+      "literal": "inviting for thanks"
+    }
+  },
+  "slotValues": {
+    "event": [
+      {
+        "en": "my birthday party",
+        "text": "मेरी बर्थडे पार्टी",
+        "rom": "meree barthDe paarTee"
+      },
+      {
+        "en": "dinner",
+        "text": "डिनर",
+        "rom": "Dinar"
+      },
+      {
+        "en": "a puja",
+        "text": "पूजा",
+        "rom": "poojaa"
+      },
+      {
+        "en": "a small party",
+        "text": "एक छोटी पार्टी",
+        "rom": "ek chhoTee paarTee"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "sorry-cant": {
+        "text": "सॉरी, मैं नहीं आ पाऊँगा / पाऊँगी। मेरा ___ है",
+        "rom": "soree, main naheen aa paaoongaa / paaoongee. meraa ___ hai",
+        "choice": "mf"
+      },
+      "another-time": {
+        "text": "शायद अगली बार",
+        "rom": "shaayad aglee baar"
+      }
+    }
+  },
+  "notes": [
+    "चाहेंगे / चाहेंगी (\"would you want\") makes a polite invitation. It follows the gender of the person you invite.",
+    "क्या मैं कुछ ले आऊँ? (\"shall I bring something?\") uses the -ऊँ form to offer. It is the same for a man and a woman.",
+    "Guests rarely arrive empty-handed, even after कोई ज़रूरत नहीं: a box of मिठाई or fruit is usual.",
+    "To say no: सॉरी, मैं नहीं आ पाऊँगा / पाऊँगी (\"I won't manage to come\") is softer than नहीं आ सकता."
+  ]
+}

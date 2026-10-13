@@ -1,0 +1,184 @@
+{
+  "schema": 2,
+  "scenario": "invite",
+  "lang": "zh",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "星期六你想来参加{event}吗？",
+      "rom": "Xīngqīliù nǐ xiǎng lái cānjiā {event} ma?",
+      "byRegister": {
+        "formal": {
+          "text": "星期六您想来参加{event}吗？",
+          "rom": "Xīngqīliù nín xiǎng lái cānjiā {event} ma?"
+        }
+      }
+    },
+    "l2": {
+      "text": "我很想去！几点？",
+      "rom": "Wǒ hěn xiǎng qù! Jǐ diǎn?",
+      "accept": [
+        {
+          "text": "好啊！几点？",
+          "rom": "Hǎo a! Jǐ diǎn?"
+        }
+      ]
+    },
+    "l3": {
+      "text": "七点，在我家。",
+      "rom": "Qī diǎn, zài wǒ jiā."
+    },
+    "l4": {
+      "text": "我要带点什么吗？",
+      "rom": "Wǒ yào dài diǎn shénme ma?",
+      "accept": [
+        {
+          "text": "要我带什么吗？",
+          "rom": "Yào wǒ dài shénme ma?"
+        }
+      ]
+    },
+    "l5": {
+      "text": "不用。你人来就行！",
+      "rom": "Bú yòng. Nǐ rén lái jiù xíng!",
+      "byRegister": {
+        "formal": {
+          "text": "不用。您人来就行！",
+          "rom": "Bú yòng. Nín rén lái jiù xíng!"
+        }
+      }
+    }
+  },
+  "chunks": {
+    "would-you-like": {
+      "text": "你想来参加___吗？",
+      "rom": "nǐ xiǎng lái cānjiā ___ ma?",
+      "byRegister": {
+        "formal": {
+          "text": "您想来参加___吗？",
+          "rom": "nín xiǎng lái cānjiā ___ ma?"
+        }
+      },
+      "literal": "you want come join ___?",
+      "chain": [
+        "参加___吗？",
+        "来参加___吗？",
+        "想来参加___吗？"
+      ]
+    },
+    "id-love-to": {
+      "text": "我很想去",
+      "rom": "wǒ hěn xiǎng qù",
+      "literal": "I very want go",
+      "chain": [
+        "想去",
+        "很想去"
+      ]
+    },
+    "what-time": {
+      "text": "几点？",
+      "rom": "jǐ diǎn?",
+      "literal": "how-many o'clock?"
+    },
+    "at-my-place": {
+      "text": "在我家",
+      "rom": "zài wǒ jiā",
+      "literal": "at my home"
+    },
+    "can-i-bring": {
+      "text": "我要带点什么吗？",
+      "rom": "wǒ yào dài diǎn shénme ma?",
+      "literal": "I need bring a-little what?",
+      "chain": [
+        "什么吗？",
+        "带点什么吗？"
+      ]
+    },
+    "no-need": {
+      "text": "不用",
+      "rom": "bú yòng",
+      "literal": "not need"
+    },
+    "just-come": {
+      "text": "人来就行",
+      "rom": "rén lái jiù xíng",
+      "registerNeutral": true,
+      "literal": "person come then fine",
+      "chain": [
+        "就行",
+        "来就行"
+      ]
+    },
+    "thanks-inviting": {
+      "text": "谢谢你邀请我",
+      "rom": "xièxie nǐ yāoqǐng wǒ",
+      "byRegister": {
+        "formal": {
+          "text": "谢谢您邀请我",
+          "rom": "xièxie nín yāoqǐng wǒ"
+        }
+      },
+      "literal": "thank you invite me",
+      "extra": true,
+      "chain": [
+        "邀请我",
+        "你邀请我"
+      ]
+    }
+  },
+  "slotValues": {
+    "event": [
+      {
+        "en": "a party",
+        "text": "聚会",
+        "rom": "jùhuì"
+      },
+      {
+        "en": "a birthday party",
+        "text": "生日会",
+        "rom": "shēngrìhuì"
+      },
+      {
+        "en": "a barbecue",
+        "text": "烧烤聚会",
+        "rom": "shāokǎo jùhuì"
+      },
+      {
+        "en": "a New Year party",
+        "text": "新年聚会",
+        "rom": "xīnnián jùhuì"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "sorry-cant": {
+        "text": "不好意思，我去不了。我有___。",
+        "rom": "Bù hǎoyìsi, wǒ qù bu liǎo. Wǒ yǒu ___."
+      },
+      "another-time": {
+        "text": "下次吧。",
+        "rom": "Xià cì ba.",
+        "accept": [
+          {
+            "text": "那下次吧。",
+            "rom": "Nà xià cì ba."
+          }
+        ]
+      }
+    }
+  },
+  "notes": [
+    "你人来就行 (\"just you coming is enough\") is the usual answer to 我要带点什么吗？. Guests often bring fruit anyway.",
+    "我去不了 (wǒ qù bu liǎo) means \"I can't make it\". It is softer than 我不去.",
+    "参加 (cānjiā) is to take part in an event: 参加聚会."
+  ]
+}

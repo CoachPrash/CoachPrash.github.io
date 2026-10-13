@@ -1,0 +1,135 @@
+{
+  "schema": 2,
+  "scenario": "problem",
+  "lang": "es",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal"
+  ],
+  "registerNotes": {
+    "familiar": "At a hotel desk, the guest and the receptionist say usted to each other."
+  },
+  "lines": {
+    "l1": {
+      "text": "Disculpe, hay un problema con mi habitación.",
+      "accept": [
+        "Disculpe, tengo un problema con mi habitación.",
+        "Disculpe, hay un problema con mi cuarto."
+      ]
+    },
+    "l2": {
+      "text": "¿Qué pasó?",
+      "accept": [
+        "¿Qué pasa?",
+        "¿Cuál es el problema?"
+      ]
+    },
+    "l3": {
+      "text": "{thing} no funciona.",
+      "accept": [
+        "No funciona {thing}."
+      ]
+    },
+    "l4": {
+      "text": "Qué pena con usted. Ya mismo le mando a alguien.",
+      "accept": [
+        "Lo siento. Ya mismo le mando a alguien.",
+        "Qué pena con usted. Ya le mando a alguien."
+      ]
+    },
+    "l5": {
+      "text": "¿Puedo cambiarme de habitación?",
+      "accept": [
+        "¿Me puede cambiar de habitación?"
+      ]
+    },
+    "l6": {
+      "text": "Claro. Aquí tiene una llave nueva. Disculpe la molestia.",
+      "accept": [
+        "Claro. Aquí tiene otra llave. Disculpe la molestia."
+      ]
+    }
+  },
+  "chunks": {
+    "theres-problem": {
+      "text": "hay un problema con ___",
+      "literal": "there-is a problem with ___"
+    },
+    "whats-wrong": {
+      "text": "¿qué pasó?",
+      "literal": "what happened?"
+    },
+    "doesnt-work": {
+      "text": "___ no funciona",
+      "literal": "___ not works"
+    },
+    "im-sorry": {
+      "text": "qué pena con usted",
+      "literal": "what shame with you"
+    },
+    "right-away": {
+      "text": "ya mismo le mando a alguien",
+      "literal": "already same to-you I-send to someone"
+    },
+    "change-rooms": {
+      "text": "¿puedo cambiarme de habitación?",
+      "literal": "I-can change-myself of room?"
+    },
+    "sorry-about-that": {
+      "text": "disculpe la molestia",
+      "literal": "excuse the bother"
+    },
+    "too-noisy": {
+      "text": "hay mucho ruido",
+      "extra": true,
+      "literal": "there-is much noise"
+    }
+  },
+  "slotValues": {
+    "thing": [
+      {
+        "en": "shower",
+        "text": "la ducha"
+      },
+      {
+        "en": "air conditioning",
+        "text": "el aire acondicionado"
+      },
+      {
+        "en": "TV",
+        "text": "la televisión"
+      },
+      {
+        "en": "wifi",
+        "text": "el wifi"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "its-broken": {
+        "text": "Está dañado.",
+        "accept": [
+          "Está dañada.",
+          "Está roto."
+        ]
+      },
+      "can-you-fix": {
+        "text": "¿Lo pueden arreglar?",
+        "accept": [
+          "¿Lo puede arreglar?",
+          "¿La puede arreglar?"
+        ]
+      }
+    }
+  },
+  "notes": [
+    "Qué pena con usted (\"what shame with you\") is the polite Colombian apology.",
+    "Ya mismo (\"right now itself\") means right away. Dañado / dañada (\"damaged\") is the usual word for broken.",
+    "Colombians say ¿Qué pasó? (\"what happened?\") to ask what is wrong."
+  ]
+}

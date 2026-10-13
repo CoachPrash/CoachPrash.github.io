@@ -1,0 +1,179 @@
+{
+  "schema": 2,
+  "scenario": "phone",
+  "lang": "zh",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "喂？",
+      "rom": "Wéi?",
+      "accept": [
+        {
+          "text": "喂，你好？",
+          "rom": "Wéi, nǐ hǎo?"
+        }
+      ]
+    },
+    "l2": {
+      "text": "喂，我是{name}。你姐姐在吗？",
+      "rom": "Wéi, wǒ shì {name}. Nǐ jiějie zài ma?",
+      "byRegister": {
+        "formal": {
+          "text": "喂，我是{name}。您姐姐在吗？",
+          "rom": "Wéi, wǒ shì {name}. Nín jiějie zài ma?"
+        }
+      }
+    },
+    "l3": {
+      "text": "不好意思，她现在不在。",
+      "rom": "Bù hǎoyìsi, tā xiànzài bú zài."
+    },
+    "l4": {
+      "text": "我可以留个言吗？",
+      "rom": "Wǒ kěyǐ liú ge yán ma?",
+      "accept": [
+        {
+          "text": "我能留言吗？",
+          "rom": "Wǒ néng liúyán ma?"
+        }
+      ]
+    },
+    "l5": {
+      "text": "当然。你说吧。",
+      "rom": "Dāngrán. Nǐ shuō ba.",
+      "byRegister": {
+        "formal": {
+          "text": "当然。您说吧。",
+          "rom": "Dāngrán. Nín shuō ba."
+        }
+      }
+    },
+    "l6": {
+      "text": "请让她给我回个电话。",
+      "rom": "Qǐng ràng tā gěi wǒ huí ge diànhuà.",
+      "accept": [
+        {
+          "text": "请她给我回电话。",
+          "rom": "Qǐng tā gěi wǒ huí diànhuà."
+        }
+      ],
+      "registerNeutral": true
+    },
+    "l7": {
+      "text": "好的。再见！",
+      "rom": "Hǎo de. Zàijiàn!",
+      "accept": [
+        {
+          "text": "好的。拜拜！",
+          "rom": "Hǎo de. Báibái!"
+        }
+      ]
+    }
+  },
+  "chunks": {
+    "hello-phone": {
+      "text": "喂",
+      "rom": "wéi",
+      "literal": "hello (phone)"
+    },
+    "its-me": {
+      "text": "我是___",
+      "rom": "wǒ shì ___",
+      "literal": "I am ___"
+    },
+    "is-there": {
+      "text": "___在吗？",
+      "rom": "___ zài ma?",
+      "registerNeutral": true,
+      "literal": "___ is-in?"
+    },
+    "not-here": {
+      "text": "她现在不在",
+      "rom": "tā xiànzài bú zài",
+      "literal": "she now not in",
+      "chain": [
+        "不在",
+        "现在不在"
+      ]
+    },
+    "leave-message": {
+      "text": "我可以留个言吗？",
+      "rom": "wǒ kěyǐ liú ge yán ma?",
+      "literal": "I may leave a word?",
+      "chain": [
+        "留个言吗？",
+        "可以留个言吗？"
+      ]
+    },
+    "go-ahead": {
+      "text": "你说吧",
+      "rom": "nǐ shuō ba",
+      "byRegister": {
+        "formal": {
+          "text": "您说吧",
+          "rom": "nín shuō ba"
+        }
+      },
+      "literal": "you speak (go on)"
+    },
+    "call-back": {
+      "text": "请让她给我回个电话",
+      "rom": "qǐng ràng tā gěi wǒ huí ge diànhuà",
+      "registerNeutral": true,
+      "literal": "please let her to me return a call",
+      "chain": [
+        "回个电话",
+        "给我回个电话",
+        "让她给我回个电话"
+      ]
+    },
+    "call-later": {
+      "text": "我晚点再打",
+      "rom": "wǒ wǎn diǎn zài dǎ",
+      "literal": "I later again call",
+      "extra": true,
+      "chain": [
+        "再打",
+        "晚点再打"
+      ]
+    }
+  },
+  "partnerValues": {
+    "name": {
+      "en": "Wang Ming",
+      "text": "王明",
+      "rom": "Wáng Míng"
+    }
+  },
+  "free": {
+    "targets": {
+      "wrong-number": {
+        "text": "不好意思，打错了。",
+        "rom": "Bù hǎoyìsi, dǎ cuò le."
+      },
+      "speak-louder": {
+        "text": "你能大声一点吗？",
+        "rom": "Nǐ néng dàshēng yìdiǎn ma?",
+        "byRegister": {
+          "formal": {
+            "text": "您能大声一点吗？",
+            "rom": "Nín néng dàshēng yìdiǎn ma?"
+          }
+        }
+      }
+    }
+  },
+  "notes": [
+    "喂 (wéi) is \"hello\" on the phone. Face to face, say 你好.",
+    "On the phone, say 我是… (I am…), not 我叫….",
+    "在吗？ (zài ma?) asks if someone is there. People also start WeChat messages with it."
+  ]
+}

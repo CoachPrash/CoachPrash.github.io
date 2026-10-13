@@ -1,0 +1,194 @@
+{
+  "schema": 2,
+  "scenario": "restaurant",
+  "lang": "zh",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "我们点什么？",
+      "rom": "Wǒmen diǎn shénme?",
+      "accept": [
+        {
+          "text": "我们点什么菜？",
+          "rom": "Wǒmen diǎn shénme cài?"
+        }
+      ]
+    },
+    "l2": {
+      "text": "你吃辣吗？",
+      "rom": "Nǐ chī là ma?",
+      "byRegister": {
+        "formal": {
+          "text": "您吃辣吗？",
+          "rom": "Nín chī là ma?"
+        }
+      }
+    },
+    "l3": {
+      "text": "吃，但是别太辣。",
+      "rom": "Chī, dànshì bié tài là.",
+      "accept": [
+        {
+          "text": "吃，但是不要太辣。",
+          "rom": "Chī, dànshì bú yào tài là."
+        }
+      ]
+    },
+    "l4": {
+      "text": "那我们一起吃{dish}吧。",
+      "rom": "Nà wǒmen yìqǐ chī {dish} ba."
+    },
+    "l5": {
+      "text": "好主意。服务员，买单！",
+      "rom": "Hǎo zhǔyi. Fúwùyuán, mǎidān!",
+      "accept": [
+        {
+          "text": "好主意。服务员，结账！",
+          "rom": "Hǎo zhǔyi. Fúwùyuán, jiézhàng!"
+        }
+      ],
+      "registerNeutral": true
+    },
+    "l6": {
+      "text": "我们分开付吧？",
+      "rom": "Wǒmen fēnkāi fù ba?",
+      "accept": [
+        {
+          "text": "我们AA吧？",
+          "rom": "Wǒmen AA ba?"
+        }
+      ]
+    },
+    "l7": {
+      "text": "不用，今天我请客！",
+      "rom": "Bú yòng, jīntiān wǒ qǐngkè!"
+    }
+  },
+  "chunks": {
+    "what-order": {
+      "text": "我们点什么？",
+      "rom": "wǒmen diǎn shénme?",
+      "literal": "we order what?",
+      "chain": [
+        "什么？",
+        "点什么？"
+      ]
+    },
+    "spicy": {
+      "text": "你吃辣吗？",
+      "rom": "nǐ chī là ma?",
+      "byRegister": {
+        "formal": {
+          "text": "您吃辣吗？",
+          "rom": "nín chī là ma?"
+        }
+      },
+      "literal": "you eat spicy?",
+      "chain": [
+        "辣吗？",
+        "吃辣吗？"
+      ]
+    },
+    "not-too-spicy": {
+      "text": "别太辣",
+      "rom": "bié tài là",
+      "literal": "don't too spicy"
+    },
+    "lets-share": {
+      "text": "我们一起吃___吧",
+      "rom": "wǒmen yìqǐ chī ___ ba",
+      "literal": "we together eat ___ (suggest)",
+      "chain": [
+        "吃___吧",
+        "一起吃___吧"
+      ]
+    },
+    "the-bill": {
+      "text": "服务员，买单",
+      "rom": "fúwùyuán, mǎidān",
+      "literal": "waiter, buy bill",
+      "chain": [
+        "买单"
+      ]
+    },
+    "split": {
+      "text": "我们分开付吧？",
+      "rom": "wǒmen fēnkāi fù ba?",
+      "literal": "we separately pay (suggest)?",
+      "chain": [
+        "付吧？",
+        "分开付吧？"
+      ]
+    },
+    "on-me": {
+      "text": "我请客",
+      "rom": "wǒ qǐngkè",
+      "literal": "I invite guests"
+    },
+    "im-full": {
+      "text": "我吃饱了",
+      "rom": "wǒ chī bǎo le",
+      "literal": "I eat full (now)",
+      "extra": true,
+      "chain": [
+        "饱了",
+        "吃饱了"
+      ]
+    }
+  },
+  "slotValues": {
+    "dish": [
+      {
+        "en": "kung pao chicken",
+        "text": "宫保鸡丁",
+        "rom": "gōngbǎo jīdīng"
+      },
+      {
+        "en": "mapo tofu",
+        "text": "麻婆豆腐",
+        "rom": "mápó dòufu"
+      },
+      {
+        "en": "dumplings",
+        "text": "饺子",
+        "rom": "jiǎozi"
+      },
+      {
+        "en": "hotpot",
+        "text": "火锅",
+        "rom": "huǒguō"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "vegetarian": {
+        "text": "我吃素。",
+        "rom": "Wǒ chī sù."
+      },
+      "delicious": {
+        "text": "太好吃了！",
+        "rom": "Tài hǎochī le!",
+        "accept": [
+          {
+            "text": "很好吃。",
+            "rom": "Hěn hǎochī."
+          }
+        ]
+      }
+    }
+  },
+  "notes": [
+    "Chinese meals are shared: dishes go in the middle, and everyone takes from them.",
+    "我请客 (wǒ qǐngkè) means \"my treat\". Friends often argue over who pays. Splitting is 分开付, or AA among young people.",
+    "Call 服务员 (fúwùyuán) to get the waiter, and say 买单 (mǎidān) for the bill."
+  ]
+}

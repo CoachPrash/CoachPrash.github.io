@@ -1,0 +1,176 @@
+{
+  "schema": 2,
+  "scenario": "life",
+  "lang": "zh",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "你在哪儿长大的？",
+      "rom": "Nǐ zài nǎr zhǎngdà de?",
+      "byRegister": {
+        "formal": {
+          "text": "您在哪儿长大的？",
+          "rom": "Nín zài nǎr zhǎngdà de?"
+        }
+      }
+    },
+    "l2": {
+      "text": "我在{city}出生，但是在北京长大。",
+      "rom": "Wǒ zài {city} chūshēng, dànshì zài Běijīng zhǎngdà."
+    },
+    "l3": {
+      "text": "你什么时候搬到这儿的？",
+      "rom": "Nǐ shénme shíhou bān dào zhèr de?",
+      "byRegister": {
+        "formal": {
+          "text": "您什么时候搬到这儿的？",
+          "rom": "Nín shénme shíhou bān dào zhèr de?"
+        }
+      }
+    },
+    "l4": {
+      "text": "五年前。你呢？",
+      "rom": "Wǔ nián qián. Nǐ ne?",
+      "byRegister": {
+        "formal": {
+          "text": "五年前。您呢？",
+          "rom": "Wǔ nián qián. Nín ne?"
+        }
+      }
+    },
+    "l5": {
+      "text": "我一直住在这儿。",
+      "rom": "Wǒ yìzhí zhù zài zhèr."
+    },
+    "l6": {
+      "text": "你真幸运！",
+      "rom": "Nǐ zhēn xìngyùn!",
+      "byRegister": {
+        "formal": {
+          "text": "您真幸运！",
+          "rom": "Nín zhēn xìngyùn!"
+        }
+      }
+    }
+  },
+  "chunks": {
+    "where-grow-up": {
+      "text": "你在哪儿长大的？",
+      "rom": "nǐ zài nǎr zhǎngdà de?",
+      "byRegister": {
+        "formal": {
+          "text": "您在哪儿长大的？",
+          "rom": "nín zài nǎr zhǎngdà de?"
+        }
+      },
+      "literal": "you at where grew-up?",
+      "chain": [
+        "长大的？",
+        "哪儿长大的？"
+      ]
+    },
+    "i-was-born": {
+      "text": "我在___出生",
+      "rom": "wǒ zài ___ chūshēng",
+      "literal": "I at ___ born",
+      "chain": [
+        "出生"
+      ]
+    },
+    "i-grew-up": {
+      "text": "在___长大",
+      "rom": "zài ___ zhǎngdà",
+      "literal": "at ___ grow-up"
+    },
+    "when-move": {
+      "text": "你什么时候搬到这儿的？",
+      "rom": "nǐ shénme shíhou bān dào zhèr de?",
+      "byRegister": {
+        "formal": {
+          "text": "您什么时候搬到这儿的？",
+          "rom": "nín shénme shíhou bān dào zhèr de?"
+        }
+      },
+      "literal": "you what time moved to here?",
+      "chain": [
+        "这儿的？",
+        "搬到这儿的？",
+        "什么时候搬到这儿的？"
+      ]
+    },
+    "years-ago": {
+      "text": "___年前",
+      "rom": "___ nián qián",
+      "literal": "___ years before"
+    },
+    "always-lived": {
+      "text": "我一直住在这儿",
+      "rom": "wǒ yìzhí zhù zài zhèr",
+      "literal": "I always live at here",
+      "chain": [
+        "这儿",
+        "住在这儿",
+        "一直住在这儿"
+      ]
+    },
+    "before-lived": {
+      "text": "以前我住在___",
+      "rom": "yǐqián wǒ zhù zài ___",
+      "literal": "before I live at ___",
+      "extra": true,
+      "chain": [
+        "住在___",
+        "我住在___"
+      ]
+    }
+  },
+  "slotValues": {
+    "city": [
+      {
+        "en": "Guangzhou",
+        "text": "广州",
+        "rom": "Guǎngzhōu"
+      },
+      {
+        "en": "Xi'an",
+        "text": "西安",
+        "rom": "Xī'ān"
+      },
+      {
+        "en": "Nanjing",
+        "text": "南京",
+        "rom": "Nánjīng"
+      },
+      {
+        "en": "Wuhan",
+        "text": "武汉",
+        "rom": "Wǔhàn"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "family-from": {
+        "text": "我们家是___人。",
+        "rom": "Wǒmen jiā shì ___ rén."
+      },
+      "moved-for": {
+        "text": "我是为了___搬来的。",
+        "rom": "Wǒ shì wèile ___ bān lái de."
+      }
+    }
+  },
+  "notes": [
+    "…的 at the end of a question about the past asks for a detail: 你在哪儿长大的？ (where was it that you grew up?).",
+    "前 (qián) after a time span means ago: 五年前.",
+    "一直 (yìzhí) means all along: 我一直住在这儿."
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "schema": 2,
+  "id": "festival",
+  "title": "Happy holidays!",
+  "goal": "Give festival wishes and talk about what you do.",
+  "roles": {
+    "A": "Asks first",
+    "B": "Answers, then asks back"
+  },
+  "slots": {
+    "festival": {
+      "kind": "set",
+      "cue": "a festival greeting"
+    }
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "role": "A",
+      "en": "{festival}!"
+    },
+    {
+      "id": "l2",
+      "role": "B",
+      "en": "Same to you!",
+      "addressesYou": true
+    },
+    {
+      "id": "l3",
+      "role": "A",
+      "en": "What do you do for this festival?",
+      "addressesYou": true
+    },
+    {
+      "id": "l4",
+      "role": "B",
+      "en": "We visit family and eat special food."
+    },
+    {
+      "id": "l5",
+      "role": "A",
+      "en": "Sounds lovely!"
+    },
+    {
+      "id": "l6",
+      "role": "B",
+      "en": "Come and celebrate with us!",
+      "addressesYou": true
+    }
+  ],
+  "chunks": [
+    {
+      "id": "same-to-you",
+      "en": "same to you!",
+      "addressesYou": true
+    },
+    {
+      "id": "what-do-for",
+      "en": "what do you do for this festival?",
+      "addressesYou": true
+    },
+    {
+      "id": "visit-family",
+      "en": "we visit family"
+    },
+    {
+      "id": "special-food",
+      "en": "we eat special food"
+    },
+    {
+      "id": "sounds-lovely",
+      "en": "sounds lovely!"
+    },
+    {
+      "id": "come-celebrate",
+      "en": "come and celebrate with us!",
+      "addressesYou": true
+    },
+    {
+      "id": "best-wishes",
+      "en": "best wishes"
+    }
+  ],
+  "drill": {
+    "slot": "festival",
+    "instruction": "Swap the festival greeting each time."
+  },
+  "free": {
+    "prompt": "Each person describes their favourite festival: when it is, what people wear, eat and do.",
+    "targets": [
+      {
+        "id": "favourite-festival",
+        "en": "my favourite festival is ___"
+      },
+      {
+        "id": "we-wear",
+        "en": "we wear ___"
+      }
+    ]
+  }
+}

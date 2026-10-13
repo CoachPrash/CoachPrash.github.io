@@ -1,0 +1,104 @@
+{
+  "schema": 2,
+  "id": "often",
+  "title": "How often?",
+  "goal": "Say how often you do things, and ask others.",
+  "roles": {
+    "A": "Asks first",
+    "B": "Answers, then asks back"
+  },
+  "slots": {
+    "activity": {
+      "kind": "set",
+      "cue": "an activity"
+    }
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "role": "A",
+      "en": "How often do you {activity}?",
+      "addressesYou": true
+    },
+    {
+      "id": "l2",
+      "role": "B",
+      "en": "Every day. And you?",
+      "addressesYou": true
+    },
+    {
+      "id": "l3",
+      "role": "A",
+      "en": "Once a week, on Sundays."
+    },
+    {
+      "id": "l4",
+      "role": "B",
+      "en": "Do you go to the gym?",
+      "addressesYou": true
+    },
+    {
+      "id": "l5",
+      "role": "A",
+      "en": "Hardly ever. I don't have time."
+    },
+    {
+      "id": "l6",
+      "role": "B",
+      "en": "Me neither!"
+    }
+  ],
+  "chunks": [
+    {
+      "id": "how-often",
+      "en": "how often do you ___?",
+      "addressesYou": true
+    },
+    {
+      "id": "every-day",
+      "en": "every day"
+    },
+    {
+      "id": "once-a-week",
+      "en": "once a week"
+    },
+    {
+      "id": "go-to-gym",
+      "en": "do you go to the gym?",
+      "addressesYou": true
+    },
+    {
+      "id": "hardly-ever",
+      "en": "hardly ever"
+    },
+    {
+      "id": "no-time",
+      "en": "I don't have time"
+    },
+    {
+      "id": "me-neither",
+      "en": "me neither"
+    },
+    {
+      "id": "twice-a-month",
+      "en": "twice a month"
+    }
+  ],
+  "drill": {
+    "slot": "activity",
+    "instruction": "Swap the activity each time."
+  },
+  "free": {
+    "prompt": "Ask each other how often you cook, exercise, read, call home and travel.",
+    "targets": [
+      {
+        "id": "never",
+        "en": "I never ___"
+      },
+      {
+        "id": "sometimes",
+        "en": "sometimes"
+      }
+    ]
+  }
+}

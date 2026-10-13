@@ -1,0 +1,165 @@
+{
+  "schema": 2,
+  "scenario": "transport",
+  "lang": "hi",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "registerNotes": {
+    "intimate": "तू is for very close friends and family. Practise this one with आप and तुम."
+  },
+  "lines": {
+    "l1": {
+      "text": "सुनिए, {place} के लिए कौन-सी बस जाती है?",
+      "rom": "sunie, {place} ke lie kaun-see bas jaatee hai?",
+      "byRegister": {
+        "familiar": {
+          "text": "सुनो, {place} के लिए कौन-सी बस जाती है?",
+          "rom": "suno, {place} ke lie kaun-see bas jaatee hai?"
+        }
+      }
+    },
+    "l2": {
+      "text": "बारह नंबर। स्टॉप वहाँ है।",
+      "rom": "baarah nambar. sTop vahaan hai.",
+      "accept": [
+        {
+          "text": "12 नंबर। स्टॉप वहाँ है।",
+          "rom": "12 nambar. sTop vahaan hai."
+        }
+      ]
+    },
+    "l3": {
+      "text": "कितना टाइम लगता है?",
+      "rom": "kitnaa Taaim lagtaa hai?",
+      "accept": [
+        {
+          "text": "कितना समय लगता है?",
+          "rom": "kitnaa samay lagtaa hai?"
+        }
+      ]
+    },
+    "l4": {
+      "text": "लगभग बीस मिनट।",
+      "rom": "lagbhag bees minaT.",
+      "accept": [
+        {
+          "text": "लगभग 20 मिनट।",
+          "rom": "lagbhag 20 minaT."
+        }
+      ]
+    },
+    "l5": {
+      "text": "और टिकट कहाँ मिलेगा?",
+      "rom": "aur TikaT kahaan milegaa?"
+    },
+    "l6": {
+      "text": "बस में ही। पैसे कंडक्टर को देते हैं।",
+      "rom": "bas men hee. paise kanDakTar ko dete hain."
+    }
+  },
+  "chunks": {
+    "which-bus": {
+      "text": "___ के लिए कौन-सी बस जाती है?",
+      "rom": "___ ke lie kaun-see bas jaatee hai?",
+      "literal": "___ for which bus goes?"
+    },
+    "number": {
+      "text": "___ नंबर",
+      "rom": "___ nambar",
+      "literal": "___ number"
+    },
+    "the-stop": {
+      "text": "स्टॉप वहाँ है",
+      "rom": "sTop vahaan hai",
+      "literal": "stop there is"
+    },
+    "how-long-take": {
+      "text": "कितना टाइम लगता है?",
+      "rom": "kitnaa Taaim lagtaa hai?",
+      "literal": "how-much time takes?"
+    },
+    "about-minutes": {
+      "text": "लगभग ___ मिनट",
+      "rom": "lagbhag ___ minaT",
+      "literal": "about ___ minutes"
+    },
+    "buy-ticket": {
+      "text": "टिकट कहाँ मिलेगा?",
+      "rom": "TikaT kahaan milegaa?",
+      "literal": "ticket where will-be-got?"
+    },
+    "return-ticket": {
+      "text": "आने-जाने का टिकट",
+      "rom": "aane-jaane kaa TikaT",
+      "extra": true,
+      "literal": "coming-going of ticket"
+    }
+  },
+  "slotValues": {
+    "place": [
+      {
+        "en": "Connaught Place",
+        "text": "कनॉट प्लेस",
+        "rom": "kanoT ples"
+      },
+      {
+        "en": "the railway station",
+        "text": "रेलवे स्टेशन",
+        "rom": "relve sTeshan"
+      },
+      {
+        "en": "the airport",
+        "text": "एयरपोर्ट",
+        "rom": "eyarporT"
+      },
+      {
+        "en": "the Red Fort",
+        "text": "लाल क़िला",
+        "rom": "laal qilaa"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "stop-here": {
+        "text": "यहाँ रोकिए",
+        "rom": "yahaan rokie",
+        "accept": [
+          {
+            "text": "भैया, यहाँ रोकिए",
+            "rom": "bhaiyaa, yahaan rokie"
+          }
+        ],
+        "byRegister": {
+          "familiar": {
+            "text": "यहाँ रोको",
+            "rom": "yahaan roko",
+            "accept": [
+              {
+                "text": "भैया, यहाँ रोको",
+                "rom": "bhaiyaa, yahaan roko"
+              }
+            ]
+          }
+        }
+      },
+      "how-much-to": {
+        "text": "___ तक का किराया कितना है?",
+        "rom": "___ tak kaa kiraayaa kitnaa hai?"
+      }
+    }
+  },
+  "notes": [
+    "The number comes first: बारह नंबर (\"twelve number\") is bus number twelve.",
+    "On many city buses in India you pay the conductor (कंडक्टर), who walks through the bus selling tickets.",
+    "मिलना means \"to be found, to be available\": टिकट कहाँ मिलेगा? is \"where will I get a ticket?\".",
+    "किराया is the fare. For an auto-rickshaw, agree the किराया before you get in, or ask for the meter."
+  ]
+}

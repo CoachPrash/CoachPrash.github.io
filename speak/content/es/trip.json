@@ -1,0 +1,141 @@
+{
+  "schema": 2,
+  "scenario": "trip",
+  "lang": "es",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "¿Cómo le fue en el viaje?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿Cómo te fue en el viaje?"
+        }
+      }
+    },
+    "l2": {
+      "text": "¡Increíble! Fui a {place}.",
+      "accept": [
+        "¡Espectacular! Fui a {place}.",
+        "¡Muy bien! Fui a {place}."
+      ]
+    },
+    "l3": {
+      "text": "¿Y qué hizo allá?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿Y qué hiciste allá?"
+        }
+      }
+    },
+    "l4": {
+      "text": "Conocí el centro histórico y comí mucho.",
+      "accept": [
+        "Vi el centro histórico y comí mucho.",
+        "Conocí el centro histórico y comí muchísimo."
+      ]
+    },
+    "l5": {
+      "text": "¿Y el clima?",
+      "accept": [
+        "¿Y qué tal el clima?"
+      ]
+    },
+    "l6": {
+      "text": "Caliente, pero chévere.",
+      "accept": [
+        "Hacía calor, pero muy agradable.",
+        "Mucho calor, pero rico."
+      ]
+    }
+  },
+  "chunks": {
+    "how-was-trip": {
+      "text": "¿cómo le fue en el viaje?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿cómo te fue en el viaje?"
+        }
+      },
+      "literal": "how to-you it-went in the trip?"
+    },
+    "i-went-to": {
+      "text": "fui a ___",
+      "literal": "I-went to ___"
+    },
+    "what-did-there": {
+      "text": "¿qué hizo allá?",
+      "byRegister": {
+        "familiar": {
+          "text": "¿qué hiciste allá?"
+        }
+      },
+      "literal": "what you-did there?"
+    },
+    "i-saw": {
+      "text": "conocí ___",
+      "literal": "I-got-to-know ___"
+    },
+    "ate-a-lot": {
+      "text": "comí mucho",
+      "literal": "I-ate much"
+    },
+    "and-weather": {
+      "text": "¿y el clima?",
+      "literal": "and the weather?"
+    },
+    "photos": {
+      "text": "tomé muchas fotos",
+      "extra": true,
+      "literal": "I-took many photos"
+    }
+  },
+  "slotValues": {
+    "place": [
+      {
+        "en": "Cartagena",
+        "text": "Cartagena"
+      },
+      {
+        "en": "Santa Marta",
+        "text": "Santa Marta"
+      },
+      {
+        "en": "Villa de Leyva",
+        "text": "Villa de Leyva"
+      },
+      {
+        "en": "Medellín",
+        "text": "Medellín"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "go-back": {
+        "text": "Me gustaría volver.",
+        "accept": [
+          "Quiero volver."
+        ]
+      },
+      "stayed-days": {
+        "text": "Me quedé ___ días.",
+        "accept": [
+          "Estuve ___ días."
+        ]
+      }
+    }
+  },
+  "notes": [
+    "¿Cómo le fue? / ¿Cómo te fue? (\"how did it go for you?\") asks how something went.",
+    "Conocer (\"to get to know\") is used for visiting a place: conocí Cartagena.",
+    "Colombians call hot places caliente: Santa Marta es muy caliente."
+  ]
+}

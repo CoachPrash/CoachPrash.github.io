@@ -1,0 +1,103 @@
+{
+  "schema": 2,
+  "id": "advice",
+  "title": "What should I do?",
+  "goal": "Ask for advice and give it.",
+  "roles": {
+    "A": "Has a problem",
+    "B": "Gives advice"
+  },
+  "slots": {
+    "advice": {
+      "kind": "set",
+      "cue": "a piece of advice"
+    }
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "role": "A",
+      "en": "I'm always tired. What should I do?"
+    },
+    {
+      "id": "l2",
+      "role": "B",
+      "en": "You should {advice}.",
+      "addressesYou": true
+    },
+    {
+      "id": "l3",
+      "role": "A",
+      "en": "I know, but I work late."
+    },
+    {
+      "id": "l4",
+      "role": "B",
+      "en": "Why don't you go for a walk every morning?",
+      "addressesYou": true
+    },
+    {
+      "id": "l5",
+      "role": "A",
+      "en": "That's a good idea. I'll try."
+    },
+    {
+      "id": "l6",
+      "role": "B",
+      "en": "Good luck!",
+      "addressesYou": true
+    }
+  ],
+  "chunks": [
+    {
+      "id": "what-should-i-do",
+      "en": "what should I do?"
+    },
+    {
+      "id": "you-should",
+      "en": "you should ___",
+      "addressesYou": true
+    },
+    {
+      "id": "i-know-but",
+      "en": "I know, but ___"
+    },
+    {
+      "id": "why-dont-you",
+      "en": "why don't you ___?",
+      "addressesYou": true
+    },
+    {
+      "id": "ill-try",
+      "en": "I'll try"
+    },
+    {
+      "id": "good-luck",
+      "en": "good luck!",
+      "addressesYou": true
+    },
+    {
+      "id": "dont-worry",
+      "en": "don't worry",
+      "addressesYou": true
+    }
+  ],
+  "drill": {
+    "slot": "advice",
+    "instruction": "Swap the advice each time."
+  },
+  "free": {
+    "prompt": "Each person names a small problem. The others give two pieces of advice.",
+    "targets": [
+      {
+        "id": "my-problem",
+        "en": "my problem is ___"
+      },
+      {
+        "id": "you-shouldnt",
+        "en": "you shouldn't ___",
+        "addressesYou": true
+      }
+    ]
+  }
+}

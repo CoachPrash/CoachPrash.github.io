@@ -1,0 +1,113 @@
+{
+  "schema": 2,
+  "scenario": "compare",
+  "lang": "es",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "¿Qué {thing} es mejor, este o ese?",
+      "accept": [
+        "¿Cuál {thing} es mejor, este o ese?"
+      ]
+    },
+    "l2": {
+      "text": "Este es más barato, pero ese es más rápido."
+    },
+    "l3": {
+      "text": "Prefiero el más barato."
+    },
+    "l4": {
+      "text": "¿Por qué?"
+    },
+    "l5": {
+      "text": "Porque no necesito uno rápido.",
+      "accept": [
+        "Porque no necesito uno tan rápido."
+      ]
+    },
+    "l6": {
+      "text": "¡Tiene sentido!",
+      "accept": [
+        "¡Lógico!",
+        "¡Claro, tiene sentido!"
+      ]
+    }
+  },
+  "chunks": {
+    "which-better": {
+      "text": "¿qué ___ es mejor?",
+      "literal": "what ___ is better?"
+    },
+    "this-cheaper": {
+      "text": "este es más barato",
+      "literal": "this is more cheap"
+    },
+    "that-faster": {
+      "text": "ese es más rápido",
+      "literal": "that is more fast"
+    },
+    "prefer-cheaper": {
+      "text": "prefiero el más barato",
+      "literal": "I-prefer the more cheap"
+    },
+    "because": {
+      "text": "porque ___",
+      "literal": "because ___"
+    },
+    "makes-sense": {
+      "text": "tiene sentido",
+      "literal": "it-has sense"
+    },
+    "same": {
+      "text": "son iguales",
+      "extra": true,
+      "literal": "they-are equal"
+    }
+  },
+  "slotValues": {
+    "thing": [
+      {
+        "en": "phone",
+        "text": "celular"
+      },
+      {
+        "en": "computer",
+        "text": "computador"
+      },
+      {
+        "en": "laptop",
+        "text": "portátil"
+      },
+      {
+        "en": "car",
+        "text": "carro"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "bigger-than": {
+        "text": "___ es más grande que ___."
+      },
+      "like-both": {
+        "text": "Me gustan los dos.",
+        "accept": [
+          "Me gustan ambos."
+        ]
+      }
+    }
+  },
+  "notes": [
+    "Más + adjective compares: más barato (cheaper), más rápido (faster). Mejor means better.",
+    "Este (this one) and ese (that one) agree with the thing: este celular, esta casa.",
+    "A computer is a computador in Colombia, and a laptop a portátil."
+  ]
+}

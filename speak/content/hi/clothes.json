@@ -1,0 +1,206 @@
+{
+  "schema": 2,
+  "scenario": "clothes",
+  "lang": "hi",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "registerNotes": {
+    "intimate": "तू is for very close friends and family. Practise this one with आप and तुम."
+  },
+  "lines": {
+    "l1": {
+      "text": "जी, मैं आपकी मदद करूँ?",
+      "rom": "jee, main aapkee madad karoon?",
+      "accept": [
+        {
+          "text": "जी, बताइए?",
+          "rom": "jee, bataaie?"
+        }
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "हाँ, मैं तुम्हारी मदद करूँ?",
+          "rom": "haan, main tumhaaree madad karoon?",
+          "accept": [
+            {
+              "text": "हाँ, बताओ?",
+              "rom": "haan, bataao?"
+            }
+          ]
+        }
+      }
+    },
+    "l2": {
+      "text": "जी हाँ। क्या आपके पास ये {item} बड़े साइज़ में है?",
+      "rom": "jee haan. kyaa aapke paas ye {item} baRe saaiz men hai?",
+      "byRegister": {
+        "familiar": {
+          "text": "हाँ। क्या तुम्हारे पास ये {item} बड़े साइज़ में है?",
+          "rom": "haan. kyaa tumhaare paas ye {item} baRe saaiz men hai?"
+        }
+      }
+    },
+    "l3": {
+      "text": "जी हाँ। कौन-सा साइज़?",
+      "rom": "jee haan. kaun-saa saaiz?"
+    },
+    "l4": {
+      "text": "मीडियम। क्या मैं इसे पहनकर देख सकता हूँ?",
+      "rom": "meeDiyam. kyaa main ise pahankar dekh saktaa hoon?",
+      "variants": [
+        {
+          "speaker": "m",
+          "text": "मीडियम। क्या मैं इसे पहनकर देख सकता हूँ?",
+          "rom": "meeDiyam. kyaa main ise pahankar dekh saktaa hoon?"
+        },
+        {
+          "speaker": "f",
+          "text": "मीडियम। क्या मैं इसे पहनकर देख सकती हूँ?",
+          "rom": "meeDiyam. kyaa main ise pahankar dekh saktee hoon?"
+        }
+      ],
+      "accept": [
+        {
+          "text": "मीडियम। क्या मैं इसे ट्राई कर सकता हूँ?",
+          "rom": "meeDiyam. kyaa main ise Traaee kar saktaa hoon?"
+        },
+        {
+          "text": "मीडियम। क्या मैं इसे ट्राई कर सकती हूँ?",
+          "rom": "meeDiyam. kyaa main ise Traaee kar saktee hoon?"
+        }
+      ]
+    },
+    "l5": {
+      "text": "ज़रूर। ट्रायल रूम वहाँ है।",
+      "rom": "zaroor. Traayal room vahaan hai."
+    },
+    "l6": {
+      "text": "बिल्कुल सही है। मैं ये ले लूँगा।",
+      "rom": "bilkul sahee hai. main ye le loongaa.",
+      "variants": [
+        {
+          "speaker": "m",
+          "text": "बिल्कुल सही है। मैं ये ले लूँगा।",
+          "rom": "bilkul sahee hai. main ye le loongaa."
+        },
+        {
+          "speaker": "f",
+          "text": "बिल्कुल सही है। मैं ये ले लूँगी।",
+          "rom": "bilkul sahee hai. main ye le loongee."
+        }
+      ]
+    }
+  },
+  "chunks": {
+    "can-i-help": {
+      "text": "मैं आपकी मदद करूँ?",
+      "rom": "main aapkee madad karoon?",
+      "literal": "I your help do?",
+      "byRegister": {
+        "familiar": {
+          "text": "मैं तुम्हारी मदद करूँ?",
+          "rom": "main tumhaaree madad karoon?"
+        }
+      }
+    },
+    "bigger-size": {
+      "text": "क्या आपके पास ये ___ बड़े साइज़ में है?",
+      "rom": "kyaa aapke paas ye ___ baRe saaiz men hai?",
+      "literal": "(question) your near this ___ big size in is?",
+      "byRegister": {
+        "familiar": {
+          "text": "क्या तुम्हारे पास ये ___ बड़े साइज़ में है?",
+          "rom": "kyaa tumhaare paas ye ___ baRe saaiz men hai?"
+        }
+      }
+    },
+    "what-size": {
+      "text": "कौन-सा साइज़?",
+      "rom": "kaun-saa saaiz?",
+      "literal": "which size?"
+    },
+    "can-i-try": {
+      "text": "क्या मैं इसे पहनकर देख सकता / सकती हूँ?",
+      "rom": "kyaa main ise pahankar dekh saktaa / saktee hoon?",
+      "choice": "mf",
+      "literal": "(question) I it having-worn see can am?"
+    },
+    "changing-room": {
+      "text": "ट्रायल रूम वहाँ है",
+      "rom": "Traayal room vahaan hai",
+      "literal": "trial room there is"
+    },
+    "its-perfect": {
+      "text": "बिल्कुल सही है",
+      "rom": "bilkul sahee hai",
+      "literal": "completely right is"
+    },
+    "ill-take-it": {
+      "text": "मैं ये ले लूँगा / लूँगी",
+      "rom": "main ye le loongaa / loongee",
+      "choice": "mf",
+      "literal": "I this take will-take"
+    },
+    "too-small": {
+      "text": "ये बहुत छोटा है",
+      "rom": "ye bahut chhoTaa hai",
+      "extra": true,
+      "literal": "this very small is"
+    }
+  },
+  "slotValues": {
+    "item": [
+      {
+        "en": "kurta",
+        "text": "कुर्ता",
+        "rom": "kurtaa"
+      },
+      {
+        "en": "shirt",
+        "text": "शर्ट",
+        "rom": "sharT"
+      },
+      {
+        "en": "jacket",
+        "text": "जैकेट",
+        "rom": "jaikeT"
+      },
+      {
+        "en": "sweater",
+        "text": "स्वेटर",
+        "rom": "sveTar"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "too-big": {
+        "text": "ये बहुत बड़ा है",
+        "rom": "ye bahut baRaa hai"
+      },
+      "other-colour": {
+        "text": "क्या आपके पास ये ___ रंग में है?",
+        "rom": "kyaa aapke paas ye ___ rang men hai?",
+        "byRegister": {
+          "familiar": {
+            "text": "क्या तुम्हारे पास ये ___ रंग में है?",
+            "rom": "kyaa tumhaare paas ye ___ rang men hai?"
+          }
+        }
+      }
+    }
+  },
+  "notes": [
+    "In Indian shops the changing room is the ट्रायल रूम (trial room).",
+    "पहनकर देखना (\"wear and see\") means to try clothes on. ट्राई करना is just as common.",
+    "Adjectives follow the item: कुर्ता छोटा है, but ड्रेस छोटी है (ड्रेस is feminine).",
+    "Sizes are said in English: स्मॉल, मीडियम, लार्ज."
+  ]
+}

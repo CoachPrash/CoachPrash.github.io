@@ -1,0 +1,134 @@
+{
+  "schema": 2,
+  "scenario": "clothes",
+  "lang": "es",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal"
+  ],
+  "registerNotes": {
+    "familiar": "In a shop, the customer and the assistant say usted to each other. In Colombia that is the norm."
+  },
+  "lines": {
+    "l1": {
+      "text": "¿Le colaboro en algo?",
+      "accept": [
+        "¿Le puedo ayudar en algo?",
+        "¿Le ayudo en algo?"
+      ]
+    },
+    "l2": {
+      "text": "Sí. ¿Tiene {item} en una talla más grande?",
+      "accept": [
+        "Sí. ¿Tiene {item} en una talla más grande, por favor?"
+      ]
+    },
+    "l3": {
+      "text": "Sí. ¿Qué talla?",
+      "accept": [
+        "Claro. ¿Qué talla?",
+        "Sí. ¿Qué talla usa?"
+      ]
+    },
+    "l4": {
+      "text": "Mediana. ¿Me la puedo medir?",
+      "accept": [
+        "Talla M. ¿Me la puedo medir?",
+        "Mediana. ¿Me la puedo probar?"
+      ]
+    },
+    "l5": {
+      "text": "Claro. El vestier queda allá.",
+      "accept": [
+        "Claro. El probador queda allá.",
+        "Claro. El vestier está allá."
+      ]
+    },
+    "l6": {
+      "text": "Me queda perfecta. Me la llevo.",
+      "accept": [
+        "Está perfecta. Me la llevo."
+      ]
+    }
+  },
+  "chunks": {
+    "can-i-help": {
+      "text": "¿le colaboro en algo?",
+      "literal": "you I-help in something?"
+    },
+    "bigger-size": {
+      "text": "¿tiene ___ en una talla más grande?",
+      "literal": "you-have ___ in a size more big?"
+    },
+    "what-size": {
+      "text": "¿qué talla?",
+      "literal": "what size?"
+    },
+    "can-i-try": {
+      "text": "¿me la puedo medir?",
+      "literal": "myself it I-can measure?"
+    },
+    "changing-room": {
+      "text": "el vestier queda allá",
+      "literal": "the changing-room is-located there"
+    },
+    "its-perfect": {
+      "text": "me queda perfecta",
+      "literal": "to-me it-fits perfect"
+    },
+    "ill-take-it": {
+      "text": "me la llevo",
+      "literal": "myself it I-take"
+    },
+    "too-small": {
+      "text": "me queda pequeña",
+      "extra": true,
+      "literal": "to-me it-fits small"
+    }
+  },
+  "slotValues": {
+    "item": [
+      {
+        "en": "shirt",
+        "text": "esta camisa"
+      },
+      {
+        "en": "jacket",
+        "text": "esta chaqueta"
+      },
+      {
+        "en": "skirt",
+        "text": "esta falda"
+      },
+      {
+        "en": "T-shirt",
+        "text": "esta camiseta"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "too-big": {
+        "text": "Me queda grande.",
+        "accept": [
+          "Me queda muy grande."
+        ]
+      },
+      "other-colour": {
+        "text": "¿La tiene en ___?",
+        "accept": [
+          "¿Tiene en ___?"
+        ]
+      }
+    }
+  },
+  "notes": [
+    "¿Le colaboro? (\"may I collaborate with you?\") is how Colombian shop staff offer help.",
+    "Colombians medirse clothes (\"measure them on\") rather than probárselas. The changing room is the vestier.",
+    "Quedar says how clothes fit: me queda perfecta, me queda grande. La agrees with la camisa, la chaqueta."
+  ]
+}

@@ -1,0 +1,152 @@
+{
+  "schema": 2,
+  "scenario": "recommend",
+  "lang": "fr",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "Vous pouvez me conseiller un bon restaurant ?",
+      "accept": [
+        "Vous connaissez un bon restaurant ?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Tu peux me conseiller un bon restaurant ?",
+          "accept": [
+            "Tu connais un bon restaurant ?"
+          ]
+        }
+      }
+    },
+    "l2": {
+      "text": "Oui ! Il y a une bonne adresse près du marché."
+    },
+    "l3": {
+      "text": "C'est connu pour quoi ?",
+      "accept": [
+        "Quelle est la spécialité ?"
+      ]
+    },
+    "l4": {
+      "text": "C'est connu pour son {dish}.",
+      "accept": [
+        "La spécialité, c'est le {dish}."
+      ]
+    },
+    "l5": {
+      "text": "C'est cher ?"
+    },
+    "l6": {
+      "text": "Non, ce n'est pas très cher. Vous devez absolument essayer !",
+      "accept": [
+        "Non, c'est pas très cher. Vous devez absolument essayer !"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Non, ce n'est pas très cher. Tu dois absolument essayer !",
+          "accept": [
+            "Non, c'est pas très cher. Tu dois absolument essayer !"
+          ]
+        }
+      }
+    }
+  },
+  "chunks": {
+    "can-you-recommend": {
+      "text": "vous pouvez me conseiller un bon ___ ?",
+      "byRegister": {
+        "familiar": {
+          "text": "tu peux me conseiller un bon ___ ?"
+        }
+      },
+      "literal": "you can me advise a good ___?"
+    },
+    "good-place": {
+      "text": "il y a une bonne adresse près du ___",
+      "literal": "there is a good address near the ___"
+    },
+    "famous-for": {
+      "text": "c'est connu pour quoi ?",
+      "literal": "it's known for what?"
+    },
+    "its-famous": {
+      "text": "c'est connu pour son ___",
+      "literal": "it's known for its ___"
+    },
+    "is-it-expensive": {
+      "text": "c'est cher ?",
+      "literal": "it's dear?"
+    },
+    "quite-cheap": {
+      "text": "ce n'est pas très cher",
+      "literal": "it (ne) is not very dear"
+    },
+    "must-try": {
+      "text": "vous devez absolument essayer !",
+      "byRegister": {
+        "familiar": {
+          "text": "tu dois absolument essayer !"
+        }
+      },
+      "literal": "you must absolutely try!"
+    },
+    "always-full": {
+      "extra": true,
+      "text": "c'est toujours plein",
+      "literal": "it's always full"
+    }
+  },
+  "slotValues": {
+    "dish": [
+      {
+        "en": "cassoulet",
+        "text": "cassoulet"
+      },
+      {
+        "en": "beef bourguignon",
+        "text": "bœuf bourguignon"
+      },
+      {
+        "en": "couscous",
+        "text": "couscous"
+      },
+      {
+        "en": "roast chicken",
+        "text": "poulet rôti"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "you-should-visit": {
+        "text": "Vous devriez visiter ___.",
+        "byRegister": {
+          "familiar": {
+            "text": "Tu devrais visiter ___."
+          }
+        }
+      },
+      "dont-miss": {
+        "text": "Ne manquez pas ___.",
+        "byRegister": {
+          "familiar": {
+            "text": "Ne manque pas ___."
+          }
+        }
+      }
+    }
+  },
+  "notes": [
+    "Une bonne adresse is a good place to eat or shop, not just an address.",
+    "Conseiller means to recommend: Vous pouvez me conseiller ... ?",
+    "The drill dishes are all masculine, so son fits each one. With a feminine dish: sa tarte Tatin."
+  ]
+}

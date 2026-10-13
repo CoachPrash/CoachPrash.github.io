@@ -1,0 +1,141 @@
+{
+  "schema": 2,
+  "scenario": "restaurant",
+  "lang": "fr",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "Qu'est-ce qu'on prend ?",
+      "accept": [
+        "Qu'est-ce qu'on commande ?"
+      ]
+    },
+    "l2": {
+      "text": "Vous mangez épicé ?",
+      "accept": [
+        "Vous aimez manger épicé ?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Tu manges épicé ?",
+          "accept": [
+            "Tu aimes manger épicé ?"
+          ]
+        }
+      }
+    },
+    "l3": {
+      "text": "Oui, mais pas trop épicé."
+    },
+    "l4": {
+      "text": "Alors, on partage {dish}.",
+      "accept": [
+        "Alors, on prend {dish} pour deux."
+      ]
+    },
+    "l5": {
+      "text": "Bonne idée. Excusez-moi, l'addition, s'il vous plaît !",
+      "note": "Speaking to the waiter: vous, even when the two friends say tu.",
+      "registerNeutral": true
+    },
+    "l6": {
+      "text": "On partage l'addition ?",
+      "accept": [
+        "On fait moitié-moitié ?"
+      ]
+    },
+    "l7": {
+      "text": "Non, aujourd'hui, c'est moi qui invite !",
+      "accept": [
+        "Non, aujourd'hui, c'est pour moi !"
+      ]
+    }
+  },
+  "chunks": {
+    "what-order": {
+      "text": "qu'est-ce qu'on prend ?",
+      "literal": "what is it that one takes?"
+    },
+    "spicy": {
+      "text": "vous mangez épicé ?",
+      "byRegister": {
+        "familiar": {
+          "text": "tu manges épicé ?"
+        }
+      },
+      "literal": "you eat spicy?"
+    },
+    "not-too-spicy": {
+      "text": "pas trop épicé",
+      "literal": "not too spicy"
+    },
+    "lets-share": {
+      "text": "on partage ___",
+      "literal": "one shares ___"
+    },
+    "the-bill": {
+      "text": "l'addition, s'il vous plaît",
+      "literal": "the addition, if it pleases you"
+    },
+    "split": {
+      "text": "on partage l'addition ?",
+      "literal": "one shares the addition?"
+    },
+    "on-me": {
+      "text": "c'est moi qui invite",
+      "literal": "it's me who invites"
+    },
+    "im-full": {
+      "extra": true,
+      "text": "je n'ai plus faim",
+      "literal": "I (ne) have no-more hunger"
+    }
+  },
+  "slotValues": {
+    "dish": [
+      {
+        "en": "a couscous",
+        "text": "un couscous"
+      },
+      {
+        "en": "a pizza",
+        "text": "une pizza"
+      },
+      {
+        "en": "a tagine",
+        "text": "un tajine"
+      },
+      {
+        "en": "a salade niçoise",
+        "text": "une salade niçoise"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "vegetarian": {
+        "text": "Je suis végétarien / végétarienne.",
+        "choice": "mf"
+      },
+      "delicious": {
+        "text": "C'était délicieux.",
+        "accept": [
+          "C'était très bon."
+        ]
+      }
+    }
+  },
+  "notes": [
+    "Épicé means hot and spicy. Couscous often comes with harissa, a hot pepper paste.",
+    "C'est moi qui invite = it's on me. The person who invites usually pays.",
+    "L'addition is the bill in a restaurant. In a shop, it's le ticket."
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "schema": 2,
+  "id": "work",
+  "title": "Work and study",
+  "goal": "Say where you work or study and what it is like.",
+  "roles": {
+    "A": "Asks first",
+    "B": "Answers, then asks back"
+  },
+  "slots": {
+    "place": {
+      "kind": "set",
+      "cue": "a workplace"
+    }
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "role": "A",
+      "en": "Where do you work?",
+      "addressesYou": true
+    },
+    {
+      "id": "l2",
+      "role": "B",
+      "en": "I work at {place}. And you?",
+      "addressesYou": true
+    },
+    {
+      "id": "l3",
+      "role": "A",
+      "en": "I'm a student. I study at the university."
+    },
+    {
+      "id": "l4",
+      "role": "B",
+      "en": "Do you like it?",
+      "addressesYou": true
+    },
+    {
+      "id": "l5",
+      "role": "A",
+      "en": "Yes, it's interesting but tiring."
+    },
+    {
+      "id": "l6",
+      "role": "B",
+      "en": "How long have you been there?",
+      "addressesYou": true
+    },
+    {
+      "id": "l7",
+      "role": "A",
+      "en": "Two years."
+    }
+  ],
+  "chunks": [
+    {
+      "id": "where-work",
+      "en": "where do you work?",
+      "addressesYou": true
+    },
+    {
+      "id": "i-work-at",
+      "en": "I work at ___"
+    },
+    {
+      "id": "i-study-at",
+      "en": "I study at ___"
+    },
+    {
+      "id": "do-you-like-it",
+      "en": "do you like it?",
+      "addressesYou": true
+    },
+    {
+      "id": "interesting-tiring",
+      "en": "it's interesting but tiring"
+    },
+    {
+      "id": "how-long",
+      "en": "how long have you been there?",
+      "addressesYou": true
+    },
+    {
+      "id": "two-years",
+      "en": "two years"
+    },
+    {
+      "id": "from-home",
+      "en": "I work from home"
+    }
+  ],
+  "drill": {
+    "slot": "place",
+    "instruction": "Swap the workplace each time."
+  },
+  "free": {
+    "prompt": "Tell the group about your work or studies: where, what you do, and what you like about it.",
+    "targets": [
+      {
+        "id": "i-start-at",
+        "en": "I start at ___"
+      },
+      {
+        "id": "i-finish-at",
+        "en": "I finish at ___"
+      }
+    ]
+  }
+}

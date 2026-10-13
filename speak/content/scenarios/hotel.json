@@ -1,0 +1,97 @@
+{
+  "schema": 2,
+  "id": "hotel",
+  "title": "A room, please",
+  "goal": "Book a room at a hotel and check in.",
+  "roles": {
+    "A": "A guest",
+    "B": "The receptionist"
+  },
+  "slots": {
+    "nights": {
+      "kind": "set",
+      "cue": "a number of nights"
+    }
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "role": "A",
+      "en": "Good evening. Do you have a room?",
+      "addressesYou": true
+    },
+    {
+      "id": "l2",
+      "role": "B",
+      "en": "For how many nights?"
+    },
+    {
+      "id": "l3",
+      "role": "A",
+      "en": "For {nights} nights."
+    },
+    {
+      "id": "l4",
+      "role": "B",
+      "en": "Yes. It's (a price) per night."
+    },
+    {
+      "id": "l5",
+      "role": "A",
+      "en": "Is breakfast included?"
+    },
+    {
+      "id": "l6",
+      "role": "B",
+      "en": "Yes, from seven to ten. Here's your key."
+    }
+  ],
+  "chunks": [
+    {
+      "id": "have-a-room",
+      "en": "do you have a room?",
+      "addressesYou": true
+    },
+    {
+      "id": "how-many-nights",
+      "en": "for how many nights?"
+    },
+    {
+      "id": "for-nights",
+      "en": "for ___ nights"
+    },
+    {
+      "id": "per-night",
+      "en": "___ per night"
+    },
+    {
+      "id": "breakfast-included",
+      "en": "is breakfast included?"
+    },
+    {
+      "id": "your-key",
+      "en": "here's your key"
+    },
+    {
+      "id": "wifi",
+      "en": "is there wifi?"
+    }
+  ],
+  "drill": {
+    "slot": "nights",
+    "instruction": "Swap the number of nights each time."
+  },
+  "free": {
+    "prompt": "One person runs a hotel. Each guest books a room and asks two questions about it.",
+    "targets": [
+      {
+        "id": "checkout",
+        "en": "what time is checkout?"
+      },
+      {
+        "id": "room-number",
+        "en": "my room number is ___"
+      }
+    ]
+  }
+}

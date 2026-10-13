@@ -1,0 +1,262 @@
+{
+  "schema": 2,
+  "scenario": "life",
+  "lang": "hi",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "registerNotes": {
+    "intimate": "तू is for very close friends and family. Practise this one with आप and तुम."
+  },
+  "lines": {
+    "l1": {
+      "text": "आप कहाँ बड़े हुए?",
+      "rom": "aap kahaan baRe hue?",
+      "variants": [
+        {
+          "listener": "m",
+          "text": "आप कहाँ बड़े हुए?",
+          "rom": "aap kahaan baRe hue?"
+        },
+        {
+          "listener": "f",
+          "text": "आप कहाँ बड़ी हुईं?",
+          "rom": "aap kahaan baRee hueen?"
+        }
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "तुम कहाँ बड़े हुए?",
+          "rom": "tum kahaan baRe hue?",
+          "variants": [
+            {
+              "listener": "m",
+              "text": "तुम कहाँ बड़े हुए?",
+              "rom": "tum kahaan baRe hue?"
+            },
+            {
+              "listener": "f",
+              "text": "तुम कहाँ बड़ी हुईं?",
+              "rom": "tum kahaan baRee hueen?"
+            }
+          ]
+        }
+      }
+    },
+    "l2": {
+      "text": "मैं {city} में पैदा हुआ, पर दिल्ली में बड़ा हुआ।",
+      "rom": "main {city} men paidaa huaa, par dillee men baRaa huaa.",
+      "variants": [
+        {
+          "speaker": "m",
+          "text": "मैं {city} में पैदा हुआ, पर दिल्ली में बड़ा हुआ।",
+          "rom": "main {city} men paidaa huaa, par dillee men baRaa huaa."
+        },
+        {
+          "speaker": "f",
+          "text": "मैं {city} में पैदा हुई, पर दिल्ली में बड़ी हुई।",
+          "rom": "main {city} men paidaa huee, par dillee men baRee huee."
+        }
+      ]
+    },
+    "l3": {
+      "text": "आप यहाँ कब आए?",
+      "rom": "aap yahaan kab aae?",
+      "variants": [
+        {
+          "listener": "m",
+          "text": "आप यहाँ कब आए?",
+          "rom": "aap yahaan kab aae?"
+        },
+        {
+          "listener": "f",
+          "text": "आप यहाँ कब आईं?",
+          "rom": "aap yahaan kab aaeen?"
+        }
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "तुम यहाँ कब आए?",
+          "rom": "tum yahaan kab aae?",
+          "variants": [
+            {
+              "listener": "m",
+              "text": "तुम यहाँ कब आए?",
+              "rom": "tum yahaan kab aae?"
+            },
+            {
+              "listener": "f",
+              "text": "तुम यहाँ कब आईं?",
+              "rom": "tum yahaan kab aaeen?"
+            }
+          ]
+        }
+      }
+    },
+    "l4": {
+      "text": "पाँच साल पहले। और आप?",
+      "rom": "paanch saal pahle. aur aap?",
+      "byRegister": {
+        "familiar": {
+          "text": "पाँच साल पहले। और तुम?",
+          "rom": "paanch saal pahle. aur tum?"
+        }
+      }
+    },
+    "l5": {
+      "text": "मैं हमेशा से यहीं रहता हूँ।",
+      "rom": "main hameshaa se yaheen rahtaa hoon.",
+      "variants": [
+        {
+          "speaker": "m",
+          "text": "मैं हमेशा से यहीं रहता हूँ।",
+          "rom": "main hameshaa se yaheen rahtaa hoon."
+        },
+        {
+          "speaker": "f",
+          "text": "मैं हमेशा से यहीं रहती हूँ।",
+          "rom": "main hameshaa se yaheen rahtee hoon."
+        }
+      ]
+    },
+    "l6": {
+      "text": "आप क़िस्मत वाले हैं!",
+      "rom": "aap qismat vaale hain!",
+      "variants": [
+        {
+          "listener": "m",
+          "text": "आप क़िस्मत वाले हैं!",
+          "rom": "aap qismat vaale hain!"
+        },
+        {
+          "listener": "f",
+          "text": "आप क़िस्मत वाली हैं!",
+          "rom": "aap qismat vaalee hain!"
+        }
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "तुम क़िस्मत वाले हो!",
+          "rom": "tum qismat vaale ho!",
+          "variants": [
+            {
+              "listener": "m",
+              "text": "तुम क़िस्मत वाले हो!",
+              "rom": "tum qismat vaale ho!"
+            },
+            {
+              "listener": "f",
+              "text": "तुम क़िस्मत वाली हो!",
+              "rom": "tum qismat vaalee ho!"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "chunks": {
+    "where-grow-up": {
+      "text": "आप कहाँ बड़े / बड़ी हुए / हुईं?",
+      "rom": "aap kahaan baRe / baRee hue / hueen?",
+      "choice": "mf",
+      "literal": "you where big became?",
+      "byRegister": {
+        "familiar": {
+          "text": "तुम कहाँ बड़े / बड़ी हुए / हुईं?",
+          "rom": "tum kahaan baRe / baRee hue / hueen?"
+        }
+      }
+    },
+    "i-was-born": {
+      "text": "मैं ___ में पैदा हुआ / हुई",
+      "rom": "main ___ men paidaa huaa / huee",
+      "choice": "mf",
+      "literal": "I ___ in born became"
+    },
+    "i-grew-up": {
+      "text": "___ में बड़ा / बड़ी हुआ / हुई",
+      "rom": "___ men baRaa / baRee huaa / huee",
+      "choice": "mf",
+      "literal": "___ in big became"
+    },
+    "when-move": {
+      "text": "आप यहाँ कब आए / आईं?",
+      "rom": "aap yahaan kab aae / aaeen?",
+      "choice": "mf",
+      "literal": "you here when came?",
+      "byRegister": {
+        "familiar": {
+          "text": "तुम यहाँ कब आए / आईं?",
+          "rom": "tum yahaan kab aae / aaeen?"
+        }
+      }
+    },
+    "years-ago": {
+      "text": "___ साल पहले",
+      "rom": "___ saal pahle",
+      "literal": "___ years before"
+    },
+    "always-lived": {
+      "text": "मैं हमेशा से यहीं रहता / रहती हूँ",
+      "rom": "main hameshaa se yaheen rahtaa / rahtee hoon",
+      "choice": "mf",
+      "literal": "I always since right-here live am"
+    },
+    "before-lived": {
+      "text": "पहले मैं ___ में रहता / रहती था / थी",
+      "rom": "pahle main ___ men rahtaa / rahtee thaa / thee",
+      "choice": "mf",
+      "extra": true,
+      "literal": "before I ___ in living was"
+    }
+  },
+  "slotValues": {
+    "city": [
+      {
+        "en": "Lucknow",
+        "text": "लखनऊ",
+        "rom": "lakhnaoo"
+      },
+      {
+        "en": "Patna",
+        "text": "पटना",
+        "rom": "paTnaa"
+      },
+      {
+        "en": "Kanpur",
+        "text": "कानपुर",
+        "rom": "kaanpur"
+      },
+      {
+        "en": "Indore",
+        "text": "इंदौर",
+        "rom": "indaur"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "family-from": {
+        "text": "मेरा परिवार ___ से है",
+        "rom": "meraa parivaar ___ se hai"
+      },
+      "moved-for": {
+        "text": "मैं ___ के लिए यहाँ आया / आई",
+        "rom": "main ___ ke lie yahaan aayaa / aaee",
+        "choice": "mf"
+      }
+    }
+  },
+  "notes": [
+    "बड़ा होना (\"to become big\") means to grow up. पैदा होना means to be born. Both agree with the person: पैदा हुआ / हुई, बड़ा हुआ / बड़ी हुई.",
+    "With आप and तुम, a woman is asked in the plural: आप कहाँ बड़ी हुईं? आप यहाँ कब आईं?",
+    "हमेशा से (\"since always\") with the present means \"have always\": मैं हमेशा से यहीं रहता हूँ.",
+    "The capital here is दिल्ली. राजधानी is the word for \"capital\"."
+  ]
+}

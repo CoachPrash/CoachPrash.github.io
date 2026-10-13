@@ -1,0 +1,118 @@
+{
+  "schema": 2,
+  "scenario": "doctor",
+  "lang": "fr",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal"
+  ],
+  "registerNotes": {
+    "familiar": "A doctor and a patient say vous to each other."
+  },
+  "lines": {
+    "l1": {
+      "text": "Qu'est-ce qui ne va pas ?",
+      "accept": [
+        "Qu'est-ce qui vous arrive ?"
+      ]
+    },
+    "l2": {
+      "text": "J'ai {symptom}."
+    },
+    "l3": {
+      "text": "Depuis quand ?"
+    },
+    "l4": {
+      "text": "Depuis hier."
+    },
+    "l5": {
+      "text": "Prenez ce médicament deux fois par jour, et reposez-vous.",
+      "accept": [
+        "Prenez ce médicament deux fois par jour et reposez-vous bien."
+      ]
+    },
+    "l6": {
+      "text": "Merci, docteur."
+    }
+  },
+  "chunks": {
+    "whats-matter": {
+      "text": "qu'est-ce qui ne va pas ?",
+      "literal": "what is it that (ne) goes not?"
+    },
+    "i-have-symptom": {
+      "text": "j'ai ___",
+      "literal": "I have ___"
+    },
+    "since-when": {
+      "text": "depuis quand ?",
+      "literal": "since when?"
+    },
+    "since-yesterday": {
+      "text": "depuis hier",
+      "literal": "since yesterday"
+    },
+    "take-medicine": {
+      "text": "prenez ce médicament",
+      "literal": "take this medicine"
+    },
+    "twice-a-day": {
+      "text": "deux fois par jour",
+      "literal": "two times per day"
+    },
+    "thank-you-doctor": {
+      "text": "merci, docteur",
+      "literal": "thanks, doctor"
+    },
+    "feel-better": {
+      "extra": true,
+      "text": "je me sens mieux",
+      "literal": "I myself feel better"
+    }
+  },
+  "slotValues": {
+    "symptom": [
+      {
+        "en": "a stomach ache",
+        "text": "mal au ventre"
+      },
+      {
+        "en": "a fever",
+        "text": "de la fièvre"
+      },
+      {
+        "en": "a cough",
+        "text": "de la toux"
+      },
+      {
+        "en": "toothache",
+        "text": "mal aux dents"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "it-hurts": {
+        "text": "J'ai mal ici.",
+        "accept": [
+          "Ça fait mal ici."
+        ]
+      },
+      "get-well": {
+        "text": "Bon rétablissement !",
+        "accept": [
+          "Remettez-vous vite !"
+        ]
+      }
+    }
+  },
+  "notes": [
+    "Pain uses avoir mal à: j'ai mal à la tête, j'ai mal au ventre, j'ai mal aux dents.",
+    "À + le becomes au, à + les becomes aux.",
+    "Patients call a doctor docteur: Merci, docteur."
+  ]
+}

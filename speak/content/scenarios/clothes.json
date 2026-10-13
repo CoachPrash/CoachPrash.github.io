@@ -1,0 +1,104 @@
+{
+  "schema": 2,
+  "id": "clothes",
+  "title": "Trying it on",
+  "goal": "Buy clothes: ask for a size, try something on, and decide.",
+  "roles": {
+    "A": "A customer",
+    "B": "A shop assistant"
+  },
+  "slots": {
+    "item": {
+      "kind": "set",
+      "cue": "an item of clothing"
+    }
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "role": "B",
+      "en": "Can I help you?",
+      "addressesYou": true
+    },
+    {
+      "id": "l2",
+      "role": "A",
+      "en": "Yes. Do you have this {item} in a bigger size?",
+      "addressesYou": true
+    },
+    {
+      "id": "l3",
+      "role": "B",
+      "en": "Yes. What size?"
+    },
+    {
+      "id": "l4",
+      "role": "A",
+      "en": "Medium. Can I try it on?"
+    },
+    {
+      "id": "l5",
+      "role": "B",
+      "en": "Of course. The changing room is over there."
+    },
+    {
+      "id": "l6",
+      "role": "A",
+      "en": "It's perfect. I'll take it."
+    }
+  ],
+  "chunks": [
+    {
+      "id": "can-i-help",
+      "en": "can I help you?",
+      "addressesYou": true
+    },
+    {
+      "id": "bigger-size",
+      "en": "do you have this ___ in a bigger size?",
+      "addressesYou": true
+    },
+    {
+      "id": "what-size",
+      "en": "what size?"
+    },
+    {
+      "id": "can-i-try",
+      "en": "can I try it on?"
+    },
+    {
+      "id": "changing-room",
+      "en": "the changing room is over there"
+    },
+    {
+      "id": "its-perfect",
+      "en": "it's perfect"
+    },
+    {
+      "id": "ill-take-it",
+      "en": "I'll take it"
+    },
+    {
+      "id": "too-small",
+      "en": "it's too small"
+    }
+  ],
+  "drill": {
+    "slot": "item",
+    "instruction": "Swap the item of clothing each time."
+  },
+  "free": {
+    "prompt": "Shop for three things to wear. Say if each one is too big, too small or perfect.",
+    "targets": [
+      {
+        "id": "too-big",
+        "en": "it's too big"
+      },
+      {
+        "id": "other-colour",
+        "en": "do you have it in ___ (a colour)?",
+        "addressesYou": true
+      }
+    ]
+  }
+}

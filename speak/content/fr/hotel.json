@@ -1,0 +1,121 @@
+{
+  "schema": 2,
+  "scenario": "hotel",
+  "lang": "fr",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal"
+  ],
+  "registerNotes": {
+    "familiar": "Hotel staff and guests say vous to each other."
+  },
+  "lines": {
+    "l1": {
+      "text": "Bonsoir. Vous avez une chambre ?",
+      "accept": [
+        "Bonsoir. Vous avez une chambre de libre ?"
+      ]
+    },
+    "l2": {
+      "text": "Pour combien de nuits ?"
+    },
+    "l3": {
+      "text": "Pour {nights} nuits."
+    },
+    "l4": {
+      "text": "Oui. C'est soixante-quinze euros la nuit.",
+      "accept": [
+        "Oui. C'est 75 euros la nuit.",
+        "Oui. C'est 75 € la nuit."
+      ]
+    },
+    "l5": {
+      "text": "Le petit-déjeuner est compris ?",
+      "accept": [
+        "Le petit-déjeuner est inclus ?"
+      ]
+    },
+    "l6": {
+      "text": "Oui, de sept heures à dix heures. Voici votre clé.",
+      "accept": [
+        "Oui, de 7 heures à 10 heures. Voici votre clé."
+      ]
+    }
+  },
+  "chunks": {
+    "have-a-room": {
+      "text": "vous avez une chambre ?",
+      "literal": "you have a room?"
+    },
+    "how-many-nights": {
+      "text": "pour combien de nuits ?",
+      "literal": "for how-many of nights?"
+    },
+    "for-nights": {
+      "text": "pour ___ nuits",
+      "literal": "for ___ nights"
+    },
+    "per-night": {
+      "text": "___ la nuit",
+      "literal": "___ the night"
+    },
+    "breakfast-included": {
+      "text": "le petit-déjeuner est compris ?",
+      "literal": "the little-lunch is included?"
+    },
+    "your-key": {
+      "text": "voici votre clé",
+      "literal": "here-is your key"
+    },
+    "wifi": {
+      "extra": true,
+      "text": "il y a le wifi ?",
+      "literal": "it there has the wifi?"
+    }
+  },
+  "slotValues": {
+    "nights": [
+      {
+        "en": "two",
+        "text": "deux"
+      },
+      {
+        "en": "three",
+        "text": "trois"
+      },
+      {
+        "en": "four",
+        "text": "quatre"
+      },
+      {
+        "en": "five",
+        "text": "cinq"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "checkout": {
+        "text": "Il faut libérer la chambre à quelle heure ?",
+        "accept": [
+          "À quelle heure faut-il libérer la chambre ?"
+        ]
+      },
+      "room-number": {
+        "text": "J'ai la chambre ___.",
+        "accept": [
+          "Ma chambre, c'est la ___."
+        ]
+      }
+    }
+  },
+  "notes": [
+    "Per night is la nuit: soixante-quinze euros la nuit.",
+    "Compris and inclus both mean included.",
+    "Libérer la chambre means to check out: to leave the room free."
+  ]
+}

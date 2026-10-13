@@ -1,0 +1,265 @@
+{
+  "schema": 2,
+  "scenario": "work",
+  "lang": "hi",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "registerNotes": {
+    "intimate": "तू is for very close friends and family. Practise this one with आप and तुम."
+  },
+  "lines": {
+    "l1": {
+      "text": "आप कहाँ काम करते हैं?",
+      "rom": "aap kahaan kaam karte hain?",
+      "variants": [
+        {
+          "listener": "m",
+          "text": "आप कहाँ काम करते हैं?",
+          "rom": "aap kahaan kaam karte hain?"
+        },
+        {
+          "listener": "f",
+          "text": "आप कहाँ काम करती हैं?",
+          "rom": "aap kahaan kaam kartee hain?"
+        }
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "तुम कहाँ काम करते हो?",
+          "rom": "tum kahaan kaam karte ho?",
+          "variants": [
+            {
+              "listener": "m",
+              "text": "तुम कहाँ काम करते हो?",
+              "rom": "tum kahaan kaam karte ho?"
+            },
+            {
+              "listener": "f",
+              "text": "तुम कहाँ काम करती हो?",
+              "rom": "tum kahaan kaam kartee ho?"
+            }
+          ]
+        }
+      }
+    },
+    "l2": {
+      "text": "मैं {place} में काम करता हूँ। और आप?",
+      "rom": "main {place} men kaam kartaa hoon. aur aap?",
+      "variants": [
+        {
+          "speaker": "m",
+          "text": "मैं {place} में काम करता हूँ। और आप?",
+          "rom": "main {place} men kaam kartaa hoon. aur aap?"
+        },
+        {
+          "speaker": "f",
+          "text": "मैं {place} में काम करती हूँ। और आप?",
+          "rom": "main {place} men kaam kartee hoon. aur aap?"
+        }
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "मैं {place} में काम करता हूँ। और तुम?",
+          "rom": "main {place} men kaam kartaa hoon. aur tum?",
+          "variants": [
+            {
+              "speaker": "m",
+              "text": "मैं {place} में काम करता हूँ। और तुम?",
+              "rom": "main {place} men kaam kartaa hoon. aur tum?"
+            },
+            {
+              "speaker": "f",
+              "text": "मैं {place} में काम करती हूँ। और तुम?",
+              "rom": "main {place} men kaam kartee hoon. aur tum?"
+            }
+          ]
+        }
+      }
+    },
+    "l3": {
+      "text": "मैं स्टूडेंट हूँ। मैं यूनिवर्सिटी में पढ़ता हूँ।",
+      "rom": "main sTooDenT hoon. main yoonivarsiTee men paRhtaa hoon.",
+      "variants": [
+        {
+          "speaker": "m",
+          "text": "मैं स्टूडेंट हूँ। मैं यूनिवर्सिटी में पढ़ता हूँ।",
+          "rom": "main sTooDenT hoon. main yoonivarsiTee men paRhtaa hoon."
+        },
+        {
+          "speaker": "f",
+          "text": "मैं स्टूडेंट हूँ। मैं यूनिवर्सिटी में पढ़ती हूँ।",
+          "rom": "main sTooDenT hoon. main yoonivarsiTee men paRhtee hoon."
+        }
+      ],
+      "accept": [
+        {
+          "text": "मैं विद्यार्थी हूँ। मैं यूनिवर्सिटी में पढ़ता हूँ।",
+          "rom": "main vidyaarthee hoon. main yoonivarsiTee men paRhtaa hoon."
+        },
+        {
+          "text": "मैं विद्यार्थी हूँ। मैं यूनिवर्सिटी में पढ़ती हूँ।",
+          "rom": "main vidyaarthee hoon. main yoonivarsiTee men paRhtee hoon."
+        }
+      ]
+    },
+    "l4": {
+      "text": "आपको अच्छा लगता है?",
+      "rom": "aapko achchhaa lagtaa hai?",
+      "byRegister": {
+        "familiar": {
+          "text": "तुम्हें अच्छा लगता है?",
+          "rom": "tumhen achchhaa lagtaa hai?"
+        }
+      }
+    },
+    "l5": {
+      "text": "हाँ, दिलचस्प है, पर थका देता है।",
+      "rom": "haan, dilchasp hai, par thakaa detaa hai."
+    },
+    "l6": {
+      "text": "आप वहाँ कितने समय से हैं?",
+      "rom": "aap vahaan kitne samay se hain?",
+      "accept": [
+        {
+          "text": "आप वहाँ कब से हैं?",
+          "rom": "aap vahaan kab se hain?"
+        }
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "तुम वहाँ कितने समय से हो?",
+          "rom": "tum vahaan kitne samay se ho?",
+          "accept": [
+            {
+              "text": "तुम वहाँ कब से हो?",
+              "rom": "tum vahaan kab se ho?"
+            }
+          ]
+        }
+      }
+    },
+    "l7": {
+      "text": "दो साल से।",
+      "rom": "do saal se.",
+      "accept": [
+        {
+          "text": "2 साल से।",
+          "rom": "2 saal se."
+        }
+      ]
+    }
+  },
+  "chunks": {
+    "where-work": {
+      "text": "आप कहाँ काम करते / करती हैं?",
+      "rom": "aap kahaan kaam karte / kartee hain?",
+      "choice": "mf",
+      "literal": "you where work do are?",
+      "byRegister": {
+        "familiar": {
+          "text": "तुम कहाँ काम करते / करती हो?",
+          "rom": "tum kahaan kaam karte / kartee ho?"
+        }
+      }
+    },
+    "i-work-at": {
+      "text": "मैं ___ में काम करता / करती हूँ",
+      "rom": "main ___ men kaam kartaa / kartee hoon",
+      "choice": "mf",
+      "literal": "I ___ in work do am"
+    },
+    "i-study-at": {
+      "text": "मैं ___ में पढ़ता / पढ़ती हूँ",
+      "rom": "main ___ men paRhtaa / paRhtee hoon",
+      "choice": "mf",
+      "literal": "I ___ in study am"
+    },
+    "do-you-like-it": {
+      "text": "आपको अच्छा लगता है?",
+      "rom": "aapko achchhaa lagtaa hai?",
+      "literal": "to-you good seems is?",
+      "byRegister": {
+        "familiar": {
+          "text": "तुम्हें अच्छा लगता है?",
+          "rom": "tumhen achchhaa lagtaa hai?"
+        }
+      }
+    },
+    "interesting-tiring": {
+      "text": "दिलचस्प है, पर थका देता है",
+      "rom": "dilchasp hai, par thakaa detaa hai",
+      "literal": "interesting is, but tired gives"
+    },
+    "how-long": {
+      "text": "आप वहाँ कितने समय से हैं?",
+      "rom": "aap vahaan kitne samay se hain?",
+      "literal": "you there how-much time since are?",
+      "byRegister": {
+        "familiar": {
+          "text": "तुम वहाँ कितने समय से हो?",
+          "rom": "tum vahaan kitne samay se ho?"
+        }
+      }
+    },
+    "two-years": {
+      "text": "दो साल से",
+      "rom": "do saal se",
+      "literal": "two years since"
+    },
+    "from-home": {
+      "text": "मैं घर से काम करता / करती हूँ",
+      "rom": "main ghar se kaam kartaa / kartee hoon",
+      "choice": "mf",
+      "extra": true,
+      "literal": "I home from work do am"
+    }
+  },
+  "slotValues": {
+    "place": [
+      {
+        "en": "a bank",
+        "text": "एक बैंक",
+        "rom": "ek baink"
+      },
+      {
+        "en": "a hospital",
+        "text": "एक अस्पताल",
+        "rom": "ek aspataal"
+      },
+      {
+        "en": "a school",
+        "text": "एक स्कूल",
+        "rom": "ek skool"
+      },
+      {
+        "en": "a shop",
+        "text": "एक दुकान",
+        "rom": "ek dukaan"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "i-start-at": {
+        "text": "मेरा काम ___ बजे शुरू होता है",
+        "rom": "meraa kaam ___ baje shuroo hotaa hai"
+      },
+      "i-finish-at": {
+        "text": "मेरा काम ___ बजे ख़त्म होता है",
+        "rom": "meraa kaam ___ baje Khatm hotaa hai"
+      }
+    }
+  },
+  "notes": [
+    "पढ़ना means both \"to read\" and \"to study\": मैं यूनिवर्सिटी में पढ़ता हूँ, I study at the university.",
+    "Hindi uses the present with से for \"have been ... for\": मैं वहाँ दो साल से हूँ, \"I am there since two years\".",
+    "मेरा काम नौ बजे शुरू होता है (\"my work starts at nine\") is the same for a man and a woman."
+  ]
+}

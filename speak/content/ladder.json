@@ -7,11 +7,11 @@
     { "stage": 3, "level": "A1", "title": "Time", "scenarios": ["time", "when", "free"] },
     { "stage": 4, "level": "A1", "title": "Getting things", "scenarios": ["requests", "shopping", "price", "near"] },
     { "stage": 5, "level": "A1", "title": "My world", "scenarios": ["home", "weekend", "weather", "have", "in-class"] },
-    { "stage": 6, "level": "A2", "title": "My days", "scenarios": ["routine"] },
-    { "stage": 7, "level": "A2", "title": "Around town", "scenarios": ["directions"] },
-    { "stage": 8, "level": "A2", "title": "Plans and invitations", "scenarios": [] },
-    { "stage": 9, "level": "A2", "title": "What happened", "scenarios": ["opinions"] },
-    { "stage": 10, "level": "A2", "title": "People and wellbeing", "scenarios": [] },
-    { "stage": 11, "level": "A2", "title": "Opinions and choices", "scenarios": [] }
+    { "stage": 6, "level": "A2", "title": "My days", "scenarios": ["routine", "often", "work", "transport"] },
+    { "stage": 7, "level": "A2", "title": "Around town", "scenarios": ["directions", "clothes", "restaurant", "hotel"] },
+    { "stage": 8, "level": "A2", "title": "Plans and invitations", "scenarios": ["invite", "arrange", "phone", "plans"] },
+    { "stage": 9, "level": "A2", "title": "What happened", "scenarios": ["opinions", "trip", "life", "festival"] },
+    { "stage": 10, "level": "A2", "title": "People and wellbeing", "scenarios": ["describe", "doctor", "advice", "offer"] },
+    { "stage": 11, "level": "A2", "title": "Opinions and choices", "scenarios": ["compare", "recommend", "problem"] }
   ]
 }

@@ -1,0 +1,123 @@
+{
+  "schema": 2,
+  "scenario": "compare",
+  "lang": "hi",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "registerNotes": {
+    "intimate": "तू is for very close friends and family. Practise this one with आप and तुम."
+  },
+  "lines": {
+    "l1": {
+      "text": "कौन-सा {thing} बेहतर है, ये वाला या वो वाला?",
+      "rom": "kaun-saa {thing} behtar hai, ye vaalaa yaa vo vaalaa?"
+    },
+    "l2": {
+      "text": "ये वाला सस्ता है, पर वो वाला तेज़ है।",
+      "rom": "ye vaalaa sastaa hai, par vo vaalaa tez hai."
+    },
+    "l3": {
+      "text": "मुझे सस्ता वाला ज़्यादा पसंद है।",
+      "rom": "mujhe sastaa vaalaa zyaadaa pasand hai."
+    },
+    "l4": {
+      "text": "क्यों?",
+      "rom": "kyon?"
+    },
+    "l5": {
+      "text": "क्योंकि मुझे तेज़ वाला नहीं चाहिए।",
+      "rom": "kyonki mujhe tez vaalaa naheen chaahie."
+    },
+    "l6": {
+      "text": "बात तो सही है!",
+      "rom": "baat to sahee hai!"
+    }
+  },
+  "chunks": {
+    "which-better": {
+      "text": "कौन-सा ___ बेहतर है?",
+      "rom": "kaun-saa ___ behtar hai?",
+      "literal": "which ___ better is?"
+    },
+    "this-cheaper": {
+      "text": "ये वाला सस्ता है",
+      "rom": "ye vaalaa sastaa hai",
+      "literal": "this one cheap is"
+    },
+    "that-faster": {
+      "text": "वो वाला तेज़ है",
+      "rom": "vo vaalaa tez hai",
+      "literal": "that one fast is"
+    },
+    "prefer-cheaper": {
+      "text": "मुझे सस्ता वाला ज़्यादा पसंद है",
+      "rom": "mujhe sastaa vaalaa zyaadaa pasand hai",
+      "literal": "to-me cheap one more liked is"
+    },
+    "because": {
+      "text": "क्योंकि ___",
+      "rom": "kyonki ___",
+      "literal": "because ___"
+    },
+    "makes-sense": {
+      "text": "बात तो सही है",
+      "rom": "baat to sahee hai",
+      "literal": "point (stress) right is"
+    },
+    "same": {
+      "text": "दोनों एक जैसे हैं",
+      "rom": "donon ek jaise hain",
+      "extra": true,
+      "literal": "both one alike are"
+    }
+  },
+  "slotValues": {
+    "thing": [
+      {
+        "en": "phone",
+        "text": "फ़ोन",
+        "rom": "fon"
+      },
+      {
+        "en": "laptop",
+        "text": "लैपटॉप",
+        "rom": "laipTop"
+      },
+      {
+        "en": "scooter",
+        "text": "स्कूटर",
+        "rom": "skooTar"
+      },
+      {
+        "en": "fan",
+        "text": "पंखा",
+        "rom": "pankhaa"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "bigger-than": {
+        "text": "___ ___ से बड़ा है",
+        "rom": "___ ___ se baRaa hai"
+      },
+      "like-both": {
+        "text": "मुझे दोनों पसंद हैं",
+        "rom": "mujhe donon pasand hain"
+      }
+    }
+  },
+  "notes": [
+    "Hindi compares with से and the plain adjective: ये उससे सस्ता है (\"this, from that, is cheap\") means this is cheaper than that.",
+    "In the dialogue, \"cheaper\" is just सस्ता: with two things, the context does the comparing. ज़्यादा adds \"more\".",
+    "वाला after a word means \"the one\": ये वाला (this one), सस्ता वाला (the cheap one). For a feminine thing it is वाली.",
+    "बेहतर (better) is one of the few adjectives with its own comparative form."
+  ]
+}

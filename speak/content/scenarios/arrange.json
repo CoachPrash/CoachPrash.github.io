@@ -1,0 +1,100 @@
+{
+  "schema": 2,
+  "id": "arrange",
+  "title": "Where shall we meet?",
+  "goal": "Agree what to do, where to meet and when.",
+  "roles": {
+    "A": "Asks first",
+    "B": "Suggests"
+  },
+  "slots": {
+    "activity": {
+      "kind": "set",
+      "cue": "an activity"
+    }
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "role": "A",
+      "en": "What shall we do this weekend?"
+    },
+    {
+      "id": "l2",
+      "role": "B",
+      "en": "How about {activity}?"
+    },
+    {
+      "id": "l3",
+      "role": "A",
+      "en": "Good idea. Where shall we meet?"
+    },
+    {
+      "id": "l4",
+      "role": "B",
+      "en": "Let's meet at the station."
+    },
+    {
+      "id": "l5",
+      "role": "A",
+      "en": "Is eleven OK?"
+    },
+    {
+      "id": "l6",
+      "role": "B",
+      "en": "Perfect. See you there!"
+    }
+  ],
+  "chunks": [
+    {
+      "id": "what-shall-we-do",
+      "en": "what shall we do this weekend?"
+    },
+    {
+      "id": "how-about",
+      "en": "how about ___?"
+    },
+    {
+      "id": "good-idea",
+      "en": "good idea"
+    },
+    {
+      "id": "where-meet",
+      "en": "where shall we meet?"
+    },
+    {
+      "id": "lets-meet",
+      "en": "let's meet at ___"
+    },
+    {
+      "id": "is-ok",
+      "en": "is ___ OK?"
+    },
+    {
+      "id": "see-you-there",
+      "en": "see you there"
+    },
+    {
+      "id": "ill-text",
+      "en": "I'll text you",
+      "addressesYou": true
+    }
+  ],
+  "drill": {
+    "slot": "activity",
+    "instruction": "Swap the activity each time."
+  },
+  "free": {
+    "prompt": "In pairs, plan a day out: what, where and when. Then tell the group.",
+    "targets": [
+      {
+        "id": "cant-saturday",
+        "en": "I can't on Saturday"
+      },
+      {
+        "id": "what-about",
+        "en": "what about ___?"
+      }
+    ]
+  }
+}

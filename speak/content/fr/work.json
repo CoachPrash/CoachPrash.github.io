@@ -1,0 +1,180 @@
+{
+  "schema": 2,
+  "scenario": "work",
+  "lang": "fr",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "Où travaillez-vous ?",
+      "accept": [
+        "Vous travaillez où ?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Tu travailles où ?",
+          "accept": [
+            "Où travailles-tu ?"
+          ]
+        }
+      }
+    },
+    "l2": {
+      "text": "Je travaille {place}. Et vous ?",
+      "byRegister": {
+        "familiar": {
+          "text": "Je travaille {place}. Et toi ?"
+        }
+      }
+    },
+    "l3": {
+      "text": "Je suis étudiant. J'étudie à l'université.",
+      "variants": [
+        {
+          "speaker": "m",
+          "text": "Je suis étudiant. J'étudie à l'université."
+        },
+        {
+          "speaker": "f",
+          "text": "Je suis étudiante. J'étudie à l'université."
+        }
+      ],
+      "accept": [
+        "Je suis étudiant. Je fais mes études à l'université.",
+        "Je suis étudiante. Je fais mes études à l'université."
+      ]
+    },
+    "l4": {
+      "text": "Ça vous plaît ?",
+      "accept": [
+        "Vous aimez ça ?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Ça te plaît ?",
+          "accept": [
+            "Tu aimes ça ?"
+          ]
+        }
+      }
+    },
+    "l5": {
+      "text": "Oui, c'est intéressant mais fatigant."
+    },
+    "l6": {
+      "text": "Vous y êtes depuis combien de temps ?",
+      "accept": [
+        "Depuis combien de temps vous y êtes ?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Tu y es depuis combien de temps ?",
+          "accept": [
+            "Depuis combien de temps tu y es ?"
+          ]
+        }
+      }
+    },
+    "l7": {
+      "text": "Depuis deux ans.",
+      "accept": [
+        "Deux ans."
+      ]
+    }
+  },
+  "chunks": {
+    "where-work": {
+      "text": "où travaillez-vous ?",
+      "byRegister": {
+        "familiar": {
+          "text": "tu travailles où ?"
+        }
+      },
+      "literal": "where work you?"
+    },
+    "i-work-at": {
+      "text": "je travaille ___",
+      "literal": "I work ___"
+    },
+    "i-study-at": {
+      "text": "j'étudie à ___",
+      "literal": "I study at ___"
+    },
+    "do-you-like-it": {
+      "text": "ça vous plaît ?",
+      "byRegister": {
+        "familiar": {
+          "text": "ça te plaît ?"
+        }
+      },
+      "literal": "that to-you pleases?"
+    },
+    "interesting-tiring": {
+      "text": "c'est intéressant mais fatigant",
+      "literal": "it's interesting but tiring"
+    },
+    "how-long": {
+      "text": "vous y êtes depuis combien de temps ?",
+      "byRegister": {
+        "familiar": {
+          "text": "tu y es depuis combien de temps ?"
+        }
+      },
+      "literal": "you there are since how-much of time?"
+    },
+    "two-years": {
+      "text": "deux ans",
+      "literal": "two years"
+    },
+    "from-home": {
+      "extra": true,
+      "text": "je travaille de chez moi",
+      "literal": "I work from at-my-place"
+    }
+  },
+  "slotValues": {
+    "place": [
+      {
+        "en": "a bank",
+        "text": "dans une banque"
+      },
+      {
+        "en": "a hospital",
+        "text": "dans un hôpital"
+      },
+      {
+        "en": "a school",
+        "text": "dans une école"
+      },
+      {
+        "en": "a shop",
+        "text": "dans un magasin"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "i-start-at": {
+        "text": "Je commence à ___."
+      },
+      "i-finish-at": {
+        "text": "Je finis à ___.",
+        "accept": [
+          "Je termine à ___."
+        ]
+      }
+    }
+  },
+  "notes": [
+    "Étudiant for a man, étudiante for a woman. You hear the t in étudiante.",
+    "Fatigant means tiring. Fatigué means tired.",
+    "Depuis + present tense: Je suis là depuis deux ans = I have been here for two years."
+  ]
+}

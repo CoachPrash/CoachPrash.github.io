@@ -1,0 +1,108 @@
+{
+  "schema": 2,
+  "scenario": "describe",
+  "lang": "fr",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "Qui est-ce ?",
+      "accept": [
+        "C'est qui ?"
+      ]
+    },
+    "l2": {
+      "text": "C'est ma sœur."
+    },
+    "l3": {
+      "text": "Elle est comment ?",
+      "accept": [
+        "Comment est-elle ?"
+      ]
+    },
+    "l4": {
+      "text": "Elle est très gentille et drôle.",
+      "accept": [
+        "Elle est très gentille et très drôle."
+      ]
+    },
+    "l5": {
+      "text": "Et physiquement, elle est comment ?",
+      "accept": [
+        "Et physiquement, comment est-elle ?"
+      ]
+    },
+    "l6": {
+      "text": "Elle a {look}."
+    }
+  },
+  "chunks": {
+    "who-is-that": {
+      "text": "qui est-ce ?",
+      "literal": "who is-it?"
+    },
+    "thats-my": {
+      "text": "c'est mon / ma ___",
+      "literal": "it's my ___"
+    },
+    "whats-she-like": {
+      "text": "elle est comment ?",
+      "literal": "she is how?"
+    },
+    "kind-funny": {
+      "text": "très gentille et drôle",
+      "literal": "very kind and funny"
+    },
+    "look-like": {
+      "text": "et physiquement, elle est comment ?",
+      "literal": "and physically, she is how?"
+    },
+    "he-glasses": {
+      "extra": true,
+      "text": "il porte des lunettes",
+      "literal": "he wears some glasses"
+    }
+  },
+  "slotValues": {
+    "look": [
+      {
+        "en": "has long hair",
+        "text": "les cheveux longs"
+      },
+      {
+        "en": "has blue eyes",
+        "text": "les yeux bleus"
+      },
+      {
+        "en": "has curly hair",
+        "text": "les cheveux frisés"
+      },
+      {
+        "en": "has short hair",
+        "text": "les cheveux courts"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "he-is": {
+        "text": "Il est ___."
+      },
+      "she-has": {
+        "text": "Elle a ___."
+      }
+    }
+  },
+  "notes": [
+    "Elle est comment ? asks about character and about looks. Add physiquement to ask about looks.",
+    "Adjectives agree: il est gentil, elle est gentille. Drôle does not change.",
+    "Hair is plural in French: les cheveux longs, les cheveux courts."
+  ]
+}

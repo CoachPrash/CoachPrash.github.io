@@ -1,0 +1,184 @@
+{
+  "schema": 2,
+  "scenario": "trip",
+  "lang": "hi",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "registerNotes": {
+    "intimate": "तू is for very close friends and family. Practise this one with आप and तुम."
+  },
+  "lines": {
+    "l1": {
+      "text": "आपकी ट्रिप कैसी रही?",
+      "rom": "aapkee Trip kaisee rahee?",
+      "accept": [
+        {
+          "text": "आपकी यात्रा कैसी रही?",
+          "rom": "aapkee yaatraa kaisee rahee?"
+        }
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "तुम्हारी ट्रिप कैसी रही?",
+          "rom": "tumhaaree Trip kaisee rahee?",
+          "accept": [
+            {
+              "text": "तुम्हारी यात्रा कैसी रही?",
+              "rom": "tumhaaree yaatraa kaisee rahee?"
+            }
+          ]
+        }
+      }
+    },
+    "l2": {
+      "text": "बहुत बढ़िया! मैं {place} गया।",
+      "rom": "bahut baRhiyaa! main {place} gayaa.",
+      "variants": [
+        {
+          "speaker": "m",
+          "text": "बहुत बढ़िया! मैं {place} गया।",
+          "rom": "bahut baRhiyaa! main {place} gayaa."
+        },
+        {
+          "speaker": "f",
+          "text": "बहुत बढ़िया! मैं {place} गई।",
+          "rom": "bahut baRhiyaa! main {place} gaee."
+        }
+      ],
+      "accept": [
+        {
+          "text": "बहुत बढ़िया! मैं {place} गया था।",
+          "rom": "bahut baRhiyaa! main {place} gayaa thaa."
+        },
+        {
+          "text": "बहुत बढ़िया! मैं {place} गई थी।",
+          "rom": "bahut baRhiyaa! main {place} gaee thee."
+        }
+      ]
+    },
+    "l3": {
+      "text": "वहाँ आपने क्या किया?",
+      "rom": "vahaan aapne kyaa kiyaa?",
+      "byRegister": {
+        "familiar": {
+          "text": "वहाँ तुमने क्या किया?",
+          "rom": "vahaan tumne kyaa kiyaa?"
+        }
+      }
+    },
+    "l4": {
+      "text": "मैंने पुराना शहर देखा और बहुत खाया!",
+      "rom": "mainne puraanaa shahar dekhaa aur bahut khaayaa!"
+    },
+    "l5": {
+      "text": "और मौसम?",
+      "rom": "aur mausam?"
+    },
+    "l6": {
+      "text": "गर्मी थी, पर मज़ा आया।",
+      "rom": "garmee thee, par mazaa aayaa."
+    }
+  },
+  "chunks": {
+    "how-was-trip": {
+      "text": "आपकी ट्रिप कैसी रही?",
+      "rom": "aapkee Trip kaisee rahee?",
+      "literal": "your trip how stayed?",
+      "byRegister": {
+        "familiar": {
+          "text": "तुम्हारी ट्रिप कैसी रही?",
+          "rom": "tumhaaree Trip kaisee rahee?"
+        }
+      }
+    },
+    "i-went-to": {
+      "text": "मैं ___ गया / गई",
+      "rom": "main ___ gayaa / gaee",
+      "choice": "mf",
+      "literal": "I ___ went"
+    },
+    "what-did-there": {
+      "text": "वहाँ आपने क्या किया?",
+      "rom": "vahaan aapne kyaa kiyaa?",
+      "literal": "there you(ne) what did?",
+      "byRegister": {
+        "familiar": {
+          "text": "वहाँ तुमने क्या किया?",
+          "rom": "vahaan tumne kyaa kiyaa?"
+        }
+      }
+    },
+    "i-saw": {
+      "text": "मैंने ___ देखा",
+      "rom": "mainne ___ dekhaa",
+      "literal": "I(ne) ___ saw"
+    },
+    "ate-a-lot": {
+      "text": "बहुत खाया",
+      "rom": "bahut khaayaa",
+      "literal": "a-lot ate"
+    },
+    "and-weather": {
+      "text": "और मौसम?",
+      "rom": "aur mausam?",
+      "literal": "and weather?"
+    },
+    "photos": {
+      "text": "मैंने बहुत सारी फ़ोटो खींचीं",
+      "rom": "mainne bahut saaree foTo kheencheen",
+      "extra": true,
+      "literal": "I(ne) very many photos pulled"
+    }
+  },
+  "slotValues": {
+    "place": [
+      {
+        "en": "Jaipur",
+        "text": "जयपुर",
+        "rom": "jaipur"
+      },
+      {
+        "en": "Goa",
+        "text": "गोवा",
+        "rom": "govaa"
+      },
+      {
+        "en": "Varanasi",
+        "text": "वाराणसी",
+        "rom": "vaaraaNasee"
+      },
+      {
+        "en": "Udaipur",
+        "text": "उदयपुर",
+        "rom": "udaypur"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "go-back": {
+        "text": "मैं वहाँ फिर जाना चाहता / चाहती हूँ",
+        "rom": "main vahaan phir jaanaa chaahtaa / chaahtee hoon",
+        "choice": "mf"
+      },
+      "stayed-days": {
+        "text": "मैं वहाँ ___ दिन रहा / रही",
+        "rom": "main vahaan ___ din rahaa / rahee",
+        "choice": "mf"
+      }
+    }
+  },
+  "notes": [
+    "गया / गई agrees with the speaker: a man says मैं जयपुर गया, a woman मैं जयपुर गई.",
+    "With ने the verb agrees with the thing, not the person: मैंने शहर देखा, but मैंने फ़ोटो खींचीं. So देखा and खाया are the same for a man and a woman.",
+    "कैसी रही? (\"how did it stay?\") asks how something went. ट्रिप is feminine, so कैसी.",
+    "मज़ा आया (\"fun came\") means \"I enjoyed it\"."
+  ]
+}

@@ -1,0 +1,202 @@
+{
+  "schema": 2,
+  "scenario": "often",
+  "lang": "zh",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "你多久{activity}一次？",
+      "rom": "Nǐ duō jiǔ {activity} yí cì?",
+      "byRegister": {
+        "formal": {
+          "text": "您多久{activity}一次？",
+          "rom": "Nín duō jiǔ {activity} yí cì?"
+        }
+      }
+    },
+    "l2": {
+      "text": "每天。你呢？",
+      "rom": "Měi tiān. Nǐ ne?",
+      "byRegister": {
+        "formal": {
+          "text": "每天。您呢？",
+          "rom": "Měi tiān. Nín ne?"
+        }
+      }
+    },
+    "l3": {
+      "text": "一个星期一次，星期天。",
+      "rom": "Yí ge xīngqī yí cì, xīngqītiān.",
+      "accept": [
+        {
+          "text": "一周一次，星期天。",
+          "rom": "Yì zhōu yí cì, xīngqītiān."
+        }
+      ]
+    },
+    "l4": {
+      "text": "你去健身房吗？",
+      "rom": "Nǐ qù jiànshēnfáng ma?",
+      "byRegister": {
+        "formal": {
+          "text": "您去健身房吗？",
+          "rom": "Nín qù jiànshēnfáng ma?"
+        }
+      }
+    },
+    "l5": {
+      "text": "很少去。我没有时间。",
+      "rom": "Hěn shǎo qù. Wǒ méiyǒu shíjiān.",
+      "accept": [
+        {
+          "text": "很少。我没时间。",
+          "rom": "Hěn shǎo. Wǒ méi shíjiān."
+        }
+      ]
+    },
+    "l6": {
+      "text": "我也没有！",
+      "rom": "Wǒ yě méiyǒu!",
+      "accept": [
+        {
+          "text": "我也是！",
+          "rom": "Wǒ yě shì!"
+        }
+      ]
+    }
+  },
+  "chunks": {
+    "how-often": {
+      "text": "你多久___一次？",
+      "rom": "nǐ duō jiǔ ___ yí cì?",
+      "byRegister": {
+        "formal": {
+          "text": "您多久___一次？",
+          "rom": "nín duō jiǔ ___ yí cì?"
+        }
+      },
+      "literal": "you how long ___ one time?",
+      "chain": [
+        "一次？",
+        "多久___一次？"
+      ]
+    },
+    "every-day": {
+      "text": "每天",
+      "rom": "měi tiān",
+      "literal": "every day"
+    },
+    "once-a-week": {
+      "text": "一个星期一次",
+      "rom": "yí ge xīngqī yí cì",
+      "literal": "one (measure) week one time",
+      "chain": [
+        "一次",
+        "星期一次"
+      ]
+    },
+    "go-to-gym": {
+      "text": "你去健身房吗？",
+      "rom": "nǐ qù jiànshēnfáng ma?",
+      "byRegister": {
+        "formal": {
+          "text": "您去健身房吗？",
+          "rom": "nín qù jiànshēnfáng ma?"
+        }
+      },
+      "literal": "you go gym?",
+      "chain": [
+        "健身房吗？",
+        "去健身房吗？"
+      ]
+    },
+    "hardly-ever": {
+      "text": "很少",
+      "rom": "hěn shǎo",
+      "literal": "very seldom"
+    },
+    "no-time": {
+      "text": "我没有时间",
+      "rom": "wǒ méiyǒu shíjiān",
+      "literal": "I not-have time",
+      "chain": [
+        "时间",
+        "没有时间"
+      ]
+    },
+    "me-neither": {
+      "text": "我也没有",
+      "rom": "wǒ yě méiyǒu",
+      "literal": "I also not-have",
+      "chain": [
+        "没有",
+        "也没有"
+      ]
+    },
+    "twice-a-month": {
+      "text": "一个月两次",
+      "rom": "yí ge yuè liǎng cì",
+      "literal": "one (measure) month two times",
+      "extra": true,
+      "chain": [
+        "两次",
+        "月两次"
+      ]
+    }
+  },
+  "slotValues": {
+    "activity": [
+      {
+        "en": "cook",
+        "text": "做饭",
+        "rom": "zuò fàn"
+      },
+      {
+        "en": "exercise",
+        "text": "运动",
+        "rom": "yùndòng"
+      },
+      {
+        "en": "read",
+        "text": "看书",
+        "rom": "kàn shū"
+      },
+      {
+        "en": "go home",
+        "text": "回家",
+        "rom": "huí jiā"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "never": {
+        "text": "我从来不___。",
+        "rom": "Wǒ cónglái bù ___."
+      },
+      "sometimes": {
+        "text": "有时候。",
+        "rom": "Yǒushíhou.",
+        "accept": [
+          {
+            "text": "有时候吧。",
+            "rom": "Yǒushíhou ba."
+          }
+        ]
+      }
+    }
+  },
+  "notes": [
+    "多久…一次 (duō jiǔ… yí cì) asks how often: 你多久运动一次？",
+    "Frequency is a time span + a count: 一个星期一次 once a week, 一个月两次 twice a month.",
+    "我也没有 (me neither) answers a negative 没有. After 不, say 我也不."
+  ]
+}

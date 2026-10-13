@@ -1,0 +1,134 @@
+{
+  "schema": 2,
+  "scenario": "festival",
+  "lang": "es",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "{festival}"
+    },
+    "l2": {
+      "text": "¡Igualmente!",
+      "accept": [
+        "¡Gracias, igualmente!"
+      ],
+      "registerNeutral": true
+    },
+    "l3": {
+      "text": "¿Y qué hacen en estas fechas?",
+      "accept": [
+        "¿Y qué hacen ustedes en estas fechas?"
+      ],
+      "note": "Ustedes (plural you) is the same in both registers in Colombia.",
+      "registerNeutral": true
+    },
+    "l4": {
+      "text": "Visitamos a la familia y comemos natilla y buñuelos.",
+      "accept": [
+        "Visitamos a la familia y comemos buñuelos y natilla."
+      ]
+    },
+    "l5": {
+      "text": "¡Qué bonito!",
+      "accept": [
+        "¡Qué chévere!",
+        "¡Qué rico!"
+      ]
+    },
+    "l6": {
+      "text": "¡Venga a celebrar con nosotros!",
+      "byRegister": {
+        "familiar": {
+          "text": "¡Ven a celebrar con nosotros!"
+        }
+      }
+    }
+  },
+  "chunks": {
+    "same-to-you": {
+      "text": "igualmente",
+      "registerNeutral": true,
+      "literal": "equally"
+    },
+    "what-do-for": {
+      "text": "¿qué hacen en estas fechas?",
+      "registerNeutral": true,
+      "literal": "what you-all-do in these dates?"
+    },
+    "visit-family": {
+      "text": "visitamos a la familia",
+      "literal": "we-visit to the family"
+    },
+    "special-food": {
+      "text": "comemos ___",
+      "literal": "we-eat ___"
+    },
+    "sounds-lovely": {
+      "text": "¡qué bonito!",
+      "literal": "how pretty!"
+    },
+    "come-celebrate": {
+      "text": "¡venga a celebrar con nosotros!",
+      "byRegister": {
+        "familiar": {
+          "text": "¡ven a celebrar con nosotros!"
+        }
+      },
+      "literal": "come to celebrate with us!"
+    },
+    "best-wishes": {
+      "text": "muchas felicidades",
+      "extra": true,
+      "literal": "many happinesses"
+    }
+  },
+  "slotValues": {
+    "festival": [
+      {
+        "en": "Merry Christmas",
+        "text": "¡Feliz Navidad!"
+      },
+      {
+        "en": "Happy New Year",
+        "text": "¡Feliz Año Nuevo!"
+      },
+      {
+        "en": "Happy birthday",
+        "text": "¡Feliz cumpleaños!"
+      },
+      {
+        "en": "Happy holidays",
+        "text": "¡Felices fiestas!"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "favourite-festival": {
+        "text": "Mi fiesta favorita es ___.",
+        "accept": [
+          "Mi celebración favorita es ___."
+        ]
+      },
+      "we-wear": {
+        "text": "Nos ponemos ___.",
+        "accept": [
+          "Usamos ___."
+        ]
+      }
+    }
+  },
+  "notes": [
+    "At Christmas, Colombians eat natilla (a soft custard) and buñuelos (cheese fritters), and pray the novena de aguinaldos from 16 to 24 December.",
+    "On 31 December many eat twelve grapes at midnight, one wish for each month.",
+    "Igualmente (\"likewise\") answers any good wish."
+  ]
+}

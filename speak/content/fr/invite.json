@@ -1,0 +1,146 @@
+{
+  "schema": 2,
+  "scenario": "invite",
+  "lang": "fr",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "Ça vous dirait de venir à {event} samedi ?",
+      "accept": [
+        "Vous voulez venir à {event} samedi ?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Ça te dirait de venir à {event} samedi ?",
+          "accept": [
+            "Tu veux venir à {event} samedi ?"
+          ]
+        }
+      }
+    },
+    "l2": {
+      "text": "Avec plaisir ! À quelle heure ?",
+      "accept": [
+        "Volontiers ! À quelle heure ?"
+      ]
+    },
+    "l3": {
+      "text": "À sept heures, chez moi.",
+      "accept": [
+        "À dix-neuf heures, chez moi.",
+        "À 19 heures, chez moi."
+      ]
+    },
+    "l4": {
+      "text": "Je peux apporter quelque chose ?"
+    },
+    "l5": {
+      "text": "Pas besoin. Venez, c'est tout !",
+      "accept": [
+        "Pas besoin. Venez simplement !"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Pas besoin. Viens, c'est tout !",
+          "accept": [
+            "Pas besoin. Viens simplement !"
+          ]
+        }
+      }
+    }
+  },
+  "chunks": {
+    "would-you-like": {
+      "text": "ça vous dirait de venir à ___ ?",
+      "byRegister": {
+        "familiar": {
+          "text": "ça te dirait de venir à ___ ?"
+        }
+      },
+      "literal": "that to-you would-say to come to ___?"
+    },
+    "id-love-to": {
+      "text": "avec plaisir",
+      "literal": "with pleasure"
+    },
+    "what-time": {
+      "text": "à quelle heure ?",
+      "literal": "at which hour?"
+    },
+    "at-my-place": {
+      "text": "chez moi",
+      "literal": "at-the-home-of me"
+    },
+    "can-i-bring": {
+      "text": "je peux apporter quelque chose ?",
+      "literal": "I can bring some thing?"
+    },
+    "no-need": {
+      "text": "pas besoin",
+      "literal": "no need"
+    },
+    "just-come": {
+      "text": "venez, c'est tout !",
+      "byRegister": {
+        "familiar": {
+          "text": "viens, c'est tout !"
+        }
+      },
+      "literal": "come, that's all!"
+    },
+    "thanks-inviting": {
+      "extra": true,
+      "text": "merci de m'avoir invité / invitée",
+      "choice": "mf",
+      "registerNeutral": true,
+      "literal": "thanks for me to-have invited"
+    }
+  },
+  "slotValues": {
+    "event": [
+      {
+        "en": "my birthday party",
+        "text": "mon anniversaire"
+      },
+      {
+        "en": "a dinner",
+        "text": "un dîner"
+      },
+      {
+        "en": "a picnic",
+        "text": "un pique-nique"
+      },
+      {
+        "en": "a party",
+        "text": "une soirée"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "sorry-cant": {
+        "text": "Désolé / Désolée, je ne peux pas. J'ai ___.",
+        "choice": "mf"
+      },
+      "another-time": {
+        "text": "Une autre fois, peut-être.",
+        "accept": [
+          "Peut-être une autre fois."
+        ]
+      }
+    }
+  },
+  "notes": [
+    "Ça vous dirait de ... ? is a friendly way to invite: would you like to ... ?",
+    "Guests in France often bring something: a bottle of wine, flowers or a dessert.",
+    "Merci de m'avoir invité: a man writes invité, a woman invitée. They sound the same."
+  ]
+}

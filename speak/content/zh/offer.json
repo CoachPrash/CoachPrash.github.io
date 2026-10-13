@@ -1,0 +1,223 @@
+{
+  "schema": 2,
+  "scenario": "offer",
+  "lang": "zh",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "要我帮你吗？",
+      "rom": "Yào wǒ bāng nǐ ma?",
+      "byRegister": {
+        "formal": {
+          "text": "要我帮您吗？",
+          "rom": "Yào wǒ bāng nín ma?"
+        }
+      }
+    },
+    "l2": {
+      "text": "好啊，谢谢。这些包很重。",
+      "rom": "Hǎo a, xièxie. Zhèxiē bāo hěn zhòng."
+    },
+    "l3": {
+      "text": "我帮你拿{thing}吧？",
+      "rom": "Wǒ bāng nǐ ná {thing} ba?",
+      "byRegister": {
+        "formal": {
+          "text": "我帮您拿{thing}吧？",
+          "rom": "Wǒ bāng nín ná {thing} ba?"
+        }
+      }
+    },
+    "l4": {
+      "text": "你真好！",
+      "rom": "Nǐ zhēn hǎo!",
+      "accept": [
+        {
+          "text": "你真是太好了！",
+          "rom": "Nǐ zhēn shì tài hǎo le!"
+        }
+      ],
+      "byRegister": {
+        "formal": {
+          "text": "您真好！",
+          "rom": "Nín zhēn hǎo!",
+          "accept": [
+            {
+              "text": "您真是太好了！",
+              "rom": "Nín zhēn shì tài hǎo le!"
+            }
+          ]
+        }
+      }
+    },
+    "l5": {
+      "text": "没问题。你去哪儿？",
+      "rom": "Méi wèntí. Nǐ qù nǎr?",
+      "byRegister": {
+        "formal": {
+          "text": "没问题。您去哪儿？",
+          "rom": "Méi wèntí. Nín qù nǎr?"
+        }
+      }
+    },
+    "l6": {
+      "text": "就到车那儿。太谢谢你了！",
+      "rom": "Jiù dào chē nàr. Tài xièxie nǐ le!",
+      "byRegister": {
+        "formal": {
+          "text": "就到车那儿。太谢谢您了！",
+          "rom": "Jiù dào chē nàr. Tài xièxie nín le!"
+        }
+      }
+    }
+  },
+  "chunks": {
+    "can-i-help": {
+      "text": "要我帮你吗？",
+      "rom": "yào wǒ bāng nǐ ma?",
+      "byRegister": {
+        "formal": {
+          "text": "要我帮您吗？",
+          "rom": "yào wǒ bāng nín ma?"
+        }
+      },
+      "literal": "want me help you?",
+      "chain": [
+        "帮你吗？",
+        "我帮你吗？"
+      ]
+    },
+    "yes-please": {
+      "text": "好啊，谢谢",
+      "rom": "hǎo a, xièxie",
+      "literal": "good, thanks",
+      "chain": [
+        "谢谢"
+      ]
+    },
+    "shall-i-carry": {
+      "text": "我帮你拿___吧？",
+      "rom": "wǒ bāng nǐ ná ___ ba?",
+      "byRegister": {
+        "formal": {
+          "text": "我帮您拿___吧？",
+          "rom": "wǒ bāng nín ná ___ ba?"
+        }
+      },
+      "literal": "I help you carry ___ (suggest)?",
+      "chain": [
+        "拿___吧？",
+        "帮你拿___吧？"
+      ]
+    },
+    "kind-of-you": {
+      "text": "你真好",
+      "rom": "nǐ zhēn hǎo",
+      "byRegister": {
+        "formal": {
+          "text": "您真好",
+          "rom": "nín zhēn hǎo"
+        }
+      },
+      "literal": "you really good"
+    },
+    "no-problem": {
+      "text": "没问题",
+      "rom": "méi wèntí",
+      "literal": "no problem"
+    },
+    "where-going": {
+      "text": "你去哪儿？",
+      "rom": "nǐ qù nǎr?",
+      "byRegister": {
+        "formal": {
+          "text": "您去哪儿？",
+          "rom": "nín qù nǎr?"
+        }
+      },
+      "literal": "you go where?",
+      "chain": [
+        "哪儿？",
+        "去哪儿？"
+      ]
+    },
+    "thanks-so-much": {
+      "text": "太谢谢你了",
+      "rom": "tài xièxie nǐ le",
+      "byRegister": {
+        "formal": {
+          "text": "太谢谢您了",
+          "rom": "tài xièxie nín le"
+        }
+      },
+      "literal": "too thank you",
+      "chain": [
+        "谢谢你了"
+      ]
+    },
+    "im-fine": {
+      "text": "不用了，谢谢",
+      "rom": "bú yòng le, xièxie",
+      "literal": "no need, thanks",
+      "extra": true,
+      "chain": [
+        "谢谢"
+      ]
+    }
+  },
+  "slotValues": {
+    "thing": [
+      {
+        "en": "this bag",
+        "text": "这个包",
+        "rom": "zhège bāo"
+      },
+      {
+        "en": "the suitcase",
+        "text": "箱子",
+        "rom": "xiāngzi"
+      },
+      {
+        "en": "that bag of rice",
+        "text": "那袋米",
+        "rom": "nà dài mǐ"
+      },
+      {
+        "en": "these books",
+        "text": "这些书",
+        "rom": "zhèxiē shū"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "need-help": {
+        "text": "你需要帮忙吗？",
+        "rom": "Nǐ xūyào bāngmáng ma?",
+        "byRegister": {
+          "formal": {
+            "text": "您需要帮忙吗？",
+            "rom": "Nín xūyào bāngmáng ma?"
+          }
+        }
+      },
+      "i-can-do-it": {
+        "text": "我自己可以，谢谢。",
+        "rom": "Wǒ zìjǐ kěyǐ, xièxie."
+      }
+    }
+  },
+  "notes": [
+    "拿 (ná) is to carry in your hands: 我帮你拿吧.",
+    "Chinese speakers often refuse help once out of politeness. Offer twice.",
+    "太谢谢你了 (\"too much thanks to you\") is a warm thank you."
+  ]
+}

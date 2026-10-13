@@ -1,0 +1,125 @@
+{
+  "schema": 2,
+  "scenario": "clothes",
+  "lang": "fr",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal"
+  ],
+  "registerNotes": {
+    "familiar": "Shop staff and customers say vous to each other, even when young."
+  },
+  "lines": {
+    "l1": {
+      "text": "Bonjour, je peux vous aider ?",
+      "accept": [
+        "Bonjour, vous cherchez quelque chose ?"
+      ]
+    },
+    "l2": {
+      "text": "Oui. Vous avez ce {item} en plus grand ?",
+      "accept": [
+        "Oui. Vous avez ce {item} dans une taille au-dessus ?"
+      ]
+    },
+    "l3": {
+      "text": "Oui. Quelle taille ?",
+      "accept": [
+        "Oui. Vous faites quelle taille ?"
+      ]
+    },
+    "l4": {
+      "text": "Du quarante. Je peux l'essayer ?",
+      "accept": [
+        "Du 40. Je peux l'essayer ?",
+        "Taille M. Je peux l'essayer ?"
+      ]
+    },
+    "l5": {
+      "text": "Bien sûr. La cabine d'essayage est là-bas.",
+      "accept": [
+        "Bien sûr. Les cabines sont là-bas."
+      ]
+    },
+    "l6": {
+      "text": "C'est parfait. Je le prends.",
+      "accept": [
+        "Il est parfait. Je le prends."
+      ]
+    }
+  },
+  "chunks": {
+    "can-i-help": {
+      "text": "je peux vous aider ?",
+      "literal": "I can you help?"
+    },
+    "bigger-size": {
+      "text": "vous avez ce ___ en plus grand ?",
+      "literal": "you have this ___ in more big?"
+    },
+    "what-size": {
+      "text": "quelle taille ?",
+      "literal": "which size?"
+    },
+    "can-i-try": {
+      "text": "je peux l'essayer ?",
+      "literal": "I can it try?"
+    },
+    "changing-room": {
+      "text": "la cabine d'essayage est là-bas",
+      "literal": "the cabin of trying is there-down"
+    },
+    "its-perfect": {
+      "text": "c'est parfait",
+      "literal": "it's perfect"
+    },
+    "ill-take-it": {
+      "text": "je le prends",
+      "literal": "I it take"
+    },
+    "too-small": {
+      "extra": true,
+      "text": "c'est trop petit",
+      "literal": "it's too small"
+    }
+  },
+  "slotValues": {
+    "item": [
+      {
+        "en": "jumper",
+        "text": "pull"
+      },
+      {
+        "en": "pair of trousers",
+        "text": "pantalon"
+      },
+      {
+        "en": "coat",
+        "text": "manteau"
+      },
+      {
+        "en": "jacket",
+        "text": "blouson"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "too-big": {
+        "text": "C'est trop grand."
+      },
+      "other-colour": {
+        "text": "Vous l'avez en ___ ?"
+      }
+    }
+  },
+  "notes": [
+    "French clothes sizes are numbers: du trente-huit, du quarante. Letters (S, M, L) are used too.",
+    "Un pantalon is singular: ce pantalon, never ces pantalons for one pair.",
+    "The drill items are all masculine, so ce and je le prends fit each one. With a feminine item: cette veste, je la prends."
+  ]
+}

@@ -1,0 +1,176 @@
+{
+  "schema": 2,
+  "scenario": "advice",
+  "lang": "zh",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "我总是很累。我该怎么办？",
+      "rom": "Wǒ zǒngshì hěn lèi. Wǒ gāi zěnme bàn?"
+    },
+    "l2": {
+      "text": "你应该{advice}。",
+      "rom": "Nǐ yīnggāi {advice}.",
+      "byRegister": {
+        "formal": {
+          "text": "您应该{advice}。",
+          "rom": "Nín yīnggāi {advice}."
+        }
+      }
+    },
+    "l3": {
+      "text": "我知道，但是我工作到很晚。",
+      "rom": "Wǒ zhīdào, dànshì wǒ gōngzuò dào hěn wǎn."
+    },
+    "l4": {
+      "text": "你为什么不每天早上去散散步？",
+      "rom": "Nǐ wèishénme bù měi tiān zǎoshang qù sànsan bù?",
+      "byRegister": {
+        "formal": {
+          "text": "您为什么不每天早上去散散步？",
+          "rom": "Nín wèishénme bù měi tiān zǎoshang qù sànsan bù?"
+        }
+      }
+    },
+    "l5": {
+      "text": "好主意。我试试。",
+      "rom": "Hǎo zhǔyi. Wǒ shìshi."
+    },
+    "l6": {
+      "text": "祝你好运！",
+      "rom": "Zhù nǐ hǎoyùn!",
+      "byRegister": {
+        "formal": {
+          "text": "祝您好运！",
+          "rom": "Zhù nín hǎoyùn!"
+        }
+      }
+    }
+  },
+  "chunks": {
+    "what-should-i-do": {
+      "text": "我该怎么办？",
+      "rom": "wǒ gāi zěnme bàn?",
+      "literal": "I should how do?",
+      "chain": [
+        "怎么办？",
+        "该怎么办？"
+      ]
+    },
+    "you-should": {
+      "text": "你应该___",
+      "rom": "nǐ yīnggāi ___",
+      "byRegister": {
+        "formal": {
+          "text": "您应该___",
+          "rom": "nín yīnggāi ___"
+        }
+      },
+      "literal": "you should ___"
+    },
+    "i-know-but": {
+      "text": "我知道，但是___",
+      "rom": "wǒ zhīdào, dànshì ___",
+      "literal": "I know, but ___",
+      "chain": [
+        "但是___"
+      ]
+    },
+    "why-dont-you": {
+      "text": "你为什么不___",
+      "rom": "nǐ wèishénme bù ___",
+      "byRegister": {
+        "formal": {
+          "text": "您为什么不___",
+          "rom": "nín wèishénme bù ___"
+        }
+      },
+      "literal": "you why not ___",
+      "chain": [
+        "为什么不___"
+      ]
+    },
+    "ill-try": {
+      "text": "我试试",
+      "rom": "wǒ shìshi",
+      "literal": "I try-try"
+    },
+    "good-luck": {
+      "text": "祝你好运",
+      "rom": "zhù nǐ hǎoyùn",
+      "byRegister": {
+        "formal": {
+          "text": "祝您好运",
+          "rom": "zhù nín hǎoyùn"
+        }
+      },
+      "literal": "wish you good-luck",
+      "chain": [
+        "好运",
+        "你好运"
+      ]
+    },
+    "dont-worry": {
+      "text": "别担心",
+      "rom": "bié dānxīn",
+      "registerNeutral": true,
+      "literal": "don't worry",
+      "extra": true
+    }
+  },
+  "slotValues": {
+    "advice": [
+      {
+        "en": "go to bed earlier",
+        "text": "早点睡",
+        "rom": "zǎo diǎn shuì"
+      },
+      {
+        "en": "drink more water",
+        "text": "多喝水",
+        "rom": "duō hē shuǐ"
+      },
+      {
+        "en": "drink less coffee",
+        "text": "少喝咖啡",
+        "rom": "shǎo hē kāfēi"
+      },
+      {
+        "en": "exercise more",
+        "text": "多运动",
+        "rom": "duō yùndòng"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "my-problem": {
+        "text": "我的问题是___。",
+        "rom": "Wǒ de wèntí shì ___."
+      },
+      "you-shouldnt": {
+        "text": "你不应该___。",
+        "rom": "Nǐ bù yīnggāi ___.",
+        "byRegister": {
+          "formal": {
+            "text": "您不应该___。",
+            "rom": "Nín bù yīnggāi ___."
+          }
+        }
+      }
+    }
+  },
+  "notes": [
+    "应该 (yīnggāi) is should: 你应该早点睡.",
+    "你为什么不…？ (why don't you…?) is a friendly suggestion, not a complaint.",
+    "我该怎么办？ (what should I do?) is a set phrase; 该 is short for 应该."
+  ]
+}
