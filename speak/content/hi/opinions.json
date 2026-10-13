@@ -110,6 +110,7 @@
     },
     "stayed-at-home": {
       "text": "मैं घर पर ही रहा / रही",
+      "choice": "mf",
       "rom": "main ghar par hee rahaa / rahee",
       "literal": "I home at just stayed"
     },

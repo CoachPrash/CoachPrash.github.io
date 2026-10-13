@@ -373,3 +373,8 @@ table.script .fix { width: 22%; }
 .rv-source { color: var(--muted); font-size: .85rem; }
 .rv-back { border-top: 1px solid var(--line); margin-top: .8rem; padding-top: .8rem; }
 .review-link { margin-top: 1.2rem; }
+.gm { font-size: .55em; font-weight: 600; margin-left: .1em; vertical-align: super; }
+/* man's and woman's forms (choice "mf"): colour plus the (m)/(f) text, so colour is never the only cue */
+.g-m { color: #1d5fbf; }
+.g-f { color: #d0506a; }
+@media (prefers-color-scheme: dark) { .g-m { color: #7fb0ff; } .g-f { color: #ff8fa3; } }

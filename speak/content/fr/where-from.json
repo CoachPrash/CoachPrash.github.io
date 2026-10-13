@@ -166,6 +166,7 @@
     "targets": {
       "are-you-a-student": {
         "text": "Vous êtes étudiant / étudiante ?",
+        "choice": "mf",
         "byRegister": {
           "familiar": {
             "text": "Tu es étudiant / étudiante ?"
@@ -173,10 +174,12 @@
         }
       },
       "yes-i-am": {
-        "text": "Oui, je suis étudiant / étudiante."
+        "text": "Oui, je suis étudiant / étudiante.",
+        "choice": "mf"
       },
       "no-i-am-not": {
         "text": "Non, je ne suis pas étudiant / étudiante.",
+        "choice": "mf",
         "accept": [
           "Non, je suis pas étudiant.",
           "Non, je suis pas étudiante."

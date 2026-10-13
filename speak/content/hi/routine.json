@@ -187,6 +187,7 @@
   "chunks": {
     "what-time-get-up": {
       "text": "आप कितने बजे उठते / उठती हैं?",
+      "choice": "mf",
       "rom": "aap kitne baje uThte / uThtee hain?",
       "byRegister": {
         "familiar": {
@@ -198,6 +199,7 @@
     },
     "i-get-up-at": {
       "text": "मैं ___ बजे उठता / उठती हूँ",
+      "choice": "mf",
       "rom": "main ___ baje uThtaa / uThtee hoon",
       "literal": "I ___ o'clock rise am"
     },
@@ -209,6 +211,7 @@
     "have-breakfast": {
       "kind": "collocation",
       "text": "नाश्ता करता / करती हूँ",
+      "choice": "mf",
       "rom": "naashtaa kartaa / kartee hoon",
       "literal": "breakfast do am"
     },
@@ -220,11 +223,13 @@
     "go-for-a-walk": {
       "kind": "collocation",
       "text": "टहलने जाता / जाती हूँ",
+      "choice": "mf",
       "rom": "Tahalne jaataa / jaatee hoon",
       "literal": "to-stroll go am"
     },
     "go-to-bed-early": {
       "text": "मैं जल्दी सो जाता / जाती हूँ",
+      "choice": "mf",
       "rom": "main jaldee so jaataa / jaatee hoon",
       "literal": "I early sleep go am"
     },

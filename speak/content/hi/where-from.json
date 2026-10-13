@@ -44,10 +44,10 @@
   "chunks": {
     "where-from": { "text": "आप कहाँ से हैं?", "rom": "aap kahaan se hain?", "byRegister": { "familiar": { "text": "तुम कहाँ से हो?", "rom": "tum kahaan se ho?" } }, "literal": "you where from are?" },
     "i-am-from": { "text": "मैं ___ से हूँ", "rom": "main ___ se hoon", "literal": "I ___ from am" },
-    "what-do-you-do": { "text": "आप क्या करते / करती हैं?", "rom": "aap kyaa karte / kartee hain?", "byRegister": { "familiar": { "text": "तुम क्या करते / करती हो?", "rom": "tum kyaa karte / kartee ho?" } }, "literal": "you what do are?" },
+    "what-do-you-do": { "text": "आप क्या करते / करती हैं?", "choice": "mf", "rom": "aap kyaa karte / kartee hain?", "byRegister": { "familiar": { "text": "तुम क्या करते / करती हो?", "rom": "tum kyaa karte / kartee ho?" } }, "literal": "you what do are?" },
     "i-am-a": { "text": "मैं ___ हूँ", "rom": "main ___ hoon", "literal": "I ___ am" },
     "and-you": { "text": "और आप?", "rom": "aur aap?", "byRegister": { "familiar": { "text": "और तुम?", "rom": "aur tum?" } }, "literal": "and you?" },
-    "i-live-in": { "extra": true, "text": "मैं ___ में रहता / रहती हूँ", "rom": "main ___ men rahtaa / rahtee hoon", "literal": "I ___ in live am" }
+    "i-live-in": { "extra": true, "text": "मैं ___ में रहता / रहती हूँ", "choice": "mf", "rom": "main ___ men rahtaa / rahtee hoon", "literal": "I ___ in live am" }
   },
   "slotValues": {
     "job": [

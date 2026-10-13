@@ -93,6 +93,7 @@
     },
     "stayed-at-home": {
       "text": "je suis resté / restée à la maison",
+      "choice": "mf",
       "literal": "I am stayed at the house"
     },
     "i-agree": {

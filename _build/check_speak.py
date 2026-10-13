@@ -50,6 +50,20 @@ WILD = "\x00gap"        # a gap in a chunk
 SLOT_TOKEN = "\x00slot"  # a {slot} in a line
 
 
+def check_choice(where, what, item):
+    """choice "mf" (spec 3.9): text and rom each hold a ' / ' choice, in every register."""
+    if "choice" not in item:
+        return
+    if item["choice"] != "mf":
+        problem(where, f'{what}: choice must be "mf"')
+        return
+    forms = [item] + list((item.get("byRegister") or {}).values())
+    for f in forms:
+        for key in ("text", "rom"):
+            if key in f and " / " not in f[key]:
+                problem(where, f'{what}: choice "mf" needs a " / " choice in {key}: "{f[key]}"')
+
+
 def choices(text):
     """'मैं ___ में रहता / रहती हूँ' -> one string per choice."""
     m = re.search(r"(\S+)\s+/\s+(\S+)", text or "")
@@ -341,6 +355,7 @@ for code, (prof_path, prof, reals) in languages.items():
                 problem(where, f'chunk {cid}: extra is true or left out')
             if "literal" in item and not isinstance(item["literal"], str):
                 problem(where, f'chunk {cid}: literal is a string')
+            check_choice(where, f"chunk {cid}", item)
             cforms = [tokens(c, MODE) for t in item_texts(item) for c in choices(t)]
             if not item.get("extra") and not any(occurs(f, lt) for f in cforms for lt in line_tokens if f):
                 problem(where, f'chunk {cid}: "{item.get("text")}" does not occur in the dialogue (rewrite it from a line, or set "extra": true)')
@@ -366,6 +381,7 @@ for code, (prof_path, prof, reals) in languages.items():
         for tid, item in rt.items():
             if tid in bp_targets:
                 check_item("free target", tid, item, "", bp_targets[tid].get("addressesYou"), False)
+                check_choice(where, f"free target {tid}", item)
 
         # set slots
         for name, slot in bp.get("slots", {}).items():

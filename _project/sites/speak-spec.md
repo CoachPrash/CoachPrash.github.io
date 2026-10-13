@@ -1,12 +1,16 @@
 # Speak — specification
 
 **Status:** M1, M2 and M2.5 done. M2.5 passed Prash's test and ran in his Sunday class on 11 October 2026. M3 drafted (12 October 2026): French and Mandarin stages 1–4, waiting for native-speaker review. M4 drafted (12 October 2026): blueprints for stages 5–9, Hindi, French and Mandarin stages 5–9, and the Review screen. Waiting for review: Prash for Hindi, native speakers for French and Mandarin. M3.5 (images) is deferred until after M4.
-**Version:** 0.9, 12 October 2026
+**Version:** 0.9.1, 12 October 2026
 **Brief:** `_project/sites/speak.md`
 
 This file is the build contract. When the spec and the code disagree, the spec wins, or the spec is changed first.
 
 ### Changes
+
+**0.9.1**
+
+- New field `choice: "mf"` on chunks and free targets (§3.9): the ` / ` choice is a man's form, then a woman's. The site colours them blue and light red and marks them (m) and (f).
 
 **0.9** (M4 planned)
 
@@ -628,6 +632,7 @@ The site does not use "vocabulary". Grammar terms appear only in the Notice step
 | `kind` | `"fixed"`, `"frame"` or `"collocation"` | Optional. A chunk with `___` is a frame, and any other chunk is fixed, so only `collocation` needs to be written. The Chunks step shows the kind as a small tag |
 | `literal` | string | Optional. A word-by-word English gloss of the default-register form: मेरा नाम ___ है → "my name ___ is". Shown only in the Notice step and the script view, always with the default-register form |
 | `extra` | `true` | The chunk does not occur in the dialogue. It is shown last, under "Also useful". Use it sparingly |
+| `choice` | `"mf"` | Optional. The ` / ` choice in the text is a man's form, then a woman's: उठता / उठती, resté / restée. The site colours the man's form blue and the woman's light red, with a small (m) and (f) after each, in the text and in the romanization. The letters stay, so colour is never the only cue. A choice that is not about gender, such as बाएँ / दाएँ, has no `choice` |
 | `chain` | array of strings | Optional. The build-up pieces for the Echo step, shortest first. Each piece must be an ending of the chunk. Without `chain`, the app builds the pieces from the words. Mandarin needs `chain`, because its text has no spaces |
 
 **Rule: chunks come from the dialogue.** Every chunk that is not `extra` occurs in at least one line of the dialogue, in at least one allowed register. "Occurs" means: after punctuation is removed and case is folded, the chunk's words appear in a row in the line. `___` in the chunk matches 1–3 words, where a slot in the line counts as one word. A ` / ` choice matches either word. The app uses the same test to underline the chunk where it occurs.
@@ -647,7 +652,7 @@ In Hindi, verbs agree with the speaker and with the listener: मैं कर�
 
 - `speaker`: the gender of the person saying the line. `listener`: the gender of the person spoken to. Values `"f"` and `"m"`.
 - `sameSound: true` on a line says its gender forms sound the same (enchanté / enchantée). Recognition then cannot tell them apart, so the wrong-gender check (§5.2 step 6) runs only on typed answers for that line.
-- The app writes the label: "said by a woman", "to a man", "a woman to a man". A free `label` stays for variants that are not about gender.
+- The app writes the label: "said by a woman", "to a man", "a woman to a man". The label is blue for a man's form and light red for a woman's, by the speaker's gender, else the listener's. A free `label` stays for variants that are not about gender.
 - **Who is who.**
   - Class role play: the speaker is the person in the line's role, and the listener is the other person in the pair. Their genders come from the roster.
   - Solo: the learner's gender comes from the setting (§4.5). The partner's comes from the profile's `partnerGender`.
@@ -943,6 +948,7 @@ The checker exits with a non-zero code and one line per problem when any of thes
   - a variant with no gender field has a `label`
   - the profile's `partnerGender`, when set, is `f` or `m`
   - `sameSound` is `true`, and only on a line with variants
+  - `choice`, when set, is `"mf"`, and the item's text and romanization each hold a ` / ` choice, in every register
 
 It runs on every commit that touches `speak/content/`.
 

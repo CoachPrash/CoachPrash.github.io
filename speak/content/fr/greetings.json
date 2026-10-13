@@ -88,6 +88,7 @@
     },
     "nice-to-meet": {
       "text": "enchanté / enchantée",
+      "choice": "mf",
       "registerNeutral": true,
       "literal": "enchanted"
     },

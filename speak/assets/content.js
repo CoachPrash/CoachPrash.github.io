@@ -42,7 +42,7 @@
   /* Resolve one line, chunk or target for a register (spec §3.4).
    * Start from the base fields; a byRegister entry for a non-default
    * register replaces the fields it sets. */
-  var FIELDS = ["text", "rom", "variants", "accept", "note"];
+  var FIELDS = ["text", "rom", "variants", "accept", "note", "choice"];
   function resolve(item, register, defaultRegister) {
     var out = {};
     FIELDS.forEach(function (f) { if (item[f] !== undefined) out[f] = item[f]; });

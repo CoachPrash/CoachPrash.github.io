@@ -98,6 +98,19 @@
     return out + esc(text.slice(last));
   }
 
+  /* A man's and a woman's form side by side (choice "mf", spec §3.9): mark the
+   * two words of each " / " choice (m) and (f), in blue and light red. Works on escaped HTML. */
+  function markChoice(html, choice) {
+    if (choice !== "mf") return html;
+    return html.replace(/(\S+) \/ (\S+)/g, '<span class="g-m">$1<span class="gm">(m)</span></span> / <span class="g-f">$2<span class="gm">(f)</span></span>');
+  }
+
+  /* A gendered variant's label takes the speaker's colour, else the listener's. */
+  function genderClass(f) {
+    var g = f.speaker || f.listener;
+    return g === "m" ? " g-m" : g === "f" ? " g-f" : "";
+  }
+
   /* Examples for a learner's own blanks: the partner's sample values for personal
    * slots, except the name (spec §3.8). */
   function examplesFor(bp, real) {
@@ -117,9 +130,9 @@
     var forms = res.variants && res.variants.length ? res.variants : [{ text: res.text, rom: res.rom }];
     var html = forms.map(function (f) {
       return '<div class="form">' +
-        (C.variantLabel(f) ? '<span class="vlabel">' + esc(C.variantLabel(f)) + "</span>" : "") +
-        '<div class="tl" lang="' + esc(prof.code) + '">' + fillHtml(f.text, vals.text, ex.text) + "</div>" +
-        (showRom && f.rom ? '<div class="rom">' + fillHtml(f.rom, vals.rom, ex.rom) + "</div>" : "") +
+        (C.variantLabel(f) ? '<span class="vlabel' + genderClass(f) + '">' + esc(C.variantLabel(f)) + "</span>" : "") +
+        '<div class="tl" lang="' + esc(prof.code) + '">' + markChoice(fillHtml(f.text, vals.text, ex.text), res.choice) + "</div>" +
+        (showRom && f.rom ? '<div class="rom">' + markChoice(fillHtml(f.rom, vals.rom, ex.rom), res.choice) + "</div>" : "") +
         "</div>";
     }).join("");
     if (opts.en && settings.en) html += '<div class="en">' + esc(C.fill(opts.en, vals.en)) + "</div>";
@@ -337,8 +350,8 @@
     var lits = chunkList(bp, real).map(function (c) {
       var r = C.resolve(c.item, prof.defaultRegister, prof.defaultRegister);   /* literal glosses the default form */
       if (!c.item.literal) return "";
-      return '<li><div class="tl" lang="' + esc(code) + '">' + esc(r.text) + "</div>" +
-        (settings.rom && prof.romanization && r.rom ? '<div class="rom">' + esc(r.rom) + "</div>" : "") +
+      return '<li><div class="tl" lang="' + esc(code) + '">' + markChoice(esc(r.text), r.choice) + "</div>" +
+        (settings.rom && prof.romanization && r.rom ? '<div class="rom">' + markChoice(esc(r.rom), r.choice) + "</div>" : "") +
         '<div class="literal">Word by word: <i>' + esc(c.item.literal) + "</i></div>" +
         '<div class="en">Means: ' + esc(c.en) + "</div></li>";
     }).join("");
@@ -981,9 +994,9 @@
       function cell(r) {
         var forms = r.variants && r.variants.length ? r.variants : [{ text: r.text, rom: r.rom }];
         var html = forms.map(function (f) {
-          return '<div class="form">' + (C.variantLabel(f) ? '<span class="vlabel">' + esc(C.variantLabel(f)) + "</span>" : "") +
-            '<div class="tl" lang="' + esc(code) + '">' + slotMark(f.text || "") + "</div>" +
-            (hasRom && f.rom ? '<div class="rom">' + slotMark(f.rom) + "</div>" : "") + "</div>";
+          return '<div class="form">' + (C.variantLabel(f) ? '<span class="vlabel' + genderClass(f) + '">' + esc(C.variantLabel(f)) + "</span>" : "") +
+            '<div class="tl" lang="' + esc(code) + '">' + markChoice(slotMark(f.text || ""), r.choice) + "</div>" +
+            (hasRom && f.rom ? '<div class="rom">' + markChoice(slotMark(f.rom), r.choice) + "</div>" : "") + "</div>";
         }).join("");
         if (r.accept && r.accept.length) html += '<div class="acc">Also accepted: ' + r.accept.map(function (a) {
           var t = typeof a === "string" ? a : a.text, ro = typeof a === "string" ? "" : a.rom;
