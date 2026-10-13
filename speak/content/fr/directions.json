@@ -1,0 +1,130 @@
+{
+  "schema": 2,
+  "scenario": "directions",
+  "lang": "fr",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "Excusez-moi, où est {place} ?",
+      "byRegister": {
+        "familiar": {
+          "text": "Excuse-moi, où est {place} ?"
+        }
+      }
+    },
+    "l2": {
+      "text": "Allez tout droit, puis tournez à gauche.",
+      "byRegister": {
+        "familiar": {
+          "text": "Va tout droit, puis tourne à gauche."
+        }
+      }
+    },
+    "l3": {
+      "text": "C'est loin ?"
+    },
+    "l4": {
+      "text": "Non, c'est tout près. À cinq minutes à pied."
+    },
+    "l5": {
+      "text": "Merci beaucoup !"
+    },
+    "l6": {
+      "text": "De rien.",
+      "accept": [
+        "Je vous en prie."
+      ]
+    }
+  },
+  "chunks": {
+    "where-is": {
+      "text": "excusez-moi, où est ___ ?",
+      "byRegister": {
+        "familiar": {
+          "text": "excuse-moi, où est ___ ?"
+        }
+      },
+      "literal": "excuse me, where is ___?"
+    },
+    "go-straight": {
+      "text": "allez tout droit",
+      "byRegister": {
+        "familiar": {
+          "text": "va tout droit"
+        }
+      },
+      "literal": "go all straight"
+    },
+    "turn-left": {
+      "text": "tournez à gauche / droite",
+      "byRegister": {
+        "familiar": {
+          "text": "tourne à gauche / droite"
+        }
+      },
+      "literal": "turn at left / right"
+    },
+    "is-it-far": {
+      "text": "c'est loin ?",
+      "literal": "it's far?"
+    },
+    "its-near": {
+      "text": "c'est tout près",
+      "literal": "it's all near"
+    },
+    "on-foot": {
+      "text": "à cinq minutes à pied",
+      "literal": "at five minutes on foot"
+    },
+    "thank-you-very-much": {
+      "text": "merci beaucoup",
+      "literal": "thanks a-lot"
+    },
+    "youre-welcome": {
+      "text": "de rien",
+      "literal": "of nothing"
+    }
+  },
+  "slotValues": {
+    "place": [
+      {
+        "en": "the station",
+        "text": "la gare"
+      },
+      {
+        "en": "the bank",
+        "text": "la banque"
+      },
+      {
+        "en": "the market",
+        "text": "le marché"
+      },
+      {
+        "en": "the hospital",
+        "text": "l'hôpital"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "is-there-near": {
+        "text": "Il y a ___ près d'ici ?"
+      },
+      "on-the-right": {
+        "text": "C'est à droite / gauche."
+      }
+    }
+  },
+  "notes": [
+    "Tout droit means straight on. À droite means to the right. Droit and droite sound different: listen for the final t.",
+    "Allez and tournez are the vous forms. With tu: va, tourne."
+  ]
+}

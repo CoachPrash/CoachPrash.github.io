@@ -1,0 +1,168 @@
+{
+  "schema": 2,
+  "scenario": "routine",
+  "lang": "zh",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "你几点起床？",
+      "rom": "Nǐ jǐ diǎn qǐchuáng?",
+      "byRegister": {
+        "formal": {
+          "text": "您几点起床？",
+          "rom": "Nín jǐ diǎn qǐchuáng?"
+        }
+      }
+    },
+    "l2": {
+      "text": "我{time}点起床。你呢？",
+      "rom": "Wǒ {time} diǎn qǐchuáng. Nǐ ne?",
+      "byRegister": {
+        "formal": {
+          "text": "我{time}点起床。您呢？",
+          "rom": "Wǒ {time} diǎn qǐchuáng. Nín ne?"
+        }
+      }
+    },
+    "l3": {
+      "text": "七点。然后我吃早饭。",
+      "rom": "Qī diǎn. Ránhòu wǒ chī zǎofàn."
+    },
+    "l4": {
+      "text": "你晚上做什么？",
+      "rom": "Nǐ wǎnshang zuò shénme?",
+      "byRegister": {
+        "formal": {
+          "text": "您晚上做什么？",
+          "rom": "Nín wǎnshang zuò shénme?"
+        }
+      }
+    },
+    "l5": {
+      "text": "晚上我去散步。你呢？",
+      "rom": "Wǎnshang wǒ qù sànbù. Nǐ ne?",
+      "byRegister": {
+        "formal": {
+          "text": "晚上我去散步。您呢？",
+          "rom": "Wǎnshang wǒ qù sànbù. Nín ne?"
+        }
+      }
+    },
+    "l6": {
+      "text": "我睡得很早。",
+      "rom": "Wǒ shuì de hěn zǎo."
+    }
+  },
+  "chunks": {
+    "what-time-get-up": {
+      "text": "你几点起床？",
+      "rom": "nǐ jǐ diǎn qǐchuáng?",
+      "byRegister": {
+        "formal": {
+          "text": "您几点起床？",
+          "rom": "nín jǐ diǎn qǐchuáng?"
+        }
+      },
+      "literal": "you what-hour get-up?",
+      "chain": [
+        "起床？",
+        "几点起床？"
+      ]
+    },
+    "i-get-up-at": {
+      "text": "我___点起床",
+      "rom": "wǒ ___ diǎn qǐchuáng",
+      "literal": "I ___ o'clock get-up"
+    },
+    "at-oclock": {
+      "text": "___点",
+      "rom": "___ diǎn",
+      "literal": "___ o'clock"
+    },
+    "have-breakfast": {
+      "text": "吃早饭",
+      "rom": "chī zǎofàn",
+      "kind": "collocation",
+      "literal": "eat early-meal"
+    },
+    "in-the-evening": {
+      "text": "晚上",
+      "rom": "wǎnshang",
+      "literal": "evening"
+    },
+    "go-for-a-walk": {
+      "text": "去散步",
+      "rom": "qù sànbù",
+      "kind": "collocation",
+      "literal": "go stroll"
+    },
+    "go-to-bed-early": {
+      "text": "我睡得很早",
+      "rom": "wǒ shuì de hěn zǎo",
+      "literal": "I sleep (de) very early",
+      "chain": [
+        "很早",
+        "睡得很早"
+      ]
+    },
+    "every-day": {
+      "text": "每天",
+      "rom": "měitiān",
+      "extra": true,
+      "literal": "every day"
+    }
+  },
+  "slotValues": {
+    "time": [
+      {
+        "text": "六",
+        "rom": "liù",
+        "en": "six"
+      },
+      {
+        "text": "八",
+        "rom": "bā",
+        "en": "eight"
+      },
+      {
+        "text": "五",
+        "rom": "wǔ",
+        "en": "five"
+      },
+      {
+        "text": "九",
+        "rom": "jiǔ",
+        "en": "nine"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "in-the-morning": {
+        "text": "早上",
+        "rom": "zǎoshang"
+      },
+      "in-the-afternoon": {
+        "text": "下午",
+        "rom": "xiàwǔ"
+      },
+      "at-night": {
+        "text": "夜里",
+        "rom": "yèli"
+      }
+    }
+  },
+  "notes": [
+    "点 (diǎn) marks the hour: 七点 is seven o'clock. The time comes before the verb: 我七点起床.",
+    "然后 (ránhòu) means then, after that.",
+    "得 (de) links a verb to how it is done: 睡得很早, sleep early."
+  ]
+}

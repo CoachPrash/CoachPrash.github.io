@@ -1,0 +1,176 @@
+{
+  "schema": 2,
+  "scenario": "shopping",
+  "lang": "zh",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "你好！你要什么？",
+      "rom": "Nǐ hǎo! Nǐ yào shénme?",
+      "accept": [
+        {
+          "text": "你好！要点儿什么？",
+          "rom": "Nǐ hǎo! Yào diǎnr shénme?"
+        }
+      ],
+      "byRegister": {
+        "formal": {
+          "text": "您好！您要什么？",
+          "rom": "Nín hǎo! Nín yào shénme?"
+        }
+      }
+    },
+    "l2": {
+      "text": "我要{item}。",
+      "rom": "Wǒ yào {item}.",
+      "accept": [
+        {
+          "text": "请给我{item}。",
+          "rom": "Qǐng gěi wǒ {item}."
+        }
+      ]
+    },
+    "l3": {
+      "text": "还要别的吗？",
+      "rom": "Hái yào bié de ma?",
+      "registerNeutral": true
+    },
+    "l4": {
+      "text": "不要了。多少钱？",
+      "rom": "Bú yào le. Duōshao qián?"
+    },
+    "l5": {
+      "text": "五块。",
+      "rom": "Wǔ kuài.",
+      "accept": [
+        {
+          "text": "五块钱。",
+          "rom": "Wǔ kuài qián."
+        }
+      ]
+    },
+    "l6": {
+      "text": "给你。谢谢！",
+      "rom": "Gěi nǐ. Xièxie!",
+      "byRegister": {
+        "formal": {
+          "text": "给您。谢谢！",
+          "rom": "Gěi nín. Xièxie!"
+        }
+      }
+    }
+  },
+  "chunks": {
+    "what-would-you-like": {
+      "text": "你要什么？",
+      "rom": "nǐ yào shénme?",
+      "byRegister": {
+        "formal": {
+          "text": "您要什么？",
+          "rom": "nín yào shénme?"
+        }
+      },
+      "literal": "you want what?",
+      "chain": [
+        "什么？",
+        "要什么？"
+      ]
+    },
+    "id-like": {
+      "text": "我要___",
+      "rom": "wǒ yào ___",
+      "literal": "I want ___"
+    },
+    "anything-else": {
+      "text": "还要别的吗？",
+      "rom": "hái yào bié de ma?",
+      "registerNeutral": true,
+      "literal": "still want other (thing)?",
+      "chain": [
+        "别的吗？",
+        "要别的吗？"
+      ]
+    },
+    "thats-all": {
+      "text": "不要了",
+      "rom": "bú yào le",
+      "literal": "not want (any more)"
+    },
+    "how-much": {
+      "text": "多少钱？",
+      "rom": "duōshao qián?",
+      "literal": "how-much money?"
+    },
+    "price": {
+      "text": "___块",
+      "rom": "___ kuài",
+      "literal": "___ kuai (yuan)"
+    },
+    "here-you-are": {
+      "text": "给你",
+      "rom": "gěi nǐ",
+      "byRegister": {
+        "formal": {
+          "text": "给您",
+          "rom": "gěi nín"
+        }
+      },
+      "literal": "give you"
+    },
+    "thank-you": {
+      "text": "谢谢",
+      "rom": "xièxie",
+      "literal": "thank thank"
+    }
+  },
+  "slotValues": {
+    "item": [
+      {
+        "text": "一个包子",
+        "rom": "yí ge bāozi",
+        "en": "a baozi"
+      },
+      {
+        "text": "一碗面",
+        "rom": "yì wǎn miàn",
+        "en": "a bowl of noodles"
+      },
+      {
+        "text": "一杯豆浆",
+        "rom": "yì bēi dòujiāng",
+        "en": "a soy milk"
+      },
+      {
+        "text": "一个煎饼",
+        "rom": "yí ge jiānbing",
+        "en": "a jianbing"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "do-you-have": {
+        "text": "有___吗？",
+        "rom": "Yǒu ___ ma?",
+        "registerNeutral": true
+      },
+      "two-please": {
+        "text": "我要两个___。",
+        "rom": "Wǒ yào liǎng ge ___."
+      }
+    }
+  },
+  "notes": [
+    "要 (yào, want) is the normal way to order: 我要一个包子. It is not rude.",
+    "块 (kuài) is the everyday word for yuan.",
+    "不要了 (\"don't want any more\") ends the order politely."
+  ]
+}

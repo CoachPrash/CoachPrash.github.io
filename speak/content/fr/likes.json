@@ -1,0 +1,158 @@
+{
+  "schema": 2,
+  "scenario": "likes",
+  "lang": "fr",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "Vous aimez {food} ?",
+      "accept": [
+        "Est-ce que vous aimez {food} ?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Tu aimes {food} ?",
+          "accept": [
+            "Est-ce que tu aimes {food} ?"
+          ]
+        }
+      }
+    },
+    "l2": {
+      "text": "Oui, j'adore ! Et vous ?",
+      "accept": [
+        "Oui, j'aime beaucoup. Et vous ?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Oui, j'adore ! Et toi ?",
+          "accept": [
+            "Oui, j'aime beaucoup. Et toi ?"
+          ]
+        }
+      }
+    },
+    "l3": {
+      "text": "Pas trop. J'aime le thé.",
+      "accept": [
+        "Pas beaucoup. J'aime le thé."
+      ]
+    },
+    "l4": {
+      "text": "Quel est votre plat préféré ?",
+      "byRegister": {
+        "familiar": {
+          "text": "Quel est ton plat préféré ?"
+        }
+      }
+    },
+    "l5": {
+      "text": "Mon plat préféré, c'est {fav}.",
+      "accept": [
+        "Mon plat préféré est {fav}."
+      ]
+    },
+    "l6": {
+      "text": "C'est vrai ? Moi aussi !"
+    }
+  },
+  "chunks": {
+    "do-you-like": {
+      "text": "vous aimez ___ ?",
+      "byRegister": {
+        "familiar": {
+          "text": "tu aimes ___ ?"
+        }
+      },
+      "literal": "you like ___?"
+    },
+    "i-like-it-a-lot": {
+      "text": "j'adore",
+      "literal": "I adore"
+    },
+    "not-much": {
+      "text": "pas trop",
+      "literal": "not too (much)"
+    },
+    "i-like": {
+      "text": "j'aime ___",
+      "literal": "I like ___"
+    },
+    "whats-your-favourite": {
+      "text": "quel est votre plat préféré ?",
+      "byRegister": {
+        "familiar": {
+          "text": "quel est ton plat préféré ?"
+        }
+      },
+      "literal": "which is your dish preferred?"
+    },
+    "my-favourite": {
+      "text": "mon plat préféré, c'est ___",
+      "literal": "my dish preferred, it's ___"
+    },
+    "me-too": {
+      "text": "moi aussi",
+      "literal": "me also"
+    },
+    "i-dont-like": {
+      "extra": true,
+      "text": "je n'aime pas ___",
+      "literal": "I (ne) like not ___"
+    }
+  },
+  "slotValues": {
+    "food": [
+      {
+        "en": "coffee",
+        "text": "le café"
+      },
+      {
+        "en": "milk",
+        "text": "le lait"
+      },
+      {
+        "en": "cheese",
+        "text": "le fromage"
+      },
+      {
+        "en": "chocolate",
+        "text": "le chocolat"
+      }
+    ]
+  },
+  "partnerValues": {
+    "fav": {
+      "en": "ratatouille",
+      "text": "la ratatouille"
+    }
+  },
+  "free": {
+    "targets": {
+      "what-do-you-like": {
+        "text": "Qu'est-ce que vous aimez ?",
+        "byRegister": {
+          "familiar": {
+            "text": "Qu'est-ce que tu aimes ?"
+          }
+        }
+      },
+      "not-at-all": {
+        "text": "Je n'aime pas du tout ___."
+      }
+    }
+  },
+  "notes": [
+    "After aimer, French keeps le / la / les: j'aime le café, never j'aime café.",
+    "J'adore is common and not too strong. It just means you really like something.",
+    "In everyday speech, ne is often dropped: j'aime pas le thé."
+  ]
+}

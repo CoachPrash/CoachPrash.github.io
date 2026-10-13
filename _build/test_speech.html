@@ -37,7 +37,8 @@
   var STAGES_1_4 = ["greetings", "where-from", "family", "requests"];
   var STAGES_5_9 = ["likes", "routine", "shopping", "directions", "opinions"];
   /* every model line of every drafted scenario is generated as a case */
-  var DRAFTED = { hi: STAGES_1_4.concat(STAGES_5_9), fr: STAGES_1_4, zh: STAGES_1_4 };
+  var ALL = STAGES_1_4.concat(STAGES_5_9);
+  var DRAFTED = { hi: ALL, fr: ALL, zh: ALL };
   var results = [];
 
   function load(code, id) { return C.scenario(code, id); }

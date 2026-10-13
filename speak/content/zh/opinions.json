@@ -1,0 +1,176 @@
+{
+  "schema": 2,
+  "scenario": "opinions",
+  "lang": "zh",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "今天天气真好，是吧？",
+      "rom": "Jīntiān tiānqì zhēn hǎo, shì ba?"
+    },
+    "l2": {
+      "text": "是啊，特别好！你周末做什么了？",
+      "rom": "Shì a, tèbié hǎo! Nǐ zhōumò zuò shénme le?",
+      "byRegister": {
+        "formal": {
+          "text": "是啊，特别好！您周末做什么了？",
+          "rom": "Shì a, tèbié hǎo! Nín zhōumò zuò shénme le?"
+        }
+      }
+    },
+    "l3": {
+      "text": "我看了一个电影。",
+      "rom": "Wǒ kànle yí ge diànyǐng."
+    },
+    "l4": {
+      "text": "哦，不错！怎么样？",
+      "rom": "Ò, búcuò! Zěnmeyàng?"
+    },
+    "l5": {
+      "text": "我觉得{opinion}。你的周末怎么样？",
+      "rom": "Wǒ juéde {opinion}. Nǐ de zhōumò zěnmeyàng?",
+      "byRegister": {
+        "formal": {
+          "text": "我觉得{opinion}。您的周末怎么样？",
+          "rom": "Wǒ juéde {opinion}. Nín de zhōumò zěnmeyàng?"
+        }
+      }
+    },
+    "l6": {
+      "text": "挺安静的。我在家待着。",
+      "rom": "Tǐng ānjìng de. Wǒ zài jiā dāizhe."
+    }
+  },
+  "chunks": {
+    "nice-weather": {
+      "text": "今天天气真好，是吧？",
+      "rom": "jīntiān tiānqì zhēn hǎo, shì ba?",
+      "literal": "today weather really good, right?",
+      "chain": [
+        "是吧？",
+        "真好，是吧？"
+      ]
+    },
+    "what-did-you-do": {
+      "text": "你周末做什么了？",
+      "rom": "nǐ zhōumò zuò shénme le?",
+      "byRegister": {
+        "formal": {
+          "text": "您周末做什么了？",
+          "rom": "nín zhōumò zuò shénme le?"
+        }
+      },
+      "literal": "you weekend do what (le)?",
+      "chain": [
+        "什么了？",
+        "做什么了？"
+      ]
+    },
+    "watch-a-film": {
+      "text": "看了一个电影",
+      "rom": "kànle yí ge diànyǐng",
+      "kind": "collocation",
+      "literal": "watched one (measure) film",
+      "chain": [
+        "电影",
+        "一个电影"
+      ]
+    },
+    "how-was-it": {
+      "text": "怎么样？",
+      "rom": "zěnmeyàng?",
+      "literal": "how?"
+    },
+    "it-was": {
+      "text": "我觉得___",
+      "rom": "wǒ juéde ___",
+      "literal": "I feel ___"
+    },
+    "how-was-your-weekend": {
+      "text": "你的周末怎么样？",
+      "rom": "nǐ de zhōumò zěnmeyàng?",
+      "byRegister": {
+        "formal": {
+          "text": "您的周末怎么样？",
+          "rom": "nín de zhōumò zěnmeyàng?"
+        }
+      },
+      "literal": "your weekend how?",
+      "chain": [
+        "怎么样？",
+        "周末怎么样？"
+      ]
+    },
+    "stayed-at-home": {
+      "text": "我在家待着",
+      "rom": "wǒ zài jiā dāizhe",
+      "literal": "I at home stay",
+      "chain": [
+        "待着",
+        "在家待着"
+      ]
+    },
+    "i-agree": {
+      "text": "我同意",
+      "rom": "wǒ tóngyì",
+      "extra": true,
+      "literal": "I agree"
+    }
+  },
+  "slotValues": {
+    "opinion": [
+      {
+        "text": "很好看",
+        "rom": "hěn hǎokàn",
+        "en": "very good"
+      },
+      {
+        "text": "没意思",
+        "rom": "méi yìsi",
+        "en": "boring"
+      },
+      {
+        "text": "还可以",
+        "rom": "hái kěyǐ",
+        "en": "okay"
+      },
+      {
+        "text": "特别好看",
+        "rom": "tèbié hǎokàn",
+        "en": "brilliant"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "i-think": {
+        "text": "我认为___。",
+        "rom": "Wǒ rènwéi ___.",
+        "accept": [
+          {
+            "text": "我觉得___。",
+            "rom": "Wǒ juéde ___."
+          }
+        ]
+      },
+      "i-dont-agree": {
+        "text": "我不同意。",
+        "rom": "Wǒ bù tóngyì."
+      }
+    }
+  },
+  "notes": [
+    "怎么样 (zěnmeyàng) asks how something is or was: 电影怎么样？",
+    "了 (le) after a verb shows the action is done: 看了一个电影.",
+    "Chinese needs no \"it was\". 我觉得 (I feel, I think) introduces an opinion.",
+    "好看 (hǎokàn, good to look at) is how you praise a film."
+  ]
+}

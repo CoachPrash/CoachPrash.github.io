@@ -1,0 +1,174 @@
+{
+  "schema": 2,
+  "scenario": "directions",
+  "lang": "zh",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "请问，{place}在哪儿？",
+      "rom": "Qǐngwèn, {place} zài nǎr?",
+      "registerNeutral": true,
+      "accept": [
+        {
+          "text": "请问，{place}在哪里？",
+          "rom": "Qǐngwèn, {place} zài nǎli?"
+        }
+      ]
+    },
+    "l2": {
+      "text": "一直走，然后往左拐。",
+      "rom": "Yìzhí zǒu, ránhòu wǎng zuǒ guǎi.",
+      "registerNeutral": true
+    },
+    "l3": {
+      "text": "远吗？",
+      "rom": "Yuǎn ma?"
+    },
+    "l4": {
+      "text": "不远，很近。走路五分钟。",
+      "rom": "Bù yuǎn, hěn jìn. Zǒulù wǔ fēnzhōng."
+    },
+    "l5": {
+      "text": "太谢谢你了！",
+      "rom": "Tài xièxie nǐ le!",
+      "accept": [
+        {
+          "text": "非常感谢！",
+          "rom": "Fēicháng gǎnxiè!"
+        }
+      ],
+      "byRegister": {
+        "formal": {
+          "text": "太谢谢您了！",
+          "rom": "Tài xièxie nín le!",
+          "accept": [
+            {
+              "text": "非常感谢！",
+              "rom": "Fēicháng gǎnxiè!"
+            }
+          ]
+        }
+      }
+    },
+    "l6": {
+      "text": "不客气。",
+      "rom": "Bú kèqi.",
+      "accept": [
+        {
+          "text": "不用谢。",
+          "rom": "Bú yòng xiè."
+        }
+      ]
+    }
+  },
+  "chunks": {
+    "where-is": {
+      "text": "请问，___在哪儿？",
+      "rom": "qǐngwèn, ___ zài nǎr?",
+      "registerNeutral": true,
+      "literal": "may-I-ask, ___ is-at where?"
+    },
+    "go-straight": {
+      "text": "一直走",
+      "rom": "yìzhí zǒu",
+      "registerNeutral": true,
+      "literal": "straight walk"
+    },
+    "turn-left": {
+      "text": "往左拐",
+      "rom": "wǎng zuǒ guǎi",
+      "registerNeutral": true,
+      "literal": "toward left turn"
+    },
+    "is-it-far": {
+      "text": "远吗？",
+      "rom": "yuǎn ma?",
+      "literal": "far (question)?"
+    },
+    "its-near": {
+      "text": "很近",
+      "rom": "hěn jìn",
+      "literal": "very near"
+    },
+    "on-foot": {
+      "text": "走路五分钟",
+      "rom": "zǒulù wǔ fēnzhōng",
+      "literal": "walk five minutes",
+      "chain": [
+        "分钟",
+        "五分钟"
+      ]
+    },
+    "thank-you-very-much": {
+      "text": "太谢谢你了",
+      "rom": "tài xièxie nǐ le",
+      "byRegister": {
+        "formal": {
+          "text": "太谢谢您了",
+          "rom": "tài xièxie nín le"
+        }
+      },
+      "literal": "too thank you (le)"
+    },
+    "youre-welcome": {
+      "text": "不客气",
+      "rom": "bú kèqi",
+      "literal": "not polite-guest"
+    }
+  },
+  "slotValues": {
+    "place": [
+      {
+        "text": "火车站",
+        "rom": "huǒchēzhàn",
+        "en": "the station"
+      },
+      {
+        "text": "银行",
+        "rom": "yínháng",
+        "en": "the bank"
+      },
+      {
+        "text": "市场",
+        "rom": "shìchǎng",
+        "en": "the market"
+      },
+      {
+        "text": "医院",
+        "rom": "yīyuàn",
+        "en": "the hospital"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "is-there-near": {
+        "text": "这儿附近有___吗？",
+        "rom": "Zhèr fùjìn yǒu ___ ma?"
+      },
+      "on-the-right": {
+        "text": "在右边。",
+        "rom": "Zài yòubian.",
+        "accept": [
+          {
+            "text": "在左边。",
+            "rom": "Zài zuǒbian."
+          }
+        ]
+      }
+    }
+  },
+  "notes": [
+    "请问 (qǐngwèn, may I ask) is the polite way to start a question to a stranger.",
+    "左 (zuǒ) is left and 右 (yòu) is right: 往左拐, 往右拐.",
+    "In the south, people say 在哪里 (zài nǎli) for 在哪儿."
+  ]
+}

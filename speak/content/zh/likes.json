@@ -1,0 +1,187 @@
+{
+  "schema": 2,
+  "scenario": "likes",
+  "lang": "zh",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "你喜欢{food}吗？",
+      "rom": "Nǐ xǐhuan {food} ma?",
+      "byRegister": {
+        "formal": {
+          "text": "您喜欢{food}吗？",
+          "rom": "Nín xǐhuan {food} ma?"
+        }
+      }
+    },
+    "l2": {
+      "text": "喜欢，我很喜欢。你呢？",
+      "rom": "Xǐhuan, wǒ hěn xǐhuan. Nǐ ne?",
+      "byRegister": {
+        "formal": {
+          "text": "喜欢，我很喜欢。您呢？",
+          "rom": "Xǐhuan, wǒ hěn xǐhuan. Nín ne?"
+        }
+      }
+    },
+    "l3": {
+      "text": "不太喜欢。我喜欢茶。",
+      "rom": "Bú tài xǐhuan. Wǒ xǐhuan chá.",
+      "accept": [
+        {
+          "text": "不太喜欢。我喜欢喝茶。",
+          "rom": "Bú tài xǐhuan. Wǒ xǐhuan hē chá."
+        }
+      ]
+    },
+    "l4": {
+      "text": "你最喜欢吃什么？",
+      "rom": "Nǐ zuì xǐhuan chī shénme?",
+      "byRegister": {
+        "formal": {
+          "text": "您最喜欢吃什么？",
+          "rom": "Nín zuì xǐhuan chī shénme?"
+        }
+      }
+    },
+    "l5": {
+      "text": "我最喜欢吃{fav}。",
+      "rom": "Wǒ zuì xǐhuan chī {fav}."
+    },
+    "l6": {
+      "text": "真的吗？我也是！",
+      "rom": "Zhēn de ma? Wǒ yě shì!"
+    }
+  },
+  "chunks": {
+    "do-you-like": {
+      "text": "你喜欢___吗？",
+      "rom": "nǐ xǐhuan ___ ma?",
+      "byRegister": {
+        "formal": {
+          "text": "您喜欢___吗？",
+          "rom": "nín xǐhuan ___ ma?"
+        }
+      },
+      "literal": "you like ___ (question)?"
+    },
+    "i-like-it-a-lot": {
+      "text": "我很喜欢",
+      "rom": "wǒ hěn xǐhuan",
+      "literal": "I very like",
+      "chain": [
+        "喜欢",
+        "很喜欢"
+      ]
+    },
+    "not-much": {
+      "text": "不太喜欢",
+      "rom": "bú tài xǐhuan",
+      "literal": "not too like",
+      "chain": [
+        "喜欢",
+        "太喜欢"
+      ]
+    },
+    "i-like": {
+      "text": "我喜欢___",
+      "rom": "wǒ xǐhuan ___",
+      "literal": "I like ___"
+    },
+    "whats-your-favourite": {
+      "text": "你最喜欢吃什么？",
+      "rom": "nǐ zuì xǐhuan chī shénme?",
+      "byRegister": {
+        "formal": {
+          "text": "您最喜欢吃什么？",
+          "rom": "nín zuì xǐhuan chī shénme?"
+        }
+      },
+      "literal": "you most like eat what?",
+      "chain": [
+        "什么？",
+        "吃什么？",
+        "喜欢吃什么？",
+        "最喜欢吃什么？"
+      ]
+    },
+    "my-favourite": {
+      "text": "我最喜欢吃___",
+      "rom": "wǒ zuì xǐhuan chī ___",
+      "literal": "I most like eat ___"
+    },
+    "me-too": {
+      "text": "我也是",
+      "rom": "wǒ yě shì",
+      "literal": "I also am"
+    },
+    "i-dont-like": {
+      "text": "我不喜欢___",
+      "rom": "wǒ bù xǐhuan ___",
+      "extra": true,
+      "literal": "I not like ___"
+    }
+  },
+  "slotValues": {
+    "food": [
+      {
+        "text": "咖啡",
+        "rom": "kāfēi",
+        "en": "coffee"
+      },
+      {
+        "text": "牛奶",
+        "rom": "niúnǎi",
+        "en": "milk"
+      },
+      {
+        "text": "面条",
+        "rom": "miàntiáo",
+        "en": "noodles"
+      },
+      {
+        "text": "巧克力",
+        "rom": "qiǎokèlì",
+        "en": "chocolate"
+      }
+    ]
+  },
+  "partnerValues": {
+    "fav": {
+      "text": "饺子",
+      "rom": "jiǎozi",
+      "en": "dumplings"
+    }
+  },
+  "free": {
+    "targets": {
+      "what-do-you-like": {
+        "text": "你喜欢什么？",
+        "rom": "Nǐ xǐhuan shénme?",
+        "byRegister": {
+          "formal": {
+            "text": "您喜欢什么？",
+            "rom": "Nín xǐhuan shénme?"
+          }
+        }
+      },
+      "not-at-all": {
+        "text": "我一点儿也不喜欢___。",
+        "rom": "Wǒ yìdiǎnr yě bù xǐhuan ___."
+      }
+    }
+  },
+  "notes": [
+    "Answer a 吗 question by repeating the verb: 你喜欢吗？ 喜欢。 (or 不喜欢。)",
+    "最 (zuì, most) goes before the verb: 我最喜欢吃饺子, I like eating dumplings most.",
+    "With food and drink, Chinese often adds the verb: 喜欢吃 (like to eat), 喜欢喝 (like to drink)."
+  ]
+}

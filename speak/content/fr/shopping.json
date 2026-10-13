@@ -1,0 +1,114 @@
+{
+  "schema": 2,
+  "scenario": "shopping",
+  "lang": "fr",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal"
+  ],
+  "registerNotes": {
+    "familiar": "Shop staff and customers say vous to each other, even when young."
+  },
+  "lines": {
+    "l1": {
+      "text": "Bonjour ! Qu'est-ce que je vous sers ?",
+      "accept": [
+        "Bonjour ! Vous désirez ?"
+      ]
+    },
+    "l2": {
+      "text": "Je voudrais {item}, s'il vous plaît."
+    },
+    "l3": {
+      "text": "Et avec ceci ?",
+      "accept": [
+        "Ce sera tout ?"
+      ]
+    },
+    "l4": {
+      "text": "C'est tout, merci. Ça fait combien ?"
+    },
+    "l5": {
+      "text": "Deux euros, s'il vous plaît."
+    },
+    "l6": {
+      "text": "Voilà. Merci !",
+      "accept": [
+        "Tenez. Merci !"
+      ]
+    }
+  },
+  "chunks": {
+    "what-would-you-like": {
+      "text": "qu'est-ce que je vous sers ?",
+      "literal": "what is it that I you serve?"
+    },
+    "id-like": {
+      "text": "je voudrais ___, s'il vous plaît",
+      "literal": "I would like ___, if it pleases you"
+    },
+    "anything-else": {
+      "text": "et avec ceci ?",
+      "literal": "and with this?"
+    },
+    "thats-all": {
+      "text": "c'est tout",
+      "literal": "it's all"
+    },
+    "how-much": {
+      "text": "ça fait combien ?",
+      "literal": "that makes how-much?"
+    },
+    "price": {
+      "text": "___ euros",
+      "literal": "___ euros"
+    },
+    "here-you-are": {
+      "text": "voilà",
+      "literal": "see there"
+    },
+    "thank-you": {
+      "text": "merci",
+      "literal": "thanks"
+    }
+  },
+  "slotValues": {
+    "item": [
+      {
+        "en": "a croissant",
+        "text": "un croissant"
+      },
+      {
+        "en": "a baguette",
+        "text": "une baguette"
+      },
+      {
+        "en": "a pain au chocolat",
+        "text": "un pain au chocolat"
+      },
+      {
+        "en": "a coffee",
+        "text": "un café"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "do-you-have": {
+        "text": "Vous avez ___ ?"
+      },
+      "two-please": {
+        "text": "Deux ___, s'il vous plaît."
+      }
+    }
+  },
+  "notes": [
+    "In a French shop, always start with Bonjour. Skipping it sounds rude.",
+    "Et avec ceci ? is what a baker says for \"anything else?\".",
+    "Ça fait combien ? asks for the total. C'est combien ? asks the price of one thing."
+  ]
+}

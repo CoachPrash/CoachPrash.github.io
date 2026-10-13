@@ -1,0 +1,142 @@
+{
+  "schema": 2,
+  "scenario": "opinions",
+  "lang": "fr",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "Il fait beau aujourd'hui, non ?"
+    },
+    "l2": {
+      "text": "Oui, très beau ! Qu'est-ce que vous avez fait ce week-end ?",
+      "byRegister": {
+        "familiar": {
+          "text": "Oui, très beau ! Qu'est-ce que tu as fait ce week-end ?"
+        }
+      }
+    },
+    "l3": {
+      "text": "J'ai regardé un film.",
+      "accept": [
+        "J'ai vu un film."
+      ]
+    },
+    "l4": {
+      "text": "Ah, super ! C'était comment ?"
+    },
+    "l5": {
+      "text": "C'était {opinion}. Et votre week-end, c'était comment ?",
+      "byRegister": {
+        "familiar": {
+          "text": "C'était {opinion}. Et ton week-end, c'était comment ?"
+        }
+      }
+    },
+    "l6": {
+      "text": "Tranquille. Je suis resté à la maison.",
+      "sameSound": true,
+      "variants": [
+        {
+          "speaker": "m",
+          "text": "Tranquille. Je suis resté à la maison."
+        },
+        {
+          "speaker": "f",
+          "text": "Tranquille. Je suis restée à la maison."
+        }
+      ]
+    }
+  },
+  "chunks": {
+    "nice-weather": {
+      "text": "il fait beau aujourd'hui, non ?",
+      "literal": "it makes fine today, no?"
+    },
+    "what-did-you-do": {
+      "text": "qu'est-ce que vous avez fait ce week-end ?",
+      "byRegister": {
+        "familiar": {
+          "text": "qu'est-ce que tu as fait ce week-end ?"
+        }
+      },
+      "literal": "what is it that you have done this weekend?"
+    },
+    "watch-a-film": {
+      "kind": "collocation",
+      "text": "j'ai regardé un film",
+      "literal": "I have watched a film"
+    },
+    "how-was-it": {
+      "text": "c'était comment ?",
+      "literal": "it was how?"
+    },
+    "it-was": {
+      "text": "c'était ___",
+      "literal": "it was ___"
+    },
+    "how-was-your-weekend": {
+      "text": "et votre week-end, c'était comment ?",
+      "byRegister": {
+        "familiar": {
+          "text": "et ton week-end, c'était comment ?"
+        }
+      },
+      "literal": "and your weekend, it was how?"
+    },
+    "stayed-at-home": {
+      "text": "je suis resté / restée à la maison",
+      "literal": "I am stayed at the house"
+    },
+    "i-agree": {
+      "extra": true,
+      "text": "je suis d'accord",
+      "literal": "I am of agreement"
+    }
+  },
+  "slotValues": {
+    "opinion": [
+      {
+        "en": "very good",
+        "text": "très bien"
+      },
+      {
+        "en": "boring",
+        "text": "ennuyeux"
+      },
+      {
+        "en": "okay",
+        "text": "pas mal"
+      },
+      {
+        "en": "brilliant",
+        "text": "génial"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "i-think": {
+        "text": "Je pense que ___.",
+        "accept": [
+          "Je trouve que ___."
+        ]
+      },
+      "i-dont-agree": {
+        "text": "Je ne suis pas d'accord."
+      }
+    }
+  },
+  "notes": [
+    "C'était is the past of c'est. Use it to say how something was.",
+    "With être in the past, the participle agrees: a woman says je suis restée. It sounds the same.",
+    "French uses faire for weather: il fait beau, il fait froid."
+  ]
+}

@@ -1,0 +1,149 @@
+{
+  "schema": 2,
+  "scenario": "routine",
+  "lang": "fr",
+  "review": {
+    "status": "draft",
+    "by": null,
+    "date": null
+  },
+  "registers": [
+    "formal",
+    "familiar"
+  ],
+  "lines": {
+    "l1": {
+      "text": "Vous vous levez à quelle heure ?",
+      "accept": [
+        "À quelle heure vous levez-vous ?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Tu te lèves à quelle heure ?",
+          "accept": [
+            "À quelle heure tu te lèves ?"
+          ]
+        }
+      }
+    },
+    "l2": {
+      "text": "Je me lève à {time} heures. Et vous ?",
+      "byRegister": {
+        "familiar": {
+          "text": "Je me lève à {time} heures. Et toi ?"
+        }
+      }
+    },
+    "l3": {
+      "text": "À sept heures. Ensuite, je prends le petit-déjeuner.",
+      "accept": [
+        "À sept heures. Puis je prends le petit-déjeuner."
+      ]
+    },
+    "l4": {
+      "text": "Qu'est-ce que vous faites le soir ?",
+      "byRegister": {
+        "familiar": {
+          "text": "Qu'est-ce que tu fais le soir ?"
+        }
+      }
+    },
+    "l5": {
+      "text": "Le soir, je vais me promener. Et vous ?",
+      "accept": [
+        "Le soir, je fais une promenade. Et vous ?"
+      ],
+      "byRegister": {
+        "familiar": {
+          "text": "Le soir, je vais me promener. Et toi ?",
+          "accept": [
+            "Le soir, je fais une promenade. Et toi ?"
+          ]
+        }
+      }
+    },
+    "l6": {
+      "text": "Je me couche tôt."
+    }
+  },
+  "chunks": {
+    "what-time-get-up": {
+      "text": "vous vous levez à quelle heure ?",
+      "byRegister": {
+        "familiar": {
+          "text": "tu te lèves à quelle heure ?"
+        }
+      },
+      "literal": "you yourself raise at which hour?"
+    },
+    "i-get-up-at": {
+      "text": "je me lève à ___ heures",
+      "literal": "I myself raise at ___ hours"
+    },
+    "at-oclock": {
+      "text": "à ___ heures",
+      "literal": "at ___ hours"
+    },
+    "have-breakfast": {
+      "kind": "collocation",
+      "text": "je prends le petit-déjeuner",
+      "literal": "I take the little-lunch"
+    },
+    "in-the-evening": {
+      "text": "le soir",
+      "literal": "the evening"
+    },
+    "go-for-a-walk": {
+      "kind": "collocation",
+      "text": "je vais me promener",
+      "literal": "I go myself walk"
+    },
+    "go-to-bed-early": {
+      "text": "je me couche tôt",
+      "literal": "I myself lay-down early"
+    },
+    "every-day": {
+      "extra": true,
+      "text": "tous les jours",
+      "literal": "all the days"
+    }
+  },
+  "slotValues": {
+    "time": [
+      {
+        "en": "six",
+        "text": "six"
+      },
+      {
+        "en": "eight",
+        "text": "huit"
+      },
+      {
+        "en": "five",
+        "text": "cinq"
+      },
+      {
+        "en": "nine",
+        "text": "neuf"
+      }
+    ]
+  },
+  "free": {
+    "targets": {
+      "in-the-morning": {
+        "text": "le matin"
+      },
+      "in-the-afternoon": {
+        "text": "l'après-midi"
+      },
+      "at-night": {
+        "text": "la nuit"
+      }
+    }
+  },
+  "notes": [
+    "Se lever, se coucher and se promener take me / te / vous: je me lève, tu te lèves, vous vous levez.",
+    "Le matin, le soir: French needs no word for \"in\".",
+    "Six heures, neuf heures: the final x and f are linked to heures (siz-heures, neuv-heures)."
+  ]
+}
